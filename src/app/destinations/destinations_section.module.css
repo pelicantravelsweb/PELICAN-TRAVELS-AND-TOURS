@@ -1,0 +1,147 @@
+.destinatons_section{
+    padding-top: 5rem;
+    padding-left: 4vw;
+    position: relative;
+    width: 100%;
+}
+
+.destinaton{
+    padding-bottom: 8rem;
+}
+
+.city{
+    display: flex;
+}
+
+.div_left{
+    position: relative;
+    width: 25rem;
+}
+
+.div_left iframe{
+  position: relative; /* remove absolute */
+  width: 100%; /* leave space for border */
+  height: 100%;
+  padding: 0.5rem;
+  border: none;
+}
+
+.div_right{
+    position: relative;
+    padding-left: 4vw;
+    width: 60vw;
+}
+
+.city_name{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.city_description{
+    position: relative;
+    color: rgb(107, 107, 107);
+    font-family: 'Poppins';
+    font-size: 0.9rem;
+}
+
+.attraction_section{
+    padding-top: 2rem;
+    width: 100%;
+    padding-bottom: 0.5rem;
+}
+
+.sub_topic{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+.attraction_container{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.attraction:hover{
+    background-color: rgb(235, 130, 10);
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.attraction:hover .attraction_name{
+    font-weight: 600;
+    color: rgb(36, 35, 35);
+}
+
+.attraction{
+    width: 15vw;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(235, 130, 10);
+    cursor: pointer;
+}
+
+.attraction_container img{
+    width: 100%;
+    height: auto;
+}
+
+.attraction_name{
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+:global(body.light_theme) .city_name{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .sub_topic{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .attraction_name{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .attraction {
+    background-color: rgb(209, 215, 221);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); /* Outer shadow */
+}
+
+@media only screen and (max-width: 820px) {
+
+    .city{
+        flex-direction: column-reverse;
+    }
+
+    .div_left{
+        width: 100%;
+        padding-right: 4vw;
+        height: 15rem;
+    }
+
+    .div_right{
+    padding-right: 4vw;
+    width: 100%;
+    }
+
+    .attraction{
+        width: calc(100%/2.15);
+    }
+
+    .attraction_container{
+        flex-wrap: wrap;
+    }
+
+    .city_description{
+        padding-right: 5vw;
+    }
+
+}

@@ -1,0 +1,219 @@
+.location_section {
+  position: absolute;
+  margin-top: 10vh;
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  padding: 3rem;
+}
+
+/* LEFT SIDE BOX */
+.location_section_sub_dev_1 {
+  position: relative;
+  background-color: rgba(235, 130, 10, 0);
+  width: 30vw;
+  height: 100%;
+  border: 1px solid rgb(235, 130, 10);
+  box-sizing: border-box;
+  justify-content: space-between; 
+}
+
+.location_section_sub_dev_1 h1 {
+  padding: 0.5rem 0;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(36, 35, 35);
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  background-color: rgb(235, 130, 10);
+}
+
+.location_section_sub_dev_1 iframe{
+  position: relative; /* remove absolute */
+  width: 100%; /* leave space for border */
+  height: 25rem;
+  padding: 0.5rem;
+  border: none;
+  
+}
+
+.contact_us_section{
+  width: 35%;
+  padding-left: 3rem;
+}
+
+.contact_us_section p{
+  color: rgb(124, 124, 124);
+  font-size: clamp(0.7rem, 1.2vw, 1.2rem);
+  font-family: 'poppins';
+}
+
+.address{
+  display: flex;
+  color: white;
+  font-family: 'poppins';
+  font-size: clamp(0.6rem, 0.8vw, 0.8rem);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  align-items: center;
+}
+
+:global(body.light_theme) .address{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .contact_us_section_heading_1{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .contact_us_section_heading_2{
+  color: rgb(103, 101, 101);
+}
+
+:global(body.light_theme) .contact_us_section_details p{
+  color: rgb(99, 98, 98);
+}
+
+:global(body.light_theme) .contact_us_section_details i{
+  color: rgb(0, 0, 0);
+}
+
+:global(body.light_theme) .tripadvisor_icon {
+  color: rgb(0, 0, 0);
+}
+
+:global(body.light_theme) .contact_us_section_heading_3 {
+  color: rgb(0, 0, 0);
+}
+
+:global(body.light_theme) .location_section_sub_dev_1 {
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.523);
+  background-color: rgb(219, 219, 216);
+}
+
+
+.address i{
+  font-size: clamp(1.5rem, 2.3vw, 2.3rem);
+  padding-right: 1rem;
+  color: rgb(235, 130, 10);
+}
+
+.contact_us_section_heading_1{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 1rem;
+  color: white;
+  font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+}
+
+.contact_us_section_heading_2{
+  font-family: 'poppins';
+  color: rgb(124, 124, 124);
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+
+
+.contact_us_section i,.tripadvisor_icon{
+  color: white;
+  font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+}
+
+.contact_us_section_details{
+  padding-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: rgb(124, 124, 124);
+}
+
+.contact_us_section_details_2{
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.contact_us_section_details a{
+  text-decoration: none;
+}
+
+.contact_us_section_details p:hover{
+  color: rgb(235, 130, 10);
+  cursor: pointer;
+}
+
+.contact_us_section_details p{
+  font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+.contact_us_section_heading_3{
+  padding-top: 2rem;  
+  color: white;
+  font-family: 'poppins';
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+
+.text_box_1{
+  padding: 0.5rem;
+  width: 100%;
+  font-family: 'poppins';
+  background-color: azure;
+  border: 0;
+}
+
+.text_box_2{
+  padding: 0.5rem;
+  width: 100%;
+  font-family: 'poppins';
+  resize: none;
+  background-color: azure;
+  border: 0;
+}
+
+.button_1{
+  position: absolute;
+  align-self: flex-end;
+  background-color: rgb(235, 130, 10);
+  padding: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(235, 130, 10);
+  border-style: solid;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.button_1:hover{
+  background-color: rgb(36, 35, 35);
+}
+
+.button_1:hover i{
+  color: rgb(235, 130, 10);
+}
+
+@media only screen and (max-width: 820px) {
+  .location_section{
+    padding: 2rem;
+  }
+
+  .address{
+    padding: 1.5rem;
+  }
+
+  .location_section{
+    flex-direction: column;
+  }
+
+  .location_section_sub_dev_1{
+    width: 100%;
+  }
+
+  .contact_us_section{
+    width: 100%;
+    padding-top: 5rem;
+    padding-left: 0;
+  }
+}
+
+

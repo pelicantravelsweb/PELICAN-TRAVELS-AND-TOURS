@@ -1,0 +1,159 @@
+@keyframes fadeInDown {from {opacity: 0;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}
+
+.navigation {
+  z-index: 10;
+  position: fixed;
+  background: rgb(36, 35, 35);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.heading {
+  color: rgb(235, 130, 10);
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1.2rem;
+  opacity: 0;
+  transform: translateY(-20px); /* start slightly above */
+  animation: fadeInDown 1s ease forwards;
+}
+
+.navigation_ul {
+  list-style-type: none;
+  display: flex;
+  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(0.6rem, 0.75vw, 0.75rem);
+  gap: 2rem;
+}
+
+.navigation_ul li h2{
+  opacity: 0;
+  transform: translateY(-20px); /* start slightly above */
+  animation: fadeInDown 1s ease forwards;
+}
+
+.navigation_ul li:nth-child(1) h2 { animation-delay: 0.2s; }
+.navigation_ul li:nth-child(2) h2 { animation-delay: 0.4s; }
+.navigation_ul li:nth-child(3) h2 { animation-delay: 0.55s; }
+.navigation_ul li:nth-child(4) h2 { animation-delay: 0.65s; }
+.navigation_ul li:nth-child(5) h2 { animation-delay: 0.75s; }
+.navigation_ul li:nth-child(6) h2 { animation-delay: 0.85s; }
+
+.navigation a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.4s ease;
+}
+
+.navigation a:hover {
+  color: rgb(235, 130, 10);
+}
+
+.navigation #active {
+  color: rgb(124, 124, 124);
+  pointer-events: none;
+}
+
+.navigation i {
+  color: white;
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+  transition: color 0.4s ease;
+
+  opacity: 0;
+  transform: translateY(-20px); /* start slightly above */
+  animation: fadeInDown 1s ease forwards;
+  animation-delay: 0.95s;
+}
+
+.navigation i:hover {
+  color: rgb(235, 130, 10);
+  cursor: pointer;
+}
+
+.navigation_mobile {
+  display: none;
+}
+
+.mobile_navigation_menu {
+  display: none;
+}
+
+/* 🌗 LIGHT THEME OVERRIDES */
+
+:global(body.light_theme) .navigation a {
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .navigation a:hover {
+  color: rgb(235, 130, 10);
+}
+
+:global(body.light_theme) .navigation i {
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .navigation{
+  background-color: rgb(195, 199, 201);
+}
+
+:global(body.light_theme) .mobile_navigation_menu{
+  background-color: rgb(211, 211, 211);
+}
+
+
+/* 📱 MOBILE */
+@media only screen and (max-width: 820px) {
+  .navigation_mobile {
+    display: block;
+  }
+
+  .navigation_desktop {
+    display: none;
+  }
+
+  .mobile_navigation_menu {
+    padding: 1rem;
+    top: 15vh;
+    right: 5vw;
+    position: fixed;
+    display: block;
+    color: white;
+    width: 12rem;
+    font-size: clamp(0.7rem, 1.3vw, 1.3rem);
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(235, 130, 10);
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    background-color:rgb(36, 35, 35);
+  }
+
+  .fadeInDown {
+    animation-name: fadeInDown;
+  }
+
+  .navigation_ul i {
+    transform: translateY(-20px); /* start slightly above */
+    animation: fadeInDown 1s ease forwards;
+  }
+  
+  .navigation_ul li:nth-child(6) i { animation-delay: 0.3s; }
+  .navigation_ul li:nth-child(7) i { animation-delay: 0.5s; }
+
+  .mobile_navigation_menu h2 {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .mobile_navigation_menu #active {
+    cursor: default;
+    color: rgb(116, 116, 116);
+  }
+
+}

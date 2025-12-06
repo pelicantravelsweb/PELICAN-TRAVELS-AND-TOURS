@@ -1,0 +1,17 @@
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: rgb(36, 35, 35);
+}
+
+body.light_theme {
+  background-color: rgb(195, 199, 201);
+  color: rgb(36, 35, 35);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+

@@ -1,0 +1,282 @@
+
+@keyframes fadeInDown {from {opacity: 0;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}
+
+.package_button{
+    margin-left: auto; 
+    margin-right: 0.5rem;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    background-color: rgb(235, 130, 10);
+    color: wheat;
+    padding: clamp(0.6rem, 0.8vw, 0.8rem);
+    border: 0;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(218, 116, 0, 0);
+    margin-bottom: 1rem;
+    
+}
+
+.package_button:hover{
+    background-color: rgba(235, 125, 0, 0);
+    color: rgb(235, 130, 10);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgb(235, 130, 10);
+    transition: 0.5s;
+}
+
+.overlayers{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;  
+    pointer-events: none;
+}
+
+.solid_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7vw;
+    height: 100%;
+    background-color: rgb(36, 35, 35); /* match section background */
+}
+
+.fade_overlay_left {
+    position: absolute;
+    top: 0;
+    left: 6.9vw;
+    width: 8vw;
+    height: 100%;
+    background: linear-gradient(to right, rgb(36, 35, 35), rgba(36, 35, 35, 0));
+}
+
+/* Right side */
+.solid_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7vw;
+    height: 100%;
+    background-color: rgb(36, 35, 35); /* match section background */
+}
+
+.fade_overlay_right{
+    position: absolute;
+    top: 0;
+    right: 6.9vw;
+    width: 8vw;
+    height: 100%;
+    background: linear-gradient(to left, rgb(36, 35, 35), rgba(36, 35, 35, 0));
+}
+
+.nav_arrow {
+    pointer-events: all;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(235, 130, 10, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: rgb(36, 35, 35);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 6;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_arrow:hover {
+    border: 1px solid rgb(235, 130, 10);
+    background: rgba(235, 130, 10, 0);
+    color: rgb(235, 130, 10);
+    transition: 0.8s;
+}
+
+.nav_arrow.left {
+    left: 2vw;
+}
+
+.nav_arrow.right {
+    right: 2vw;
+}
+
+
+.destination_section{
+    position: relative;
+    width: 100%;
+    padding-top: 4rem;
+    overflow: hidden;
+    height: 70vh;
+}
+
+.destinations_container{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.destination_container {
+    position: relative;
+    width: 30rem;
+    min-width: 320px;
+    height: fit-content;
+    cursor: pointer;
+
+        border-width: 1px;
+    border-style: solid;
+    border-color: rgba(235, 130, 10, 0);
+}
+
+.destination_container:hover {
+    transition: 0.5s;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 130, 10);
+}
+
+.destination_container:hover .destinations_brief{
+    display: none;
+    transition: 0.5s;
+}
+
+.destination_container:hover .destinations_description{
+    display: block;
+    transition: 0.5s;
+    animation: fadeInDown 1s ease forwards;
+}
+
+.destinations {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: border 0.5s ease;
+}
+
+.destinations img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+}
+
+.destinations_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-bottom: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+    transition: background 0.8s ease;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.destinations_overlay h2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.destinations_brief {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 2rem;
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    color: rgb(150, 150, 150);
+    transition: opacity 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.destinations_brief i {
+    margin-right: 0.4rem;
+    color: rgb(235, 130, 10);
+}
+
+.destination_container .destinations_description {
+    display: none;
+    text-align: center;
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    color: rgb(180, 180, 180);
+    padding: 0.8rem;
+    animation: fadeInUp 0.6s ease forwards;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.button_3{
+    margin-top: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 1.2vw, 1.2vw);
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.4vw;
+    padding-bottom: 0.4vw;
+    width: 100%;
+    border: 0;
+    background-color: rgb(235, 130, 10);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(255, 151, 25, 0);
+    transition: 0.5s;
+    color: rgb(36, 35, 35);
+    cursor: pointer;
+}
+
+.button_3:hover{
+    background-color: rgba(235, 125, 0, 0);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgb(235, 130, 10);
+    transition: 0.5s;
+    color: rgb(235, 130, 10);
+    border-color: rgb(235, 130, 10);
+}
+
+:global(body.light_theme) .topic_text{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .destinations_brief{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .destinations_description p{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .solid_right{
+  background-color: rgb(195, 199, 201);
+}
+
+:global(body.light_theme) .solid_left{
+  background-color: rgb(195, 199, 201);
+}
+
+:global(body.light_theme) .fade_overlay_right{
+    background: linear-gradient(to left, rgb(195, 199, 201), rgba(195, 199, 201, 0));
+}
+
+:global(body.light_theme) .fade_overlay_left{
+    background: linear-gradient(to left, rgba(195, 199, 201, 0), rgb(195, 199, 201));
+}
+
+:global(body.light_theme) .destination_container{
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.534);
+}

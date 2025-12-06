@@ -1,0 +1,317 @@
+.topic_text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding-top: 10vh;
+    font-size: clamp(1.5rem,2vw,2rem);
+    text-align: left;
+    padding-left: 4rem;
+    padding-bottom: 2rem;
+    padding-top: 30vh;
+}
+
+.packages_section{
+    position: relative;
+    z-index: 1;
+}
+.packages_container{
+    scroll-padding-left: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  gap: 0.5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Hide scrollbar (Firefox) */
+}
+
+.packages{
+  z-index: 2;
+  border: 1px solid rgb(235, 130, 10);
+  flex: 0 0 calc((100%) / 4);
+  scroll-snap-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.packages img{
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.package_details{
+    font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
+
+.packageinfo{
+    display: flex;
+    justify-content: space-between;
+    font-family:'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgb(122, 120, 120);
+    padding-top: 0.5rem; 
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+}
+
+.packages_h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    margin-bottom: 0;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.Package_h3{
+    font-family:'Poppins', sans-serif;
+    font-weight: 500;
+    color: rgb(122, 120, 120);
+    line-height: 1.5;
+    font-size:clamp(0.8rem, 1vw, 1rem);
+    padding-top: 1rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+}
+
+.package_ratings{
+    display: flex;
+    padding-top: 0.5rem;
+    padding-left: 0.1rem;
+    align-items: center;
+}
+
+.package_ratings i {
+    color: #e4b600; 
+    font-size: 1rem; 
+}
+
+.package_ratings p {
+    font-family:'Poppins', sans-serif;
+    margin: 0;
+    font-size: 1rem;
+    color: rgb(122, 120, 120);
+    vertical-align: middle; 
+    margin-left: 0.8rem;
+}
+
+.package_cost{
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: center; 
+    flex-wrap: wrap; 
+    padding-bottom: 1rem;
+    gap: 0.5rem;
+}
+
+.package_price{
+    padding-left: 0.1rem;
+    color: rgb(235, 130, 10);
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.4rem, 1.6vw, 2.2rem);
+}
+
+.perperson{
+    font-family:'Poppins', sans-serif;
+    color: rgb(122, 120, 120);
+    font-size:clamp(1rem, 1.2vw, 1.5rem);
+}
+
+.package_button{
+    margin-left: auto; 
+    margin-right: 0.5rem;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    background-color: rgb(235, 130, 10);
+    color: wheat;
+    padding: clamp(0.6rem, 0.8vw, 0.8rem);
+    border: 0;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(218, 116, 0, 0);
+    margin-bottom: 1rem;
+    
+}
+
+.package_button:hover{
+    background-color: rgba(235, 125, 0, 0);
+    color: rgb(235, 130, 10);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgb(235, 130, 10);
+    transition: 0.5s;
+}
+
+.overlayers{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;  
+    pointer-events: none;
+}
+
+.solid_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7vw;
+    height: 100%;
+    background-color: rgb(36, 35, 35); /* match section background */
+}
+
+.fade_overlay_left {
+    position: absolute;
+    top: 0;
+    left: 6.9vw;
+    width: 8vw;
+    height: 100%;
+    background: linear-gradient(to right, rgb(36, 35, 35), rgba(36, 35, 35, 0));
+}
+
+/* Right side */
+.solid_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7vw;
+    height: 100%;
+    background-color: rgb(36, 35, 35); /* match section background */
+}
+
+.fade_overlay_right{
+    position: absolute;
+    top: 0;
+    right: 6.9vw;
+    width: 8vw;
+    height: 100%;
+    background: linear-gradient(to left, rgb(36, 35, 35), rgba(36, 35, 35, 0));
+}
+
+
+.nav_arrow {
+    pointer-events: all;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(235, 130, 10, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: rgb(36, 35, 35);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 6;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_arrow:hover {
+    border: 1px solid rgb(235, 130, 10);
+    background: rgba(235, 130, 10, 0);
+    color: rgb(235, 130, 10);
+    transition: 0.8s;
+}
+
+.nav_arrow.left {
+    left: 2vw;
+}
+
+.nav_arrow.right {
+    right: 2vw;
+}
+
+:global(body.light_theme) .topic_text{
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .solid_right{
+  background-color: rgb(195, 199, 201);
+}
+
+:global(body.light_theme) .solid_left{
+  background-color: rgb(195, 199, 201);
+}
+
+
+:global(body.light_theme) .fade_overlay_right{
+    background: linear-gradient(to left, rgb(195, 199, 201), rgba(195, 199, 201, 0));
+}
+
+:global(body.light_theme) .fade_overlay_left{
+    background: linear-gradient(to left, rgba(195, 199, 201, 0), rgb(195, 199, 201));
+}
+
+:global(body.light_theme) .packages{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.534);
+}
+
+
+@media only screen and (max-width: 900px) {
+    .topic_text{
+        text-align: center;
+        padding-left: 0;
+        padding-top: 50vh;
+    }
+
+    .packages_container{
+    gap:0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    }
+
+      .packages_container{
+    gap: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    scroll-padding-left: 0;
+    justify-content: center;
+  }
+
+  .packages{
+    flex: 0 0 calc(100% / 3); /* EXACTLY 3 ITEMS VISIBLE */
+    height: auto;
+    background-color: rgb(36, 35, 35);
+    border-color: rgb(235, 130, 10);
+    border-width: 1px;
+    border-style: solid;
+  }
+
+    .packages{
+    z-index: 2;
+    height: auto;
+    min-width:15rem;
+    background-color: rgb(36, 35, 35);
+    border-color: rgb(235, 130, 10);
+    border-width: 1px;
+    border-style: solid;
+    scale: 1;
+    cursor: pointer;
+    }
+
+    .nav_arrow {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+}
