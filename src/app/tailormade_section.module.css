@@ -95,9 +95,10 @@
 
 .inquire_image{
     position: absolute;
-    right: 3rem;
+    right: 10rem;
     bottom: 3rem;
     height: 100%;
+    
 
     background-image: url('../../public/Cover_Image.jpg');
     background-attachment: fixed;
