@@ -134,11 +134,21 @@
 }
 
 .coversection_brief p{
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.5rem);
 }
 
 .button_1{
     padding: 1rem;
+}
+
+.coversection_brief h2{
+    font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+    font-weight: 600;
+}
+
+.coversection_brief h1{
+    font-size: clamp(1.5rem, 1.5vw, 1.5rem);
+    font-weight: 1000;
 }
 
 }

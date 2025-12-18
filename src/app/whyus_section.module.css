@@ -1,0 +1,107 @@
+.whyus_section_container{
+    position: relative;
+    width: 100%;
+}
+
+.whyus_section{
+    display: flex;
+}
+
+.whyus_section_image{
+    padding-left: 4rem;
+    width: 35%;
+    align-content: center;
+}
+
+.whyus_section_image img{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.whyus_section_image img:hover{
+    filter: drop-shadow(0 0 50px rgba(235, 130, 10, 0.801));
+    transition: 0.5s;
+}
+
+.whyus_section_description{
+    width: 60%;
+    align-content: center;
+    padding-left: 3rem;
+    padding-right: 6vw;
+}
+
+.whyus_section_description h3{
+    color: rgb(235, 130, 10);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem,1.2vw,1.2rem);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.whyus_section_description li{
+    color: rgb(235, 130, 10);
+    font-size: clamp(1.3rem,1.6vw,1.6rem);
+    cursor: pointer;
+}
+
+.whyus_section_description p{
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.9rem,0.9vw,0.9rem);
+    padding-bottom: 4vh;
+    cursor: pointer;
+}
+
+
+.whyus_section_description p:nth-child(2), .whyus_section_description li:nth-child(1) {
+  margin-left: -4rem;
+}
+
+.whyus_section_description li:nth-child(3), .whyus_section_description p:nth-child(4) {
+  margin-left: 1rem;
+}
+
+.whyus_section_description li:nth-child(5), .whyus_section_description p:nth-child(6) {
+  margin-left: 1.5rem;
+}
+
+.whyus_section_description li:nth-child(7), .whyus_section_description p:nth-child(8) {
+  margin-left: -1rem;
+}
+
+.whyus_section_description h3,
+.whyus_section_description p {
+       font-family: 'Poppins', sans-serif;
+}
+
+/* Why Us Section Mobile View CSS_____________________________________________________________________________________________*/
+
+@media (max-width: 800px) {
+       .whyus_section {
+           flex-direction: column;
+           align-items: center;
+       }
+       .whyus_section_image,
+       .whyus_section_description {
+           width: 90%;
+           padding-left: 1.2rem;
+           padding-right: 1.2rem;
+       }
+
+.whyus_section_description p:nth-child(2), .whyus_section_description li:nth-child(1) {
+  margin-left: 0rem;
+}
+
+.whyus_section_description li:nth-child(3), .whyus_section_description p:nth-child(4) {
+  margin-left: 0rem;
+}
+
+.whyus_section_description li:nth-child(5), .whyus_section_description p:nth-child(6) {
+  margin-left: 0rem;
+}
+
+.whyus_section_description li:nth-child(7), .whyus_section_description p:nth-child(8) {
+  margin-left: 0rem;
+}
+}

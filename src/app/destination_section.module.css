@@ -132,7 +132,7 @@
     height: fit-content;
     cursor: pointer;
 
-        border-width: 1px;
+    border-width: 1px;
     border-style: solid;
     border-color: rgba(235, 130, 10, 0);
 }
@@ -279,4 +279,13 @@
 
 :global(body.light_theme) .destination_container{
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.534);
+}
+
+@media (max-width: 800px) {
+.destination_container {
+    width: 20rem;
+    min-width: 250px;
+
+}
+    
 }
