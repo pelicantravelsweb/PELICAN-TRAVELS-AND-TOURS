@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gcloud auth:*)",
+      "Bash(gcloud config get-value:*)",
+      "Bash(gcloud projects:*)",
+      "Bash(gcloud app describe:*)",
+      "Bash(gcloud run services list:*)",
+      "Bash(gcloud compute instances list:*)",
+      "Bash(gcloud run deploy:*)",
+      "Bash(gcloud run services describe:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}
