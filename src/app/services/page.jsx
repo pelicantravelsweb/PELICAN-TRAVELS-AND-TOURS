@@ -48,7 +48,7 @@ function page() {
         <Link href="/"><h1 className={styles_1.heading}>PELICAN TOURS</h1></Link>
         <ul className={styles_1.navigation_ul}>
             <li className={styles_1.navigation_desktop}><Link href="/"><h2>HOME</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="https://tour-packages-admin-361770129404.us-central1.run.app/tour-packages"><h2>PACKAGES</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/tour-packages"><h2>PACKAGES</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/services"><h2 id={styles_1.active}>SERVICES</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/destinations"><h2>DESTINATIONS</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/contact_us"><h2>CONTACT</h2></Link></li>
@@ -60,7 +60,7 @@ function page() {
       {isMenuOpen && (
         <div className={`${styles_1.mobile_navigation_menu} ${styles_1.fadeInDown}`}>
           <Link href="/"><h2>HOME</h2></Link>
-          <Link href="https://tour-packages-admin-361770129404.us-central1.run.app/tour-packages"><h2>PACKAGES</h2></Link>
+          <Link href="/tour-packages"><h2>PACKAGES</h2></Link>
           <Link href="/services"><h2 id={styles_1.active}>SERVICES</h2></Link>
           <Link href="/destinations"><h2>DESTINATIONS</h2></Link>
           <Link href="/contact_us"><h2>CONTACT</h2></Link>

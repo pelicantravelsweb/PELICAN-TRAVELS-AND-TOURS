@@ -11,7 +11,11 @@
       "Bash(gcloud run services describe:*)",
       "Bash(dir:*)",
       "Bash(findstr:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(gcloud --version:*)",
+      "Bash(gcloud builds submit:*)",
+      "WebFetch(domain:tour-packages-admin-361770129404.us-central1.run.app)",
+      "Bash(npm install:*)"
     ]
   }
 }
