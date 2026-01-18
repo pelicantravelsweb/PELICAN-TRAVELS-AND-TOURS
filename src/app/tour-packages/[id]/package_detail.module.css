@@ -381,67 +381,195 @@
 }
 
 /* Itinerary Section */
-.itinerary {
-  position: relative;
-  padding-left: 2rem;
+.itinerary_section {
+  margin-bottom: 2rem;
 }
 
-.itinerary::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, rgb(235, 130, 10), rgb(100, 60, 10));
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .itinerary_day {
-  position: relative;
-  padding-bottom: 2rem;
+  background-color: rgb(45, 44, 44);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgb(60, 60, 60);
+  transition: all 0.3s ease;
 }
 
-.itinerary_day:last-child {
-  padding-bottom: 0;
+.itinerary_day:hover {
+  border-color: rgb(235, 130, 10);
+  box-shadow: 0 8px 30px rgba(235, 130, 10, 0.15);
+}
+
+.day_header {
+  background: linear-gradient(135deg, rgb(55, 54, 54), rgb(45, 44, 44));
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgb(60, 60, 60);
 }
 
 .day_marker {
-  position: absolute;
-  left: -2.5rem;
-  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .day_number {
   display: inline-block;
   background-color: rgb(235, 130, 10);
   color: white;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 1rem;
   border-radius: 20px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
-.day_content {
-  background-color: rgb(45, 44, 44);
-  padding: 1.25rem;
-  border-radius: 10px;
-  margin-left: 1rem;
+.day_location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(200, 200, 200);
+  font-size: 0.9rem;
 }
 
-.day_content h3 {
+.day_location i {
+  color: rgb(235, 130, 10);
+  font-size: 0.85rem;
+}
+
+.day_title {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  margin: 0;
 }
 
-.day_content p {
+/* Day Images Gallery */
+.day_images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: rgb(40, 39, 39);
+}
+
+.day_image_item {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.day_image_item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.day_image_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.day_content {
+  padding: 1.5rem;
+}
+
+.day_description {
   font-family: 'Poppins', sans-serif;
-  color: rgb(160, 160, 160);
-  line-height: 1.6;
+  color: rgb(180, 180, 180);
+  line-height: 1.7;
   font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Day Activities */
+.day_activities {
+  margin-bottom: 1.25rem;
+}
+
+.day_activities h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(235, 130, 10);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.day_activities h4 i {
+  font-size: 0.9rem;
+}
+
+.day_activities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.day_activities li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(200, 200, 200);
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+}
+
+.day_activities li i {
+  color: rgb(80, 200, 80);
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* Day Details */
+.day_details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(60, 60, 60);
+}
+
+.day_detail_item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: rgb(55, 54, 54);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+}
+
+.day_detail_item i {
+  color: rgb(235, 130, 10);
+  font-size: 0.9rem;
+}
+
+.day_detail_item span {
+  color: rgb(180, 180, 180);
+}
+
+.day_detail_item strong {
+  color: rgb(220, 220, 220);
+  margin-right: 0.3rem;
 }
 
 /* Inclusions Section */
@@ -539,68 +667,200 @@
   font-size: 0.95rem;
 }
 
-/* CTA Section */
-.cta_section {
-  text-align: center;
+/* Get a Quote Section */
+.quote_section {
   background: linear-gradient(135deg, rgb(50, 49, 49), rgb(40, 39, 39));
-  padding: 3rem 2rem;
+  padding: 2.5rem;
   border-radius: 16px;
   border: 1px solid rgb(70, 70, 70);
   margin-top: 1rem;
 }
 
-.cta_section h2 {
+.quote_header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quote_header h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(235, 130, 10);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.quote_header p {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(160, 160, 160);
+  font-size: 0.95rem;
+}
+
+.quote_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.quote_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.quote_field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote_field label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: rgb(200, 200, 200);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quote_field label i {
+  color: rgb(235, 130, 10);
+  font-size: 0.8rem;
+}
+
+.quote_field input,
+.quote_field textarea,
+.quote_field_full textarea {
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgb(70, 70, 70);
+  background-color: rgb(45, 44, 44);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.quote_field input:focus,
+.quote_field textarea:focus,
+.quote_field_full textarea:focus {
+  outline: none;
+  border-color: rgb(235, 130, 10);
+  box-shadow: 0 0 0 3px rgba(235, 130, 10, 0.15);
+}
+
+.quote_field input::placeholder,
+.quote_field textarea::placeholder,
+.quote_field_full textarea::placeholder {
+  color: rgb(120, 120, 120);
+}
+
+.quote_field_half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.quote_field_full {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote_field_full label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: rgb(200, 200, 200);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quote_field_full label i {
+  color: rgb(235, 130, 10);
+  font-size: 0.8rem;
+}
+
+.quote_field_full textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.quote_actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.quote_submit {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 350px;
+  justify-content: center;
+}
+
+.quote_submit:hover:not(:disabled) {
+  background-color: #20b858;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+}
+
+.quote_submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.quote_note {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: rgb(160, 160, 160);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quote_note i {
+  color: rgb(235, 130, 10);
+}
+
+.quote_success {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.quote_success i {
+  font-size: 4rem;
+  color: #25D366;
+  margin-bottom: 1rem;
+}
+
+.quote_success h3 {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-.cta_section p {
+.quote_success p {
   font-family: 'Poppins', sans-serif;
   color: rgb(160, 160, 160);
-  margin-bottom: 1.5rem;
-}
-
-.cta_buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.whatsapp_button,
-.email_button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
   font-size: 1rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.whatsapp_button {
-  background-color: #25D366;
-  color: white;
-}
-
-.whatsapp_button:hover {
-  background-color: #20b858;
-  transform: translateY(-2px);
-}
-
-.email_button {
-  background-color: rgb(235, 130, 10);
-  color: white;
-}
-
-.email_button:hover {
-  background-color: rgb(200, 110, 5);
-  transform: translateY(-2px);
 }
 
 /* Light Theme Overrides */
@@ -644,17 +904,59 @@
   border-color: rgb(200, 200, 200);
 }
 
-:global(body.light_theme) .day_content {
+:global(body.light_theme) .itinerary_day {
   background-color: white;
+  border-color: rgb(220, 220, 220);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-:global(body.light_theme) .day_content h3 {
+:global(body.light_theme) .itinerary_day:hover {
+  border-color: rgb(235, 130, 10);
+}
+
+:global(body.light_theme) .day_header {
+  background: linear-gradient(135deg, rgb(250, 250, 250), rgb(245, 245, 245));
+  border-bottom-color: rgb(220, 220, 220);
+}
+
+:global(body.light_theme) .day_title {
   color: rgb(36, 35, 35);
 }
 
-:global(body.light_theme) .day_content p {
+:global(body.light_theme) .day_location {
   color: rgb(100, 100, 100);
+}
+
+:global(body.light_theme) .day_images {
+  background-color: rgb(240, 240, 240);
+}
+
+:global(body.light_theme) .day_content {
+  background-color: white;
+}
+
+:global(body.light_theme) .day_description {
+  color: rgb(80, 80, 80);
+}
+
+:global(body.light_theme) .day_activities li {
+  color: rgb(60, 60, 60);
+}
+
+:global(body.light_theme) .day_details {
+  border-top-color: rgb(220, 220, 220);
+}
+
+:global(body.light_theme) .day_detail_item {
+  background-color: rgb(245, 245, 245);
+}
+
+:global(body.light_theme) .day_detail_item span {
+  color: rgb(80, 80, 80);
+}
+
+:global(body.light_theme) .day_detail_item strong {
+  color: rgb(36, 35, 35);
 }
 
 :global(body.light_theme) .inclusion_box,
@@ -692,6 +994,46 @@
   color: rgb(36, 35, 35);
 }
 
+:global(body.light_theme) .quote_section {
+  background: linear-gradient(135deg, white, rgb(245, 245, 245));
+  border-color: rgb(220, 220, 220);
+}
+
+:global(body.light_theme) .quote_header p {
+  color: rgb(100, 100, 100);
+}
+
+:global(body.light_theme) .quote_field label,
+:global(body.light_theme) .quote_field_full label {
+  color: rgb(60, 60, 60);
+}
+
+:global(body.light_theme) .quote_field input,
+:global(body.light_theme) .quote_field textarea,
+:global(body.light_theme) .quote_field_full textarea {
+  background-color: white;
+  border-color: rgb(200, 200, 200);
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .quote_field input::placeholder,
+:global(body.light_theme) .quote_field textarea::placeholder,
+:global(body.light_theme) .quote_field_full textarea::placeholder {
+  color: rgb(150, 150, 150);
+}
+
+:global(body.light_theme) .quote_note {
+  color: rgb(100, 100, 100);
+}
+
+:global(body.light_theme) .quote_success h3 {
+  color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .quote_success p {
+  color: rgb(100, 100, 100);
+}
+
 /* Mobile Responsive */
 @media only screen and (max-width: 768px) {
   .back_section {
@@ -724,26 +1066,70 @@
     justify-content: center;
   }
 
+  /* Itinerary Mobile */
   .itinerary {
-    padding-left: 1.5rem;
+    gap: 1rem;
   }
 
-  .day_marker {
-    left: -2rem;
+  .day_header {
+    padding: 1rem;
   }
 
-  .day_number {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.6rem;
+  .day_title {
+    font-size: 1.05rem;
   }
 
-  .cta_buttons {
+  .day_images {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .day_content {
+    padding: 1rem;
+  }
+
+  .day_activities ul {
+    grid-template-columns: 1fr;
+  }
+
+  .day_details {
     flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .whatsapp_button,
-  .email_button {
-    justify-content: center;
+  .day_detail_item {
+    width: 100%;
+  }
+
+  /* Quote Section Mobile */
+  .quote_section {
+    padding: 1.5rem;
+  }
+
+  .quote_header h2 {
+    font-size: 1.3rem;
+  }
+
+  .quote_row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .quote_field_half {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quote_field input,
+  .quote_field textarea,
+  .quote_field_full textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .quote_submit {
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
   }
 }
 
@@ -763,5 +1149,101 @@
   .thumbnail {
     width: 80px;
     height: 55px;
+  }
+
+  /* Itinerary Small Mobile */
+  .day_marker {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .day_images {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .day_image_item {
+    aspect-ratio: 4 / 3;
+  }
+
+  .day_number {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .day_location {
+    font-size: 0.85rem;
+  }
+
+  .day_title {
+    font-size: 1rem;
+  }
+
+  .day_description {
+    font-size: 0.9rem;
+  }
+
+  .day_activities h4 {
+    font-size: 0.85rem;
+  }
+
+  .day_activities li {
+    font-size: 0.85rem;
+  }
+
+  .day_detail_item {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Quote Section Small Mobile */
+  .quote_section {
+    padding: 1.25rem;
+  }
+
+  .quote_header h2 {
+    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .quote_header p {
+    font-size: 0.85rem;
+  }
+
+  .quote_field_half {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .quote_field label,
+  .quote_field_full label {
+    font-size: 0.8rem;
+  }
+
+  .quote_field input,
+  .quote_field_full textarea {
+    padding: 0.8rem;
+  }
+
+  .quote_submit {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .quote_note {
+    font-size: 0.8rem;
+  }
+
+  .quote_success i {
+    font-size: 3rem;
+  }
+
+  .quote_success h3 {
+    font-size: 1.2rem;
+  }
+
+  .quote_success p {
+    font-size: 0.9rem;
   }
 }

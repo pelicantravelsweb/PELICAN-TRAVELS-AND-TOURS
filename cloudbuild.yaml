@@ -1,8 +1,37 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/pelican-travels', '.']
+    args:
+      - 'build'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyCGXRZHOJUnKRSXrmTQB16BOdw9AZHvkm4'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=pelican-tours-68819.firebaseapp.com'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_FIREBASE_PROJECT_ID=pelican-tours-68819'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=pelican-tours-68819.firebasestorage.app'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=417622467386'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_FIREBASE_APP_ID=1:417622467386:web:b8f47a750cbba871e8e603'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new'
+      - '.'
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/pelican-travels']
+    args: ['push', 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'pelican-travels-and-tours-new'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new'
+      - '--region'
+      - 'asia-east1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
 images:
-  - 'gcr.io/$PROJECT_ID/pelican-travels'
-timeout: '1200s'
+  - 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new'
+timeout: '1800s'

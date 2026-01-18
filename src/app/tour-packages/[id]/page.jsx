@@ -16,6 +16,63 @@ export default function PackageDetail() {
   const [loading, setLoading] = useState(true);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
+  // Quote form state
+  const [quoteForm, setQuoteForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    arrivalDate: '',
+    departureDate: '',
+    adults: 2,
+    children: 0,
+    message: ''
+  });
+  const [quoteSubmitting, setQuoteSubmitting] = useState(false);
+  const [quoteSubmitted, setQuoteSubmitted] = useState(false);
+
+  const handleQuoteChange = (e) => {
+    const { name, value } = e.target;
+    setQuoteForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleQuoteSubmit = async (e) => {
+    e.preventDefault();
+    setQuoteSubmitting(true);
+
+    // Create WhatsApp message with form data
+    const message = `*New Tour Quote Request*%0A%0A` +
+      `*Tour:* ${packageData?.title || 'Tour Package'}%0A` +
+      `*Name:* ${quoteForm.name}%0A` +
+      `*Email:* ${quoteForm.email}%0A` +
+      `*Phone:* ${quoteForm.phone}%0A` +
+      `*Arrival:* ${quoteForm.arrivalDate}%0A` +
+      `*Departure:* ${quoteForm.departureDate}%0A` +
+      `*Adults:* ${quoteForm.adults}%0A` +
+      `*Children:* ${quoteForm.children}%0A` +
+      `*Special Requests:* ${quoteForm.message || 'None'}`;
+
+    // Open WhatsApp with pre-filled message
+    window.open(`https://wa.me/+94782436606?text=${message}`, '_blank');
+
+    setQuoteSubmitting(false);
+    setQuoteSubmitted(true);
+
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setQuoteSubmitted(false);
+      setQuoteForm({
+        name: '',
+        email: '',
+        phone: '',
+        arrivalDate: '',
+        departureDate: '',
+        adults: 2,
+        children: 0,
+        message: ''
+      });
+    }, 3000);
+  };
+
   const handleThemeToggle = () => {
     setIsLightTheme(!isLightTheme);
   };
@@ -70,12 +127,16 @@ export default function PackageDetail() {
     return stars;
   };
 
-  // Get images array or use placeholder
-  const images = packageData?.images?.length > 0
-    ? packageData.images
-    : packageData?.imageUrl
-      ? [packageData.imageUrl]
-      : [];
+  // Get images array or use placeholder (handle both old and new formats)
+  const images = packageData?.galleryImages?.length > 0
+    ? packageData.galleryImages
+    : packageData?.images?.length > 0
+      ? packageData.images
+      : packageData?.coverImage
+        ? [packageData.coverImage]
+        : packageData?.imageUrl
+          ? [packageData.imageUrl]
+          : [];
 
   return (
     <>
@@ -180,14 +241,18 @@ export default function PackageDetail() {
                     <i className="fa-solid fa-clock"></i>
                     <div>
                       <span className={styles.info_label}>Duration</span>
-                      <span className={styles.info_value}>{packageData.duration || 'N/A'} Days</span>
+                      <span className={styles.info_value}>
+                        {typeof packageData.duration === 'object'
+                          ? `${packageData.duration?.days || 0} Days / ${packageData.duration?.nights || 0} Nights`
+                          : `${packageData.duration || 'N/A'} Days`}
+                      </span>
                     </div>
                   </div>
                   <div className={styles.info_card}>
                     <i className="fa-solid fa-users"></i>
                     <div>
                       <span className={styles.info_label}>Group Size</span>
-                      <span className={styles.info_value}>{packageData.minPax || 2}-{packageData.maxPax || 12} People</span>
+                      <span className={styles.info_value}>{packageData.pax?.min || packageData.minPax || 2}-{packageData.pax?.max || packageData.maxPax || 12} People</span>
                     </div>
                   </div>
                   <div className={styles.info_card}>
@@ -201,7 +266,11 @@ export default function PackageDetail() {
                     <i className="fa-solid fa-tag"></i>
                     <div>
                       <span className={styles.info_label}>Tour Type</span>
-                      <span className={styles.info_value}>{packageData.tourType?.[0] || 'Mixed'}</span>
+                      <span className={styles.info_value}>
+                        {Array.isArray(packageData.tourType)
+                          ? packageData.tourType[0]
+                          : packageData.tourType || 'Mixed'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -241,16 +310,65 @@ export default function PackageDetail() {
                 {/* Itinerary */}
                 {packageData.itinerary?.length > 0 && (
                   <div className={styles.itinerary_section}>
-                    <h2>Itinerary</h2>
+                    <h2>Day-by-Day Itinerary</h2>
                     <div className={styles.itinerary}>
                       {packageData.itinerary.map((day, index) => (
                         <div key={index} className={styles.itinerary_day}>
-                          <div className={styles.day_marker}>
-                            <span className={styles.day_number}>Day {index + 1}</span>
+                          <div className={styles.day_header}>
+                            <div className={styles.day_marker}>
+                              <span className={styles.day_number}>Day {day.dayNumber || index + 1}</span>
+                              {day.location && <span className={styles.day_location}><i className="fa-solid fa-map-marker-alt"></i> {day.location}</span>}
+                            </div>
+                            <h3 className={styles.day_title}>{day.title || `Day ${index + 1}`}</h3>
                           </div>
+
+                          {/* Day Images Gallery */}
+                          {day.images?.length > 0 && (
+                            <div className={styles.day_images}>
+                              {day.images.map((img, imgIndex) => (
+                                <div key={imgIndex} className={styles.day_image_item}>
+                                  <img src={img} alt={`Day ${day.dayNumber || index + 1} - ${imgIndex + 1}`} />
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
                           <div className={styles.day_content}>
-                            <h3>{day.title || `Day ${index + 1}`}</h3>
-                            <p>{day.description || day}</p>
+                            {day.description && <p className={styles.day_description}>{day.description}</p>}
+
+                            {/* Activities */}
+                            {day.activities?.length > 0 && day.activities.some(a => a) && (
+                              <div className={styles.day_activities}>
+                                <h4><i className="fa-solid fa-hiking"></i> Activities</h4>
+                                <ul>
+                                  {day.activities.filter(a => a).map((activity, actIndex) => (
+                                    <li key={actIndex}><i className="fa-solid fa-check"></i> {activity}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+
+                            {/* Day Details */}
+                            <div className={styles.day_details}>
+                              {day.accommodation && (
+                                <div className={styles.day_detail_item}>
+                                  <i className="fa-solid fa-hotel"></i>
+                                  <span><strong>Accommodation:</strong> {day.accommodation}</span>
+                                </div>
+                              )}
+                              {day.meals?.length > 0 && (
+                                <div className={styles.day_detail_item}>
+                                  <i className="fa-solid fa-utensils"></i>
+                                  <span><strong>Meals:</strong> {day.meals.join(', ')}</span>
+                                </div>
+                              )}
+                              {day.travelTime && (
+                                <div className={styles.day_detail_item}>
+                                  <i className="fa-solid fa-car"></i>
+                                  <span><strong>Travel Time:</strong> {day.travelTime}</span>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
                       ))}
@@ -297,18 +415,132 @@ export default function PackageDetail() {
                   </div>
                 )}
 
-                {/* CTA Section */}
-                <div className={styles.cta_section}>
-                  <h2>Ready to Book This Tour?</h2>
-                  <p>Contact us now to customize this package to your preferences</p>
-                  <div className={styles.cta_buttons}>
-                    <a href="https://wa.me/+94782436606" className={styles.whatsapp_button}>
-                      <i className="fa-brands fa-whatsapp"></i> WhatsApp Us
-                    </a>
-                    <a href="mailto:hello@pelicantravelsandtours.com" className={styles.email_button}>
-                      <i className="fa-solid fa-envelope"></i> Email Us
-                    </a>
+                {/* Get a Quote Section */}
+                <div className={styles.quote_section}>
+                  <div className={styles.quote_header}>
+                    <h2><i className="fa-solid fa-paper-plane"></i> Get a Quote</h2>
+                    <p>Fill in your details and we'll send you a personalized quote for this tour</p>
                   </div>
+
+                  {quoteSubmitted ? (
+                    <div className={styles.quote_success}>
+                      <i className="fa-solid fa-check-circle"></i>
+                      <h3>Thank You!</h3>
+                      <p>Your quote request has been sent via WhatsApp. We'll get back to you shortly!</p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleQuoteSubmit} className={styles.quote_form}>
+                      <div className={styles.quote_row}>
+                        <div className={styles.quote_field}>
+                          <label><i className="fa-solid fa-user"></i> Full Name *</label>
+                          <input
+                            type="text"
+                            name="name"
+                            value={quoteForm.name}
+                            onChange={handleQuoteChange}
+                            placeholder="Enter your full name"
+                            required
+                          />
+                        </div>
+                        <div className={styles.quote_field}>
+                          <label><i className="fa-solid fa-envelope"></i> Email Address *</label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={quoteForm.email}
+                            onChange={handleQuoteChange}
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className={styles.quote_row}>
+                        <div className={styles.quote_field}>
+                          <label><i className="fa-solid fa-phone"></i> Phone Number *</label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={quoteForm.phone}
+                            onChange={handleQuoteChange}
+                            placeholder="Enter your phone number"
+                            required
+                          />
+                        </div>
+                        <div className={styles.quote_field}>
+                          <label><i className="fa-solid fa-calendar"></i> Arrival Date *</label>
+                          <input
+                            type="date"
+                            name="arrivalDate"
+                            value={quoteForm.arrivalDate}
+                            onChange={handleQuoteChange}
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className={styles.quote_row}>
+                        <div className={styles.quote_field}>
+                          <label><i className="fa-solid fa-calendar-check"></i> Departure Date *</label>
+                          <input
+                            type="date"
+                            name="departureDate"
+                            value={quoteForm.departureDate}
+                            onChange={handleQuoteChange}
+                            required
+                          />
+                        </div>
+                        <div className={styles.quote_field_half}>
+                          <div className={styles.quote_field}>
+                            <label><i className="fa-solid fa-user-group"></i> Adults</label>
+                            <input
+                              type="number"
+                              name="adults"
+                              value={quoteForm.adults}
+                              onChange={handleQuoteChange}
+                              min="1"
+                              max="20"
+                            />
+                          </div>
+                          <div className={styles.quote_field}>
+                            <label><i className="fa-solid fa-child"></i> Children</label>
+                            <input
+                              type="number"
+                              name="children"
+                              value={quoteForm.children}
+                              onChange={handleQuoteChange}
+                              min="0"
+                              max="10"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className={styles.quote_field_full}>
+                        <label><i className="fa-solid fa-message"></i> Special Requests</label>
+                        <textarea
+                          name="message"
+                          value={quoteForm.message}
+                          onChange={handleQuoteChange}
+                          placeholder="Any special requirements, dietary needs, or questions?"
+                          rows="4"
+                        ></textarea>
+                      </div>
+
+                      <div className={styles.quote_actions}>
+                        <button type="submit" className={styles.quote_submit} disabled={quoteSubmitting}>
+                          {quoteSubmitting ? (
+                            <><i className="fa-solid fa-spinner fa-spin"></i> Sending...</>
+                          ) : (
+                            <><i className="fa-brands fa-whatsapp"></i> Get Quote via WhatsApp</>
+                          )}
+                        </button>
+                        <p className={styles.quote_note}>
+                          <i className="fa-solid fa-bolt"></i> Instant response guaranteed
+                        </p>
+                      </div>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>

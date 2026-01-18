@@ -10,3 +10,5 @@ npm-debug.log
 .idea
 README.md
 .claude
+nul
+cors.json

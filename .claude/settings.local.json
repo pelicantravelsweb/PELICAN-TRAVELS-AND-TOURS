@@ -15,7 +15,18 @@
       "Bash(gcloud --version:*)",
       "Bash(gcloud builds submit:*)",
       "WebFetch(domain:tour-packages-admin-361770129404.us-central1.run.app)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:www.olankatravels.com)",
+      "Bash(gsutil cors set:*)",
+      "Bash(gcloud storage buckets update:*)",
+      "Bash(firebase login:list:*)",
+      "Bash(firebase projects:list:*)",
+      "Bash(gcloud config set:*)",
+      "Bash(timeout:*)",
+      "Bash(gcloud services enable:*)",
+      "Bash(gcloud run domain-mappings list:*)",
+      "Bash(gcloud beta run domain-mappings list:*)"
     ]
   }
 }

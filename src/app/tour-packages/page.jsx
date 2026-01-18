@@ -89,7 +89,8 @@ export default function TourPackages() {
     }
 
     result = result.filter(pkg => {
-      const duration = pkg.duration || 0;
+      // Handle both old format (number) and new format (object with days/nights)
+      const duration = typeof pkg.duration === 'object' ? pkg.duration?.days : pkg.duration || 0;
       return duration >= durationRange[0] && duration <= durationRange[1];
     });
 
@@ -326,8 +327,8 @@ export default function TourPackages() {
               {filteredPackages.map((pkg) => (
                 <div key={pkg.id} className={styles.package_card}>
                   <div className={styles.package_image}>
-                    {pkg.imageUrl ? (
-                      <img src={pkg.imageUrl} alt={pkg.title || 'Tour Package'} />
+                    {(pkg.coverImage || pkg.imageUrl) ? (
+                      <img src={pkg.coverImage || pkg.imageUrl} alt={pkg.title || 'Tour Package'} />
                     ) : (
                       <div className={styles.placeholder_image}>
                         <i className="fa-solid fa-image"></i>
@@ -337,8 +338,8 @@ export default function TourPackages() {
                   </div>
                   <div className={styles.package_content}>
                     <div className={styles.package_meta}>
-                      <span><i className="fa-solid fa-clock"></i> {pkg.duration || 'N/A'} Days</span>
-                      <span><i className="fa-solid fa-users"></i> {pkg.minPax || 2}-{pkg.maxPax || 12} Pax</span>
+                      <span><i className="fa-solid fa-clock"></i> {typeof pkg.duration === 'object' ? pkg.duration?.days : pkg.duration || 'N/A'} Days</span>
+                      <span><i className="fa-solid fa-users"></i> {pkg.pax?.min || pkg.minPax || 2}-{pkg.pax?.max || pkg.maxPax || 12} Pax</span>
                     </div>
                     <h3 className={styles.package_title}>{pkg.title || 'Tour Package'}</h3>
                     <p className={styles.package_description}>
