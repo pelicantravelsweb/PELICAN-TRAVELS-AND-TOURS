@@ -172,7 +172,7 @@ export default function TourPackages() {
 
       {/* Page Header */}
       <div className={styles.page_header}>
-        <h1>SRI LANKAN <span>TOUR PACKAGES</span></h1>
+        <h1>SRI LANKA <span>TOUR PACKAGES</span></h1>
         <p>Discover our curated collection of unforgettable Sri Lankan experiences</p>
       </div>
 
