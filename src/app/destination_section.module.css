@@ -282,9 +282,20 @@
 }
 
 @media (max-width: 800px) {
+.topic_text{
+    font-size: 1.3rem;
+    text-align: center;
+    padding-left: 0rem;
+}
+
 .destination_container {
     width: 20rem;
     min-width: 250px;
+
+}
+
+.destination_section{
+    padding-top: 2rem;
 
 }
     

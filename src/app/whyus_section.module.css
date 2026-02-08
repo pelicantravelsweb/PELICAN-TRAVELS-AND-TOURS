@@ -1,3 +1,13 @@
+.topic_text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding-top: 10vh;
+    font-size: clamp(1.5rem,2vw,2rem);
+    text-align: left;
+    padding-left: 4rem;
+    padding-bottom: 2rem;
+}
+
 .whyus_section_container{
     position: relative;
     width: 100%;
@@ -75,19 +85,47 @@
        font-family: 'Poppins', sans-serif;
 }
 
+:global(body.light_theme) .topic_text{
+  color:rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .whyus_section_description p{
+  color:rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .whyus_section_description li, .whyus_section_description h3{
+  color:rgb(194, 104, 2);
+}
+
+
+
+
+
 /* Why Us Section Mobile View CSS_____________________________________________________________________________________________*/
 
 @media (max-width: 800px) {
-       .whyus_section {
-           flex-direction: column;
-           align-items: center;
-       }
-       .whyus_section_image,
-       .whyus_section_description {
-           width: 90%;
-           padding-left: 1.2rem;
-           padding-right: 1.2rem;
-       }
+
+.topic_text{
+    padding-top: 0wd;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-left: 0rem;
+
+}
+
+.whyus_section {
+  flex-direction: column;
+  align-items: center;
+}
+
+.whyus_section_description {
+   width: 85%;
+}
+
+.whyus_section_image{
+  width: 70%;
+  padding: 0;
+}
 
 .whyus_section_description p:nth-child(2), .whyus_section_description li:nth-child(1) {
   margin-left: 0rem;
@@ -104,4 +142,12 @@
 .whyus_section_description li:nth-child(7), .whyus_section_description p:nth-child(8) {
   margin-left: 0rem;
 }
+}
+
+@media (max-width: 600px) {
+
+  .whyus_section_description {
+   width: 95%;
+}
+
 }
