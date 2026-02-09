@@ -16,6 +16,8 @@ import image_2 from "../../public/Pelican_Bird_Art.png";
 import image_3 from "../../public/SriLankan_Attractions.png";
 import image_4 from "../../public/Inquiry Section_Mask Image.png";
 import { FaTripadvisor } from "react-icons/fa";
+import { db } from './lib/firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 
 
@@ -80,8 +82,53 @@ const scrollToPackage = (direction) => {
 const scrollLeft = () => scrollToPackage("left");
 const scrollRight = () => scrollToPackage("right");
 
+// Inquiry form
+const [inquiryForm, setInquiryForm] = useState({
+  name: '', email: '', mobile: '',
+  pax: 'Individual / Couple (1-3 persons)',
+  days: 'Mini Excursion (1-2 days)',
+  message: ''
+});
+const [inquirySubmitting, setInquirySubmitting] = useState(false);
+const [inquirySubmitted, setInquirySubmitted] = useState(false);
+const [inquiryError, setInquiryError] = useState('');
 
+const handleInquiryChange = (e) => {
+  const { name, value } = e.target;
+  setInquiryForm(prev => ({ ...prev, [name]: value }));
+};
 
+const handleInquirySubmit = async (e) => {
+  e.preventDefault();
+  setInquirySubmitting(true);
+  setInquiryError('');
+  try {
+    await addDoc(collection(db, 'inquiries'), {
+      name: inquiryForm.name,
+      email: inquiryForm.email,
+      mobile: inquiryForm.mobile,
+      pax: inquiryForm.pax,
+      days: inquiryForm.days,
+      message: inquiryForm.message,
+      source: 'homepage',
+      status: 'new',
+      createdAt: new Date()
+    });
+    setInquirySubmitted(true);
+    setInquiryForm({
+      name: '', email: '', mobile: '',
+      pax: 'Individual / Couple (1-3 persons)',
+      days: 'Mini Excursion (1-2 days)',
+      message: ''
+    });
+    setTimeout(() => setInquirySubmitted(false), 5000);
+  } catch (error) {
+    console.error('Error submitting inquiry:', error);
+    setInquiryError('Failed to submit inquiry. Please try again.');
+  } finally {
+    setInquirySubmitting(false);
+  }
+};
 
   return (
     <>
@@ -420,22 +467,24 @@ const scrollRight = () => scrollToPackage("right");
 
         <h1 className={styles_6.topic_text}>INQUIARE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h1>
         <div className={styles_6.inquire_section}>
-            <form className={styles_6.inquire_form}>
+            <form className={styles_6.inquire_form} onSubmit={handleInquirySubmit}>
                 <div className={styles_6.inquire_form_content}>
                     <table><tbody>
 
                     <tr><td><label>NAME</label></td>
-                    <td><input name="name" id="name"  type="text" placeholder="John Doe" required/></td></tr>
+                    <td><input name="name" type="text" placeholder="John Doe" required
+                        value={inquiryForm.name} onChange={handleInquiryChange} /></td></tr>
 
                     <tr><td><label>EMAIL</label></td>
-                    <td><input name="email" id="email"  type="email" placeholder="johndoe@gmail.com" required/></td></tr>
+                    <td><input name="email" type="email" placeholder="johndoe@gmail.com" required
+                        value={inquiryForm.email} onChange={handleInquiryChange} /></td></tr>
 
                     <tr><td><label>MOBILE</label></td>
-                    
-                    <td><input name="mobile" id="mobile" type="tel" placeholder="+94 123 456 789" required/></td></tr>
+                    <td><input name="mobile" type="tel" placeholder="+94 123 456 789" required
+                        value={inquiryForm.mobile} onChange={handleInquiryChange} /></td></tr>
 
                     <tr><td><label>PAX</label></td>
-                    <td><select name="pax" id="pax">
+                    <td><select name="pax" value={inquiryForm.pax} onChange={handleInquiryChange}>
                             <option value="Individual / Couple (1-3 persons)">Individual / Couple (1–3 persons)</option>
                             <option value="Small Group (4-8 persons)">Small Group (4–8 persons)</option>
                             <option value="Medium Group (9-15 persons)">Medium Group (9–15 persons)</option>
@@ -444,7 +493,8 @@ const scrollRight = () => scrollToPackage("right");
                         </select></td></tr>
 
                     <tr><td><label>DAYS</label></td>
-                    <td><select name="days" id="days" className={styles_6.days}>
+                    <td><select name="days" value={inquiryForm.days} onChange={handleInquiryChange}
+                        className={styles_6.days}>
                             <option value="Mini Excursion (1-2 days)">Mini Excursion (1-2 days)</option>
                             <option value="Short Tour (3-5 days)">Short Tour (3-5 days)</option>
                             <option value="Medium Tour (6-10 days)">Medium Tour (6-10 days)</option>
@@ -452,10 +502,26 @@ const scrollRight = () => scrollToPackage("right");
                         </select></td></tr>
 
                     <tr><td><label>MESSAGE</label></td>
-                    <td><textarea name="message" id="message" rows="4" placeholder="Your message here..."></textarea></td></tr>
+                    <td><textarea name="message" rows="4" placeholder="Your message here..."
+                        value={inquiryForm.message} onChange={handleInquiryChange}></textarea></td></tr>
 
                     <tr><td></td>
-                    <td><button type="submit" className={styles_6.submit_button}>SUBMIT</button></td></tr>
+                    <td>
+                      {inquirySubmitted ? (
+                        <p style={{color: '#27ae60', fontFamily: 'Poppins, sans-serif', fontSize: '0.9rem'}}>
+                          Inquiry submitted successfully!
+                        </p>
+                      ) : (
+                        <button type="submit" className={styles_6.submit_button} disabled={inquirySubmitting}>
+                          {inquirySubmitting ? 'SUBMITTING...' : 'SUBMIT'}
+                        </button>
+                      )}
+                      {inquiryError && (
+                        <p style={{color: '#e74c3c', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem', marginTop: '0.5rem'}}>
+                          {inquiryError}
+                        </p>
+                      )}
+                    </td></tr>
 
                     </tbody></table>
 

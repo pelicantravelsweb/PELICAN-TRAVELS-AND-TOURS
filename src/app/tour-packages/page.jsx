@@ -72,7 +72,7 @@ export default function TourPackages() {
 
     if (selectedTourTypes.length > 0) {
       result = result.filter(pkg =>
-        selectedTourTypes.some(type => pkg.tourType?.includes(type))
+        selectedTourTypes.includes(pkg.tourType)
       );
     }
 
@@ -172,7 +172,7 @@ export default function TourPackages() {
 
       {/* Page Header */}
       <div className={styles.page_header}>
-        <h1>SRI LANKAN <span>TOUR PACKAGES</span></h1>
+        <h1>SRI LANKA <span>TOUR PACKAGES</span></h1>
         <p>Discover our curated collection of unforgettable Sri Lankan experiences</p>
       </div>
 
@@ -343,8 +343,8 @@ export default function TourPackages() {
                     </div>
                     <h3 className={styles.package_title}>{pkg.title || 'Tour Package'}</h3>
                     <p className={styles.package_description}>
-                      {pkg.description?.substring(0, 120) || 'Discover the beauty of Sri Lanka with this amazing tour package.'}
-                      {pkg.description?.length > 120 ? '...' : ''}
+                      {pkg.description?.substring(0, 450) || 'Discover the beauty of Sri Lanka with this amazing tour package.'}
+                      {pkg.description?.length > 450 ? '...' : ''}
                     </p>
                     <div className={styles.package_rating}>
                       {renderStars(pkg.rating || 4.5)}

@@ -26,7 +26,15 @@
       "Bash(timeout:*)",
       "Bash(gcloud services enable:*)",
       "Bash(gcloud run domain-mappings list:*)",
-      "Bash(gcloud beta run domain-mappings list:*)"
+      "Bash(gcloud beta run domain-mappings list:*)",
+      "Bash(gcloud run revisions list:*)",
+      "Bash(gcloud builds list:*)",
+      "Bash(curl:*)",
+      "Bash(nslookup:*)",
+      "Bash(gcloud compute url-maps list:*)",
+      "Bash(gcloud firebase projects:list:*)",
+      "WebFetch(domain:pelicantravelsandtours.com)",
+      "Bash(firebase hosting:sites:list:*)"
     ]
   }
 }

@@ -4,7 +4,7 @@ import styles from "./admin.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, query, orderBy } from "firebase/firestore";
 import { auth, db } from "../lib/firebase";
 import AddPackage from "./components/AddPackage";
 
@@ -15,6 +15,10 @@ export default function AdminDashboard() {
   const [showAddPackage, setShowAddPackage] = useState(false);
   const [packages, setPackages] = useState([]);
   const [packagesLoading, setPackagesLoading] = useState(false);
+  const [editingPackage, setEditingPackage] = useState(null);
+  const [inquiries, setInquiries] = useState([]);
+  const [inquiriesLoading, setInquiriesLoading] = useState(false);
+  const [selectedInquiry, setSelectedInquiry] = useState(null);
   const router = useRouter();
 
   const fetchPackages = async () => {
@@ -47,11 +51,30 @@ export default function AdminDashboard() {
     }
   };
 
+  const fetchInquiries = async () => {
+    setInquiriesLoading(true);
+    try {
+      const q = query(collection(db, "inquiries"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(q);
+      const inquiriesData = querySnapshot.docs.map(docSnap => ({
+        id: docSnap.id,
+        ...docSnap.data(),
+        createdAt: docSnap.data().createdAt?.toDate?.() || new Date()
+      }));
+      setInquiries(inquiriesData);
+    } catch (error) {
+      console.error("Error fetching inquiries:", error);
+    } finally {
+      setInquiriesLoading(false);
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
         fetchPackages();
+        fetchInquiries();
       } else {
         router.push("/admin-login");
       }
@@ -184,7 +207,7 @@ export default function AdminDashboard() {
               <div className={styles.statCard}>
                 <i className="fa fa-envelope"></i>
                 <div className={styles.statInfo}>
-                  <h3>0</h3>
+                  <h3>{inquiries.filter(inq => inq.status === 'new').length}</h3>
                   <p>New Inquiries</p>
                 </div>
               </div>
@@ -259,7 +282,7 @@ export default function AdminDashboard() {
                           <p className={styles.packageType}>{safeTourType}</p>
                         </div>
                         <div className={styles.packageActions}>
-                          <button className={styles.editBtn} title="Edit">
+                          <button className={styles.editBtn} title="Edit" onClick={() => setEditingPackage(pkg)}>
                             <i className="fa fa-edit"></i>
                           </button>
                           <button
@@ -281,12 +304,91 @@ export default function AdminDashboard() {
           {activeTab === "inquiries" && (
             <div className={styles.section}>
               <div className={styles.sectionHeader}>
-                <h3>Customer Inquiries</h3>
+                <h3>Customer Inquiries ({inquiries.length})</h3>
               </div>
-              <div className={styles.emptyState}>
-                <i className="fa fa-envelope"></i>
-                <p>No inquiries yet.</p>
-              </div>
+
+              {inquiriesLoading ? (
+                <div className={styles.loadingState}>
+                  <i className="fa fa-spinner fa-spin"></i>
+                  <p>Loading inquiries...</p>
+                </div>
+              ) : inquiries.length === 0 ? (
+                <div className={styles.emptyState}>
+                  <i className="fa fa-envelope"></i>
+                  <p>No inquiries yet.</p>
+                </div>
+              ) : (
+                <>
+                  {selectedInquiry && (
+                    <div className={styles.inquiryDetailOverlay} onClick={() => setSelectedInquiry(null)}>
+                      <div className={styles.inquiryDetailModal} onClick={e => e.stopPropagation()}>
+                        <div className={styles.inquiryDetailHeader}>
+                          <h3>Inquiry Details</h3>
+                          <button onClick={() => setSelectedInquiry(null)} className={styles.closeInquiryBtn}>
+                            <i className="fa fa-times"></i>
+                          </button>
+                        </div>
+                        <div className={styles.inquiryDetailBody}>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>Name:</strong> <span>{selectedInquiry.name}</span>
+                          </div>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>Email:</strong> <span>{selectedInquiry.email}</span>
+                          </div>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>Mobile:</strong> <span>{selectedInquiry.mobile}</span>
+                          </div>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>PAX:</strong> <span>{selectedInquiry.pax}</span>
+                          </div>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>Days:</strong> <span>{selectedInquiry.days}</span>
+                          </div>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>Source:</strong> <span>{selectedInquiry.source}</span>
+                          </div>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>Date:</strong> <span>{selectedInquiry.createdAt.toLocaleDateString()}</span>
+                          </div>
+                          <div className={styles.inquiryDetailRow}>
+                            <strong>Message:</strong>
+                            <p>{selectedInquiry.message || 'No message provided.'}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className={styles.inquiryList}>
+                    {inquiries.map(inq => (
+                      <div
+                        key={inq.id}
+                        className={`${styles.inquiryCard} ${inq.status === 'new' ? styles.inquiryNew : ''}`}
+                        onClick={() => setSelectedInquiry(inq)}
+                      >
+                        <div className={styles.inquiryInfo}>
+                          <h4>{inq.name}</h4>
+                          <p className={styles.inquiryEmail}>{inq.email}</p>
+                          <p className={styles.inquiryPreview}>
+                            {inq.message ? inq.message.substring(0, 80) + (inq.message.length > 80 ? '...' : '') : 'No message'}
+                          </p>
+                        </div>
+                        <div className={styles.inquiryMeta}>
+                          <span className={`${styles.inquiryStatus} ${styles[`status_${inq.status}`]}`}>
+                            {inq.status}
+                          </span>
+                          <span className={styles.inquiryDate}>
+                            {inq.createdAt.toLocaleDateString()}
+                          </span>
+                          <span className={styles.inquirySource}>
+                            <i className="fa fa-tag"></i> {inq.source}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           )}
 
@@ -325,11 +427,19 @@ export default function AdminDashboard() {
         </div>
       </main>
 
-      {/* Add Package Modal */}
-      {showAddPackage && (
+      {/* Add/Edit Package Modal */}
+      {(showAddPackage || editingPackage) && (
         <AddPackage
-          onClose={() => setShowAddPackage(false)}
-          onSuccess={handlePackageCreated}
+          editPackage={editingPackage}
+          onClose={() => {
+            setShowAddPackage(false);
+            setEditingPackage(null);
+          }}
+          onSuccess={() => {
+            fetchPackages();
+            setShowAddPackage(false);
+            setEditingPackage(null);
+          }}
         />
       )}
     </div>

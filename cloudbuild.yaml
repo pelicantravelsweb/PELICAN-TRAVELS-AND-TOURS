@@ -15,10 +15,10 @@ steps:
       - '--build-arg'
       - 'NEXT_PUBLIC_FIREBASE_APP_ID=1:417622467386:web:b8f47a750cbba871e8e603'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new'
+      - 'gcr.io/$PROJECT_ID/pelican-travels'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new']
+    args: ['push', 'gcr.io/$PROJECT_ID/pelican-travels']
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -26,12 +26,12 @@ steps:
       - 'deploy'
       - 'pelican-travels-and-tours-new'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new'
+      - 'gcr.io/$PROJECT_ID/pelican-travels'
       - '--region'
       - 'asia-east1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
 images:
-  - 'gcr.io/$PROJECT_ID/pelican-travels-and-tours-new'
+  - 'gcr.io/$PROJECT_ID/pelican-travels'
 timeout: '1800s'

@@ -468,6 +468,188 @@
   color: #fff;
 }
 
+/* Inquiry List */
+.inquiryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.inquiryCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.inquiryCard:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.inquiryNew {
+  border-left-color: #ff9619;
+  background-color: rgba(255, 150, 25, 0.04);
+}
+
+.inquiryInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.inquiryInfo h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgb(36, 35, 35);
+  margin-bottom: 0.25rem;
+}
+
+.inquiryEmail {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.inquiryPreview {
+  font-size: 0.8rem;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inquiryMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.inquiryStatus {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.status_new {
+  background-color: rgba(255, 150, 25, 0.15);
+  color: #ff9619;
+}
+
+.status_read {
+  background-color: rgba(52, 152, 219, 0.15);
+  color: #3498db;
+}
+
+.status_replied {
+  background-color: rgba(39, 174, 96, 0.15);
+  color: #27ae60;
+}
+
+.inquiryDate {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.inquirySource {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+.inquirySource i {
+  font-size: 0.65rem;
+  margin-right: 0.2rem;
+}
+
+/* Inquiry Detail Modal */
+.inquiryDetailOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.inquiryDetailModal {
+  background-color: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 550px;
+  max-height: 80vh;
+  overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.inquiryDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.inquiryDetailHeader h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgb(36, 35, 35);
+}
+
+.closeInquiryBtn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.5rem;
+}
+
+.closeInquiryBtn:hover {
+  color: #e74c3c;
+}
+
+.inquiryDetailBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inquiryDetailRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.inquiryDetailRow strong {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inquiryDetailRow span,
+.inquiryDetailRow p {
+  font-size: 0.95rem;
+  color: rgb(36, 35, 35);
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .sidebar {
@@ -524,6 +706,20 @@
 
   .dashboardGrid {
     grid-template-columns: 1fr;
+  }
+
+  .inquiryCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .inquiryMeta {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 }
 

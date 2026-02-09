@@ -2,52 +2,77 @@
 import React, { useState } from "react";
 import styles from "./AddPackage.module.css";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../../lib/firebase";
 
-export default function AddPackage({ onClose, onSuccess }) {
+export default function AddPackage({ onClose, onSuccess, editPackage }) {
   const [loading, setLoading] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
 
   // Basic Info
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [tourType, setTourType] = useState("Round Tour");
-  const [days, setDays] = useState("");
-  const [nights, setNights] = useState("");
-  const [price, setPrice] = useState("");
-  const [currency, setCurrency] = useState("USD");
-  const [minPax, setMinPax] = useState("2");
-  const [maxPax, setMaxPax] = useState("12");
+  const [title, setTitle] = useState(editPackage?.title || "");
+  const [description, setDescription] = useState(editPackage?.description || "");
+  const [tourType, setTourType] = useState(editPackage?.tourType || "Individual");
+  const [days, setDays] = useState(editPackage?.duration?.days?.toString() || "");
+  const [nights, setNights] = useState(editPackage?.duration?.nights?.toString() || "");
+  const [price, setPrice] = useState(editPackage?.price?.toString() || "");
+  const [currency, setCurrency] = useState(editPackage?.currency || "USD");
+  const [minPax, setMinPax] = useState(editPackage?.pax?.min?.toString() || "2");
+  const [maxPax, setMaxPax] = useState(editPackage?.pax?.max?.toString() || "12");
+
+  // Filter fields
+  const [experiences, setExperiences] = useState(editPackage?.experiences || []);
+  const [travelPeriod, setTravelPeriod] = useState(editPackage?.travelPeriod || []);
+
+  const availableExperiences = [
+    'Beach & Coastal', 'Historical Sites', 'Cultural & Heritage',
+    'Botanical Gardens/Parks', 'Hikes/Nature Trails', 'Safaris & Wildlife',
+    'Adventures', 'Train Rides', 'Ayurveda & Wellness',
+    'Festivals & Local Events', 'Food & Culinary'
+  ];
+  const availableTravelPeriods = [
+    'All Year Round', 'December\u2013April (Dry season)', 'May\u2013September (Dry season)'
+  ];
 
   // Images
   const [coverImage, setCoverImage] = useState(null);
-  const [coverImagePreview, setCoverImagePreview] = useState(null);
+  const [coverImagePreview, setCoverImagePreview] = useState(editPackage?.coverImage || null);
   const [galleryImages, setGalleryImages] = useState([]);
-  const [galleryPreviews, setGalleryPreviews] = useState([]);
+  const [galleryPreviews, setGalleryPreviews] = useState(editPackage?.galleryImages || []);
+  const [existingGalleryUrls, setExistingGalleryUrls] = useState(editPackage?.galleryImages || []);
 
   // Highlights/Themes
-  const [highlights, setHighlights] = useState([""]);
-  const [themes, setThemes] = useState([]);
+  const [highlights, setHighlights] = useState(
+    editPackage?.highlights?.length > 0 ? editPackage.highlights : [""]
+  );
+  const [themes, setThemes] = useState(editPackage?.themes || []);
   const availableThemes = ["Culture", "History", "Nature", "Wildlife", "Beach", "Adventure", "Wellness", "Food & Cuisine"];
 
   // Inclusions & Exclusions
-  const [inclusions, setInclusions] = useState([""]);
-  const [exclusions, setExclusions] = useState([""]);
+  const [inclusions, setInclusions] = useState(
+    editPackage?.inclusions?.length > 0 ? editPackage.inclusions : [""]
+  );
+  const [exclusions, setExclusions] = useState(
+    editPackage?.exclusions?.length > 0 ? editPackage.exclusions : [""]
+  );
 
   // Itinerary
-  const [itinerary, setItinerary] = useState([{
-    dayNumber: 1,
-    title: "",
-    location: "",
-    description: "",
-    activities: [""],
-    accommodation: "",
-    meals: [],
-    travelTime: "",
-    images: [],
-    imagePreviews: []
-  }]);
+  const [itinerary, setItinerary] = useState(
+    editPackage?.itinerary?.length > 0
+      ? editPackage.itinerary.map(day => ({
+          ...day,
+          activities: day.activities?.length > 0 ? day.activities : [""],
+          meals: day.meals || [],
+          images: [],
+          imagePreviews: day.images || [],
+          existingImages: day.images || []
+        }))
+      : [{
+          dayNumber: 1, title: "", location: "", description: "",
+          activities: [""], accommodation: "", meals: [],
+          travelTime: "", images: [], imagePreviews: [], existingImages: []
+        }]
+  );
 
   const availableMeals = ["Breakfast", "Lunch", "Dinner"];
 
@@ -69,7 +94,13 @@ export default function AddPackage({ onClose, onSuccess }) {
   };
 
   const removeGalleryImage = (index) => {
-    setGalleryImages(prev => prev.filter((_, i) => i !== index));
+    const existingCount = existingGalleryUrls.length;
+    if (index < existingCount) {
+      setExistingGalleryUrls(prev => prev.filter((_, i) => i !== index));
+    } else {
+      const newIndex = index - existingCount;
+      setGalleryImages(prev => prev.filter((_, i) => i !== newIndex));
+    }
     setGalleryPreviews(prev => prev.filter((_, i) => i !== index));
   };
 
@@ -99,6 +130,22 @@ export default function AddPackage({ onClose, onSuccess }) {
     }
   };
 
+  const toggleExperience = (exp) => {
+    if (experiences.includes(exp)) {
+      setExperiences(experiences.filter(e => e !== exp));
+    } else {
+      setExperiences([...experiences, exp]);
+    }
+  };
+
+  const toggleTravelPeriod = (period) => {
+    if (travelPeriod.includes(period)) {
+      setTravelPeriod(travelPeriod.filter(p => p !== period));
+    } else {
+      setTravelPeriod([...travelPeriod, period]);
+    }
+  };
+
   // Itinerary handlers
   const addItineraryDay = () => {
     setItinerary([...itinerary, {
@@ -111,7 +158,8 @@ export default function AddPackage({ onClose, onSuccess }) {
       meals: [],
       travelTime: "",
       images: [],
-      imagePreviews: []
+      imagePreviews: [],
+      existingImages: []
     }]);
   };
 
@@ -175,7 +223,13 @@ export default function AddPackage({ onClose, onSuccess }) {
 
   const removeItineraryImage = (dayIndex, imageIndex) => {
     const updated = [...itinerary];
-    updated[dayIndex].images = updated[dayIndex].images.filter((_, i) => i !== imageIndex);
+    const existingCount = (updated[dayIndex].existingImages || []).length;
+    if (imageIndex < existingCount) {
+      updated[dayIndex].existingImages = updated[dayIndex].existingImages.filter((_, i) => i !== imageIndex);
+    } else {
+      const newIndex = imageIndex - existingCount;
+      updated[dayIndex].images = updated[dayIndex].images.filter((_, i) => i !== newIndex);
+    }
     updated[dayIndex].imagePreviews = updated[dayIndex].imagePreviews.filter((_, i) => i !== imageIndex);
     setItinerary(updated);
   };
@@ -190,39 +244,35 @@ export default function AddPackage({ onClose, onSuccess }) {
   // Form submission
   const handleSubmit = async () => {
     setLoading(true);
+    const isEditing = !!editPackage;
 
     try {
-      console.log("Step 1: Starting package creation...");
-
-      // Upload cover image
-      let coverImageUrl = "";
+      // Upload cover image only if a new file was selected
+      let coverImageUrl = coverImagePreview || "";
       if (coverImage) {
-        console.log("Step 2: Uploading cover image...");
         coverImageUrl = await uploadImage(
           coverImage,
           `packages/${Date.now()}_cover_${coverImage.name}`
         );
-        console.log("Step 2: Cover image uploaded:", coverImageUrl);
       }
 
-      // Upload gallery images
-      console.log("Step 3: Uploading gallery images...");
-      const galleryUrls = await Promise.all(
+      // Upload only new gallery files, combine with remaining existing URLs
+      const newGalleryUrls = await Promise.all(
         galleryImages.map((file, index) =>
           uploadImage(file, `packages/${Date.now()}_gallery_${index}_${file.name}`)
         )
       );
-      console.log("Step 3: Gallery images uploaded:", galleryUrls.length);
+      const allGalleryUrls = [...existingGalleryUrls, ...newGalleryUrls];
 
-      // Upload itinerary images
-      console.log("Step 4: Processing itinerary...");
+      // Process itinerary: upload only new images, keep existing
       const itineraryWithUrls = await Promise.all(
         itinerary.map(async (day, dayIndex) => {
-          const imageUrls = await Promise.all(
+          const newImageUrls = await Promise.all(
             day.images.map((file, imgIndex) =>
               uploadImage(file, `packages/${Date.now()}_day${dayIndex + 1}_${imgIndex}_${file.name}`)
             )
           );
+          const allDayImages = [...(day.existingImages || []), ...newImageUrls];
           return {
             dayNumber: day.dayNumber,
             title: day.title,
@@ -232,48 +282,44 @@ export default function AddPackage({ onClose, onSuccess }) {
             accommodation: day.accommodation,
             meals: day.meals,
             travelTime: day.travelTime,
-            images: imageUrls
+            images: allDayImages
           };
         })
       );
-      console.log("Step 4: Itinerary processed");
 
-      // Create package document
       const packageData = {
         title,
         description,
         tourType,
-        duration: {
-          days: parseInt(days),
-          nights: parseInt(nights)
-        },
+        duration: { days: parseInt(days), nights: parseInt(nights) },
         price: parseFloat(price),
         currency,
-        pax: {
-          min: parseInt(minPax),
-          max: parseInt(maxPax)
-        },
+        pax: { min: parseInt(minPax), max: parseInt(maxPax) },
         coverImage: coverImageUrl,
-        galleryImages: galleryUrls,
+        galleryImages: allGalleryUrls,
         highlights: highlights.filter(h => h.trim() !== ""),
         themes,
+        experiences,
+        travelPeriod,
         inclusions: inclusions.filter(i => i.trim() !== ""),
         exclusions: exclusions.filter(e => e.trim() !== ""),
         itinerary: itineraryWithUrls,
-        createdAt: new Date(),
         updatedAt: new Date()
       };
 
-      console.log("Step 5: Saving to Firestore...", packageData);
-      await addDoc(collection(db, "packages"), packageData);
-      console.log("Step 6: Package created successfully!");
+      if (isEditing) {
+        const packageRef = doc(db, "packages", editPackage.id);
+        await updateDoc(packageRef, packageData);
+      } else {
+        packageData.createdAt = new Date();
+        await addDoc(collection(db, "packages"), packageData);
+      }
 
       onSuccess && onSuccess();
       onClose && onClose();
     } catch (error) {
-      console.error("Error creating package:", error);
-      console.error("Error details:", error.message, error.code);
-      alert(`Error creating package: ${error.message}`);
+      console.error("Error saving package:", error);
+      alert(`Error saving package: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -290,7 +336,7 @@ export default function AddPackage({ onClose, onSuccess }) {
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <div className={styles.modalHeader}>
-          <h2>Add New Tour Package</h2>
+          <h2>{editPackage ? "Edit Tour Package" : "Add New Tour Package"}</h2>
           <button type="button" onClick={onClose} className={styles.closeBtn}>
             <i className="fa fa-times"></i>
           </button>
@@ -340,14 +386,12 @@ export default function AddPackage({ onClose, onSuccess }) {
                 <div className={styles.formGroup}>
                   <label>Tour Type</label>
                   <select value={tourType} onChange={(e) => setTourType(e.target.value)}>
-                    <option value="Round Tour">Round Tour</option>
-                    <option value="Day Excursion">Day Excursion</option>
-                    <option value="Beach Holiday">Beach Holiday</option>
-                    <option value="Wildlife Safari">Wildlife Safari</option>
-                    <option value="Cultural Tour">Cultural Tour</option>
-                    <option value="Adventure Tour">Adventure Tour</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Couple">Couple</option>
                     <option value="Honeymoon">Honeymoon</option>
-                    <option value="Tailor Made">Tailor Made</option>
+                    <option value="Family">Family</option>
+                    <option value="Group">Group</option>
+                    <option value="Corporate (MICE)">Corporate (MICE)</option>
                   </select>
                 </div>
 
@@ -436,6 +480,38 @@ export default function AddPackage({ onClose, onSuccess }) {
                       onClick={() => toggleTheme(theme)}
                     >
                       {theme}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Experiences</label>
+                <div className={styles.themeTags}>
+                  {availableExperiences.map((exp) => (
+                    <button
+                      key={exp}
+                      type="button"
+                      className={`${styles.themeTag} ${experiences.includes(exp) ? styles.activeTag : ""}`}
+                      onClick={() => toggleExperience(exp)}
+                    >
+                      {exp}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Travel Period</label>
+                <div className={styles.themeTags}>
+                  {availableTravelPeriods.map((period) => (
+                    <button
+                      key={period}
+                      type="button"
+                      className={`${styles.themeTag} ${travelPeriod.includes(period) ? styles.activeTag : ""}`}
+                      onClick={() => toggleTravelPeriod(period)}
+                    >
+                      {period}
                     </button>
                   ))}
                 </div>
@@ -793,11 +869,11 @@ export default function AddPackage({ onClose, onSuccess }) {
               >
                 {loading ? (
                   <>
-                    <i className="fa fa-spinner fa-spin"></i> Creating...
+                    <i className="fa fa-spinner fa-spin"></i> {editPackage ? "Saving..." : "Creating..."}
                   </>
                 ) : (
                   <>
-                    <i className="fa fa-check"></i> Create Package
+                    <i className="fa fa-check"></i> {editPackage ? "Save Changes" : "Create Package"}
                   </>
                 )}
               </button>
