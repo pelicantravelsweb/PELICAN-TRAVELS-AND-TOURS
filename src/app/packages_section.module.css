@@ -266,10 +266,14 @@
 
 @media only screen and (max-width: 900px) {
     .topic_text{
+        font-size: 1.3rem;
         text-align: center;
         padding-left: 0;
+        padding-bottom: 0;
         padding-top: 50vh;
     }
+
+
 
     .packages_container{
     gap:0.5rem;

@@ -15,6 +15,7 @@ import image_1 from "../../public/Cover_Image.jpg";
 import image_2 from "../../public/Pelican_Bird_Art.png";
 import image_3 from "../../public/SriLankan_Attractions.png";
 import image_4 from "../../public/Inquiry Section_Mask Image.png";
+import image_5 from "../../public/Inquiry Section_Mask Image_2.png";
 import { FaTripadvisor } from "react-icons/fa";
 import { db } from './lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -137,7 +138,7 @@ const handleInquirySubmit = async (e) => {
         <Link href="/"><h1 className={styles_1.heading}>PELICAN TOURS</h1></Link>
         <ul className={styles_1.navigation_ul}>
             <li className={styles_1.navigation_desktop}><Link href="/"><h2 id={styles_1.active}>HOME</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/tour-packages"><h2>PACKAGES</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="https://pelican-travels.web.app/tour-packages"><h2>PACKAGES</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/services"><h2>SERVICES</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/destinations"><h2>DESTINATIONS</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/contact_us"><h2>CONTACT</h2></Link></li>
@@ -149,7 +150,7 @@ const handleInquirySubmit = async (e) => {
       {isMenuOpen && (
         <div className={`${styles_1.mobile_navigation_menu} ${styles_1.fadeInDown}`}>
           <Link href="/"><h2 id={styles_1.active}>HOME</h2></Link>
-          <Link href="/tour-packages"><h2>PACKAGES</h2></Link>
+          <Link href="/packages"><h2>PACKAGES</h2></Link>
           <Link href="/services"><h2>SERVICES</h2></Link>
           <Link href="/destinations"><h2>DESTINATIONS</h2></Link>
           <Link href="/contact_us"><h2>CONTACT</h2></Link>
@@ -463,7 +464,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
         </div>
 
-{/*Inquire Us Section_____________________________________________________________________________*/}
+{/*Tailormade Section_____________________________________________________________________________*/}
 
         <h1 className={styles_6.topic_text}>INQUIARE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h1>
         <div className={styles_6.inquire_section}>
@@ -529,12 +530,13 @@ const handleInquirySubmit = async (e) => {
             </form>
 
             <div className={styles_6.inquire_image}>
-                <Image src={image_4} alt="Inquiry Section Image"/>
+                <Image className={styles_6.inquire_form_image_1} src={image_4} alt="Inquiry Section Image"/>
+                <Image className={styles_6.inquire_form_image_2}src={image_5} alt="Inquiry Section Image"/>
             </div>
         </div>
 
 {/*Why Us Section_____________________________________________________________________________*/}   
-        <h1 className={styles_6.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h1>
+        <h1 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h1>
         <div className={styles_7.whyus_section_container}>
 
             <div className={styles_7.whyus_section}>
@@ -559,7 +561,7 @@ const handleInquirySubmit = async (e) => {
         </div>
 
 {/*Feedback Section_____________________________________________________________________________*/}
-        <h1 className={styles_6.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>FEEDBACK</span> FROM OUR CLIENTS</h1>    
+        <h1 className={styles_8.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>FEEDBACK</span> FROM OUR CLIENTS</h1>    
         <div className={styles_8.feedback_section}>
             <div className={styles_8.feedback_container}>
                 <div className={styles_8.feedback}>
@@ -590,7 +592,7 @@ const handleInquirySubmit = async (e) => {
         </div>   
 
 {/*Feedback Section_____________________________________________________________________________*/}
-        <h1 className={styles_6.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h1>    
+        <h1 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h1>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
                     <button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button>
@@ -616,7 +618,7 @@ const handleInquirySubmit = async (e) => {
 
                 <div className={styles_9.footer_bottomline}>
                     <p>© 2026 Pelican Travels & Tours | All rights reserved</p>
-                    <p>Designed by ACZEND</p>
+                    <p></p>
                 </div>
                 <Image src={image_3} alt="Sri Lankan Attractions" />
         </div>
