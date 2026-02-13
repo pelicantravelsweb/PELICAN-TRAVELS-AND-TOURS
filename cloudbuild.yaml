@@ -24,11 +24,11 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'pelican-travels-and-tours-new'
+      - 'pelican-travels'
       - '--image'
       - 'gcr.io/$PROJECT_ID/pelican-travels'
       - '--region'
-      - 'asia-east1'
+      - 'us-central1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'

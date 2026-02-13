@@ -650,6 +650,75 @@
   color: rgb(36, 35, 35);
 }
 
+/* Inquiry Package Badge */
+.inquiryPackage {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #ff9619;
+  background-color: rgba(255, 150, 25, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  margin-bottom: 0.25rem;
+}
+
+.inquiryPackage i {
+  font-size: 0.65rem;
+}
+
+/* Inquiry Package Detail (Modal) */
+.inquiryPackageDetail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fafafa;
+  border-radius: 10px;
+  border-left: 4px solid #ff9619;
+  margin-bottom: 0.5rem;
+}
+
+.inquiryPackageImage {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.inquiryPackageInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.inquiryPackageInfo h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgb(36, 35, 35);
+  margin-bottom: 0.35rem;
+}
+
+.inquiryPackageMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.inquiryPackageMeta span {
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.inquiryPackageMeta span i {
+  color: #ff9619;
+  font-size: 0.7rem;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .sidebar {

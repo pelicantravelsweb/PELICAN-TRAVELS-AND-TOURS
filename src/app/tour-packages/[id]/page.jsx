@@ -5,7 +5,7 @@ import styles_nav from '../../navigation.module.css';
 import styles from './package_detail.module.css';
 import Link from 'next/link';
 import { db } from '../../lib/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
 
 export default function PackageDetail() {
   const params = useParams();
@@ -39,38 +39,60 @@ export default function PackageDetail() {
     e.preventDefault();
     setQuoteSubmitting(true);
 
-    // Create WhatsApp message with form data
-    const message = `*New Tour Quote Request*%0A%0A` +
-      `*Tour:* ${packageData?.title || 'Tour Package'}%0A` +
-      `*Name:* ${quoteForm.name}%0A` +
-      `*Email:* ${quoteForm.email}%0A` +
-      `*Phone:* ${quoteForm.phone}%0A` +
-      `*Arrival:* ${quoteForm.arrivalDate}%0A` +
-      `*Departure:* ${quoteForm.departureDate}%0A` +
-      `*Adults:* ${quoteForm.adults}%0A` +
-      `*Children:* ${quoteForm.children}%0A` +
-      `*Special Requests:* ${quoteForm.message || 'None'}`;
+    try {
+      // Compute days from arrival/departure
+      const arrival = new Date(quoteForm.arrivalDate);
+      const departure = new Date(quoteForm.departureDate);
+      const diffTime = Math.abs(departure - arrival);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    // Open WhatsApp with pre-filled message
-    window.open(`https://wa.me/+94782436606?text=${message}`, '_blank');
+      // Format duration string
+      const durationStr = typeof packageData?.duration === 'object'
+        ? `${packageData.duration?.days || 0} Days / ${packageData.duration?.nights || 0} Nights`
+        : `${packageData?.duration || 'N/A'} Days`;
 
-    setQuoteSubmitting(false);
-    setQuoteSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setQuoteSubmitted(false);
-      setQuoteForm({
-        name: '',
-        email: '',
-        phone: '',
-        arrivalDate: '',
-        departureDate: '',
-        adults: 2,
-        children: 0,
-        message: ''
+      await addDoc(collection(db, 'inquiries'), {
+        name: quoteForm.name,
+        email: quoteForm.email,
+        mobile: quoteForm.phone,
+        pax: `${quoteForm.adults} Adults, ${quoteForm.children} Children`,
+        days: diffDays,
+        message: quoteForm.message || '',
+        source: 'Tour Package Quote',
+        status: 'new',
+        createdAt: new Date(),
+        packageId: packageData?.id || '',
+        packageTitle: packageData?.title || '',
+        packageCoverImage: packageData?.coverImage || packageData?.imageUrl || '',
+        packageDuration: durationStr,
+        packagePrice: packageData?.price || 0,
+        packageCurrency: packageData?.currency || 'USD',
+        arrivalDate: quoteForm.arrivalDate,
+        departureDate: quoteForm.departureDate,
       });
-    }, 3000);
+
+      setQuoteSubmitted(true);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setQuoteSubmitted(false);
+        setQuoteForm({
+          name: '',
+          email: '',
+          phone: '',
+          arrivalDate: '',
+          departureDate: '',
+          adults: 2,
+          children: 0,
+          message: ''
+        });
+      }, 3000);
+    } catch (error) {
+      console.error('Error submitting quote:', error);
+      alert('Failed to submit quote. Please try again.');
+    } finally {
+      setQuoteSubmitting(false);
+    }
   };
 
   const handleThemeToggle = () => {
@@ -426,7 +448,7 @@ export default function PackageDetail() {
                     <div className={styles.quote_success}>
                       <i className="fa-solid fa-check-circle"></i>
                       <h3>Thank You!</h3>
-                      <p>Your quote request has been sent via WhatsApp. We'll get back to you shortly!</p>
+                      <p>Your quote request has been submitted successfully. Our team will review your request and get back to you soon!</p>
                     </div>
                   ) : (
                     <form onSubmit={handleQuoteSubmit} className={styles.quote_form}>
@@ -530,9 +552,9 @@ export default function PackageDetail() {
                       <div className={styles.quote_actions}>
                         <button type="submit" className={styles.quote_submit} disabled={quoteSubmitting}>
                           {quoteSubmitting ? (
-                            <><i className="fa-solid fa-spinner fa-spin"></i> Sending...</>
+                            <><i className="fa-solid fa-spinner fa-spin"></i> Submitting...</>
                           ) : (
-                            <><i className="fa-brands fa-whatsapp"></i> Get Quote via WhatsApp</>
+                            <><i className="fa-solid fa-paper-plane"></i> Submit Quote</>
                           )}
                         </button>
                         <p className={styles.quote_note}>

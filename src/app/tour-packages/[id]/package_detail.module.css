@@ -29,6 +29,7 @@
   min-height: calc(100vh - 12vh);
   background-color: rgb(36, 35, 35);
   padding: 0 2rem 4rem 2rem;
+  overflow-x: hidden;
 }
 
 /* Loading State */
@@ -105,8 +106,10 @@
 .package_title {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
   margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .package_meta_header {
@@ -158,6 +161,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: 100%;
 }
 
 .placeholder_image {
@@ -237,7 +241,7 @@
 /* Quick Info Cards */
 .quick_info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -454,7 +458,7 @@
 /* Day Images Gallery */
 .day_images {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
   gap: 0.75rem;
   padding: 1rem 1.5rem;
   background-color: rgb(40, 39, 39);
@@ -518,7 +522,7 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 0.5rem;
 }
 
@@ -575,7 +579,7 @@
 /* Inclusions Section */
 .inclusions_section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -642,7 +646,7 @@
 /* Highlights Section */
 .highlights_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -797,7 +801,7 @@
 }
 
 .quote_submit {
-  background-color: #25D366;
+  background-color: rgb(235, 130, 10);
   color: white;
   border: none;
   padding: 1rem 2.5rem;
@@ -816,9 +820,9 @@
 }
 
 .quote_submit:hover:not(:disabled) {
-  background-color: #20b858;
+  background-color: rgb(200, 110, 5);
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 5px 20px rgba(235, 130, 10, 0.3);
 }
 
 .quote_submit:disabled {
@@ -846,7 +850,7 @@
 
 .quote_success i {
   font-size: 4rem;
-  color: #25D366;
+  color: rgb(235, 130, 10);
   margin-bottom: 1rem;
 }
 
@@ -1038,32 +1042,102 @@
 @media only screen and (max-width: 768px) {
   .back_section {
     padding-top: 12vh;
+    padding-left: 1rem;
   }
 
   .main_container {
     padding: 0 1rem 3rem 1rem;
+    overflow-x: hidden;
   }
 
   .main_image {
-    height: 280px;
+    height: 250px;
+    border-radius: 8px;
   }
 
   .quick_info {
     grid-template-columns: 1fr 1fr;
   }
 
+  .info_card {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .info_card i {
+    font-size: 1.2rem;
+  }
+
+  .info_value {
+    font-size: 0.9rem;
+  }
+
+  .info_label {
+    font-size: 0.75rem;
+  }
+
   .price_section {
     flex-direction: column;
     text-align: center;
+    padding: 1.25rem;
   }
 
   .price_info {
     justify-content: center;
   }
 
+  .price {
+    font-size: 2rem;
+  }
+
   .inquire_button {
     width: 100%;
     justify-content: center;
+  }
+
+  .description_section h2,
+  .experiences_section h2,
+  .itinerary_section h2,
+  .highlights_section h2 {
+    font-size: 1.1rem;
+  }
+
+  .description_section p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  /* Inclusions Mobile */
+  .inclusions_section {
+    grid-template-columns: 1fr;
+  }
+
+  .inclusion_box,
+  .exclusion_box {
+    padding: 1.25rem;
+  }
+
+  .inclusion_box li,
+  .exclusion_box li {
+    font-size: 0.85rem;
+  }
+
+  /* Highlights Mobile */
+  .highlights_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight_item {
+    padding: 0.85rem 1rem;
+  }
+
+  .highlight_item span {
+    font-size: 0.85rem;
   }
 
   /* Itinerary Mobile */
@@ -1134,12 +1208,38 @@
 }
 
 @media only screen and (max-width: 480px) {
+  .back_section {
+    padding-top: 10vh;
+    padding-left: 0.75rem;
+  }
+
+  .main_container {
+    padding: 0 0.75rem 2rem 0.75rem;
+  }
+
+  .package_title {
+    font-size: 1.4rem;
+  }
+
+  .main_image {
+    height: 200px;
+    border-radius: 8px;
+  }
+
   .quick_info {
     grid-template-columns: 1fr;
   }
 
+  .info_card {
+    padding: 0.85rem;
+  }
+
   .price {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .per_person {
+    font-size: 0.85rem;
   }
 
   .thumbnail_gallery {
@@ -1147,8 +1247,8 @@
   }
 
   .thumbnail {
-    width: 80px;
-    height: 55px;
+    width: 70px;
+    height: 50px;
   }
 
   /* Itinerary Small Mobile */
@@ -1159,11 +1259,11 @@
   }
 
   .day_images {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .day_image_item {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 
   .day_number {
@@ -1196,9 +1296,36 @@
     padding: 0.5rem 0.75rem;
   }
 
+  /* Inclusions Small Mobile */
+  .inclusion_box,
+  .exclusion_box {
+    padding: 1rem;
+  }
+
+  .inclusion_box h2,
+  .exclusion_box h2 {
+    font-size: 0.95rem;
+  }
+
+  .inclusion_box li,
+  .exclusion_box li {
+    font-size: 0.8rem;
+    gap: 0.5rem;
+  }
+
+  /* Highlights Small Mobile */
+  .highlight_item {
+    padding: 0.75rem;
+  }
+
+  .highlight_item span {
+    font-size: 0.8rem;
+  }
+
   /* Quote Section Small Mobile */
   .quote_section {
-    padding: 1.25rem;
+    padding: 1rem;
+    border-radius: 10px;
   }
 
   .quote_header h2 {
@@ -1245,5 +1372,64 @@
 
   .quote_success p {
     font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices (320px and below) */
+@media only screen and (max-width: 360px) {
+  .back_section {
+    padding-left: 0.5rem;
+  }
+
+  .main_container {
+    padding: 0 0.5rem 2rem 0.5rem;
+  }
+
+  .package_title {
+    font-size: 1.2rem;
+  }
+
+  .main_image {
+    height: 180px;
+  }
+
+  .info_card {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .info_card i {
+    font-size: 1rem;
+  }
+
+  .info_value {
+    font-size: 0.8rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .price_section {
+    padding: 1rem;
+  }
+
+  .quote_section {
+    padding: 0.75rem;
+  }
+
+  .quote_field input,
+  .quote_field textarea,
+  .quote_field_full textarea {
+    padding: 0.7rem;
+    font-size: 16px;
+  }
+
+  .day_content {
+    padding: 0.75rem;
+  }
+
+  .day_header {
+    padding: 0.75rem;
   }
 }

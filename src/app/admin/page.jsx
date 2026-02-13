@@ -329,6 +329,24 @@ export default function AdminDashboard() {
                           </button>
                         </div>
                         <div className={styles.inquiryDetailBody}>
+                          {selectedInquiry.packageTitle && (
+                            <div className={styles.inquiryPackageDetail}>
+                              {selectedInquiry.packageCoverImage && (
+                                <img
+                                  src={selectedInquiry.packageCoverImage}
+                                  alt={selectedInquiry.packageTitle}
+                                  className={styles.inquiryPackageImage}
+                                />
+                              )}
+                              <div className={styles.inquiryPackageInfo}>
+                                <h4>{selectedInquiry.packageTitle}</h4>
+                                <div className={styles.inquiryPackageMeta}>
+                                  <span><i className="fa fa-clock"></i> {selectedInquiry.packageDuration}</span>
+                                  <span><i className="fa fa-tag"></i> {selectedInquiry.packageCurrency} {selectedInquiry.packagePrice}</span>
+                                </div>
+                              </div>
+                            </div>
+                          )}
                           <div className={styles.inquiryDetailRow}>
                             <strong>Name:</strong> <span>{selectedInquiry.name}</span>
                           </div>
@@ -344,6 +362,11 @@ export default function AdminDashboard() {
                           <div className={styles.inquiryDetailRow}>
                             <strong>Days:</strong> <span>{selectedInquiry.days}</span>
                           </div>
+                          {selectedInquiry.arrivalDate && selectedInquiry.departureDate && (
+                            <div className={styles.inquiryDetailRow}>
+                              <strong>Travel Dates:</strong> <span>{selectedInquiry.arrivalDate} to {selectedInquiry.departureDate}</span>
+                            </div>
+                          )}
                           <div className={styles.inquiryDetailRow}>
                             <strong>Source:</strong> <span>{selectedInquiry.source}</span>
                           </div>
@@ -368,6 +391,11 @@ export default function AdminDashboard() {
                       >
                         <div className={styles.inquiryInfo}>
                           <h4>{inq.name}</h4>
+                          {inq.packageTitle && (
+                            <span className={styles.inquiryPackage}>
+                              <i className="fa fa-suitcase"></i> {inq.packageTitle}
+                            </span>
+                          )}
                           <p className={styles.inquiryEmail}>{inq.email}</p>
                           <p className={styles.inquiryPreview}>
                             {inq.message ? inq.message.substring(0, 80) + (inq.message.length > 80 ? '...' : '') : 'No message'}

@@ -34,7 +34,10 @@
       "Bash(gcloud compute url-maps list:*)",
       "Bash(gcloud firebase projects:list:*)",
       "WebFetch(domain:pelicantravelsandtours.com)",
-      "Bash(firebase hosting:sites:list:*)"
+      "Bash(firebase hosting:sites:list:*)",
+      "Bash(npx next build)",
+      "Bash(npx vercel:*)",
+      "Bash(gcloud config list:*)"
     ]
   }
 }
