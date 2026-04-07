@@ -64,11 +64,32 @@ function PackageCard({ pkg, renderStars, styles }) {
     }
   };
 
+  const handleTouchStart = () => {
+    if (images.length <= 1) return;
+    isHoveredRef.current = true;
+    let idx = 0;
+    intervalRef.current = setInterval(() => {
+      if (!isHoveredRef.current) return;
+      idx = (idx + 1) % images.length;
+      setCurrentImageIndex(idx);
+    }, 700);
+  };
+
+  const handleTouchEnd = () => {
+    isHoveredRef.current = false;
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
   return (
     <div
       className={styles.package_card}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onClick={handleCardNavigation}
       onKeyDown={handleCardKeyDown}
       role="link"
