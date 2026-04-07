@@ -729,27 +729,11 @@
   }
 
   .filter_toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: none !important;
   }
 
   .filters_sidebar {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 85%;
-    max-width: 320px;
-    height: 100vh;
-    max-height: 100vh;
-    z-index: 1000;
-    border-radius: 0;
-    transition: left 0.3s ease;
-    padding-top: 2rem;
-  }
-
-  .filters_open {
-    left: 0;
+    display: none !important;
   }
 
   .packages_grid {
@@ -765,6 +749,10 @@
     min-width: 96px;
     padding: 0.5rem 0.75rem;
     font-size: 0.82rem;
+  }
+
+  .sidebar_collapsed {
+    display: none;
   }
 }
 

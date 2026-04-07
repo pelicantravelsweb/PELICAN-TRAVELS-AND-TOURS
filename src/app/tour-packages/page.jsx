@@ -13,6 +13,7 @@ function PackageCard({ pkg, renderStars, styles }) {
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const intervalRef = useRef(null);
+  const touchTimeoutRef = useRef(null);
   const isHoveredRef = useRef(false);
   const packageHref = `/tour-packages/${pkg.id}`;
 
@@ -49,6 +50,10 @@ function PackageCard({ pkg, renderStars, styles }) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
+      if (touchTimeoutRef.current) {
+        clearTimeout(touchTimeoutRef.current);
+        touchTimeoutRef.current = null;
+      }
     };
   }, []);
 
@@ -66,21 +71,35 @@ function PackageCard({ pkg, renderStars, styles }) {
 
   const handleTouchStart = () => {
     if (images.length <= 1) return;
-    isHoveredRef.current = true;
-    let idx = 0;
-    intervalRef.current = setInterval(() => {
-      if (!isHoveredRef.current) return;
-      idx = (idx + 1) % images.length;
-      setCurrentImageIndex(idx);
-    }, 700);
-  };
-
-  const handleTouchEnd = () => {
-    isHoveredRef.current = false;
+    // Clear any previous touch cycle
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
+    if (touchTimeoutRef.current) {
+      clearTimeout(touchTimeoutRef.current);
+      touchTimeoutRef.current = null;
+    }
+    isHoveredRef.current = true;
+    let idx = 0;
+    intervalRef.current = setInterval(() => {
+      idx = (idx + 1) % images.length;
+      setCurrentImageIndex(idx);
+    }, 700);
+    // Auto-stop after cycling through all images once (max 4s)
+    const cycleDuration = Math.min(images.length * 700, 4000);
+    touchTimeoutRef.current = setTimeout(() => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      setCurrentImageIndex(0);
+      isHoveredRef.current = false;
+    }, cycleDuration);
+  };
+
+  const handleTouchEnd = () => {
+    // Do not stop immediately — let the touch cycle run via touchTimeoutRef
   };
 
   return (
@@ -157,8 +176,8 @@ export default function TourPackages() {
   const [packages, setPackages] = useState([]);
   const [filteredPackages, setFilteredPackages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
 
   // Filter states
   const [selectedTourTypes, setSelectedTourTypes] = useState([]);
@@ -198,6 +217,27 @@ export default function TourPackages() {
 
     fetchPackages();
   }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 900px)');
+
+    const handleViewportChange = (event) => {
+      setIsMobileView(event.matches);
+    };
+
+    setIsMobileView(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleViewportChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleViewportChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobileView && isSidebarCollapsed) {
+      setIsSidebarCollapsed(false);
+    }
+  }, [isMobileView, isSidebarCollapsed]);
 
   // Apply filters
   useEffect(() => {
@@ -311,19 +351,10 @@ export default function TourPackages() {
 
       {/* Main Content */}
       <div className={styles.main_container}>
-        {/* Mobile Filter Toggle */}
-        <button
-          className={styles.filter_toggle}
-          onClick={() => setIsFilterOpen(!isFilterOpen)}
-        >
-          <i className="fa-solid fa-filter"></i>
-          {isFilterOpen ? 'Hide Filters' : 'Show Filters'}
-          {hasActiveFilters && <span className={styles.filter_badge}></span>}
-        </button>
-
         {/* Filters Sidebar */}
+        {!isMobileView && (
         <aside
-          className={`${styles.filters_sidebar} ${isFilterOpen ? styles.filters_open : ''} ${isSidebarCollapsed ? styles.sidebar_collapsed : ''}`}
+          className={`${styles.filters_sidebar} ${isSidebarCollapsed ? styles.sidebar_collapsed : ''}`}
           onClick={isSidebarCollapsed ? () => setIsSidebarCollapsed(false) : undefined}
         >
           {isSidebarCollapsed ? (
@@ -341,13 +372,15 @@ export default function TourPackages() {
                   Clear All
                 </button>
               )}
-              <button
-                className={styles.hide_sidebar_btn}
-                onClick={() => setIsSidebarCollapsed(true)}
-                title="Hide filters"
-              >
-                <i className="fa-solid fa-chevron-left"></i>
-              </button>
+              {!isMobileView && (
+                <button
+                  className={styles.hide_sidebar_btn}
+                  onClick={() => setIsSidebarCollapsed(true)}
+                  title="Hide filters"
+                >
+                  <i className="fa-solid fa-chevron-left"></i>
+                </button>
+              )}
             </div>
           </div>
 
@@ -457,6 +490,7 @@ export default function TourPackages() {
           </>
           )}
         </aside>
+        )}
 
         {/* Packages Grid */}
         <main className={styles.packages_main}>

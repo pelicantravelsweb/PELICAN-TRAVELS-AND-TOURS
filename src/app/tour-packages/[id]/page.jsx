@@ -16,6 +16,32 @@ export default function PackageDetail() {
   const [packageData, setPackageData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Touch handlers for swipe gesture
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    handleSwipe(e);
+  };
+
+  const handleSwipe = (e) => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setActiveImageIndex((activeImageIndex + 1) % images.length);
+    }
+    if (isRightSwipe) {
+      setActiveImageIndex((activeImageIndex - 1 + images.length) % images.length);
+    }
+  };
 
   // Quote form state
   const [quoteForm, setQuoteForm] = useState({
@@ -216,7 +242,11 @@ export default function PackageDetail() {
             <div className={styles.package_content}>
               {/* Image Gallery */}
               <div className={styles.gallery_section}>
-                <div className={styles.main_image}>
+                <div 
+                  className={styles.main_image}
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
+                >
                   {images.length > 0 ? (
                     <img src={images[activeImageIndex]} alt={packageData.title} />
                   ) : (
@@ -230,16 +260,32 @@ export default function PackageDetail() {
                   )}
                 </div>
                 {images.length > 1 && (
-                  <div className={styles.thumbnail_gallery}>
-                    {images.map((img, index) => (
-                      <div
-                        key={index}
-                        className={`${styles.thumbnail} ${activeImageIndex === index ? styles.active : ''}`}
-                        onClick={() => setActiveImageIndex(index)}
-                      >
-                        <img src={img} alt={`${packageData.title} ${index + 1}`} />
-                      </div>
-                    ))}
+                  <div className={styles.gallery_controls}>
+                    <button
+                      className={styles.slider_arrow_left}
+                      onClick={() => setActiveImageIndex((activeImageIndex - 1 + images.length) % images.length)}
+                      aria-label="Previous image"
+                    >
+                      <i className="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div className={styles.thumbnail_gallery}>
+                      {images.map((img, index) => (
+                        <div
+                          key={index}
+                          className={`${styles.thumbnail} ${activeImageIndex === index ? styles.active : ''}`}
+                          onClick={() => setActiveImageIndex(index)}
+                        >
+                          <img src={img} alt={`${packageData.title} ${index + 1}`} />
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      className={styles.slider_arrow_right}
+                      onClick={() => setActiveImageIndex((activeImageIndex + 1) % images.length)}
+                      aria-label="Next image"
+                    >
+                      <i className="fa-solid fa-chevron-right"></i>
+                    </button>
                   </div>
                 )}
               </div>
@@ -293,7 +339,7 @@ export default function PackageDetail() {
                     <span className={styles.price}>${packageData.price || 899}</span>
                     <span className={styles.per_person}>per person</span>
                   </div>
-                  <button className={styles.inquire_button}>
+                  <button className={styles.inquire_button} onClick={() => document.getElementById('quote-section')?.scrollIntoView({ behavior: 'smooth' })}>
                     <i className="fa-solid fa-envelope"></i> Inquire Now
                   </button>
                 </div>
@@ -427,7 +473,7 @@ export default function PackageDetail() {
                 )}
 
                 {/* Get a Quote Section */}
-                <div className={styles.quote_section}>
+                <div id="quote-section" className={styles.quote_section}>
                   <div className={styles.quote_header}>
                     <h2><i className="fa-solid fa-paper-plane"></i> Get a Quote</h2>
                     <p>Fill in your details and we'll send you a personalized quote for this tour</p>
