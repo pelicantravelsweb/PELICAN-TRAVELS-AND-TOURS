@@ -82,6 +82,45 @@
   top: 10vh;
   max-height: calc(100vh - 14vh);
   overflow-y: auto;
+  transition: width 0.3s ease, padding 0.3s ease, min-width 0.3s ease;
+}
+
+.sidebar_collapsed {
+  width: 44px !important;
+  min-width: 44px !important;
+  padding: 1rem 0 !important;
+  overflow: hidden !important;
+  cursor: pointer;
+}
+
+.sidebar_collapsed:hover {
+  background-color: rgb(58, 57, 57);
+}
+
+.sidebar_collapsed_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  pointer-events: none;
+}
+
+.sidebar_collapsed_inner i {
+  color: rgb(235, 130, 10);
+  font-size: 1rem;
+}
+
+.sidebar_collapsed_label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(160, 160, 160);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .filters_sidebar::-webkit-scrollbar {
@@ -106,6 +145,30 @@
   padding-bottom: 1rem;
   border-bottom: 1px solid rgb(70, 70, 70);
 }
+
+.filters_header_actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hide_sidebar_btn {
+  background: none;
+  border: none;
+  color: rgb(160, 160, 160);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  line-height: 1;
+}
+
+.hide_sidebar_btn:hover {
+  background-color: rgb(70, 70, 70);
+  color: white;
+}
+
+
 
 .filters_header h2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -464,6 +527,11 @@
   line-height: 1.3;
   text-align: left;
   padding-top: 0.5rem;
+  min-height: 2.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .package_description {
@@ -509,8 +577,9 @@
 
 .package_price {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
 }
 
 .price {
@@ -523,22 +592,29 @@
 .per_person {
   font-family: 'Poppins', sans-serif;
   color: rgb(122, 120, 120);
-  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .view_button {
   background-color: rgb(235, 130, 10);
   color: wheat;
   border: 1px solid transparent;
-  padding: clamp(0.5rem, 0.7vw, 0.7rem) clamp(0.8rem, 1vw, 1rem);
+  padding: 0.55rem 1rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 38px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .view_button:hover {

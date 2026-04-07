@@ -108,6 +108,7 @@ export default function TourPackages() {
   const [filteredPackages, setFilteredPackages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   // Filter states
   const [selectedTourTypes, setSelectedTourTypes] = useState([]);
@@ -271,14 +272,33 @@ export default function TourPackages() {
         </button>
 
         {/* Filters Sidebar */}
-        <aside className={`${styles.filters_sidebar} ${isFilterOpen ? styles.filters_open : ''}`}>
+        <aside
+          className={`${styles.filters_sidebar} ${isFilterOpen ? styles.filters_open : ''} ${isSidebarCollapsed ? styles.sidebar_collapsed : ''}`}
+          onClick={isSidebarCollapsed ? () => setIsSidebarCollapsed(false) : undefined}
+        >
+          {isSidebarCollapsed ? (
+            <div className={styles.sidebar_collapsed_inner}>
+              <i className="fa-solid fa-sliders"></i>
+              <span className={styles.sidebar_collapsed_label}>Filters</span>
+            </div>
+          ) : (
+            <>
           <div className={styles.filters_header}>
             <h2><i className="fa-solid fa-sliders"></i> Filters</h2>
-            {hasActiveFilters && (
-              <button className={styles.clear_filters} onClick={clearAllFilters}>
-                Clear All
+            <div className={styles.filters_header_actions}>
+              {hasActiveFilters && (
+                <button className={styles.clear_filters} onClick={clearAllFilters}>
+                  Clear All
+                </button>
+              )}
+              <button
+                className={styles.hide_sidebar_btn}
+                onClick={() => setIsSidebarCollapsed(true)}
+                title="Hide filters"
+              >
+                <i className="fa-solid fa-chevron-left"></i>
               </button>
-            )}
+            </div>
           </div>
 
           {/* Tour Type Filter */}
@@ -384,6 +404,8 @@ export default function TourPackages() {
               </div>
             </div>
           </div>
+          </>
+          )}
         </aside>
 
         {/* Packages Grid */}
