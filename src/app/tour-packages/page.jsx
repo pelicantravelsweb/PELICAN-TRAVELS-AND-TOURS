@@ -4,14 +4,17 @@ import styles_nav from '../navigation.module.css';
 import styles from './tour_packages.module.css';
 import Link from 'next/link';
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 import { db } from '../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import useThemeToggle from '../lib/useThemeToggle';
 
 function PackageCard({ pkg, renderStars, styles }) {
+  const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const intervalRef = useRef(null);
   const isHoveredRef = useRef(false);
+  const packageHref = `/tour-packages/${pkg.id}`;
 
   // Collect all images: cover + gallery + itinerary day images (capped at 8)
   const images = [
@@ -40,11 +43,37 @@ function PackageCard({ pkg, renderStars, styles }) {
     setCurrentImageIndex(0);
   };
 
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, []);
+
+  const handleCardNavigation = (event) => {
+    if (event.target.closest('a, button, input, textarea, select, label')) return;
+    router.push(packageHref);
+  };
+
+  const handleCardKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      router.push(packageHref);
+    }
+  };
+
   return (
     <div
       className={styles.package_card}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleCardNavigation}
+      onKeyDown={handleCardKeyDown}
+      role="link"
+      tabIndex={0}
+      aria-label={`View package details for ${pkg.title || 'tour package'}`}
     >
       <div className={styles.package_image}>
         {images.length > 0 ? (
@@ -94,7 +123,7 @@ function PackageCard({ pkg, renderStars, styles }) {
             <span className={styles.price}>${pkg.price || 899}</span>
             <span className={styles.per_person}>Per Person</span>
           </div>
-          <Link href={`/tour-packages/${pkg.id}`} className={styles.view_button}>View Details</Link>
+          <Link href={packageHref} className={styles.view_button}>View Details</Link>
         </div>
       </div>
     </div>
