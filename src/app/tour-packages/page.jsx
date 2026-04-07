@@ -178,6 +178,7 @@ export default function TourPackages() {
   const [loading, setLoading] = useState(true);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   // Filter states
   const [selectedTourTypes, setSelectedTourTypes] = useState([]);
@@ -352,9 +353,13 @@ export default function TourPackages() {
       {/* Main Content */}
       <div className={styles.main_container}>
         {/* Filters Sidebar */}
-        {!isMobileView && (
+        {(!isMobileView || isMobileFilterOpen) && (
+        <>
+        {isMobileView && (
+          <div className={styles.mobile_filter_overlay} onClick={() => setIsMobileFilterOpen(false)} />
+        )}
         <aside
-          className={`${styles.filters_sidebar} ${isSidebarCollapsed ? styles.sidebar_collapsed : ''}`}
+          className={`${styles.filters_sidebar} ${isSidebarCollapsed ? styles.sidebar_collapsed : ''} ${isMobileView ? styles.mobile_filter_panel : ''}`}
           onClick={isSidebarCollapsed ? () => setIsSidebarCollapsed(false) : undefined}
         >
           {isSidebarCollapsed ? (
@@ -379,6 +384,15 @@ export default function TourPackages() {
                   title="Hide filters"
                 >
                   <i className="fa-solid fa-chevron-left"></i>
+                </button>
+              )}
+              {isMobileView && (
+                <button
+                  className={styles.hide_sidebar_btn}
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  title="Close filters"
+                >
+                  <i className="fa-solid fa-xmark"></i>
                 </button>
               )}
             </div>
@@ -490,6 +504,16 @@ export default function TourPackages() {
           </>
           )}
         </aside>
+        </>
+        )}
+
+        {/* Mobile Filter Toggle Button */}
+        {isMobileView && (
+          <button className={styles.filter_toggle} onClick={() => setIsMobileFilterOpen(true)}>
+            <i className="fa-solid fa-sliders"></i>
+            Filters
+            {hasActiveFilters && <span className={styles.filter_badge}></span>}
+          </button>
         )}
 
         {/* Packages Grid */}
