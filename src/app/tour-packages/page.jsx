@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles_nav from '../navigation.module.css';
 import styles from './tour_packages.module.css';
 import Link from 'next/link';
@@ -7,6 +7,99 @@ import Image from "next/image";
 import { db } from '../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import useThemeToggle from '../lib/useThemeToggle';
+
+function PackageCard({ pkg, renderStars, styles }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const intervalRef = useRef(null);
+  const isHoveredRef = useRef(false);
+
+  // Collect all images: cover + gallery + itinerary day images (capped at 8)
+  const images = [
+    pkg.coverImage || pkg.imageUrl,
+    ...(pkg.galleryImages || []),
+    ...(pkg.itinerary?.flatMap(day => day.images || []) || [])
+  ].filter(Boolean).slice(0, 8);
+
+  const handleMouseEnter = () => {
+    if (images.length <= 1) return;
+    isHoveredRef.current = true;
+    let idx = 0;
+    intervalRef.current = setInterval(() => {
+      if (!isHoveredRef.current) return;
+      idx = (idx + 1) % images.length;
+      setCurrentImageIndex(idx);
+    }, 700);
+  };
+
+  const handleMouseLeave = () => {
+    isHoveredRef.current = false;
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    setCurrentImageIndex(0);
+  };
+
+  return (
+    <div
+      className={styles.package_card}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className={styles.package_image}>
+        {images.length > 0 ? (
+          <>
+            {images.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={i === 0 ? (pkg.title || 'Tour Package') : ''}
+                className={`${styles.package_img_slide} ${i === currentImageIndex ? styles.package_img_active : ''}`}
+              />
+            ))}
+            {images.length > 1 && (
+              <div className={styles.image_dots}>
+                {images.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`${styles.image_dot} ${i === currentImageIndex ? styles.image_dot_active : ''}`}
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        ) : (
+          <div className={styles.placeholder_image}>
+            <i className="fa-solid fa-image"></i>
+          </div>
+        )}
+        {pkg.featured && <span className={styles.featured_badge}>Featured</span>}
+      </div>
+      <div className={styles.package_content}>
+        <div className={styles.package_meta}>
+          <span><i className="fa-solid fa-clock"></i> {typeof pkg.duration === 'object' ? pkg.duration?.days : pkg.duration || 'N/A'} Days</span>
+          <span><i className="fa-solid fa-users"></i> {pkg.pax?.min || pkg.minPax || 2}-{pkg.pax?.max || pkg.maxPax || 12} Pax</span>
+        </div>
+        <h3 className={styles.package_title}>{pkg.title || 'Tour Package'}</h3>
+        <p className={styles.package_description}>
+          {pkg.description?.substring(0, 450) || 'Discover the beauty of Sri Lanka with this amazing tour package.'}
+          {pkg.description?.length > 450 ? '...' : ''}
+        </p>
+        <div className={styles.package_rating}>
+          {renderStars(pkg.rating || 4.5)}
+          <span>{pkg.rating || 4.5}</span>
+        </div>
+        <div className={styles.package_footer}>
+          <div className={styles.package_price}>
+            <span className={styles.price}>${pkg.price || 899}</span>
+            <span className={styles.per_person}>Per Person</span>
+          </div>
+          <Link href={`/tour-packages/${pkg.id}`} className={styles.view_button}>View Details</Link>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function TourPackages() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -314,40 +407,7 @@ export default function TourPackages() {
           ) : (
             <div className={styles.packages_grid}>
               {filteredPackages.map((pkg) => (
-                <div key={pkg.id} className={styles.package_card}>
-                  <div className={styles.package_image}>
-                    {(pkg.coverImage || pkg.imageUrl) ? (
-                      <img src={pkg.coverImage || pkg.imageUrl} alt={pkg.title || 'Tour Package'} />
-                    ) : (
-                      <div className={styles.placeholder_image}>
-                        <i className="fa-solid fa-image"></i>
-                      </div>
-                    )}
-                    {pkg.featured && <span className={styles.featured_badge}>Featured</span>}
-                  </div>
-                  <div className={styles.package_content}>
-                    <div className={styles.package_meta}>
-                      <span><i className="fa-solid fa-clock"></i> {typeof pkg.duration === 'object' ? pkg.duration?.days : pkg.duration || 'N/A'} Days</span>
-                      <span><i className="fa-solid fa-users"></i> {pkg.pax?.min || pkg.minPax || 2}-{pkg.pax?.max || pkg.maxPax || 12} Pax</span>
-                    </div>
-                    <h3 className={styles.package_title}>{pkg.title || 'Tour Package'}</h3>
-                    <p className={styles.package_description}>
-                      {pkg.description?.substring(0, 450) || 'Discover the beauty of Sri Lanka with this amazing tour package.'}
-                      {pkg.description?.length > 450 ? '...' : ''}
-                    </p>
-                    <div className={styles.package_rating}>
-                      {renderStars(pkg.rating || 4.5)}
-                      <span>{pkg.rating || 4.5}</span>
-                    </div>
-                    <div className={styles.package_footer}>
-                      <div className={styles.package_price}>
-                        <span className={styles.price}>${pkg.price || 899}</span>
-                        <span className={styles.per_person}>Per Person</span>
-                      </div>
-                      <Link href={`/tour-packages/${pkg.id}`} className={styles.view_button}>View Details</Link>
-                    </div>
-                  </div>
-                </div>
+                <PackageCard key={pkg.id} pkg={pkg} renderStars={renderStars} styles={styles} />
               ))}
             </div>
           )}
