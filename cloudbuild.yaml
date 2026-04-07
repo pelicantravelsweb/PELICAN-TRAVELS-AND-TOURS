@@ -1,4 +1,15 @@
 steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'artifacts'
+      - 'repositories'
+      - 'create'
+      - 'pelican-travels'
+      - '--repository-format=docker'
+      - '--location=asia-east1'
+      - '--quiet'
+    allowFailure: true
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
