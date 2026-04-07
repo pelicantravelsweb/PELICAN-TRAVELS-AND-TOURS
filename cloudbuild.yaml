@@ -48,3 +48,5 @@ steps:
 images:
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/pelican-travels/app'
 timeout: '1800s'
+options:
+  logging: CLOUD_LOGGING_ONLY
