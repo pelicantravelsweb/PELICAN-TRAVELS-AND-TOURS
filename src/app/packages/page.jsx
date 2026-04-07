@@ -2,25 +2,13 @@
 import React, { useState, useEffect } from "react";
 import styles_1 from './navigation.module.css';
 import Link from 'next/link';
+import useThemeToggle from '../lib/useThemeToggle';
 
 
 
 function page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLightTheme, setIsLightTheme] = useState(false);
-
-
-  const handleThemeToggle = () => {
-    setIsLightTheme(!isLightTheme);
-  };
-
-  useEffect(() => {
-    if (isLightTheme) {
-      document.body.classList.add("light_theme");
-    } else {
-      document.body.classList.remove("light_theme");
-    }
-  }, [isLightTheme]);
+  const { isLightTheme, handleThemeToggle } = useThemeToggle();
 
   return (
     <>

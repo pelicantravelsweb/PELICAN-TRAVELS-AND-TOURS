@@ -6,10 +6,11 @@ import Link from 'next/link';
 import Image from "next/image";
 import { db } from '../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import useThemeToggle from '../lib/useThemeToggle';
 
 export default function TourPackages() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLightTheme, setIsLightTheme] = useState(false);
+  const { isLightTheme, handleThemeToggle } = useThemeToggle();
   const [packages, setPackages] = useState([]);
   const [filteredPackages, setFilteredPackages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,18 +32,6 @@ export default function TourPackages() {
     'Festivals & Local Events', 'Food & Culinary'
   ];
   const travelPeriods = ['All Year Round', 'December–April (Dry season)', 'May–September (Dry season)'];
-
-  const handleThemeToggle = () => {
-    setIsLightTheme(!isLightTheme);
-  };
-
-  useEffect(() => {
-    if (isLightTheme) {
-      document.body.classList.add("light_theme");
-    } else {
-      document.body.classList.remove("light_theme");
-    }
-  }, [isLightTheme]);
 
   // Fetch packages from Firebase
   useEffect(() => {

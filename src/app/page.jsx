@@ -19,25 +19,13 @@ import image_5 from "../../public/Inquiry Section_Mask Image_2.png";
 import { FaTripadvisor } from "react-icons/fa";
 import { db } from './lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import useThemeToggle from './lib/useThemeToggle';
 
 
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLightTheme, setIsLightTheme] = useState(false);
-
-
-  const handleThemeToggle = () => {
-    setIsLightTheme(!isLightTheme);
-  };
-
-  useEffect(() => {
-    if (isLightTheme) {
-      document.body.classList.add("light_theme");
-    } else {
-      document.body.classList.remove("light_theme");
-    }
-  }, [isLightTheme]);
+    const { isLightTheme, handleThemeToggle } = useThemeToggle();
 
 
 const containerRef = useRef(null);

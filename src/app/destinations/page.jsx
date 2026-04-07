@@ -17,25 +17,13 @@ import image_10 from "../../../public/Destinations_Image_9.jpg";
 import image_11 from "../../../public/Destinations_Image_10.jpg";
 import image_12 from "../../../public/Destinations_Image_11.jpg";
 import image_13 from "../../../public/Destinations_Image_12.jpg";
+import useThemeToggle from '../lib/useThemeToggle';
 
 
 
 function page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLightTheme, setIsLightTheme] = useState(false);
-
-
-  const handleThemeToggle = () => {
-    setIsLightTheme(!isLightTheme);
-  };
-
-  useEffect(() => {
-    if (isLightTheme) {
-      document.body.classList.add("light_theme");
-    } else {
-      document.body.classList.remove("light_theme");
-    }
-  }, [isLightTheme]);
+  const { isLightTheme, handleThemeToggle } = useThemeToggle();
 
   return (
     <>

@@ -8,25 +8,13 @@ import image_1 from "../../../public/Services_Image_1.jpg";
 import image_2 from "../../../public/Services_Image_2.jpg";
 import image_3 from "../../../public/Services_Image_3.jpg";
 import image_4 from "../../../public/Services_Image_4.jpg";
+import useThemeToggle from '../lib/useThemeToggle';
 
 
 
 function page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLightTheme, setIsLightTheme] = useState(false);
-
-
-  const handleThemeToggle = () => {
-    setIsLightTheme(!isLightTheme);
-  };
-
-  useEffect(() => {
-    if (isLightTheme) {
-      document.body.classList.add("light_theme");
-    } else {
-      document.body.classList.remove("light_theme");
-    }
-  }, [isLightTheme]);
+  const { isLightTheme, handleThemeToggle } = useThemeToggle();
 
 
 

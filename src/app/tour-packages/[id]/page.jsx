@@ -6,12 +6,13 @@ import styles from './package_detail.module.css';
 import Link from 'next/link';
 import { db } from '../../lib/firebase';
 import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
+import useThemeToggle from '../../lib/useThemeToggle';
 
 export default function PackageDetail() {
   const params = useParams();
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLightTheme, setIsLightTheme] = useState(false);
+  const { isLightTheme, handleThemeToggle } = useThemeToggle();
   const [packageData, setPackageData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -94,18 +95,6 @@ export default function PackageDetail() {
       setQuoteSubmitting(false);
     }
   };
-
-  const handleThemeToggle = () => {
-    setIsLightTheme(!isLightTheme);
-  };
-
-  useEffect(() => {
-    if (isLightTheme) {
-      document.body.classList.add("light_theme");
-    } else {
-      document.body.classList.remove("light_theme");
-    }
-  }, [isLightTheme]);
 
   // Fetch package details from Firebase
   useEffect(() => {
