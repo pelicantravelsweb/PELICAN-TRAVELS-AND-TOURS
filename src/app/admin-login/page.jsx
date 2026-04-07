@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = 'force-dynamic';
 import React, { useState, useEffect } from "react";
 import styles from "./admin_login.module.css";
 import Link from "next/link";
