@@ -16,10 +16,18 @@ import image_2 from "../../public/Pelican_Bird_Art.png";
 import image_3 from "../../public/SriLankan_Attractions.png";
 import image_4 from "../../public/Inquiry Section_Mask Image.png";
 import image_5 from "../../public/Inquiry Section_Mask Image_2.png";
+import image_package_1 from "../../public/package_1.png";
+import image_package_2 from "../../public/package_2.png";
+import image_package_3 from "../../public/package_3.jpg";
+import image_package_4 from "../../public/package_4.jpg";
+import image_package_5 from "../../public/package_5.png";
+import image_package_6 from "../../public/package_6.jpg";
+import image_package_7 from "../../public/package_7.jpg";
 import { FaTripadvisor } from "react-icons/fa";
 import { db } from './lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import useThemeToggle from './lib/useThemeToggle';
+
 
 
 
@@ -48,7 +56,72 @@ useEffect(() => {
   }, 300);
 }, []);
 
+// Scroll one card at a time
+const [isAnimating, setIsAnimating] = useState(false);
 
+const getCardWidth = () => {
+  const container = containerRef.current;
+  if (!container) return 0;
+
+  const firstChild = container.children[0];
+  return firstChild ? firstChild.offsetWidth + 16 : 0;
+};
+
+const handleLeftClick = () => {
+  if (isAnimating) return;
+
+  const container = containerRef.current;
+  if (!container) return;
+
+  const firstChild = container.children[0];
+  const cardWidth = getCardWidth();
+
+  setIsAnimating(true);
+
+  // Slide LEFT
+  container.style.transition = "transform 0.5s ease";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+
+  setTimeout(() => {
+    container.appendChild(firstChild);
+
+    container.style.transition = "none";
+    container.style.transform = "translateX(0)";
+
+    setIsAnimating(false);
+  }, 500);
+};
+
+const handleRightClick = () => {
+  if (isAnimating) return;
+
+  const container = containerRef.current;
+  if (!container) return;
+
+  const cardWidth = getCardWidth();
+  const lastChild = container.lastElementChild;
+
+  setIsAnimating(true);
+
+  // Step 1: move last item to front instantly
+  container.insertBefore(lastChild, container.firstChild);
+
+  // Step 2: jump left instantly (no animation)
+  container.style.transition = "none";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+
+  // Step 3: animate back to 0
+  requestAnimationFrame(() => {
+    container.style.transition = "transform 0.5s ease";
+    container.style.transform = "translateX(0)";
+  });
+
+  setTimeout(() => {
+    setIsAnimating(false);
+  }, 500);
+};
+
+{/*
 // Scroll one card at a time
 const scrollToPackage = (direction) => {
   if (!containerRef.current) return;
@@ -70,6 +143,7 @@ const scrollToPackage = (direction) => {
 
 const scrollLeft = () => scrollToPackage("left");
 const scrollRight = () => scrollToPackage("right");
+*/}
 
 // Inquiry form
 const [inquiryForm, setInquiryForm] = useState({
@@ -201,81 +275,79 @@ const handleInquirySubmit = async (e) => {
         <div className={styles_4.packages_section}>
         
               <div className={styles_4.overlayers}>
-                    <div className={styles_4.solid_left}></div>
-                    <div className={styles_4.fade_overlay_left}></div>
-                    <div className={styles_4.fade_overlay_right}></div>
-                    <div className={styles_4.solid_right}></div>
-
-                    <button className={`${styles_4.nav_arrow} ${styles_4.left}`} onClick={scrollLeft}>
+                <div className={styles_4.fade_overlay_right}></div>
+                <div className={styles_4.fade_overlay_left}></div>
+                <div className={styles_4.solid_right}></div>
+                <div className={styles_4.solid_left}></div>
+                    <button className={`${styles_4.nav_arrow} ${styles_4.left}`} onClick={handleRightClick}>
                         <i className="fas fa-chevron-left"></i>
                     </button>
-                    <button className={`${styles_4.nav_arrow} ${styles_4.right}`} onClick={scrollRight}>
+                    <button className={`${styles_4.nav_arrow} ${styles_4.right}`} onClick={handleLeftClick}>
                         <i className="fas fa-chevron-right"></i>
                     </button>
-                    
                 </div>
 
 
 
               <div className={styles_4.packages_container} ref={containerRef}>
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <div className={styles_4.packages} href="/tour-packages/">
+                    <Image src={image_package_1} alt="Golf Tour Package in Sri Lanka"/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
-                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  8 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  1-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h1 className={styles_4.packages_h1}>MINI GOLF ESCAPE TOUR</h1>  
+                        <h3 className={styles_4.Package_h3}>Sri Lanka is a rising golf destination in Asia, offering scenic, diverse courses, colonial charm, and affordable, high-quality experiences year-round.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
-                            <i className="fa-sharp fa-solid fa-star-half-stroke"></i>
-                        <p>4.5</p>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
+                        <p className={styles_4.package_price}>$950</p>
                         <p className={styles_4.perperson}>Per Person</p>
                         </div>
                     </div>
                 </div>
 
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <div className={styles_4.packages}>
+                    <Image src={image_package_2} alt="Sri Lankan Honeymoon Packages"/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
-                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h1 className={styles_4.packages_h1}>ROMANTIC HONEYMOON TOUR</h1>  
+                        <h3 className={styles_4.Package_h3}>Romantic Sri Lanka honeymoon with hill country, train rides, safaris, and beach sunsets—blending adventure, luxury, and intimate moments.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
-                            <i className="fa-sharp fa-solid fa-star-half-stroke"></i>
-                        <p>4.5</p>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
+                        <p className={styles_4.package_price}>$1100</p>
                         <p className={styles_4.perperson}>Per Person</p>
                         </div>
                     </div>
                 </div>
 
 
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <div className={styles_4.packages}>
+                    <Image src={image_package_3} alt="Sri Lankan Wild Life Tour Packages"/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h1 className={styles_4.packages_h1}>WILD & COASTAL BLISS</h1>  
+                        <h3 className={styles_4.Package_h3}>South Coast Sri Lanka tour with safaris, whale watching, heritage, and beach escapes—blending adventure with coastal luxury.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -285,21 +357,21 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
+                        <p className={styles_4.package_price}>$550</p>
                         <p className={styles_4.perperson}>Per Person</p>
                         </div>
                     </div>
                 </div>
 
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <div className={styles_4.packages}>
+                    <Image src={image_package_4} alt="Sri Lankan Bird Watching Tour Package"/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
-                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-7 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h1 className={styles_4.packages_h1}>BIRD WATCHING TOUR</h1>  
+                        <h3 className={styles_4.Package_h3}>Sri Lanka hosts 430+ bird species, including 33 endemics. This tour covers diverse habitats with excellent birdwatching opportunities.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -309,21 +381,45 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
+                        <p className={styles_4.package_price}>$1099.97</p>
                         <p className={styles_4.perperson}>Per Person</p>
                         </div>
                     </div>
                 </div>
 
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <div className={styles_4.packages}>
+                    <Image src={image_package_5} alt="Sri Lanka Luxury Honeymoon Package"/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h1 className={styles_4.packages_h1}>LUXURY HONEYMOON ESCAPE</h1>  
+                        <h3 className={styles_4.Package_h3}>Luxury Sri Lanka honeymoon with scenic hill country escapes, wildlife safaris, and relaxing beachside romance.</h3>
+                        <div className={styles_4.package_ratings}>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
+                        </div>
+                        <div className={styles_4.package_cost}>
+                        <p className={styles_4.package_price}>$850</p>
+                        <p className={styles_4.perperson}>Per Person</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles_4.packages}>
+                    <Image src={image_package_6} alt="Pekoe Trail Tour Package"/>
+                    <div className={styles_4.package_details}>
+                        <div className={styles_4.packageinfo}> 
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  1-8 Paxes</p>
+                        </div>
+                        <h1 className={styles_4.packages_h1}>PEKOE TRAIL TREKKING</h1>  
+                        <h3 className={styles_4.Package_h3}>The Pekoe Trail is a 300 km hike through Sri Lanka’s Central Highlands, linking tea estates, mountains, and villages.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -333,7 +429,31 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
+                        <p className={styles_4.package_price}>$1450</p>
+                        <p className={styles_4.perperson}>Per Person</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles_4.packages}>
+                    <Image src={image_package_7} alt="Sri Lankan Beach"/>
+                    <div className={styles_4.package_details}>
+                        <div className={styles_4.packageinfo}> 
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
+                        </div>
+                        <h1 className={styles_4.packages_h1}>WELLNESS & REJUVENATION</h1>  
+                        <h3 className={styles_4.Package_h3}>Sri Lanka wellness retreat with Ayurveda, yoga, spa therapies, and nature healing—designed for complete mind, body, rejuvenation.</h3>
+                        <div className={styles_4.package_ratings}>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
+                        </div>
+                        <div className={styles_4.package_cost}>
+                        <p className={styles_4.package_price}>$1855</p>
                         <p className={styles_4.perperson}>Per Person</p>
                         </div>
                     </div>
