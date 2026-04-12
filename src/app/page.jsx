@@ -23,6 +23,13 @@ import image_package_4 from "../../public/package_4.jpg";
 import image_package_5 from "../../public/package_5.png";
 import image_package_6 from "../../public/package_6.jpg";
 import image_package_7 from "../../public/package_7.jpg";
+import image_destination_1 from "../../public/Destinations_Image_1.jpg";
+import image_destination_2 from "../../public/Destinations_Image_5.jpg";
+import image_destination_3 from "../../public/Destinations_Image_9.jpg";
+import image_destination_4 from "../../public/Destinations_Image_13.jpg";
+import image_destination_5 from "../../public/Destinations_Image_14.jpg";
+import image_destination_6 from "../../public/Destinations_Image_15.jpg";
+import image_destination_7 from "../../public/Destinations_Image_16.jpg";
 import { FaTripadvisor } from "react-icons/fa";
 import { db } from './lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -65,7 +72,7 @@ useEffect(() => {
 
 
 
-// Scroll one card at a time
+// Packages section(Scrolling cards)_____________________________________________________________________________
 const [isAnimating, setIsAnimating] = useState(false);
 
 const getCardWidth = () => {
@@ -87,7 +94,14 @@ const handleLeftClick = () => {
 
   setIsAnimating(true);
 
-  // Slide LEFT
+  // 🔥 Reset first
+  container.style.transition = "none";
+  container.style.transform = "translateX(0)";
+
+  // 🔥 FORCE REFLOW (this is the fix)
+  container.offsetHeight;
+
+  // ✅ Now apply animation
   container.style.transition = "transform 0.5s ease";
   container.style.transform = `translateX(-${cardWidth}px)`;
 
@@ -112,14 +126,14 @@ const handleRightClick = () => {
 
   setIsAnimating(true);
 
-  // Step 1: move last item to front instantly
   container.insertBefore(lastChild, container.firstChild);
 
-  // Step 2: jump left instantly (no animation)
   container.style.transition = "none";
   container.style.transform = `translateX(-${cardWidth}px)`;
 
-  // Step 3: animate back to 0
+  // 🔥 FORCE REFLOW
+  container.offsetHeight;
+
   requestAnimationFrame(() => {
     container.style.transition = "transform 0.5s ease";
     container.style.transform = "translateX(0)";
@@ -131,10 +145,7 @@ const handleRightClick = () => {
 };
 
 
-
-
-
-// Swiping
+// Swiping on mobile
 const startX = useRef(0);
 const currentX = useRef(0);
 const isSwiping = useRef(false);
@@ -169,31 +180,58 @@ const handleTouchEnd = () => {
   }
 };
 
-const isDragging = useRef(false);
 
-const handleMouseDown = (e) => {
-  isDragging.current = true;
-  startX.current = e.clientX;
-  isSwiping.current = false;
+// Destinations Section(Scrolling Cards)__________________________________________________________________________
+const destinationsRef = useRef(null);
+
+const slideNext = (container) => {
+  if (isAnimating || !container) return;
+
+  const firstChild = container.children[0];
+  const cardWidth = firstChild.offsetWidth + 16;
+
+  setIsAnimating(true);
+
+  container.style.transition = "none";
+  container.style.transform = "translateX(0)";
+  container.offsetHeight; // 🔥 force reflow
+
+  container.style.transition = "transform 0.5s ease";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+
+  setTimeout(() => {
+    container.appendChild(firstChild);
+    container.style.transition = "none";
+    container.style.transform = "translateX(0)";
+    setIsAnimating(false);
+  }, 500);
 };
 
-const handleMouseMove = (e) => {
-  if (!isDragging.current) return;
+const slidePrev = (container) => {
+  if (isAnimating || !container) return;
 
-  currentX.current = e.clientX;
+  const lastChild = container.lastElementChild;
+  const cardWidth = container.children[0].offsetWidth + 16;
 
-  const diff = Math.abs(startX.current - currentX.current);
+  setIsAnimating(true);
 
-  if (diff > 15) {
-    isSwiping.current = true;
-  }
+  container.insertBefore(lastChild, container.firstChild);
+
+  container.style.transition = "none";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+  container.offsetHeight; // 🔥 force reflow
+
+  requestAnimationFrame(() => {
+    container.style.transition = "transform 0.5s ease";
+    container.style.transform = "translateX(0)";
+  });
+
+  setTimeout(() => {
+    setIsAnimating(false);
+  }, 500);
 };
 
-const handleMouseUp = () => {
-  if (!isDragging.current) return;
-
-  isDragging.current = false;
-
+const handleTouchEndDest = () => {
   if (!isSwiping.current) return;
 
   const diff = startX.current - currentX.current;
@@ -201,12 +239,28 @@ const handleMouseUp = () => {
   if (Math.abs(diff) < 50) return;
 
   if (diff > 0) {
-    handleLeftClick();
+    slideNext(destinationsRef.current);
   } else {
-    handleRightClick();
+    slidePrev(destinationsRef.current);
   }
 };
 
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowLeft") {
+      slidePrev(destinationsRef.current);
+    }
+    if (e.key === "ArrowRight") {
+      slideNext(destinationsRef.current);
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, []);
 
 
 
@@ -355,7 +409,7 @@ const handleInquirySubmit = async (e) => {
 
 
 
-              <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
+              <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
                 <div className={styles_4.packages}>
                     <Image src={image_package_1} alt="Golf Tour Package in Sri Lanka"/>
                     <div className={styles_4.package_details}>
@@ -529,26 +583,60 @@ const handleInquirySubmit = async (e) => {
 
 {/*Destinations Section_____________________________________________________________________________*/}
         <h1 className={styles_3.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1>
-        <div className={styles_5.destination_section}>
+        <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
                 <div className={styles_5.overlayers}>
                     <div className={styles_5.solid_left}></div>
                     <div className={styles_5.fade_overlay_left}></div>
                     <div className={styles_5.fade_overlay_right}></div>
                     <div className={styles_5.solid_right}></div>
 
-                    <button className={`${styles_5.nav_arrow} ${styles_5.left}`}>
+                    <button className={`${styles_5.nav_arrow} ${styles_5.left}`} onClick={() => slidePrev(destinationsRef.current)}>
                         <i className="fas fa-chevron-left"></i>
                     </button>
-                    <button className={`${styles_5.nav_arrow} ${styles_5.right}`}>
+                    <button className={`${styles_5.nav_arrow} ${styles_5.right}`}  onClick={() => slideNext(destinationsRef.current)}>
                         <i className="fas fa-chevron-right"></i>
                     </button>
                 </div>
 
                 
-                <div className={styles_5.destinations_container}>
-                    <div className={styles_5.destination_container} id="dest_5">
+                <div className={styles_5.destinations_container} ref={destinationsRef}>
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_7} alt="Mirissa Sri Lanka"/>
+                            <div className={styles_5.destinations_overlay}>
+                                <h2>MIRISSA</h2>
+                            </div>
+                        </div>
+                        <div className={styles_5.destinations_brief}>
+                            <i className="fa-solid fa-location-dot"></i>
+                            <span>Central Province</span>
+                        </div>
+                        <div className={styles_5.destinations_description}>   
+                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <button className={styles_5.button_3}>EXPLORE</button>
+                        </div>
+                    </div>
+
+                    <div className={styles_5.destination_container} >
+                        <div className={styles_5.destinations}>
+                            <Image src={image_destination_6} alt="Sri Lankan Beach"/>
+                            <div className={styles_5.destinations_overlay}>
+                                <h2>YALA</h2>
+                            </div>
+                        </div>
+                        <div className={styles_5.destinations_brief}>
+                            <i className="fa-solid fa-location-dot"></i>
+                            <span>Central Province</span>
+                        </div>
+                        <div className={styles_5.destinations_description}>   
+                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <button className={styles_5.button_3}>EXPLORE</button>
+                        </div>
+                    </div>
+
+                    <div className={styles_5.destination_container} >
+                        <div className={styles_5.destinations}>
+                            <Image src={image_destination_1} alt="Sri Lankan Beach"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>DAMBULLA</h2>
                             </div>
@@ -563,10 +651,9 @@ const handleInquirySubmit = async (e) => {
                         </div>
                     </div>
 
-
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_2} alt="Galle Fort(Galle)"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>GALLE</h2>
                             </div>
@@ -582,9 +669,9 @@ const handleInquirySubmit = async (e) => {
                     </div>
 
 
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_3} alt="Kandy Temple(Kandy)"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>KANDY</h2>
                             </div>
@@ -600,9 +687,9 @@ const handleInquirySubmit = async (e) => {
                     </div>
 
 
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_5} alt="Polonnaruwa Sri Lanka"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>POLONNARUWA</h2>
                             </div>
@@ -618,16 +705,16 @@ const handleInquirySubmit = async (e) => {
                     </div>
 
 
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_4} alt="Colombo city Sri Lanka"/>
                             <div className={styles_5.destinations_overlay}>
-                                <h2>POLONNARUWA</h2>
+                                <h2>COLOMBO</h2>
                             </div>
                         </div>
                         <div className={styles_5.destinations_brief}>
                             <i className="fa-solid fa-location-dot"></i>
-                            <span>North Western Province</span>
+                            <span>Western Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
