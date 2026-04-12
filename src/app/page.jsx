@@ -31,6 +31,7 @@ import useThemeToggle from './lib/useThemeToggle';
 
 
 
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isLightTheme, handleThemeToggle } = useThemeToggle();
@@ -55,6 +56,14 @@ useEffect(() => {
     });
   }, 300);
 }, []);
+
+
+
+
+
+
+
+
 
 // Scroll one card at a time
 const [isAnimating, setIsAnimating] = useState(false);
@@ -121,29 +130,86 @@ const handleRightClick = () => {
   }, 500);
 };
 
-{/*
-// Scroll one card at a time
-const scrollToPackage = (direction) => {
-  if (!containerRef.current) return;
 
-  const container = containerRef.current;
-  const packages = container.querySelectorAll(`.${styles_4.packages}`);
 
-  if (!packages.length) return;
 
-  const cardWidth = packages[0].offsetWidth + 16; // add gap if needed
 
-  const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+// Swiping
+const startX = useRef(0);
+const currentX = useRef(0);
+const isSwiping = useRef(false);
 
-  container.scrollBy({
-    left: scrollAmount,
-    behavior: "smooth",
-  });
+const handleTouchStart = (e) => {
+  startX.current = e.touches[0].clientX;
+  isSwiping.current = false;
 };
 
-const scrollLeft = () => scrollToPackage("left");
-const scrollRight = () => scrollToPackage("right");
-*/}
+const handleTouchMove = (e) => {
+  currentX.current = e.touches[0].clientX;
+
+  const diff = Math.abs(startX.current - currentX.current);
+
+  // Only mark as swipe if movement is meaningful
+  if (diff > 15) {
+    isSwiping.current = true;
+  }
+};
+
+const handleTouchEnd = () => {
+  if (!isSwiping.current) return; // ❌ Ignore simple taps
+
+  const diff = startX.current - currentX.current;
+
+  if (Math.abs(diff) < 50) return; // ❌ Not a strong swipe
+
+  if (diff > 0) {
+    handleLeftClick();
+  } else {
+    handleRightClick();
+  }
+};
+
+const isDragging = useRef(false);
+
+const handleMouseDown = (e) => {
+  isDragging.current = true;
+  startX.current = e.clientX;
+  isSwiping.current = false;
+};
+
+const handleMouseMove = (e) => {
+  if (!isDragging.current) return;
+
+  currentX.current = e.clientX;
+
+  const diff = Math.abs(startX.current - currentX.current);
+
+  if (diff > 15) {
+    isSwiping.current = true;
+  }
+};
+
+const handleMouseUp = () => {
+  if (!isDragging.current) return;
+
+  isDragging.current = false;
+
+  if (!isSwiping.current) return;
+
+  const diff = startX.current - currentX.current;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) {
+    handleLeftClick();
+  } else {
+    handleRightClick();
+  }
+};
+
+
+
+
 
 // Inquiry form
 const [inquiryForm, setInquiryForm] = useState({
@@ -289,8 +355,8 @@ const handleInquirySubmit = async (e) => {
 
 
 
-              <div className={styles_4.packages_container} ref={containerRef}>
-                <div className={styles_4.packages} href="/tour-packages/">
+              <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
+                <div className={styles_4.packages}>
                     <Image src={image_package_1} alt="Golf Tour Package in Sri Lanka"/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -337,7 +403,6 @@ const handleInquirySubmit = async (e) => {
                         </div>
                     </div>
                 </div>
-
 
                 <div className={styles_4.packages}>
                     <Image src={image_package_3} alt="Sri Lankan Wild Life Tour Packages"/>

@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  scale: 0.95;
+  scale: 1;
   width: 100%;
   padding-left: 4rem;
   padding-right: 4rem;
@@ -29,12 +29,12 @@
 .packages{
   z-index: 2;
   border: 1px solid rgb(235, 130, 10);
-  flex: 0 0 calc((100%) / 4);
   scroll-snap-align: center;
   cursor: pointer;
-  min-width: 300px;
-  max-width: 350px;
-  margin-right: 16px;
+  width: 370px;
+  height: 100%;
+  margin-right: 8px;
+  margin-left: 8px;
   flex-shrink: 0;
 }
 
@@ -80,6 +80,18 @@
     padding-top: 1rem;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
+    display: -webkit-box;
+    display: box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.Package_h3::after {
+  content: " See more";
+  color: #eb820a;
+  font-size: 0.9rem;
 }
 
 .package_ratings{
@@ -275,13 +287,6 @@
 
 
     .packages_container{
-    gap:0.5rem;
-    padding-left: 0;
-    padding-right: 0;
-    }
-
-      .packages_container{
-    gap: 0.5rem;
     padding-left: 0;
     padding-right: 0;
     scroll-padding-left: 0;
@@ -289,23 +294,11 @@
   }
 
   .packages{
-    flex: 0 0 calc(100% / 3); /* EXACTLY 3 ITEMS VISIBLE */
-    height: auto;
-    background-color: rgb(36, 35, 35);
-    border-color: rgb(235, 130, 10);
-    border-width: 1px;
-    border-style: solid;
-  }
-
-    .packages{
+    width: 250px;
     z-index: 2;
-    height: auto;
-    min-width:15rem;
-    background-color: rgb(36, 35, 35);
     border-color: rgb(235, 130, 10);
     border-width: 1px;
     border-style: solid;
-    scale: 1;
     cursor: pointer;
     }
 
