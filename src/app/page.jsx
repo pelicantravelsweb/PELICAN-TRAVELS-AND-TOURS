@@ -441,7 +441,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>ROMANTIC HONEYMOON TOUR</h1>  
+                        <h1 className={styles_4.packages_h1}>HONEYMOON TOUR</h1>  
                         <h3 className={styles_4.Package_h3}>Romantic Sri Lanka honeymoon with hill country, train rides, safaris, and beach sunsets—blending adventure, luxury, and intimate moments.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -513,7 +513,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>LUXURY HONEYMOON ESCAPE</h1>  
+                        <h1 className={styles_4.packages_h1}>LUXURY HONEYMOON</h1>  
                         <h3 className={styles_4.Package_h3}>Luxury Sri Lanka honeymoon with scenic hill country escapes, wildlife safaris, and relaxing beachside romance.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
