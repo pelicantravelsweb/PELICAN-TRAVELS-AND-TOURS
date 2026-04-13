@@ -6,7 +6,7 @@
     text-align: left;
     padding-left: 4rem;
     padding-bottom: 2rem;
-    padding-top: 30vh;
+    padding-top: 14rem;
 }
 
 .packages_section{
@@ -31,7 +31,7 @@
   border: 1px solid rgb(235, 130, 10);
   scroll-snap-align: center;
   cursor: pointer;
-  width: 370px;
+  width: 310px;
   height: 100%;
   margin-right: 8px;
   margin-left: 8px;
@@ -88,11 +88,6 @@
     overflow: hidden;
 }
 
-.Package_h3::after {
-  content: " See more";
-  color: #eb820a;
-  font-size: 0.9rem;
-}
 
 .package_ratings{
     display: flex;

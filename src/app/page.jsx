@@ -343,7 +343,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Cover Section_____________________________________________________________________________*/}
     <div className={styles_2.coversection}>
-        <div className={styles_2.coversection_brief}>
+            <div className={styles_2.coversection_brief}>
                 <h1>TRAVEL WITH WINGS OF ASSURANCE</h1>
                 <h2>Explore & Discover the Elegance of Sri Lanka</h2>
                 <p> Explore Sri Lanka’s top tourist attractions — 
@@ -582,7 +582,7 @@ const handleInquirySubmit = async (e) => {
         </div>
 
 {/*Destinations Section_____________________________________________________________________________*/}
-        <h1 className={styles_3.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1>
+        <h1 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1>
         <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
                 <div className={styles_5.overlayers}>
                     <div className={styles_5.solid_left}></div>
@@ -604,15 +604,15 @@ const handleInquirySubmit = async (e) => {
                         <div className={styles_5.destinations}>
                             <Image src={image_destination_7} alt="Mirissa Sri Lanka"/>
                             <div className={styles_5.destinations_overlay}>
-                                <h2>MIRISSA</h2>
+                                <h2>MATARA</h2>
                             </div>
                         </div>
                         <div className={styles_5.destinations_brief}>
                             <i className="fa-solid fa-location-dot"></i>
-                            <span>Central Province</span>
+                            <span>Southern Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Matara, explore historic forts, tranquil beaches, cultural temples, scenic lighthouse views, and coastal wildlife experiences.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
@@ -626,10 +626,10 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_brief}>
                             <i className="fa-solid fa-location-dot"></i>
-                            <span>Central Province</span>
+                            <span>Southern Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Yala, experience thrilling wildlife safaris, spot leopards and elephants, explore diverse ecosystems, and enjoy scenic coastal landscapes.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
@@ -646,7 +646,7 @@ const handleInquirySubmit = async (e) => {
                             <span>Central Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Dambulla, explore ancient cave temples, admire sacred Buddhist murals, experience cultural heritage, and enjoy scenic rock landscapes.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
@@ -663,7 +663,7 @@ const handleInquirySubmit = async (e) => {
                             <span>Southern Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Galle, explore colonial forts, scenic beaches, historic streets, museums, and unique coastal heritage experiences.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
@@ -681,7 +681,7 @@ const handleInquirySubmit = async (e) => {
                             <span>Central Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Kandy, explore sacred temples, lush hills, cultural heritage, scenic lakes, and vibrant traditional experiences.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
@@ -696,10 +696,10 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_brief}>
                             <i className="fa-solid fa-location-dot"></i>
-                            <span>North Western Province</span>
+                            <span>North Central Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Polonnaruwa, explore ancient ruins, royal palaces, sacred temples, intricate stone carvings, and rich archaeological heritage.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
@@ -717,7 +717,7 @@ const handleInquirySubmit = async (e) => {
                             <span>Western Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Colombo, explore vibrant city life, colonial landmarks, bustling markets, modern shopping, and coastal seaside views.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
