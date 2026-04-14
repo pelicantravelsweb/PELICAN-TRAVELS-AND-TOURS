@@ -100,13 +100,12 @@
     right: 6rem;
     bottom: 3rem;
     height: 100%;
-    
 
-    background-image: url('../../public/Cover_Image.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url('../../public/background.jpg'); 
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 60% auto;
 }
 
 .inquire_image img{
