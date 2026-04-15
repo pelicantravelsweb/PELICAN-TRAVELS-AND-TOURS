@@ -30,6 +30,7 @@ import image_destination_4 from "../../public/Destinations_Image_13.jpg";
 import image_destination_5 from "../../public/Destinations_Image_14.jpg";
 import image_destination_6 from "../../public/Destinations_Image_15.jpg";
 import image_destination_7 from "../../public/Destinations_Image_16.jpg";
+import background_image from "../../public/background.jpg";
 import { FaTripadvisor } from "react-icons/fa";
 import { db } from './lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -63,9 +64,6 @@ useEffect(() => {
     });
   }, 300);
 }, []);
-
-
-
 
 
 
