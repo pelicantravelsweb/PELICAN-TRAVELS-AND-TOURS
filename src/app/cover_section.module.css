@@ -87,10 +87,14 @@
     animation-delay: 1s;
 }
 
-.coversection_image img{
-    z-index: 1;
+.image_wrapper {
+    position: relative;
     width: 100%;
-    height: auto;
+    height: 480px; /* desktop height */
+}
+
+.cover_img {
+    object-fit: cover;
 }
 
 /*Cover Section Animations*/
@@ -124,6 +128,10 @@
 .coversection_brief{
     width: 100%;
 }
+
+  .image_wrapper {
+    height: 300px;
+  }
 
 .coversection_image{
     width: 100%;

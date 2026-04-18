@@ -354,7 +354,9 @@ const handleInquirySubmit = async (e) => {
                 <button className={styles_2.button_1}>INQUIRE NOW</button>
             </div>
             <div className={styles_2.coversection_image}>
-                <Image src={image_1} alt="Sri Lankan Beach"/>
+                <div className={styles_2.image_wrapper}>
+                <Image src={image_1} alt="Sri Lankan Beach" fill priority quality={75} sizes="(max-width: 800px) 100vw, 50vw" className={styles_2.cover_img} placeholder="blur"/>
+              </div>
             </div>
     </div>
 
@@ -409,7 +411,7 @@ const handleInquirySubmit = async (e) => {
 
               <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
                 <div className={styles_4.packages}>
-                    <Image src={image_package_1} alt="Golf Tour Package in Sri Lanka"/>
+                    <Image   src={image_package_1} alt="Golf Tour Package in Sri Lanka" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  8 Days</p>
@@ -433,7 +435,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_4.packages}>
-                    <Image src={image_package_2} alt="Sri Lankan Honeymoon Packages"/>
+                    <Image   src={image_package_2} alt="Sri Lankan Honeymoon Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
@@ -457,7 +459,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_4.packages}>
-                    <Image src={image_package_3} alt="Sri Lankan Wild Life Tour Packages"/>
+                    <Image   src={image_package_3} alt="Sri Lankan Wild Life Tour Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
@@ -481,7 +483,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_4.packages}>
-                    <Image src={image_package_4} alt="Sri Lankan Bird Watching Tour Package"/>
+                    <Image   src={image_package_4} alt="Sri Lankan Bird Watching Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
@@ -505,7 +507,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_4.packages}>
-                    <Image src={image_package_5} alt="Sri Lanka Luxury Honeymoon Package"/>
+                    <Image   src={image_package_5} alt="Sri Lanka Luxury Honeymoon Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
@@ -529,7 +531,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_4.packages}>
-                    <Image src={image_package_6} alt="Pekoe Trail Tour Package"/>
+                    <Image   src={image_package_6} alt="Pekoe Trail Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
@@ -553,7 +555,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_4.packages}>
-                    <Image src={image_package_7} alt="Sri Lankan Beach"/>
+                    <Image   src={image_package_7} alt="Wellness Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
@@ -600,7 +602,7 @@ const handleInquirySubmit = async (e) => {
                 <div className={styles_5.destinations_container} ref={destinationsRef}>
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_7} alt="Mirissa Sri Lanka"/>
+                            <Image src={image_destination_7} alt="Mirissa Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>MATARA</h2>
                             </div>
@@ -617,7 +619,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_6} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_6} alt="Yala, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>YALA</h2>
                             </div>
@@ -634,7 +636,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_1} alt="Dambulla, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>DAMBULLA</h2>
                             </div>
@@ -651,7 +653,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_2} alt="Galle Fort(Galle)"/>
+                            <Image src={image_destination_2} alt="Galle, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>GALLE</h2>
                             </div>
@@ -669,7 +671,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_3} alt="Kandy Temple(Kandy)"/>
+                            <Image src={image_destination_3} alt="Kandy, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>KANDY</h2>
                             </div>
@@ -687,7 +689,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_5} alt="Polonnaruwa Sri Lanka"/>
+                            <Image src={image_destination_5} alt="Polonnaruwa, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>POLONNARUWA</h2>
                             </div>
@@ -705,7 +707,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_4} alt="Colombo city Sri Lanka"/>
+                            <Image src={image_destination_4} alt="Colombo, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>COLOMBO</h2>
                             </div>
@@ -788,8 +790,8 @@ const handleInquirySubmit = async (e) => {
             </form>
 
             <div className={styles_6.inquire_image}>
-                <Image className={styles_6.inquire_form_image_1} src={image_4} alt="Inquiry Section Image"/>
-                <Image className={styles_6.inquire_form_image_2}src={image_5} alt="Inquiry Section Image"/>
+                <Image   src={image_4} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_1} priority placeholder="blur"/>
+                <Image   src={image_5} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_2} priority placeholder="blur"/>
             </div>
         </div>
 
