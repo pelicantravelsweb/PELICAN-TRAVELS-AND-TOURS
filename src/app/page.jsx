@@ -30,7 +30,6 @@ import image_destination_4 from "../../public/Destinations_Image_13.jpg";
 import image_destination_5 from "../../public/Destinations_Image_14.jpg";
 import image_destination_6 from "../../public/Destinations_Image_15.jpg";
 import image_destination_7 from "../../public/Destinations_Image_16.jpg";
-import background_image from "../../public/background.jpg";
 import { FaTripadvisor } from "react-icons/fa";
 import { db } from './lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -65,7 +64,23 @@ useEffect(() => {
   }, 300);
 }, []);
 
+// Inquire Now Button (Jumping to Tailormade section)_____________________________________________________________________________
+const inquireRef = useRef(null);
 
+const scrollToInquire = () => {
+  if (!inquireRef.current) return; // ✅ prevent crash
+
+  const yOffset = -200;
+  const y =
+    inquireRef.current.getBoundingClientRect().top +
+    window.pageYOffset +
+    yOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+};
 
 
 
@@ -351,7 +366,7 @@ const handleInquirySubmit = async (e) => {
                     honeymoon getaways, or custom holiday itineraries, 
                     Pelican Tours is your trusted travel agency in Sri Lanka. 
                     Let us design your unforgettable Sri Lankan vacation.</p>
-                <button className={styles_2.button_1}>INQUIRE NOW</button>
+                <button className={styles_2.button_1} onClick={scrollToInquire}>INQUIRE NOW</button>
             </div>
             <div className={styles_2.coversection_image}>
                 <div className={styles_2.image_wrapper}>
@@ -362,9 +377,9 @@ const handleInquirySubmit = async (e) => {
 
 {/*Services Section_____________________________________________________________________________*/}
         <div className={styles_3.services_section}>
-            <h1 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h1>
+            <Link href="/services"><h1 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h1></Link>
             <div className={styles_3.services_container}>
-                <div className={styles_3.services}>
+                <div className={styles_3.services} >
                     <i className="fa fa-recycle"></i>
                     <h1 className={styles_3.sub_topic_text}>ROUND TOURS</h1>
                     <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p>
@@ -428,8 +443,8 @@ const handleInquirySubmit = async (e) => {
                         <p>5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$950</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$950</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
                 </div>
@@ -452,8 +467,8 @@ const handleInquirySubmit = async (e) => {
                         <p>5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$1100</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$1100</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
                 </div>
@@ -476,8 +491,8 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$550</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$550</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
                 </div>
@@ -500,8 +515,8 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$1099.97</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$1099.97</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
                 </div>
@@ -524,8 +539,8 @@ const handleInquirySubmit = async (e) => {
                         <p>5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$850</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$850</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
                 </div>
@@ -548,8 +563,8 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$1450</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$1450</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
                 </div>
@@ -572,8 +587,8 @@ const handleInquirySubmit = async (e) => {
                         <p>5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$1855</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$1855</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
                 </div>
@@ -726,8 +741,8 @@ const handleInquirySubmit = async (e) => {
 
 {/*Tailormade Section_____________________________________________________________________________*/}
 
-        <h1 className={styles_6.topic_text}>INQUIARE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h1>
-        <div className={styles_6.inquire_section}>
+        <h1 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h1>
+        <div className={styles_6.inquire_section} ref={inquireRef}>
             <form className={styles_6.inquire_form} onSubmit={handleInquirySubmit}>
                 <div className={styles_6.inquire_form_content}>
                     <table><tbody>
@@ -851,7 +866,7 @@ const handleInquirySubmit = async (e) => {
             </div>
         </div>   
 
-{/*Feedback Section_____________________________________________________________________________*/}
+{/*Contact Us Section_____________________________________________________________________________*/}
         <h1 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h1>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>

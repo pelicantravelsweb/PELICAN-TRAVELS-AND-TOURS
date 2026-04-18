@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Pelican Tours Sri Lanka | Best Sri Lanka Tour Packages & Travel Agency",
-  description: "Explore Sri Lanka’s top tourist attractions — from pristine beaches and ancient Buddhist temples to lush tea plantations, wildlife safaris, and cultural heritage sites. Whether you're looking for all-inclusive Sri Lanka tour packages, honeymoon getaways, or custom holiday itineraries, Pelican Tours is your trusted travel agency in Sri Lanka. Let us design your unforgettable Sri Lankan vacation.",
+  title: "Pelican Tours Sri Lanka | Custom Tours & Packages",
+  description: "Discover Sri Lanka with Pelican Tours. Explore custom tours and flexible travel packages designed around your interests, from beaches and wildlife to culture and adventure.",
 };
 
 export default function RootLayout({ children }) {
