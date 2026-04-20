@@ -34,14 +34,18 @@ import { FaTripadvisor } from "react-icons/fa";
 import { db } from './lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import useThemeToggle from './lib/useThemeToggle';
-
-
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isLightTheme, handleThemeToggle } = useThemeToggle();
+    const [value, setValue] = useState(""); 
+    const [phone, setPhone] = useState();
+    const [phoneError, setPhoneError] = useState("");
 
 
 const containerRef = useRef(null);
@@ -63,6 +67,47 @@ useEffect(() => {
     });
   }, 300);
 }, []);
+
+
+
+
+// Phone Number input with country code __________________________________________________________________________________________
+const handleSubmit = () => {
+  if (!isValidPhoneNumber(value)) {
+    alert("Invalid phone number");
+  } else {
+    console.log("Valid:", value);
+  }
+};
+
+// Phone Number Validation
+const handlePhoneChange = (val) => {
+  if (!val) {
+    setPhone(val);
+    return;
+  }
+
+  const phoneNumber = parsePhoneNumberFromString(val);
+
+  if (phoneNumber) {
+    const nationalNumber = phoneNumber.nationalNumber;
+
+    // 🔥 Example: Sri Lanka max = 9 digits
+    if (nationalNumber.length > 9 && phoneNumber.country === "LK") {
+      return; // ❌ block extra typing
+    }
+  }
+
+  setPhone(val);
+
+  // validation
+  if (!isValidPhoneNumber(val)) {
+    setPhoneError("Invalid phone number");
+  } else {
+    setPhoneError("");
+  }
+};
+
 
 // Inquire Now Button (Jumping to Tailormade section)_____________________________________________________________________________
 const inquireRef = useRef(null);
@@ -280,9 +325,12 @@ useEffect(() => {
 
 // Inquiry form
 const [inquiryForm, setInquiryForm] = useState({
-  name: '', email: '', mobile: '',
+  name: '',
+  email: '',
+  mobile: '',
   pax: 'Individual / Couple (1-3 persons)',
   days: 'Mini Excursion (1-2 days)',
+  date: '', 
   message: ''
 });
 const [inquirySubmitting, setInquirySubmitting] = useState(false);
@@ -298,28 +346,40 @@ const handleInquirySubmit = async (e) => {
   e.preventDefault();
   setInquirySubmitting(true);
   setInquiryError('');
+
   try {
-    await addDoc(collection(db, 'inquiries'), {
-      name: inquiryForm.name,
-      email: inquiryForm.email,
-      mobile: inquiryForm.mobile,
-      pax: inquiryForm.pax,
-      days: inquiryForm.days,
-      message: inquiryForm.message,
-      source: 'homepage',
-      status: 'new',
-      createdAt: new Date()
+    const res = await fetch('/api/send-inquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...inquiryForm,
+        mobile: phone, // 🔥 include phone
+      }),
     });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error);
+
     setInquirySubmitted(true);
+
     setInquiryForm({
-      name: '', email: '', mobile: '',
+      name: '',
+      email: '',
+      mobile: '',
       pax: 'Individual / Couple (1-3 persons)',
       days: 'Mini Excursion (1-2 days)',
+      date: '',
       message: ''
     });
+
+    setPhone('');
+
+    // ✅ KEEP SAME MESSAGE
     setTimeout(() => setInquirySubmitted(false), 5000);
+
   } catch (error) {
-    console.error('Error submitting inquiry:', error);
+    console.error(error);
     setInquiryError('Failed to submit inquiry. Please try again.');
   } finally {
     setInquirySubmitting(false);
@@ -756,8 +816,10 @@ const handleInquirySubmit = async (e) => {
                         value={inquiryForm.email} onChange={handleInquiryChange} /></td></tr>
 
                     <tr><td><label>MOBILE</label></td>
-                    <td><input name="mobile" type="tel" placeholder="+94 123 456 789" required
-                        value={inquiryForm.mobile} onChange={handleInquiryChange} /></td></tr>
+                    <td><PhoneInput placeholder="Enter phone number" defaultCountry="US" international countryCallingCodeEditable={false} value={phone}
+                        onChange={(val) => { setPhone(val); if (!val) { setPhoneError(""); return; }
+                        if (!isValidPhoneNumber(val)) { setPhoneError("Invalid phone number"); } else { setPhoneError(""); } }}/>
+                        {phoneError && ( <p style={{ color: "red", fontSize: "0.8rem" }}>{phoneError}</p>)}</td></tr>
 
                     <tr><td><label>PAX</label></td>
                     <td><select name="pax" value={inquiryForm.pax} onChange={handleInquiryChange}>
@@ -776,6 +838,24 @@ const handleInquirySubmit = async (e) => {
                             <option value="Medium Tour (6-10 days)">Medium Tour (6-10 days)</option>
                             <option value="Long Tour (10+ days)">Long Tour (10+ days)</option>
                         </select></td></tr>
+
+                    <tr>
+                    <td><label>DATE</label></td>
+                    <td>
+                        <div className={styles_6.date_wrapper}>
+                        <input
+                            type="date"
+                            name="date"
+                            value={inquiryForm.date}
+                            onChange={handleInquiryChange}
+                            required
+                            className={styles_6.date_input}
+                            min={new Date().toISOString().split("T")[0]}
+                        />
+                        <i className={`fa fa-calendar ${styles_6.date_icon}`}></i>
+                        </div>
+                    </td>
+                    </tr>
 
                     <tr><td><label>MESSAGE</label></td>
                     <td><textarea name="message" rows="4" placeholder="Your message here..."
