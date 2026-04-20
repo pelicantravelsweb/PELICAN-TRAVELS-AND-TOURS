@@ -39,6 +39,11 @@
     border-color: rgb(235, 130, 10);
 }
 
+.services:hover{
+    box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.486);
+    transition: 0.5s;
+}
+
 .services i{
     color: rgb(235, 130, 10);
     font-size: clamp(2.5rem,4vw,4rem);

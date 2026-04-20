@@ -93,7 +93,7 @@ const getCardWidth = () => {
   if (!container) return 0;
 
   const firstChild = container.children[0];
-  return firstChild ? firstChild.offsetWidth + 16 : 0;
+  return firstChild ? firstChild.offsetWidth + 12 : 0;
 };
 
 const handleLeftClick = () => {
@@ -380,27 +380,27 @@ const handleInquirySubmit = async (e) => {
             <Link href="/services"><h1 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h1></Link>
             <div className={styles_3.services_container}>
                 <div className={styles_3.services} >
-                    <i className="fa fa-recycle"></i>
+                    <Link href="/services"><i className="fa fa-recycle"></i>
                     <h1 className={styles_3.sub_topic_text}>ROUND TOURS</h1>
-                    <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p>
+                    <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <i className="fa-solid fa-binoculars"></i>
+                    <Link href="/services"><i className="fa-solid fa-binoculars"></i>
                     <h1 className={styles_3.sub_topic_text}>DAY EXCURSIONS</h1>
-                    <p>Enjoy guided day excursions to famous attractions, historic landmarks, and natural wonders near you.</p>
+                    <p>Enjoy guided day excursions to famous attractions, historic landmarks, and natural wonders near you.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <i className="fa fa-users"></i>
+                    <Link href="/services"><i className="fa fa-users"></i>
                     <h1 className={styles_3.sub_topic_text}>MICE SERVICES</h1>
-                    <p>Professional MICE services for meetings, incentives, conferences, and events tailored to your needs.</p>
+                    <p>Professional MICE services for meetings, incentives, conferences, and events tailored to your needs.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <i className="fa-solid fa-car"></i>
+                    <Link href="/services"><i className="fa-solid fa-car"></i>
                     <h1 className={styles_3.sub_topic_text}>TRANSPORT SERVICES</h1>
-                    <p>Reliable transport services with comfortable vehicles and experienced drivers for safe travel anywhere.</p>
+                    <p>Reliable transport services with comfortable vehicles and experienced drivers for safe travel anywhere.</p></Link>
                 </div>
             </div>
         </div>
@@ -425,7 +425,7 @@ const handleInquirySubmit = async (e) => {
 
 
               <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-                <div className={styles_4.packages}>
+                <Link href="/tour-packages/3hrumfK0tfHEXkXBCV12"><div className={styles_4.packages}>
                     <Image   src={image_package_1} alt="Golf Tour Package in Sri Lanka" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -447,9 +447,9 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages}>
+                <Link href="/tour-packages/AKvGtOLu2IsUzprJcdiC"><div className={styles_4.packages}>
                     <Image   src={image_package_2} alt="Sri Lankan Honeymoon Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -471,9 +471,9 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages}>
+                <Link href="/tour-packages/H7e0jCKt7JCk66yQ1jZ4"><div className={styles_4.packages}>
                     <Image   src={image_package_3} alt="Sri Lankan Wild Life Tour Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -495,9 +495,9 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages}>
+                <Link href="/tour-packages/HPJwHyK5IUUbmLg6DHlC"><div className={styles_4.packages}>
                     <Image   src={image_package_4} alt="Sri Lankan Bird Watching Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -519,9 +519,9 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages}>
+                <Link href="/tour-packages/sDOgrjEvWHJ2cU4SWcYW"><div className={styles_4.packages}>
                     <Image   src={image_package_5} alt="Sri Lanka Luxury Honeymoon Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -543,9 +543,9 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages}>
+                <Link href="/tour-packages/z6kf9PXvELkTkqmkNyic"><div className={styles_4.packages}>
                     <Image   src={image_package_6} alt="Pekoe Trail Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -567,9 +567,9 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages}>
+                <Link href="/tour-packages/06RhE4L4KZrctSKnodQG"><div className={styles_4.packages}>
                     <Image   src={image_package_7} alt="Wellness Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -591,7 +591,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
                 
               </div>
         </div>
