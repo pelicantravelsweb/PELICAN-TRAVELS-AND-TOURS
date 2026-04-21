@@ -23,6 +23,15 @@ export const metadata = {
   alternates: {
     canonical: "https://pelicantravelsandtours.com/",
   },
+
+   images: [
+      {
+        url: "../../public/Cover_Image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pelican Tours Sri Lanka",
+      },
+    ],
 };
 
 export default function RootLayout({ children }) {
