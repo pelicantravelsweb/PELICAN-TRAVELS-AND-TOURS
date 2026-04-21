@@ -6,7 +6,10 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const poppins = Poppins({ subsets: ['latin'] , weight: ['100','200','300','400','500','600','700','800','900']});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100","200","300","400","500","600","700","800","900"],
+});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -15,16 +18,25 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Pelican Tours Sri Lanka | Custom Tours & Packages",
-  description: "Discover Sri Lanka with Pelican Tours. Explore custom tours and flexible travel packages designed around your interests, from beaches and wildlife to culture and adventure.",
+  description:
+    "Explore Sri Lanka tour packages with Pelican Tours. Custom tours Sri Lanka with beaches, wildlife, culture, and tailored travel experiences.",
+  alternates: {
+    canonical: "https://pelicantravelsandtours.com/",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+      </head>
+
       <body className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable}`}>
         {children}
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    
       </body>
     </html>
   );

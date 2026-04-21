@@ -9,6 +9,14 @@
     padding-top: 14rem;
 }
 
+.srilankan_tour_packages p{
+    padding-left: 4rem;
+    padding-right: 4rem;
+    font-family:'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgb(180, 180, 180);
+}
+
 .packages_section{
     position: relative;
     z-index: 1;

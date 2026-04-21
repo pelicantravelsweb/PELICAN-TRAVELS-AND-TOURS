@@ -655,7 +655,6 @@ const handleInquirySubmit = async (e) => {
                 
               </div>
         </div>
-
 {/*Destinations Section_____________________________________________________________________________*/}
         <h1 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1>
         <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
