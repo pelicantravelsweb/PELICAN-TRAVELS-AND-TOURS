@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: "standalone", // ✅ REQUIRED for your Dockerfile
+  output: "standalone",
+
+  images: {
+    qualities: [70, 75, 80, 90], // include whatever you use in <Image />
+  },
 
   async redirects() {
     return [

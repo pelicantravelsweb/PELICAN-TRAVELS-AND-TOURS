@@ -31,8 +31,6 @@ import image_destination_5 from "../../public/Destinations_Image_14.jpg";
 import image_destination_6 from "../../public/Destinations_Image_15.jpg";
 import image_destination_7 from "../../public/Destinations_Image_16.jpg";
 import { FaTripadvisor } from "react-icons/fa";
-import { db } from './lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
 import useThemeToggle from './lib/useThemeToggle';
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
