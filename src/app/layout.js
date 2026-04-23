@@ -11,27 +11,39 @@ const poppins = Poppins({
   weight: ["100","200","300","400","500","600","700","800","900"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Geist({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata = {
-  title: "Pelican Tours Sri Lanka | Custom Tours & Packages",
+  title: "Best Sri Lanka Tour Packages | Tailor-Made Tours – Pelican Tours",
   description:
-    "Explore Sri Lanka tour packages with Pelican Tours. Custom tours Sri Lanka with beaches, wildlife, culture, and tailored travel experiences.",
-  alternates: {
-    canonical: "https://pelicantravelsandtours.com/",
-  },
+    "Discover Sri Lanka tour packages with Pelican Tours. Custom holiday packages including beaches, wildlife safaris, culture tours, and luxury travel experiences across Sri Lanka.",
 
-   images: [
+  keywords: [
+    "sri lanka tour packages",
+    "sri lanka tours",
+    "sri lanka holiday packages",
+    "custom sri lanka tours",
+    "sri lanka travel agency",
+  ],
+
+  openGraph: {
+    title: "Sri Lanka Tour Packages | Pelican Tours",
+    description:
+      "Book customized Sri Lanka tour packages with beaches, wildlife, culture & luxury experiences.",
+    url: "https://pelicantravelsandtours.com",
+    images: [
       {
-        url: "../../public/Cover_Image.jpg",
+        url: "/Cover_Image.jpg",
         width: 1200,
         height: 630,
-        alt: "Pelican Tours Sri Lanka",
+        alt: "Sri Lanka Tour Packages",
       },
     ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
