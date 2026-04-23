@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    padding-top: 5rem;
+    padding-top: 6rem;
     width: 100%;
 }
 
@@ -15,20 +15,18 @@
 .table_tabs{
     position: sticky;
     z-index: 1;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 0.8rem;
-    padding-bottom: 1.2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.8rem;
     margin-bottom: -0.5rem;
-    font-family:  Arial, Helvetica, sans-serif;
-    font-size: 0.75rem;
+    font-family:  'Poppins', sans-serif;
+    font-size: 1rem;
     font-weight: 600;
     background-color: rgb(235, 130, 10);
     border-color: rgba(0, 0, 0, 0);
     border-width: 1px;
-    box-shadow:
-        inset 10px 0 20px rgba(0, 0, 0, 0.2),   /* left → right */
-        inset 0 -10px 20px rgba(0, 0, 0, 0.2);  /* bottom → top */
+
     cursor: pointer;
 }
 
@@ -68,6 +66,7 @@
     border-width: 1px;
     border-color: rgb(235, 130, 10);
     background-color: rgb(36, 35, 35);
+    padding: 1rem;
 }
 
 .services_section_mobile{
@@ -76,22 +75,9 @@
 
 .services_image {
   position: relative;
-  padding: 1rem;
   width: 40%;
-  height: 100%;
+  aspect-ratio: 4 / 3; /* or 16/9 depending */
   overflow: hidden;
-  box-sizing: border-box; /* ensures padding counts inside width/height */
-}
-
-.services_image img {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
-  object-fit: cover; /* keeps aspect ratio and crops cleanly */
 }
 
 .services_description{
@@ -99,6 +85,7 @@
     width: 60%;
     height: 100%;
     padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .topic_1{

@@ -464,7 +464,8 @@ const handleInquirySubmit = async (e) => {
         </div>
 
 {/*Packages Section_____________________________________________________________________________*/}
-        <h1 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h1>
+    <div className={styles_4.packages_section_container}>
+        <Link href="/tour-packages"><h1 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h1></Link>
         <div className={styles_4.packages_section}>
         
               <div className={styles_4.overlayers}>
@@ -653,8 +654,9 @@ const handleInquirySubmit = async (e) => {
                 
               </div>
         </div>
+    </div>
 {/*Destinations Section_____________________________________________________________________________*/}
-        <h1 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1>
+        <Link href={"/destinations"} className={styles_5.text_deco_none}><h1 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1></Link>
         <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
                 <div className={styles_5.overlayers}>
                     <div className={styles_5.solid_left}></div>
@@ -893,7 +895,7 @@ const handleInquirySubmit = async (e) => {
 
             <div className={styles_7.whyus_section}>
                 <div className={styles_7.whyus_section_image}>
-                    <Image src={image_2} alt="Sri Lankan Beach"/>
+                    <Image src={image_2} alt="pelican tours icon kolam art"/>
                 </div>
 
                 <div className={styles_7.whyus_section_description}>

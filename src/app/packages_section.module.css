@@ -45,6 +45,10 @@
   flex-shrink: 0;
 }
 
+.packages_section_container a{
+    text-decoration: none;
+}
+
 .packages:hover{
     box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.486);
     transition: 0.5s;

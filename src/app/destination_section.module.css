@@ -1,8 +1,6 @@
 
 @keyframes fadeInDown {from {opacity: 0;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}
 
-
-
 .overlayers{
     position: absolute;
     top: 0;
@@ -39,6 +37,10 @@
     width: 7vw;
     height: 100%;
     background-color: rgb(36, 35, 35); /* match section background */
+}
+
+.text_deco_none{
+    text-decoration: none;
 }
 
 .fade_overlay_right{
@@ -228,6 +230,8 @@
     text-align: left;
     padding-left: 4rem;
 }
+
+
 
 :global(body.light_theme) .topic_text{
   color: rgb(36, 35, 35);

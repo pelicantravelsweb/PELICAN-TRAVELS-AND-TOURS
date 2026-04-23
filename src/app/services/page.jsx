@@ -60,7 +60,7 @@ function page() {
     <div className={styles_2.services_section}>
         <div className={styles_2.services_table}>
           <div className={styles_2.button_pannel}>
-          <button className={styles_2.table_tabs} id={activeButton === "round_tours" ? styles_2.active : undefined}onClick={() => handleClick("round_tours")}>ROUND TOURS</button>
+          <button className={styles_2.table_tabs} id={activeButton === "round_tours" ? styles_2.active : undefined}onClick={() => handleClick("round_tours")}>CUSTOMIZED TOURS</button>
           <button className={styles_2.table_tabs} id={activeButton === "day_excursions" ? styles_2.active : undefined}onClick={() => handleClick("day_excursions")}>DAY EXCURSIONS</button>
           <button className={styles_2.table_tabs} id={activeButton === "mice_services" ? styles_2.active : undefined}onClick={() => handleClick("mice_services")}>MICE SERVICES</button>
           <button className={styles_2.table_tabs} id={activeButton === "transport_services" ? styles_2.active : undefined}onClick={() => handleClick("transport_services")}>TRANSPORT SERVICES</button>
@@ -70,7 +70,7 @@ function page() {
            {activeButton === "round_tours" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_1} alt="Adam's Peak, Sri Lanka"/>
+                <Image src={image_1} alt="Adam's Peak, Sri Lanka"  fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "round_tours"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                <h1 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h1>
@@ -110,7 +110,7 @@ function page() {
           {activeButton === "day_excursions" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_2} alt="Adam's Peak, Sri Lanka"/>
+                <Image src={image_2} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "day_excursions"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                 <h1 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h1>
@@ -149,7 +149,7 @@ function page() {
           {activeButton === "mice_services" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_3} alt="Adam's Peak, Sri Lanka"/>
+                <Image src={image_3} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "mice_services"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                 <h1 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h1>
@@ -182,7 +182,7 @@ function page() {
           {activeButton === "transport_services" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_4} alt="Riverston, Sri Lanka"/>
+                <Image src={image_4} alt="Riverston, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "transport_services"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                 <h1 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h1>
@@ -225,7 +225,7 @@ function page() {
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_1}  onClick={() => toggleSection("service_1")}>ROUND TOURS</button>
          
             <div className={`${styles_2.content_box} ${openSection === "service_1" ? styles_2.active : ""}`}>
-              <Image src={image_1} alt="Adam's Peak, Sri Lanka"/>
+              <Image src={image_1} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
 
               <h1 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h1>
               <p className={styles_2.p_1}>Explore the beauty and diversity of Sri Lanka through our expertly guided round tours. 
@@ -260,7 +260,7 @@ function page() {
 
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_2} onClick={() => toggleSection("service_2")}>DAY EXCURSIONS</button>
             <div className={`${styles_2.content_box} ${openSection === "service_2" ? styles_2.active : ""}`}>
-            <Image src={image_2} alt="Adam's Peak, Sri Lanka"/>
+            <Image src={image_2} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
 
             <h1 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h1>
             <p className={styles_2.p_1}>Perfect for travelers with limited time, 
@@ -295,7 +295,7 @@ function page() {
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_3} onClick={() => toggleSection("service_3")}>MICE SERVICES</button>
           <div className={`${styles_2.content_box} ${openSection === "service_3" ? styles_2.active : ""}`}>
 
-            <Image src={image_3} alt="Adam's Peak, Sri Lanka"/>
+            <Image src={image_3} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
             <h1 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h1>
             <p className={styles_2.p_1}>Choose your preferred destination or experience — 
               beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
@@ -322,7 +322,7 @@ function page() {
 
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_4} onClick={() => toggleSection("service_4")}>TRANSPORT SERVICES</button>
           <div className={`${styles_2.content_box} ${openSection === "service_4" ? styles_2.active : ""}`}>
-            <Image src={image_4} alt="Adam's Peak, Sri Lanka"/>
+            <Image src={image_4} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
             <h1 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h1>
             <p className={styles_2.p_1}>Travel across Sri Lanka safely and comfortably with 
               our professional transportation services. Whether you need a private airport transfer, 
