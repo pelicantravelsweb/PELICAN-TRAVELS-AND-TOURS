@@ -66,9 +66,6 @@ useEffect(() => {
   }, 300);
 }, []);
 
-
-
-
 // Phone Number input with country code __________________________________________________________________________________________
 const handleSubmit = () => {
   if (!isValidPhoneNumber(value)) {
@@ -721,7 +718,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Dambulla, explore ancient cave temples, admire sacred Buddhist murals, experience cultural heritage, and enjoy scenic rock landscapes.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <Link href="/destinations?scroll=dambulla"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
@@ -738,7 +735,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Galle, explore colonial forts, scenic beaches, historic streets, museums, and unique coastal heritage experiences.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <Link href="/destinations?scroll=galle"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
@@ -756,7 +753,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Kandy, explore sacred temples, lush hills, cultural heritage, scenic lakes, and vibrant traditional experiences.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <Link href="/destinations?scroll=kandy"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
@@ -939,8 +936,8 @@ const handleInquirySubmit = async (e) => {
             <div className={styles_8.feedback_links}><h1 className={styles_8.feedback_title_2}>SHARE YOUR EXPERIENCE WITH US & <br/>
              CHECKOUT WHAT OTHERS SAID ABOUT US</h1>
              <div className={styles_8.feedback_buttons}>
-                <button><i className="fa-brands fa-google"></i></button>
-                <button><FaTripadvisor className={styles_8.tripadvisor_icon} /></button>
+                <Link href="https://www.google.com/search?q=pelican+travels&rlz=1C1HKFL_enLK1208LK1208&oq=pelican+&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIHCAEQABiABDIYCAIQLhgUGK8BGMcBGIcCGIAEGJgFGJkFMgcIAxAAGIAEMgwIBBAuGBQYhwIYgAQyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQg2NDk1ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x3ae233c0282e0d1f:0x66241ac610346e2d,1,,,,"   target="_blank" rel="noopener noreferrer"><button><i className="fa-brands fa-google"></i></button></Link>
+                <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html#REVIEWS"  target="_blank" rel="noopener noreferrer"><button><FaTripadvisor className={styles_8.tripadvisor_icon} /></button></Link>
              </div>
             </div>
         </div>   
