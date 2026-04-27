@@ -332,78 +332,6 @@ const handleTouchEnd = (index) => {
 
 
 
-      <div id="dambulla" className={styles_2.destinaton}>
-        <div className={styles_2.city} >
-          <div   className={`${styles_2.div_left} ${showMaps[2] ? styles_2.show_map : ""}`}>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252936.28695222916!2d80.5343989678028!3d7.881518540860323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcaff4c8adcc4f%3A0x67ae3cc5b1536914!2sDambulla!5e0!3m2!1sen!2slk!4v1763054062512!5m2!1sen!2slk"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-          </div>
-
-          <div className={styles_2.div_right}>
-              <h1 className={styles_2.city_name}>DAMBULLA</h1>
-              <p className={styles_2.city_description}>Experience the Dambulla–Sigiriya region, the cultural heart of Sri Lanka’s ancient kingdom where history, nature, and wildlife come together. Home to the sacred Dambulla Cave Temple, this UNESCO World Heritage Site features stunning rock-carved shrines, ancient murals, and centuries-old Buddhist artistry. Nearby stands the majestic Sigiriya Rock Fortress, an iconic citadel rising dramatically above the plains with breathtaking views and rich archaeological significance. Surrounded by the rural charm of Habarana village, the adventurous Pidurangala Rock, and the wildlife-rich Minneriya National Park, this region offers a perfect blend of culture, adventure, and nature. Discover ancient heritage, unforgettable landscapes, and wild encounters in the heart of Sri Lanka’s Cultural Triangle.</p>
-
-
-              <div className={styles_2.attraction_section}>
-
-                <h1 className={styles_2.sub_topic}>ATTRACTIONS IN DAMBULLA</h1>
-
-                <div className={styles_2.attraction_section}>
-                  <div className={styles_2.overlayers}>
-                    <div className={styles_2.fade_overlay_right}></div>
-                    <div className={styles_2.fade_overlay_left}></div>
-                    <div className={styles_2.solid_right}></div>
-                    <div className={styles_2.solid_left}></div>
-                      <button className={`${styles_2.nav_arrow} ${styles_2.left}`} onClick={() => handleRightClick(2)}>
-                          <i className="fas fa-chevron-left"></i>
-                      </button>
-                      <button className={`${styles_2.nav_arrow} ${styles_2.right}`} onClick={() => handleLeftClick(2)}>
-                          <i className="fas fa-chevron-right"></i>
-                      </button>
-                  </div>
-
-
-                    <div className={styles_2.attraction_container}   ref={(el) => (containerRefs.current[2] = el)}  onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={() => handleTouchEnd(2)}>
-                        <div className={styles_2.attraction}>
-                          <Image src={image_3} alt="Cave Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Cave Temple</h2>
-                        </div>
-
-                        <div className={styles_2.attraction}>
-                          <Image src={image_2} alt="Sigiriya" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Sigiriya Fortress</h2>
-                        </div>
-
-                        <div className={styles_2.attraction}>
-                          <Image src={image_5} alt="Pidurangala Rock" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Pidurangala Rock</h2>
-                        </div>
-
-                        <div className={styles_2.attraction}>
-                          <Image src={image_4} alt="Minneriya" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Minneriya</h2>
-                        </div>
-
-                        <div className={styles_2.attraction}>
-                          <Image src={image_16} alt="Bahirawakanda Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Bahirawakanda Temple</h2>
-                        </div>
-
-                        <div className={styles_2.attraction}>
-                          <Image src={image_17} alt="Nelligala Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Nelligala Temple</h2>
-                        </div>
-
-                    </div>
-                </div>
-              </div>
-
-                    <button   className={styles_2.map_button} onClick={() => handleMapButtonClick(1)}>VIEW MAP</button>
-          </div>
-        </div>
-      </div>
 
 
 
@@ -485,6 +413,85 @@ const handleTouchEnd = (index) => {
           </div>
         </div>
       </div>
+
+
+
+
+
+
+      <div id="dambulla" className={styles_2.destinaton}>
+        <div className={styles_2.city} >
+          <div   className={`${styles_2.div_left} ${showMaps[2] ? styles_2.show_map : ""}`}>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252936.28695222916!2d80.5343989678028!3d7.881518540860323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcaff4c8adcc4f%3A0x67ae3cc5b1536914!2sDambulla!5e0!3m2!1sen!2slk!4v1763054062512!5m2!1sen!2slk"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+          </div>
+
+          <div className={styles_2.div_right}>
+              <h1 className={styles_2.city_name}>DAMBULLA</h1>
+              <p className={styles_2.city_description}>Experience the Dambulla–Sigiriya region, the cultural heart of Sri Lanka’s ancient kingdom where history, nature, and wildlife come together. Home to the sacred Dambulla Cave Temple, this UNESCO World Heritage Site features stunning rock-carved shrines, ancient murals, and centuries-old Buddhist artistry. Nearby stands the majestic Sigiriya Rock Fortress, an iconic citadel rising dramatically above the plains with breathtaking views and rich archaeological significance. Surrounded by the rural charm of Habarana village, the adventurous Pidurangala Rock, and the wildlife-rich Minneriya National Park, this region offers a perfect blend of culture, adventure, and nature. Discover ancient heritage, unforgettable landscapes, and wild encounters in the heart of Sri Lanka’s Cultural Triangle.</p>
+
+
+              <div className={styles_2.attraction_section}>
+
+                <h1 className={styles_2.sub_topic}>ATTRACTIONS IN DAMBULLA</h1>
+
+                <div className={styles_2.attraction_section}>
+                  <div className={styles_2.overlayers}>
+                    <div className={styles_2.fade_overlay_right}></div>
+                    <div className={styles_2.fade_overlay_left}></div>
+                    <div className={styles_2.solid_right}></div>
+                    <div className={styles_2.solid_left}></div>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.left}`} onClick={() => handleRightClick(2)}>
+                          <i className="fas fa-chevron-left"></i>
+                      </button>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.right}`} onClick={() => handleLeftClick(2)}>
+                          <i className="fas fa-chevron-right"></i>
+                      </button>
+                  </div>
+
+
+                    <div className={styles_2.attraction_container}   ref={(el) => (containerRefs.current[2] = el)}  onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={() => handleTouchEnd(2)}>
+                        <div className={styles_2.attraction}>
+                          <Image src={image_3} alt="Cave Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Cave Temple</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_2} alt="Sigiriya" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Sigiriya Fortress</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_5} alt="Pidurangala Rock" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Pidurangala Rock</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_4} alt="Minneriya" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Minneriya</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_16} alt="Bahirawakanda Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Bahirawakanda Temple</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_17} alt="Nelligala Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Nelligala Temple</h2>
+                        </div>
+
+                    </div>
+                </div>
+              </div>
+
+                    <button   className={styles_2.map_button} onClick={() => handleMapButtonClick(2)}>VIEW MAP</button>
+          </div>
+        </div>
+      </div>
+
 
         
     </div>
