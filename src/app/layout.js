@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://www.pelicantravelsandtours.com"),
+  metadataBase: new URL("https://pelicantravelsandtours.com"),
 
   title: {
     default:
-      "Best Sri Lanka Tour Packages | Custom Holiday & Tailor-Made Tours – Pelican Tours",
+      "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
     template: "%s | Pelican Tours Sri Lanka",
   },
 
@@ -50,7 +50,7 @@ export const metadata = {
   authors: [
     {
       name: "Pelican Tours Sri Lanka",
-      url: "https://www.pelicantravelsandtours.com",
+      url: "https://pelicantravelsandtours.com",
     },
   ],
 
@@ -58,7 +58,7 @@ export const metadata = {
   publisher: "Pelican Tours Sri Lanka",
 
   alternates: {
-    canonical: "https://www.pelicantravelsandtours.com",
+    canonical: "https://pelicantravelsandtours.com",
   },
 
   robots: {
@@ -75,14 +75,14 @@ export const metadata = {
 
   openGraph: {
     title:
-      "Best Sri Lanka Tour Packages | Tailor-Made Tours – Pelican Tours",
+      "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
     description:
       "Luxury Sri Lanka holidays, honeymoon packages, safaris, day tours, and tailor-made travel experiences crafted by local experts.",
-    url: "https://www.pelicantravelsandtours.com",
+    url: "https://pelicantravelsandtours.com",
     siteName: "Pelican Tours Sri Lanka",
     images: [
       {
-        url: "/Cover_Image.jpg",
+        url: "https://pelicantravelsandtours.com/Cover_Image.jpg",
         width: 1200,
         height: 630,
         alt: "Pelican Tours Sri Lanka",
@@ -95,13 +95,18 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Best Sri Lanka Tour Packages | Tailor-Made Tours – Pelican Tours",
+      "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
     description:
       "Custom Sri Lanka holidays, luxury tours, safaris, honeymoon escapes and unforgettable travel experiences.",
-    images: ["/Cover_Image.jpg"],
+    images: ["https://pelicantravelsandtours.com/Cover_Image.jpg"],
   },
 
   category: "travel",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
