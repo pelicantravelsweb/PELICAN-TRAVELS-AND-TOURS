@@ -224,6 +224,26 @@
   color: rgb(36, 35, 35);
 }
 
+:global(body.light_theme) .div_left{
+  background-color: rgb(195, 199, 201);
+}
+
+:global(body.light_theme) .solid_right{
+  background-color: rgb(195, 199, 201);
+}
+
+:global(body.light_theme) .solid_left{
+  background-color: rgb(195, 199, 201);
+}
+
+:global(body.light_theme) .fade_overlay_right{
+    background: linear-gradient(to left, rgb(195, 199, 201), rgba(195, 199, 201, 0));
+}
+
+:global(body.light_theme) .fade_overlay_left{
+    background: linear-gradient(to left, rgba(195, 199, 201, 0), rgb(195, 199, 201));
+}
+
 :global(body.light_theme) .attraction {
     background-color: rgb(209, 215, 221);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); /* Outer shadow */

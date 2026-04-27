@@ -22,6 +22,8 @@ import image_14 from "../../../public/Destinations_Image_17.png";
 import image_15 from "../../../public/Destinations_Image_18.png";
 import image_16 from "../../../public/Destinations_Image_19.jpg";
 import image_17 from "../../../public/Destinations_Image_20.png";
+import image_18 from "../../../public/Destinations_Image_21.png";
+import image_19 from "../../../public/Destinations_Image_22.png";
 import useThemeToggle from '../lib/useThemeToggle';
 
 
@@ -43,11 +45,10 @@ function DestinationsContent() {
   
         if (element) {
           const elementTop = element.offsetTop;
-          const elementHeight = element.offsetHeight;
           const windowHeight = window.innerHeight;
   
           const scrollTo =
-            elementTop - windowHeight / 1 + elementHeight / 1;
+            elementTop - windowHeight / 7;
   
           window.scrollTo({
             top: scrollTo,
@@ -474,13 +475,13 @@ const handleTouchEnd = (index) => {
                         </div>
 
                         <div className={styles_2.attraction}>
-                          <Image src={image_16} alt="Bahirawakanda Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Bahirawakanda Temple</h2>
+                          <Image src={image_18} alt="Hiriwadunna Village" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Hiriwadunna Village</h2>
                         </div>
 
                         <div className={styles_2.attraction}>
-                          <Image src={image_17} alt="Nelligala Temple" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
-                          <h2 className={styles_2.attraction_name}>Nelligala Temple</h2>
+                          <Image src={image_19} alt="Kaludiya Pokuna" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Kaludiya Pokuna</h2>
                         </div>
 
                     </div>
