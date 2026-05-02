@@ -73,6 +73,7 @@ export const metadata = {
     },
   },
 
+
   openGraph: {
     title:
       "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",

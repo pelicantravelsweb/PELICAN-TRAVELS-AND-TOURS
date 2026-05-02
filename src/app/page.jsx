@@ -385,7 +385,7 @@ const handleInquirySubmit = async (e) => {
     <>
 {/*Navigation Section_____________________________________________________________________________*/}
     <div className={styles_1.navigation}>
-        <Link href="/"><h1 className={styles_1.heading}>PELICAN TOURS</h1></Link>
+        <Link href="/"><h2 className={styles_1.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_1.navigation_ul}>
             <li className={styles_1.navigation_desktop}><Link href="/"><h2 id={styles_1.active}>HOME</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/tour-packages"><h2>PACKAGES</h2></Link></li>
@@ -412,20 +412,22 @@ const handleInquirySubmit = async (e) => {
 {/*Cover Section_____________________________________________________________________________*/}
     <div className={styles_2.coversection}>
             <div className={styles_2.coversection_brief}>
-                <h1>TRAVEL WITH WINGS OF ASSURANCE</h1>
-                <h2>Explore & Discover the Elegance of Sri Lanka</h2>
-                <p> Explore Sri Lanka’s top tourist attractions — 
-                    from pristine beaches and ancient Buddhist temples to lush tea plantations, 
-                    wildlife safaris, and cultural heritage sites. 
-                    Whether you're looking for all-inclusive Sri Lanka tour packages, 
-                    honeymoon getaways, or custom holiday itineraries, 
-                    Pelican Tours is your trusted travel agency in Sri Lanka. 
-                    Let us design your unforgettable Sri Lankan vacation.</p>
+                <h1>SRI LANKA TOUR PACKAGES & TAILORMADE TOURS</h1>
+                <h2>TRAVEL WITH WINGS OF ASSURANCE</h2>
+                <p>
+                Explore the best <strong>Sri Lanka tour packages</strong> designed to showcase the island’s most iconic destinations. 
+                From pristine beaches and ancient Buddhist temples to lush tea plantations, thrilling wildlife safaris, 
+                and UNESCO World Heritage sites, Sri Lanka offers unforgettable travel experiences. 
+
+                Whether you're searching for <strong>Sri Lanka holiday packages</strong>, romantic honeymoon getaways, 
+                family tours, or fully customized itineraries, Pelican Travels and Tours is your trusted travel agency in Sri Lanka. 
+                Let us create a personalized Sri Lanka travel package tailored to your needs and budget.
+                </p>
                 <button className={styles_2.button_1} onClick={scrollToInquire}>INQUIRE NOW</button>
             </div>
             <div className={styles_2.coversection_image}>
                 <div className={styles_2.image_wrapper}>
-                <Image src={image_1} alt="Sri Lankan Beach" fill priority quality={75} sizes="(max-width: 800px) 100vw, 50vw" className={styles_2.cover_img} placeholder="blur"/>
+                <Image src={image_1} alt="Sri Lanka beach tour destination with palm trees and tropical coastline" fill priority quality={75} sizes="(max-width: 800px) 100vw, 50vw" className={styles_2.cover_img} placeholder="blur"/>
               </div>
             </div>
     </div>
@@ -436,25 +438,25 @@ const handleInquirySubmit = async (e) => {
             <div className={styles_3.services_container}>
                 <div className={styles_3.services} >
                     <Link href="/services"><i className="fa fa-recycle"></i>
-                    <h1 className={styles_3.sub_topic_text}>ROUND TOURS</h1>
+                    <h2 className={styles_3.sub_topic_text}>ROUND TOURS</h2>
                     <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
                     <Link href="/services"><i className="fa-solid fa-binoculars"></i>
-                    <h1 className={styles_3.sub_topic_text}>DAY EXCURSIONS</h1>
+                    <h2 className={styles_3.sub_topic_text}>DAY EXCURSIONS</h2>
                     <p>Enjoy guided day excursions to famous attractions, historic landmarks, and natural wonders near you.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
                     <Link href="/services"><i className="fa fa-users"></i>
-                    <h1 className={styles_3.sub_topic_text}>MICE SERVICES</h1>
+                    <h2 className={styles_3.sub_topic_text}>MICE SERVICES</h2>
                     <p>Professional MICE services for meetings, incentives, conferences, and events tailored to your needs.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
                     <Link href="/services"><i className="fa-solid fa-car"></i>
-                    <h1 className={styles_3.sub_topic_text}>TRANSPORT SERVICES</h1>
+                    <h2 className={styles_3.sub_topic_text}>TRANSPORT SERVICES</h2>
                     <p>Reliable transport services with comfortable vehicles and experienced drivers for safe travel anywhere.</p></Link>
                 </div>
             </div>
@@ -488,7 +490,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  8 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  1-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>MINI GOLF ESCAPE TOUR</h1>  
+                        <h2 className={styles_4.packages_h1}>MINI GOLF ESCAPE TOUR</h2>  
                         <h3 className={styles_4.Package_h3}>Sri Lanka is a rising golf destination in Asia, offering scenic, diverse courses, colonial charm, and affordable, high-quality experiences year-round.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -512,7 +514,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>HONEYMOON TOUR</h1>  
+                        <h2 className={styles_4.packages_h1}>HONEYMOON TOUR</h2>  
                         <h3 className={styles_4.Package_h3}>Romantic Sri Lanka honeymoon with hill country, train rides, safaris, and beach sunsets—blending adventure, luxury, and intimate moments.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -536,7 +538,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILD & COASTAL BLISS</h1>  
+                        <h2 className={styles_4.packages_h1}>WILD & COASTAL BLISS</h2>  
                         <h3 className={styles_4.Package_h3}>South Coast Sri Lanka tour with safaris, whale watching, heritage, and beach escapes—blending adventure with coastal luxury.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -560,7 +562,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-7 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>BIRD WATCHING TOUR</h1>  
+                        <h2 className={styles_4.packages_h1}>BIRD WATCHING TOUR</h2>  
                         <h3 className={styles_4.Package_h3}>Sri Lanka hosts 430+ bird species, including 33 endemics. This tour covers diverse habitats with excellent birdwatching opportunities.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -584,7 +586,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>LUXURY HONEYMOON</h1>  
+                        <h2 className={styles_4.packages_h1}>LUXURY HONEYMOON</h2>  
                         <h3 className={styles_4.Package_h3}>Luxury Sri Lanka honeymoon with scenic hill country escapes, wildlife safaris, and relaxing beachside romance.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -608,7 +610,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  1-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>PEKOE TRAIL TREKKING</h1>  
+                        <h2 className={styles_4.packages_h1}>PEKOE TRAIL TREKKING</h2>  
                         <h3 className={styles_4.Package_h3}>The Pekoe Trail is a 300 km hike through Sri Lanka’s Central Highlands, linking tea estates, mountains, and villages.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -632,7 +634,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WELLNESS & REJUVENATION</h1>  
+                        <h2 className={styles_4.packages_h1}>WELLNESS & REJUVENATION</h2>  
                         <h3 className={styles_4.Package_h3}>Sri Lanka wellness retreat with Ayurveda, yoga, spa therapies, and nature healing—designed for complete mind, body, rejuvenation.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
