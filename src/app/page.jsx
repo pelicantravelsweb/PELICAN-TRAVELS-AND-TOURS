@@ -434,7 +434,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Services Section_____________________________________________________________________________*/}
         <div className={styles_3.services_section}>
-            <Link href="/services"><h1 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h1></Link>
+            <Link href="/services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h2></Link>
             <div className={styles_3.services_container}>
                 <div className={styles_3.services} >
                     <Link href="/services"><i className="fa fa-recycle"></i>
@@ -464,7 +464,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Packages Section_____________________________________________________________________________*/}
     <div className={styles_4.packages_section_container}>
-        <Link href="/tour-packages"><h1 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h1></Link>
+        <Link href="/tour-packages"><h2 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h2></Link>
         <div className={styles_4.packages_section}>
         
               <div className={styles_4.overlayers}>
@@ -655,7 +655,7 @@ const handleInquirySubmit = async (e) => {
         </div>
     </div>
 {/*Destinations Section_____________________________________________________________________________*/}
-        <Link href={"/destinations"} className={styles_5.text_deco_none}><h1 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1></Link>
+        <Link href={"/destinations"} className={styles_5.text_deco_none}><h2 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h2></Link>
         <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
                 <div className={styles_5.overlayers}>
                     <div className={styles_5.solid_left}></div>
@@ -799,7 +799,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Tailormade Section_____________________________________________________________________________*/}
 
-        <h1 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h1>
+        <h2 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h2>
         <div className={styles_6.inquire_section} ref={inquireRef}>
             <form className={styles_6.inquire_form} onSubmit={handleInquirySubmit}>
                 <div className={styles_6.inquire_form_content}>
@@ -889,7 +889,7 @@ const handleInquirySubmit = async (e) => {
         </div>
 
 {/*Why Us Section_____________________________________________________________________________*/}   
-        <h1 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h1>
+        <h2 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h2>
         <div className={styles_7.whyus_section_container}>
 
             <div className={styles_7.whyus_section}>
@@ -914,7 +914,7 @@ const handleInquirySubmit = async (e) => {
         </div>
 
 {/*Feedback Section_____________________________________________________________________________*/}
-        <h1 className={styles_8.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>FEEDBACK</span> FROM OUR CLIENTS</h1>    
+        <h2 className={styles_8.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>FEEDBACK</span> FROM OUR CLIENTS</h2>    
         <div className={styles_8.feedback_section}>
             <div className={styles_8.feedback_container}>
                 <div className={styles_8.feedback}>
@@ -935,8 +935,8 @@ const handleInquirySubmit = async (e) => {
                     <h3>- Isabel F</h3>
                 </div>
             </div>
-            <div className={styles_8.feedback_links}><h1 className={styles_8.feedback_title_2}>SHARE YOUR EXPERIENCE WITH US & <br/>
-             CHECKOUT WHAT OTHERS SAID ABOUT US</h1>
+            <div className={styles_8.feedback_links}><h2 className={styles_8.feedback_title_2}>SHARE YOUR EXPERIENCE WITH US & <br/>
+             CHECKOUT WHAT OTHERS SAID ABOUT US</h2>
              <div className={styles_8.feedback_buttons}>
                 <Link href="https://www.google.com/search?q=pelican+travels&rlz=1C1HKFL_enLK1208LK1208&oq=pelican+&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIHCAEQABiABDIYCAIQLhgUGK8BGMcBGIcCGIAEGJgFGJkFMgcIAxAAGIAEMgwIBBAuGBQYhwIYgAQyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQg2NDk1ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x3ae233c0282e0d1f:0x66241ac610346e2d,1,,,,"   target="_blank" rel="noopener noreferrer"><button><i className="fa-brands fa-google"></i></button></Link>
                 <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html#REVIEWS"  target="_blank" rel="noopener noreferrer"><button><FaTripadvisor className={styles_8.tripadvisor_icon} /></button></Link>
@@ -945,7 +945,7 @@ const handleInquirySubmit = async (e) => {
         </div>   
 
 {/*Contact Us Section_____________________________________________________________________________*/}
-        <h1 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h1>    
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
                     <button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button>
