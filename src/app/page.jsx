@@ -948,25 +948,30 @@ const handleInquirySubmit = async (e) => {
         <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
-                    <button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button>
+                    <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
                     <button className={styles_9.footer_button_2}><i className="fa-brands fa-instagram"></i></button>
-                    <button className={styles_9.footer_button_3}><FaTripadvisor className={styles_9.tripadvisor_icon} /></button>
-                    <button className={styles_9.footer_button_4}><i className="fa-brands fa-whatsapp"></i></button>
+                    <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_3}><FaTripadvisor className={styles_9.tripadvisor_icon} /></button></Link>
+                    <Link href="https://wa.me/+94782436606" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_4}><i className="fa-brands fa-whatsapp"></i></button></Link>
                 </div>
+
                 <div className={styles_9.footer_phone_numbers}>  
-                        <i className="fa-solid fa-phone"></i>
-                        <p>+94782436606</p><p>|</p>
-                        <p>+94764705440</p>
+                    <i className="fa-solid fa-phone"></i>
+                    <a href="https://wa.me/94764705440" target="_blank" rel="noopener noreferrer">+94764705440</a>
+                    <span> | </span>
+                    <a href="https://wa.me/94719015403" target="_blank" rel="noopener noreferrer">+94719015403</a>
                 </div>
 
                 <div className={styles_9.footer_email}>  
-                        <i className="fa-solid fa-envelope"></i>
-                        <p> hello@pelicantravelsandtours.com</p>     
+                    <i className="fa-solid fa-envelope"></i>
+
+                    <a href="mailto:hello@pelicantravelsandtours.com">
+                        hello@pelicantravelsandtours.com
+                    </a>     
                 </div>
 
                 <div className={styles_9.footer_address}>  
                         <i className="fa-solid fa-location-dot"></i>
-                        <p>Dodangoda Toll Booth, Dodangoda Entrance, Kalutara</p>      
+                        <p>Dodangoda Toll Booth, Dodangoda Entrance, Kalutara</p>
                 </div>
 
                 <div className={styles_9.footer_bottomline}>

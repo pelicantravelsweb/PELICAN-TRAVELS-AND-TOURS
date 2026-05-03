@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import styles_1 from './navigation.module.css';
 import styles_2 from './destinations_section.module.css';
+import styles_9 from './footer_section.module.css';
 import Link from 'next/link';
 import image_1 from "../../../public/Cover_Image.jpg";
 import image_2 from "../../../public/Destinations_Image_1.jpg";
@@ -24,7 +25,9 @@ import image_16 from "../../../public/Destinations_Image_19.jpg";
 import image_17 from "../../../public/Destinations_Image_20.png";
 import image_18 from "../../../public/Destinations_Image_21.png";
 import image_19 from "../../../public/Destinations_Image_22.png";
+import image_20 from "../../../public/SriLankan_Attractions.png";
 import useThemeToggle from '../lib/useThemeToggle';
+import { FaTripadvisor } from "react-icons/fa";
 
 
 
@@ -496,6 +499,45 @@ const handleTouchEnd = (index) => {
 
         
     </div>
+
+
+    
+{/*Footer Section_____________________________________________________________________________*/}
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
+        <div className={styles_9.footer_section}>
+                <div className={styles_9.footer_buttons}>
+                    <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
+                    <button className={styles_9.footer_button_2}><i className="fa-brands fa-instagram"></i></button>
+                    <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_3}><FaTripadvisor className={styles_9.tripadvisor_icon} /></button></Link>
+                    <Link href="https://wa.me/+94782436606" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_4}><i className="fa-brands fa-whatsapp"></i></button></Link>
+                </div>
+
+                <div className={styles_9.footer_phone_numbers}>  
+                    <i className="fa-solid fa-phone"></i>
+                    <a href="https://wa.me/94764705440" target="_blank" rel="noopener noreferrer">+94764705440</a>
+                    <span> | </span>
+                    <a href="https://wa.me/94719015403" target="_blank" rel="noopener noreferrer">+94719015403</a>
+                </div>
+
+                <div className={styles_9.footer_email}>  
+                    <i className="fa-solid fa-envelope"></i>
+
+                    <a href="mailto:hello@pelicantravelsandtours.com">
+                        hello@pelicantravelsandtours.com
+                    </a>     
+                </div>
+
+                <div className={styles_9.footer_address}>  
+                        <i className="fa-solid fa-location-dot"></i>
+                        <p>Dodangoda Toll Booth, Dodangoda Entrance, Kalutara</p>
+                </div>
+
+                <div className={styles_9.footer_bottomline}>
+                    <p>© 2026 Pelican Travels & Tours | All rights reserved</p>
+                    <p></p>
+                </div>
+                <Image src={image_20} alt="Sri Lankan Attractions" />
+        </div>
     </>
   )
 }
