@@ -247,19 +247,19 @@ export default function TourPackages() {
     if (selectedTourTypes.length > 0) {
       result = result.filter(pkg => {
         const pkgTypes = Array.isArray(pkg.tourType) ? pkg.tourType : [pkg.tourType].filter(Boolean);
-        return selectedTourTypes.some(t => pkgTypes.includes(t));
+        return selectedTourTypes.every(t => pkgTypes.includes(t));
       });
     }
 
     if (selectedExperiences.length > 0) {
       result = result.filter(pkg =>
-        selectedExperiences.some(exp => pkg.experiences?.includes(exp))
+        selectedExperiences.every(exp => pkg.experiences?.includes(exp))
       );
     }
 
     if (selectedPeriod.length > 0) {
       result = result.filter(pkg =>
-        selectedPeriod.some(period => pkg.travelPeriod?.includes(period))
+        selectedPeriod.every(period => pkg.travelPeriod?.includes(period))
       );
     }
 
