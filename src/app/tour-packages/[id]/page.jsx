@@ -5,7 +5,7 @@ import styles_nav from '../../navigation.module.css';
 import styles from './package_detail.module.css';
 import Link from 'next/link';
 import { db } from '../../lib/firebase';
-import { doc, getDoc, collection, addDoc } from 'firebase/firestore';
+import { doc, getDoc, getDocs, collection, addDoc, query, where } from 'firebase/firestore';
 import useThemeToggle from '../../lib/useThemeToggle';
 
 export default function PackageDetail() {
@@ -122,19 +122,29 @@ export default function PackageDetail() {
     }
   };
 
-  // Fetch package details from Firebase
+  // Fetch package details from Firebase — try slug first, fallback to doc ID
   useEffect(() => {
     const fetchPackage = async () => {
       if (!params.id) return;
 
       try {
-        const packageRef = doc(db, 'packages', params.id);
-        const packageSnap = await getDoc(packageRef);
+        // Try slug-based lookup first
+        const slugQuery = query(
+          collection(db, 'packages'),
+          where('slug', '==', params.id)
+        );
+        const slugSnap = await getDocs(slugQuery);
 
-        if (packageSnap.exists()) {
-          setPackageData({ id: packageSnap.id, ...packageSnap.data() });
+        if (!slugSnap.empty) {
+          const docSnap = slugSnap.docs[0];
+          setPackageData({ id: docSnap.id, ...docSnap.data() });
         } else {
-          console.error("Package not found");
+          // Fallback: treat param as Firestore document ID (legacy URLs)
+          const packageRef = doc(db, 'packages', params.id);
+          const packageSnap = await getDoc(packageRef);
+          if (packageSnap.exists()) {
+            setPackageData({ id: packageSnap.id, ...packageSnap.data() });
+          }
         }
         setLoading(false);
       } catch (error) {

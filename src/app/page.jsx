@@ -483,7 +483,7 @@ const handleInquirySubmit = async (e) => {
 
 
               <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-                <Link href="/tour-packages/3hrumfK0tfHEXkXBCV12"><div className={styles_4.packages}>
+                <Link href="/tour-packages/mini-golf-escape-tour"><div className={styles_4.packages}>
                     <Image   src={image_package_1} alt="Golf Tour Package in Sri Lanka" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -507,7 +507,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/AKvGtOLu2IsUzprJcdiC"><div className={styles_4.packages}>
+                <Link href="/tour-packages/honeymoon-tour"><div className={styles_4.packages}>
                     <Image   src={image_package_2} alt="Sri Lankan Honeymoon Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -531,7 +531,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/H7e0jCKt7JCk66yQ1jZ4"><div className={styles_4.packages}>
+                <Link href="/tour-packages/wild-coastal-bliss"><div className={styles_4.packages}>
                     <Image   src={image_package_3} alt="Sri Lankan Wild Life Tour Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -555,7 +555,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/HPJwHyK5IUUbmLg6DHlC"><div className={styles_4.packages}>
+                <Link href="/tour-packages/bird-watching-tour"><div className={styles_4.packages}>
                     <Image   src={image_package_4} alt="Sri Lankan Bird Watching Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -579,7 +579,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/sDOgrjEvWHJ2cU4SWcYW"><div className={styles_4.packages}>
+                <Link href="/tour-packages/luxury-honeymoon"><div className={styles_4.packages}>
                     <Image   src={image_package_5} alt="Sri Lanka Luxury Honeymoon Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -603,7 +603,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/z6kf9PXvELkTkqmkNyic"><div className={styles_4.packages}>
+                <Link href="/tour-packages/pekoe-trail-trekking"><div className={styles_4.packages}>
                     <Image   src={image_package_6} alt="Pekoe Trail Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -627,7 +627,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/06RhE4L4KZrctSKnodQG"><div className={styles_4.packages}>
+                <Link href="/tour-packages/wellness-rejuvenation"><div className={styles_4.packages}>
                     <Image   src={image_package_7} alt="Wellness Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 

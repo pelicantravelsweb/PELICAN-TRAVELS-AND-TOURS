@@ -15,7 +15,7 @@ function PackageCard({ pkg, renderStars, styles }) {
   const intervalRef = useRef(null);
   const touchTimeoutRef = useRef(null);
   const isHoveredRef = useRef(false);
-  const packageHref = `/tour-packages/${pkg.id}`;
+  const packageHref = `/tour-packages/${pkg.slug || pkg.id}`;
 
   // Collect all images: cover + gallery + itinerary day images (capped at 8)
   const images = [

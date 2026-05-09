@@ -4,6 +4,7 @@ import styles from "./AddPackage.module.css";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../../lib/firebase";
+import { generateSlug } from "../../lib/slugify";
 
 export default function AddPackage({ onClose, onSuccess, editPackage }) {
   const [loading, setLoading] = useState(false);
@@ -302,6 +303,7 @@ export default function AddPackage({ onClose, onSuccess, editPackage }) {
 
       const packageData = {
         title,
+        slug: generateSlug(title),
         description,
         tourType: tourTypes,
         duration: { days: parseInt(days), nights: parseInt(nights) },
