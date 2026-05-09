@@ -145,7 +145,7 @@
 /* Package Content */
 .package_content {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
 }
 
@@ -161,6 +161,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
+  min-width: 0;
 }
 
 .main_image {
@@ -301,6 +302,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
 }
 
 /* Quick Info Cards */
@@ -341,6 +343,8 @@
   font-size: 1rem;
   color: white;
   font-weight: 600;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Price Section */
@@ -518,6 +522,8 @@
   color: white;
   font-size: 1.2rem;
   margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Day Images Gallery */

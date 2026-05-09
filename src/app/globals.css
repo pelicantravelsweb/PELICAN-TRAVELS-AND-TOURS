@@ -5,8 +5,15 @@
   margin: 0;
 }
 
-body{
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
   background-color: rgb(36, 35, 35);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body.light_theme {
