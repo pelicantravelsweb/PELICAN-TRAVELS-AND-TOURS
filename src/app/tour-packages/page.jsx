@@ -456,24 +456,43 @@ export default function TourPackages() {
           {/* Duration Filter */}
           <div className={styles.filter_group}>
             <h3>Duration</h3>
-            <div className={styles.range_filter}>
-              <div className={styles.range_inputs}>
+            <div className={styles.slider_filter}>
+              <div className={styles.slider_value_row}>
+                <span className={styles.slider_value_badge}>{durationRange[0]} day{durationRange[0] !== 1 ? 's' : ''}</span>
+                <span className={styles.slider_value_badge}>{durationRange[1]} days</span>
+              </div>
+              <div className={styles.dual_range_wrap}>
+                <div
+                  className={styles.range_track_fill}
+                  style={{
+                    left: `${((durationRange[0] - 1) / 29) * 100}%`,
+                    width: `${((durationRange[1] - durationRange[0]) / 29) * 100}%`,
+                  }}
+                />
                 <input
-                  type="number"
-                  min="1"
-                  max="30"
+                  type="range"
+                  min="1" max="30" step="1"
                   value={durationRange[0]}
-                  onChange={(e) => setDurationRange([parseInt(e.target.value) || 1, durationRange[1]])}
+                  onChange={(e) => {
+                    const v = parseInt(e.target.value);
+                    if (v <= durationRange[1]) setDurationRange([v, durationRange[1]]);
+                  }}
+                  className={styles.range_slider}
                 />
-                <span>to</span>
                 <input
-                  type="number"
-                  min="1"
-                  max="30"
+                  type="range"
+                  min="1" max="30" step="1"
                   value={durationRange[1]}
-                  onChange={(e) => setDurationRange([durationRange[0], parseInt(e.target.value) || 30])}
+                  onChange={(e) => {
+                    const v = parseInt(e.target.value);
+                    if (v >= durationRange[0]) setDurationRange([durationRange[0], v]);
+                  }}
+                  className={styles.range_slider}
                 />
-                <span>days</span>
+              </div>
+              <div className={styles.slider_bounds}>
+                <span>1 day</span>
+                <span>30 days</span>
               </div>
             </div>
           </div>
@@ -481,24 +500,43 @@ export default function TourPackages() {
           {/* Budget Filter */}
           <div className={styles.filter_group}>
             <h3>Budget (USD)</h3>
-            <div className={styles.range_filter}>
-              <div className={styles.range_inputs}>
-                <span>$</span>
+            <div className={styles.slider_filter}>
+              <div className={styles.slider_value_row}>
+                <span className={styles.slider_value_badge}>${budgetRange[0].toLocaleString()}</span>
+                <span className={styles.slider_value_badge}>${budgetRange[1].toLocaleString()}</span>
+              </div>
+              <div className={styles.dual_range_wrap}>
+                <div
+                  className={styles.range_track_fill}
+                  style={{
+                    left: `${((budgetRange[0] - 500) / 9500) * 100}%`,
+                    width: `${((budgetRange[1] - budgetRange[0]) / 9500) * 100}%`,
+                  }}
+                />
                 <input
-                  type="number"
-                  min="0"
-                  max="10000"
+                  type="range"
+                  min="500" max="10000" step="100"
                   value={budgetRange[0]}
-                  onChange={(e) => setBudgetRange([parseInt(e.target.value) || 0, budgetRange[1]])}
+                  onChange={(e) => {
+                    const v = parseInt(e.target.value);
+                    if (v <= budgetRange[1]) setBudgetRange([v, budgetRange[1]]);
+                  }}
+                  className={styles.range_slider}
                 />
-                <span>to $</span>
                 <input
-                  type="number"
-                  min="0"
-                  max="10000"
+                  type="range"
+                  min="500" max="10000" step="100"
                   value={budgetRange[1]}
-                  onChange={(e) => setBudgetRange([budgetRange[0], parseInt(e.target.value) || 10000])}
+                  onChange={(e) => {
+                    const v = parseInt(e.target.value);
+                    if (v >= budgetRange[0]) setBudgetRange([budgetRange[0], v]);
+                  }}
+                  className={styles.range_slider}
                 />
+              </div>
+              <div className={styles.slider_bounds}>
+                <span>$500</span>
+                <span>$10,000</span>
               </div>
             </div>
           </div>

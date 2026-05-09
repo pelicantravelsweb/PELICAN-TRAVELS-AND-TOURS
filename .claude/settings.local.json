@@ -37,7 +37,9 @@
       "Bash(firebase hosting:sites:list:*)",
       "Bash(npx next build)",
       "Bash(npx vercel:*)",
-      "Bash(gcloud config list:*)"
+      "Bash(gcloud config list:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot"
     ]
   }
 }

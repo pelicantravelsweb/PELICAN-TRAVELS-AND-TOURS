@@ -277,39 +277,119 @@
   display: block;
 }
 
-/* Range Filter */
-.range_filter {
-  padding: 0.5rem 0;
+/* Dual Range Slider Filter */
+.slider_filter {
+  padding: 0.25rem 0 0.5rem;
 }
 
-.range_inputs {
+.slider_value_row {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
 }
 
-.range_inputs input {
-  width: 70px;
-  padding: 0.5rem;
-  background-color: rgb(60, 60, 60);
-  border: 1px solid rgb(100, 100, 100);
-  border-radius: 6px;
-  color: white;
+.slider_value_badge {
+  background: rgb(235, 130, 10);
+  color: #fff;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
-  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
 }
 
-.range_inputs input:focus {
+.dual_range_wrap {
+  position: relative;
+  height: 36px;
+  width: 100%;
+}
+
+/* Base track (grey background) */
+.dual_range_wrap::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: translateY(-50%);
+  background: rgb(70, 70, 70);
+  border-radius: 2px;
+}
+
+/* Orange filled portion between the two thumbs */
+.range_track_fill {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  transform: translateY(-50%);
+  background: rgb(235, 130, 10);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* The range inputs themselves */
+.range_slider {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  transform: translateY(-50%);
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
   outline: none;
-  border-color: rgb(235, 130, 10);
 }
 
-.range_inputs span {
-  color: rgb(160, 160, 160);
+/* Thumb — WebKit */
+.range_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: all;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(235, 130, 10);
+  border: 2px solid #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.range_slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 3px 10px rgba(235, 130, 10, 0.5);
+}
+
+.range_slider::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+  background: rgb(255, 155, 30);
+}
+
+/* Thumb — Firefox */
+.range_slider::-moz-range-thumb {
+  pointer-events: all;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgb(235, 130, 10);
+  border: 2px solid #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.slider_bounds {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
+  color: rgb(120, 120, 120);
 }
 
 /* Packages Main Area */
@@ -678,14 +758,12 @@
   border-color: rgb(180, 180, 180);
 }
 
-:global(body.light_theme) .range_inputs input {
-  background-color: rgb(240, 240, 240);
-  border-color: rgb(180, 180, 180);
-  color: rgb(36, 35, 35);
+:global(body.light_theme) .dual_range_wrap::before {
+  background: rgb(210, 210, 210);
 }
 
-:global(body.light_theme) .range_inputs span {
-  color: rgb(80, 80, 80);
+:global(body.light_theme) .slider_bounds {
+  color: rgb(130, 130, 130);
 }
 
 :global(body.light_theme) .results_header p {
