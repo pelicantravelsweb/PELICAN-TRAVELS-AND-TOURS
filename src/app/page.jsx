@@ -16,16 +16,34 @@ import image_2 from "../../public/Pelican_Bird_Art.png";
 import image_3 from "../../public/SriLankan_Attractions.png";
 import image_4 from "../../public/Inquiry Section_Mask Image.png";
 import image_5 from "../../public/Inquiry Section_Mask Image_2.png";
+import image_package_1 from "../../public/package_1.png";
+import image_package_2 from "../../public/package_2.png";
+import image_package_3 from "../../public/package_3.jpg";
+import image_package_4 from "../../public/package_4.jpg";
+import image_package_5 from "../../public/package_5.png";
+import image_package_6 from "../../public/package_6.jpg";
+import image_package_7 from "../../public/package_7.jpg";
+import image_destination_1 from "../../public/Destinations_Image_1.jpg";
+import image_destination_2 from "../../public/Destinations_Image_5.jpg";
+import image_destination_3 from "../../public/Destinations_Image_9.jpg";
+import image_destination_4 from "../../public/Destinations_Image_13.jpg";
+import image_destination_5 from "../../public/Destinations_Image_14.jpg";
+import image_destination_6 from "../../public/Destinations_Image_15.jpg";
+import image_destination_7 from "../../public/Destinations_Image_16.jpg";
 import { FaTripadvisor } from "react-icons/fa";
-import { db } from './lib/firebase';
-import { collection, addDoc } from 'firebase/firestore';
 import useThemeToggle from './lib/useThemeToggle';
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isLightTheme, handleThemeToggle } = useThemeToggle();
+    const [value, setValue] = useState(""); 
+    const [phone, setPhone] = useState();
+    const [phoneError, setPhoneError] = useState("");
 
 
 const containerRef = useRef(null);
@@ -48,34 +66,266 @@ useEffect(() => {
   }, 300);
 }, []);
 
+// Phone Number input with country code __________________________________________________________________________________________
+const handleSubmit = () => {
+  if (!isValidPhoneNumber(value)) {
+    alert("Invalid phone number");
+  } else {
+    console.log("Valid:", value);
+  }
+};
 
-// Scroll one card at a time
-const scrollToPackage = (direction) => {
-  if (!containerRef.current) return;
+// Phone Number Validation
+const handlePhoneChange = (val) => {
+  if (!val) {
+    setPhone(val);
+    return;
+  }
 
-  const container = containerRef.current;
-  const packages = container.querySelectorAll(`.${styles_4.packages}`);
+  const phoneNumber = parsePhoneNumberFromString(val);
 
-  if (!packages.length) return;
+  if (phoneNumber) {
+    const nationalNumber = phoneNumber.nationalNumber;
 
-  const cardWidth = packages[0].offsetWidth + 16; // add gap if needed
+    // 🔥 Example: Sri Lanka max = 9 digits
+    if (nationalNumber.length > 9 && phoneNumber.country === "LK") {
+      return; // ❌ block extra typing
+    }
+  }
 
-  const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+  setPhone(val);
 
-  container.scrollBy({
-    left: scrollAmount,
+  // validation
+  if (!isValidPhoneNumber(val)) {
+    setPhoneError("Invalid phone number");
+  } else {
+    setPhoneError("");
+  }
+};
+
+
+// Inquire Now Button (Jumping to Tailormade section)_____________________________________________________________________________
+const inquireRef = useRef(null);
+
+const scrollToInquire = () => {
+  if (!inquireRef.current) return; // ✅ prevent crash
+
+  const yOffset = -200;
+  const y =
+    inquireRef.current.getBoundingClientRect().top +
+    window.pageYOffset +
+    yOffset;
+
+  window.scrollTo({
+    top: y,
     behavior: "smooth",
   });
 };
 
-const scrollLeft = () => scrollToPackage("left");
-const scrollRight = () => scrollToPackage("right");
+
+
+
+// Packages section(Scrolling cards)_____________________________________________________________________________
+const [isAnimating, setIsAnimating] = useState(false);
+
+const getCardWidth = () => {
+  const container = containerRef.current;
+  if (!container) return 0;
+
+  const firstChild = container.children[0];
+  return firstChild ? firstChild.offsetWidth + 12 : 0;
+};
+
+const handleLeftClick = () => {
+  if (isAnimating) return;
+
+  const container = containerRef.current;
+  if (!container) return;
+
+  const firstChild = container.children[0];
+  const cardWidth = getCardWidth();
+
+  setIsAnimating(true);
+
+  // 🔥 Reset first
+  container.style.transition = "none";
+  container.style.transform = "translateX(0)";
+
+  // 🔥 FORCE REFLOW (this is the fix)
+  container.offsetHeight;
+
+  // ✅ Now apply animation
+  container.style.transition = "transform 0.5s ease";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+
+  setTimeout(() => {
+    container.appendChild(firstChild);
+
+    container.style.transition = "none";
+    container.style.transform = "translateX(0)";
+
+    setIsAnimating(false);
+  }, 500);
+};
+
+const handleRightClick = () => {
+  if (isAnimating) return;
+
+  const container = containerRef.current;
+  if (!container) return;
+
+  const cardWidth = getCardWidth();
+  const lastChild = container.lastElementChild;
+
+  setIsAnimating(true);
+
+  container.insertBefore(lastChild, container.firstChild);
+
+  container.style.transition = "none";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+
+  // 🔥 FORCE REFLOW
+  container.offsetHeight;
+
+  requestAnimationFrame(() => {
+    container.style.transition = "transform 0.5s ease";
+    container.style.transform = "translateX(0)";
+  });
+
+  setTimeout(() => {
+    setIsAnimating(false);
+  }, 500);
+};
+
+
+// Swiping on mobile
+const startX = useRef(0);
+const currentX = useRef(0);
+const isSwiping = useRef(false);
+
+const handleTouchStart = (e) => {
+  startX.current = e.touches[0].clientX;
+  isSwiping.current = false;
+};
+
+const handleTouchMove = (e) => {
+  currentX.current = e.touches[0].clientX;
+
+  const diff = Math.abs(startX.current - currentX.current);
+
+  // Only mark as swipe if movement is meaningful
+  if (diff > 15) {
+    isSwiping.current = true;
+  }
+};
+
+const handleTouchEnd = () => {
+  if (!isSwiping.current) return; // ❌ Ignore simple taps
+
+  const diff = startX.current - currentX.current;
+
+  if (Math.abs(diff) < 50) return; // ❌ Not a strong swipe
+
+  if (diff > 0) {
+    handleLeftClick();
+  } else {
+    handleRightClick();
+  }
+};
+
+
+// Destinations Section(Scrolling Cards)__________________________________________________________________________
+const destinationsRef = useRef(null);
+
+const slideNext = (container) => {
+  if (isAnimating || !container) return;
+
+  const firstChild = container.children[0];
+  const cardWidth = firstChild.offsetWidth + 16;
+
+  setIsAnimating(true);
+
+  container.style.transition = "none";
+  container.style.transform = "translateX(0)";
+  container.offsetHeight; // 🔥 force reflow
+
+  container.style.transition = "transform 0.5s ease";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+
+  setTimeout(() => {
+    container.appendChild(firstChild);
+    container.style.transition = "none";
+    container.style.transform = "translateX(0)";
+    setIsAnimating(false);
+  }, 500);
+};
+
+const slidePrev = (container) => {
+  if (isAnimating || !container) return;
+
+  const lastChild = container.lastElementChild;
+  const cardWidth = container.children[0].offsetWidth + 16;
+
+  setIsAnimating(true);
+
+  container.insertBefore(lastChild, container.firstChild);
+
+  container.style.transition = "none";
+  container.style.transform = `translateX(-${cardWidth}px)`;
+  container.offsetHeight; // 🔥 force reflow
+
+  requestAnimationFrame(() => {
+    container.style.transition = "transform 0.5s ease";
+    container.style.transform = "translateX(0)";
+  });
+
+  setTimeout(() => {
+    setIsAnimating(false);
+  }, 500);
+};
+
+const handleTouchEndDest = () => {
+  if (!isSwiping.current) return;
+
+  const diff = startX.current - currentX.current;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) {
+    slideNext(destinationsRef.current);
+  } else {
+    slidePrev(destinationsRef.current);
+  }
+};
+
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowLeft") {
+      slidePrev(destinationsRef.current);
+    }
+    if (e.key === "ArrowRight") {
+      slideNext(destinationsRef.current);
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, []);
+
+
+
 
 // Inquiry form
 const [inquiryForm, setInquiryForm] = useState({
-  name: '', email: '', mobile: '',
+  name: '',
+  email: '',
+  mobile: '',
   pax: 'Individual / Couple (1-3 persons)',
   days: 'Mini Excursion (1-2 days)',
+  date: '', 
   message: ''
 });
 const [inquirySubmitting, setInquirySubmitting] = useState(false);
@@ -91,28 +341,40 @@ const handleInquirySubmit = async (e) => {
   e.preventDefault();
   setInquirySubmitting(true);
   setInquiryError('');
+
   try {
-    await addDoc(collection(db, 'inquiries'), {
-      name: inquiryForm.name,
-      email: inquiryForm.email,
-      mobile: inquiryForm.mobile,
-      pax: inquiryForm.pax,
-      days: inquiryForm.days,
-      message: inquiryForm.message,
-      source: 'homepage',
-      status: 'new',
-      createdAt: new Date()
+    const res = await fetch('/api/send-inquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...inquiryForm,
+        mobile: phone, // 🔥 include phone
+      }),
     });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error);
+
     setInquirySubmitted(true);
+
     setInquiryForm({
-      name: '', email: '', mobile: '',
+      name: '',
+      email: '',
+      mobile: '',
       pax: 'Individual / Couple (1-3 persons)',
       days: 'Mini Excursion (1-2 days)',
+      date: '',
       message: ''
     });
+
+    setPhone('');
+
+    // ✅ KEEP SAME MESSAGE
     setTimeout(() => setInquirySubmitted(false), 5000);
+
   } catch (error) {
-    console.error('Error submitting inquiry:', error);
+    console.error(error);
     setInquiryError('Failed to submit inquiry. Please try again.');
   } finally {
     setInquirySubmitting(false);
@@ -123,7 +385,7 @@ const handleInquirySubmit = async (e) => {
     <>
 {/*Navigation Section_____________________________________________________________________________*/}
     <div className={styles_1.navigation}>
-        <Link href="/"><h1 className={styles_1.heading}>PELICAN TOURS</h1></Link>
+        <Link href="/"><h2 className={styles_1.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_1.navigation_ul}>
             <li className={styles_1.navigation_desktop}><Link href="/"><h2 id={styles_1.active}>HOME</h2></Link></li>
             <li className={styles_1.navigation_desktop}><Link href="/tour-packages"><h2>PACKAGES</h2></Link></li>
@@ -149,84 +411,135 @@ const handleInquirySubmit = async (e) => {
 
 {/*Cover Section_____________________________________________________________________________*/}
     <div className={styles_2.coversection}>
-        <div className={styles_2.coversection_brief}>
-                <h1>TRAVEL WITH WINGS OF ASSURANCE</h1>
-                <h2>Explore & Discover the Elegance of Sri Lanka</h2>
-                <p> Explore Sri Lanka’s top tourist attractions — 
-                    from pristine beaches and ancient Buddhist temples to lush tea plantations, 
-                    wildlife safaris, and cultural heritage sites. 
-                    Whether you're looking for all-inclusive Sri Lanka tour packages, 
-                    honeymoon getaways, or custom holiday itineraries, 
-                    Pelican Tours is your trusted travel agency in Sri Lanka. 
-                    Let us design your unforgettable Sri Lankan vacation.</p>
-                <button className={styles_2.button_1}>INQUIRE NOW</button>
+            <div className={styles_2.coversection_brief}>
+                <h1>SRI LANKA TOUR PACKAGES & TAILORMADE TOURS</h1>
+                <h2>TRAVEL WITH WINGS OF ASSURANCE</h2>
+                <p>
+                Explore the best <strong>Sri Lanka tour packages</strong> designed to showcase the island’s most iconic destinations. 
+                From pristine beaches and ancient Buddhist temples to lush tea plantations, thrilling wildlife safaris, 
+                and UNESCO World Heritage sites, Sri Lanka offers unforgettable travel experiences. 
+
+                Whether you're searching for <strong>Sri Lanka holiday packages</strong>, romantic honeymoon getaways, 
+                family tours, or fully customized itineraries, Pelican Travels and Tours is your trusted travel agency in Sri Lanka. 
+                Let us create a personalized Sri Lanka travel package tailored to your needs and budget.
+                </p>
+                <button className={styles_2.button_1} onClick={scrollToInquire}>INQUIRE NOW</button>
             </div>
             <div className={styles_2.coversection_image}>
-                <Image src={image_1} alt="Sri Lankan Beach"/>
+                <div className={styles_2.image_wrapper}>
+                <Image src={image_1} alt="Sri Lanka beach tour destination with palm trees and tropical coastline" fill priority quality={75} sizes="(max-width: 800px) 100vw, 50vw" className={styles_2.cover_img} placeholder="blur"/>
+              </div>
             </div>
     </div>
 
 {/*Services Section_____________________________________________________________________________*/}
         <div className={styles_3.services_section}>
-            <h1 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h1>
+            <Link href="/services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h2></Link>
             <div className={styles_3.services_container}>
-                <div className={styles_3.services}>
-                    <i className="fa fa-recycle"></i>
-                    <h1 className={styles_3.sub_topic_text}>ROUND TOURS</h1>
-                    <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p>
+                <div className={styles_3.services} >
+                    <Link href="/services"><i className="fa fa-recycle"></i>
+                    <h2 className={styles_3.sub_topic_text}>ROUND TOURS</h2>
+                    <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <i className="fa-solid fa-binoculars"></i>
-                    <h1 className={styles_3.sub_topic_text}>DAY EXCURSIONS</h1>
-                    <p>Enjoy guided day excursions to famous attractions, historic landmarks, and natural wonders near you.</p>
+                    <Link href="/services"><i className="fa-solid fa-binoculars"></i>
+                    <h2 className={styles_3.sub_topic_text}>DAY EXCURSIONS</h2>
+                    <p>Enjoy guided day excursions to famous attractions, historic landmarks, and natural wonders near you.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <i className="fa fa-users"></i>
-                    <h1 className={styles_3.sub_topic_text}>MICE SERVICES</h1>
-                    <p>Professional MICE services for meetings, incentives, conferences, and events tailored to your needs.</p>
+                    <Link href="/services"><i className="fa fa-users"></i>
+                    <h2 className={styles_3.sub_topic_text}>MICE SERVICES</h2>
+                    <p>Professional MICE services for meetings, incentives, conferences, and events tailored to your needs.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <i className="fa-solid fa-car"></i>
-                    <h1 className={styles_3.sub_topic_text}>TRANSPORT SERVICES</h1>
-                    <p>Reliable transport services with comfortable vehicles and experienced drivers for safe travel anywhere.</p>
+                    <Link href="/services"><i className="fa-solid fa-car"></i>
+                    <h2 className={styles_3.sub_topic_text}>TRANSPORT SERVICES</h2>
+                    <p>Reliable transport services with comfortable vehicles and experienced drivers for safe travel anywhere.</p></Link>
                 </div>
             </div>
         </div>
 
 {/*Packages Section_____________________________________________________________________________*/}
-        <h1 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h1>
+    <div className={styles_4.packages_section_container}>
+        <Link href="/tour-packages"><h2 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h2></Link>
         <div className={styles_4.packages_section}>
         
               <div className={styles_4.overlayers}>
-                    <div className={styles_4.solid_left}></div>
-                    <div className={styles_4.fade_overlay_left}></div>
-                    <div className={styles_4.fade_overlay_right}></div>
-                    <div className={styles_4.solid_right}></div>
-
-                    <button className={`${styles_4.nav_arrow} ${styles_4.left}`} onClick={scrollLeft}>
+                <div className={styles_4.fade_overlay_right}></div>
+                <div className={styles_4.fade_overlay_left}></div>
+                <div className={styles_4.solid_right}></div>
+                <div className={styles_4.solid_left}></div>
+                    <button className={`${styles_4.nav_arrow} ${styles_4.left}`} onClick={handleRightClick}>
                         <i className="fas fa-chevron-left"></i>
                     </button>
-                    <button className={`${styles_4.nav_arrow} ${styles_4.right}`} onClick={scrollRight}>
+                    <button className={`${styles_4.nav_arrow} ${styles_4.right}`} onClick={handleLeftClick}>
                         <i className="fas fa-chevron-right"></i>
                     </button>
-                    
                 </div>
 
 
 
-              <div className={styles_4.packages_container} ref={containerRef}>
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+              <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+                <Link href="/tour-packages/3hrumfK0tfHEXkXBCV12"><div className={styles_4.packages}>
+                    <Image   src={image_package_1} alt="Golf Tour Package in Sri Lanka" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
+                    <div className={styles_4.package_details}>
+                        <div className={styles_4.packageinfo}> 
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  8 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  1-8 Paxes</p>
+                        </div>
+                        <h2 className={styles_4.packages_h1}>MINI GOLF ESCAPE TOUR</h2>  
+                        <h3 className={styles_4.Package_h3}>Sri Lanka is a rising golf destination in Asia, offering scenic, diverse courses, colonial charm, and affordable, high-quality experiences year-round.</h3>
+                        <div className={styles_4.package_ratings}>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
+                        </div>
+                        <div className={styles_4.package_cost}>
+                        {/*<p className={styles_4.package_price}>$950</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
+                        </div>
+                    </div>
+                </div></Link>
+
+                <Link href="/tour-packages/AKvGtOLu2IsUzprJcdiC"><div className={styles_4.packages}>
+                    <Image   src={image_package_2} alt="Sri Lankan Honeymoon Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
+                    <div className={styles_4.package_details}>
+                        <div className={styles_4.packageinfo}> 
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
+                        </div>
+                        <h2 className={styles_4.packages_h1}>HONEYMOON TOUR</h2>  
+                        <h3 className={styles_4.Package_h3}>Romantic Sri Lanka honeymoon with hill country, train rides, safaris, and beach sunsets—blending adventure, luxury, and intimate moments.</h3>
+                        <div className={styles_4.package_ratings}>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
+                        </div>
+                        <div className={styles_4.package_cost}>
+                        {/*<p className={styles_4.package_price}>$1100</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
+                        </div>
+                    </div>
+                </div></Link>
+
+                <Link href="/tour-packages/H7e0jCKt7JCk66yQ1jZ4"><div className={styles_4.packages}>
+                    <Image   src={image_package_3} alt="Sri Lankan Wild Life Tour Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h2 className={styles_4.packages_h1}>WILD & COASTAL BLISS</h2>  
+                        <h3 className={styles_4.Package_h3}>South Coast Sri Lanka tour with safaris, whale watching, heritage, and beach escapes—blending adventure with coastal luxury.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -236,21 +549,21 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$550</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <Link href="/tour-packages/HPJwHyK5IUUbmLg6DHlC"><div className={styles_4.packages}>
+                    <Image   src={image_package_4} alt="Sri Lankan Bird Watching Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
-                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-7 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h2 className={styles_4.packages_h1}>BIRD WATCHING TOUR</h2>  
+                        <h3 className={styles_4.Package_h3}>Sri Lanka hosts 430+ bird species, including 33 endemics. This tour covers diverse habitats with excellent birdwatching opportunities.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -260,22 +573,45 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$1099.97</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <Link href="/tour-packages/sDOgrjEvWHJ2cU4SWcYW"><div className={styles_4.packages}>
+                    <Image   src={image_package_5} alt="Sri Lanka Luxury Honeymoon Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
                         <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h2 className={styles_4.packages_h1}>LUXURY HONEYMOON</h2>  
+                        <h3 className={styles_4.Package_h3}>Luxury Sri Lanka honeymoon with scenic hill country escapes, wildlife safaris, and relaxing beachside romance.</h3>
+                        <div className={styles_4.package_ratings}>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
+                        </div>
+                        <div className={styles_4.package_cost}>
+                        {/*<p className={styles_4.package_price}>$850</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
+                        </div>
+                    </div>
+                </div></Link>
+
+                <Link href="/tour-packages/z6kf9PXvELkTkqmkNyic"><div className={styles_4.packages}>
+                    <Image   src={image_package_6} alt="Pekoe Trail Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
+                    <div className={styles_4.package_details}>
+                        <div className={styles_4.packageinfo}> 
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  11 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  1-8 Paxes</p>
+                        </div>
+                        <h2 className={styles_4.packages_h1}>PEKOE TRAIL TREKKING</h2>  
+                        <h3 className={styles_4.Package_h3}>The Pekoe Trail is a 300 km hike through Sri Lanka’s Central Highlands, linking tea estates, mountains, and villages.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -285,85 +621,95 @@ const handleInquirySubmit = async (e) => {
                         <p>4.5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$1450</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
+                </div></Link>
 
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
+                <Link href="/tour-packages/06RhE4L4KZrctSKnodQG"><div className={styles_4.packages}>
+                    <Image   src={image_package_7} alt="Wellness Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
-                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
+                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  10 Days</p>
+                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
                         </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
+                        <h2 className={styles_4.packages_h1}>WELLNESS & REJUVENATION</h2>  
+                        <h3 className={styles_4.Package_h3}>Sri Lanka wellness retreat with Ayurveda, yoga, spa therapies, and nature healing—designed for complete mind, body, rejuvenation.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
-                            <i className="fa-sharp fa-solid fa-star-half-stroke"></i>
-                        <p>4.5</p>
+                            <i className="fa-sharp fa-solid fa-star"></i>
+                        <p>5</p>
                         </div>
                         <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
-                        <p className={styles_4.perperson}>Per Person</p>
+                        {/*<p className={styles_4.package_price}>$1855</p>
+                        <p className={styles_4.perperson}>Per Person</p>*/}
                         </div>
                     </div>
-                </div>
-
-                <div className={styles_4.packages} id="package_1">
-                    <Image src={image_1} alt="Sri Lankan Beach"/>
-                    <div className={styles_4.package_details}>
-                        <div className={styles_4.packageinfo}> 
-                        <p className={styles_4.Package_days}><i className="fa-solid fa-clock"></i>  7 Days</p>
-                        <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-12 Paxes</p>
-                        </div>
-                        <h1 className={styles_4.packages_h1}>WILDLIFE SAFARI ADVENTURE</h1>  
-                        <h3 className={styles_4.Package_h3}>Encounter elephants, leopards and exotic birds in Sri Lanka's national parks including Yala, Udawalawe and Minneriya.</h3>
-                        <div className={styles_4.package_ratings}>
-                            <i className="fa-sharp fa-solid fa-star"></i>
-                            <i className="fa-sharp fa-solid fa-star"></i>
-                            <i className="fa-sharp fa-solid fa-star"></i>
-                            <i className="fa-sharp fa-solid fa-star"></i>
-                            <i className="fa-sharp fa-solid fa-star-half-stroke"></i>
-                        <p>4.5</p>
-                        </div>
-                        <div className={styles_4.package_cost}>
-                        <p className={styles_4.package_price}>$899</p>
-                        <p className={styles_4.perperson}>Per Person</p>
-                        </div>
-                    </div>
-                </div>
+                </div></Link>
                 
               </div>
         </div>
-
+    </div>
 {/*Destinations Section_____________________________________________________________________________*/}
-        <h1 className={styles_3.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h1>
-        <div className={styles_5.destination_section}>
+        <Link href={"/destinations"} className={styles_5.text_deco_none}><h2 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h2></Link>
+        <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
                 <div className={styles_5.overlayers}>
                     <div className={styles_5.solid_left}></div>
                     <div className={styles_5.fade_overlay_left}></div>
                     <div className={styles_5.fade_overlay_right}></div>
                     <div className={styles_5.solid_right}></div>
 
-                    <button className={`${styles_5.nav_arrow} ${styles_5.left}`}>
+                    <button className={`${styles_5.nav_arrow} ${styles_5.left}`} onClick={() => slidePrev(destinationsRef.current)}>
                         <i className="fas fa-chevron-left"></i>
                     </button>
-                    <button className={`${styles_5.nav_arrow} ${styles_5.right}`}>
+                    <button className={`${styles_5.nav_arrow} ${styles_5.right}`}  onClick={() => slideNext(destinationsRef.current)}>
                         <i className="fas fa-chevron-right"></i>
                     </button>
                 </div>
 
                 
-                <div className={styles_5.destinations_container}>
-                    <div className={styles_5.destination_container} id="dest_5">
+                <div className={styles_5.destinations_container} ref={destinationsRef}>
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_7} alt="Mirissa Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <div className={styles_5.destinations_overlay}>
+                                <h2>MATARA</h2>
+                            </div>
+                        </div>
+                        <div className={styles_5.destinations_brief}>
+                            <i className="fa-solid fa-location-dot"></i>
+                            <span>Southern Province</span>
+                        </div>
+                        <div className={styles_5.destinations_description}>   
+                            <p>In Matara, explore historic forts, tranquil beaches, cultural temples, scenic lighthouse views, and coastal wildlife experiences.</p>
+                            <button className={styles_5.button_3}>EXPLORE</button>
+                        </div>
+                    </div>
+
+                    <div className={styles_5.destination_container} >
+                        <div className={styles_5.destinations}>
+                            <Image src={image_destination_6} alt="Yala, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <div className={styles_5.destinations_overlay}>
+                                <h2>YALA</h2>
+                            </div>
+                        </div>
+                        <div className={styles_5.destinations_brief}>
+                            <i className="fa-solid fa-location-dot"></i>
+                            <span>Southern Province</span>
+                        </div>
+                        <div className={styles_5.destinations_description}>   
+                            <p>In Yala, experience thrilling wildlife safaris, spot leopards and elephants, explore diverse ecosystems, and enjoy scenic coastal landscapes.</p>
+                            <button className={styles_5.button_3}>EXPLORE</button>
+                        </div>
+                    </div>
+
+                    <div className={styles_5.destination_container} >
+                        <div className={styles_5.destinations}>
+                            <Image src={image_destination_1} alt="Dambulla, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>DAMBULLA</h2>
                             </div>
@@ -373,15 +719,14 @@ const handleInquirySubmit = async (e) => {
                             <span>Central Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <p>In Dambulla, explore ancient cave temples, admire sacred Buddhist murals, experience cultural heritage, and enjoy scenic rock landscapes.</p>
+                            <Link href="/destinations?scroll=dambulla"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
-
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_2} alt="Galle, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>GALLE</h2>
                             </div>
@@ -391,15 +736,15 @@ const handleInquirySubmit = async (e) => {
                             <span>Southern Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <p>In Galle, explore colonial forts, scenic beaches, historic streets, museums, and unique coastal heritage experiences.</p>
+                            <Link href="/destinations?scroll=galle"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
 
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_3} alt="Kandy, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>KANDY</h2>
                             </div>
@@ -409,43 +754,43 @@ const handleInquirySubmit = async (e) => {
                             <span>Central Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <p>In Kandy, explore sacred temples, lush hills, cultural heritage, scenic lakes, and vibrant traditional experiences.</p>
+                            <Link href="/destinations?scroll=kandy"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
 
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_5} alt="Polonnaruwa, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>POLONNARUWA</h2>
                             </div>
                         </div>
                         <div className={styles_5.destinations_brief}>
                             <i className="fa-solid fa-location-dot"></i>
-                            <span>North Western Province</span>
+                            <span>North Central Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Polonnaruwa, explore ancient ruins, royal palaces, sacred temples, intricate stone carvings, and rich archaeological heritage.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
 
 
-                    <div className={styles_5.destination_container} id="dest_5">
+                    <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_1} alt="Sri Lankan Beach"/>
+                            <Image src={image_destination_4} alt="Colombo, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
                             <div className={styles_5.destinations_overlay}>
-                                <h2>POLONNARUWA</h2>
+                                <h2>COLOMBO</h2>
                             </div>
                         </div>
                         <div className={styles_5.destinations_brief}>
                             <i className="fa-solid fa-location-dot"></i>
-                            <span>North Western Province</span>
+                            <span>Western Province</span>
                         </div>
                         <div className={styles_5.destinations_description}>   
-                            <p>Discover historic sites, scenic landscapes, and local cultural experiences.</p>
+                            <p>In Colombo, explore vibrant city life, colonial landmarks, bustling markets, modern shopping, and coastal seaside views.</p>
                             <button className={styles_5.button_3}>EXPLORE</button>
                         </div>
                     </div>
@@ -454,8 +799,8 @@ const handleInquirySubmit = async (e) => {
 
 {/*Tailormade Section_____________________________________________________________________________*/}
 
-        <h1 className={styles_6.topic_text}>INQUIARE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h1>
-        <div className={styles_6.inquire_section}>
+        <h2 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h2>
+        <div className={styles_6.inquire_section} ref={inquireRef}>
             <form className={styles_6.inquire_form} onSubmit={handleInquirySubmit}>
                 <div className={styles_6.inquire_form_content}>
                     <table><tbody>
@@ -469,8 +814,10 @@ const handleInquirySubmit = async (e) => {
                         value={inquiryForm.email} onChange={handleInquiryChange} /></td></tr>
 
                     <tr><td><label>MOBILE</label></td>
-                    <td><input name="mobile" type="tel" placeholder="+94 123 456 789" required
-                        value={inquiryForm.mobile} onChange={handleInquiryChange} /></td></tr>
+                    <td><PhoneInput placeholder="Enter phone number" defaultCountry="US" international countryCallingCodeEditable={false} value={phone}
+                        onChange={(val) => { setPhone(val); if (!val) { setPhoneError(""); return; }
+                        if (!isValidPhoneNumber(val)) { setPhoneError("Invalid phone number"); } else { setPhoneError(""); } }}/>
+                        {phoneError && ( <p style={{ color: "red", fontSize: "0.8rem" }}>{phoneError}</p>)}</td></tr>
 
                     <tr><td><label>PAX</label></td>
                     <td><select name="pax" value={inquiryForm.pax} onChange={handleInquiryChange}>
@@ -489,6 +836,24 @@ const handleInquirySubmit = async (e) => {
                             <option value="Medium Tour (6-10 days)">Medium Tour (6-10 days)</option>
                             <option value="Long Tour (10+ days)">Long Tour (10+ days)</option>
                         </select></td></tr>
+
+                    <tr>
+                    <td><label>DATE</label></td>
+                    <td>
+                        <div className={styles_6.date_wrapper}>
+                        <input
+                            type="date"
+                            name="date"
+                            value={inquiryForm.date}
+                            onChange={handleInquiryChange}
+                            required
+                            className={styles_6.date_input}
+                            min={new Date().toISOString().split("T")[0]}
+                        />
+                        <i className={`fa fa-calendar ${styles_6.date_icon}`}></i>
+                        </div>
+                    </td>
+                    </tr>
 
                     <tr><td><label>MESSAGE</label></td>
                     <td><textarea name="message" rows="4" placeholder="Your message here..."
@@ -518,18 +883,18 @@ const handleInquirySubmit = async (e) => {
             </form>
 
             <div className={styles_6.inquire_image}>
-                <Image className={styles_6.inquire_form_image_1} src={image_4} alt="Inquiry Section Image"/>
-                <Image className={styles_6.inquire_form_image_2}src={image_5} alt="Inquiry Section Image"/>
+                <Image   src={image_4} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_1} priority placeholder="blur"/>
+                <Image   src={image_5} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_2} priority placeholder="blur"/>
             </div>
         </div>
 
 {/*Why Us Section_____________________________________________________________________________*/}   
-        <h1 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h1>
+        <h2 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h2>
         <div className={styles_7.whyus_section_container}>
 
             <div className={styles_7.whyus_section}>
                 <div className={styles_7.whyus_section_image}>
-                    <Image src={image_2} alt="Sri Lankan Beach"/>
+                    <Image src={image_2} alt="pelican tours icon kolam art"/>
                 </div>
 
                 <div className={styles_7.whyus_section_description}>
@@ -549,7 +914,7 @@ const handleInquirySubmit = async (e) => {
         </div>
 
 {/*Feedback Section_____________________________________________________________________________*/}
-        <h1 className={styles_8.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>FEEDBACK</span> FROM OUR CLIENTS</h1>    
+        <h2 className={styles_8.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>FEEDBACK</span> FROM OUR CLIENTS</h2>    
         <div className={styles_8.feedback_section}>
             <div className={styles_8.feedback_container}>
                 <div className={styles_8.feedback}>
@@ -570,38 +935,43 @@ const handleInquirySubmit = async (e) => {
                     <h3>- Isabel F</h3>
                 </div>
             </div>
-            <div className={styles_8.feedback_links}><h1 className={styles_8.feedback_title_2}>SHARE YOUR EXPERIENCE WITH US & <br/>
-             CHECKOUT WHAT OTHERS SAID ABOUT US</h1>
+            <div className={styles_8.feedback_links}><h2 className={styles_8.feedback_title_2}>SHARE YOUR EXPERIENCE WITH US & <br/>
+             CHECKOUT WHAT OTHERS SAID ABOUT US</h2>
              <div className={styles_8.feedback_buttons}>
-                <button><i className="fa-brands fa-google"></i></button>
-                <button><FaTripadvisor className={styles_8.tripadvisor_icon} /></button>
+                <Link href="https://www.google.com/search?q=pelican+travels&rlz=1C1HKFL_enLK1208LK1208&oq=pelican+&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIHCAEQABiABDIYCAIQLhgUGK8BGMcBGIcCGIAEGJgFGJkFMgcIAxAAGIAEMgwIBBAuGBQYhwIYgAQyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQg2NDk1ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#lrd=0x3ae233c0282e0d1f:0x66241ac610346e2d,1,,,,"   target="_blank" rel="noopener noreferrer"><button><i className="fa-brands fa-google"></i></button></Link>
+                <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html#REVIEWS"  target="_blank" rel="noopener noreferrer"><button><FaTripadvisor className={styles_8.tripadvisor_icon} /></button></Link>
              </div>
             </div>
         </div>   
 
-{/*Feedback Section_____________________________________________________________________________*/}
-        <h1 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h1>    
+{/*Contact Us Section_____________________________________________________________________________*/}
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
-                    <button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button>
+                    <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
                     <button className={styles_9.footer_button_2}><i className="fa-brands fa-instagram"></i></button>
-                    <button className={styles_9.footer_button_3}><FaTripadvisor className={styles_9.tripadvisor_icon} /></button>
-                    <button className={styles_9.footer_button_4}><i className="fa-brands fa-whatsapp"></i></button>
+                    <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_3}><FaTripadvisor className={styles_9.tripadvisor_icon} /></button></Link>
+                    <Link href="https://wa.me/+94782436606" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_4}><i className="fa-brands fa-whatsapp"></i></button></Link>
                 </div>
+
                 <div className={styles_9.footer_phone_numbers}>  
-                        <i className="fa-solid fa-phone"></i>
-                        <p>+94782436606</p><p>|</p>
-                        <p>+94764705440</p>
+                    <i className="fa-solid fa-phone"></i>
+                    <a href="https://wa.me/94764705440" target="_blank" rel="noopener noreferrer">+94764705440</a>
+                    <span> | </span>
+                    <a href="https://wa.me/94719015403" target="_blank" rel="noopener noreferrer">+94719015403</a>
                 </div>
 
                 <div className={styles_9.footer_email}>  
-                        <i className="fa-solid fa-envelope"></i>
-                        <p> hello@pelicantravelsandtours.com</p>     
+                    <i className="fa-solid fa-envelope"></i>
+
+                    <a href="mailto:hello@pelicantravelsandtours.com">
+                        hello@pelicantravelsandtours.com
+                    </a>     
                 </div>
 
                 <div className={styles_9.footer_address}>  
                         <i className="fa-solid fa-location-dot"></i>
-                        <p>Dodangoda Toll Booth, Dodangoda Entrance, Kalutara</p>      
+                        <p>Dodangoda Toll Booth, Dodangoda Entrance, Kalutara</p>
                 </div>
 
                 <div className={styles_9.footer_bottomline}>

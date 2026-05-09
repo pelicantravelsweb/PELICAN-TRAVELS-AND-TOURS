@@ -2,13 +2,16 @@
 import React, { useState, useEffect } from "react";
 import styles_1 from './navigation.module.css';
 import styles_2 from './services_content.module.css';
+import styles_9 from './footer_section.module.css';
 import Link from 'next/link';
 import Image from "next/image";
 import image_1 from "../../../public/Services_Image_1.jpg";
 import image_2 from "../../../public/Services_Image_2.jpg";
 import image_3 from "../../../public/Services_Image_3.jpg";
 import image_4 from "../../../public/Services_Image_4.jpg";
+import image_5 from "../../../public/SriLankan_Attractions.png";
 import useThemeToggle from '../lib/useThemeToggle';
+import { FaTripadvisor } from "react-icons/fa";
 
 
 
@@ -60,7 +63,7 @@ function page() {
     <div className={styles_2.services_section}>
         <div className={styles_2.services_table}>
           <div className={styles_2.button_pannel}>
-          <button className={styles_2.table_tabs} id={activeButton === "round_tours" ? styles_2.active : undefined}onClick={() => handleClick("round_tours")}>ROUND TOURS</button>
+          <button className={styles_2.table_tabs} id={activeButton === "round_tours" ? styles_2.active : undefined}onClick={() => handleClick("round_tours")}>CUSTOMIZED TOURS</button>
           <button className={styles_2.table_tabs} id={activeButton === "day_excursions" ? styles_2.active : undefined}onClick={() => handleClick("day_excursions")}>DAY EXCURSIONS</button>
           <button className={styles_2.table_tabs} id={activeButton === "mice_services" ? styles_2.active : undefined}onClick={() => handleClick("mice_services")}>MICE SERVICES</button>
           <button className={styles_2.table_tabs} id={activeButton === "transport_services" ? styles_2.active : undefined}onClick={() => handleClick("transport_services")}>TRANSPORT SERVICES</button>
@@ -70,7 +73,7 @@ function page() {
            {activeButton === "round_tours" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_1} alt="Adam's Peak, Sri Lanka"/>
+                <Image src={image_1} alt="Adam's Peak, Sri Lanka"  fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "round_tours"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                <h1 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h1>
@@ -110,7 +113,7 @@ function page() {
           {activeButton === "day_excursions" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_2} alt="Adam's Peak, Sri Lanka"/>
+                <Image src={image_2} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "day_excursions"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                 <h1 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h1>
@@ -149,7 +152,7 @@ function page() {
           {activeButton === "mice_services" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_3} alt="Adam's Peak, Sri Lanka"/>
+                <Image src={image_3} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "mice_services"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                 <h1 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h1>
@@ -182,7 +185,7 @@ function page() {
           {activeButton === "transport_services" && (
           <div className={styles_2.services_content}>
               <div className={styles_2.services_image}>
-                <Image src={image_4} alt="Riverston, Sri Lanka"/>
+                <Image src={image_4} alt="Riverston, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "transport_services"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
                 <h1 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h1>
@@ -225,7 +228,7 @@ function page() {
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_1}  onClick={() => toggleSection("service_1")}>ROUND TOURS</button>
          
             <div className={`${styles_2.content_box} ${openSection === "service_1" ? styles_2.active : ""}`}>
-              <Image src={image_1} alt="Adam's Peak, Sri Lanka"/>
+              <Image src={image_1} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
 
               <h1 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h1>
               <p className={styles_2.p_1}>Explore the beauty and diversity of Sri Lanka through our expertly guided round tours. 
@@ -260,7 +263,7 @@ function page() {
 
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_2} onClick={() => toggleSection("service_2")}>DAY EXCURSIONS</button>
             <div className={`${styles_2.content_box} ${openSection === "service_2" ? styles_2.active : ""}`}>
-            <Image src={image_2} alt="Adam's Peak, Sri Lanka"/>
+            <Image src={image_2} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
 
             <h1 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h1>
             <p className={styles_2.p_1}>Perfect for travelers with limited time, 
@@ -295,7 +298,7 @@ function page() {
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_3} onClick={() => toggleSection("service_3")}>MICE SERVICES</button>
           <div className={`${styles_2.content_box} ${openSection === "service_3" ? styles_2.active : ""}`}>
 
-            <Image src={image_3} alt="Adam's Peak, Sri Lanka"/>
+            <Image src={image_3} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
             <h1 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h1>
             <p className={styles_2.p_1}>Choose your preferred destination or experience — 
               beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
@@ -322,7 +325,7 @@ function page() {
 
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_4} onClick={() => toggleSection("service_4")}>TRANSPORT SERVICES</button>
           <div className={`${styles_2.content_box} ${openSection === "service_4" ? styles_2.active : ""}`}>
-            <Image src={image_4} alt="Adam's Peak, Sri Lanka"/>
+            <Image src={image_4} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
             <h1 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h1>
             <p className={styles_2.p_1}>Travel across Sri Lanka safely and comfortably with 
               our professional transportation services. Whether you need a private airport transfer, 
@@ -352,6 +355,45 @@ function page() {
       </div>
     </div>
 
+
+
+
+{/*Footer Section_____________________________________________________________________________*/}
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
+        <div className={styles_9.footer_section}>
+                <div className={styles_9.footer_buttons}>
+                    <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
+                    <button className={styles_9.footer_button_2}><i className="fa-brands fa-instagram"></i></button>
+                    <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_3}><FaTripadvisor className={styles_9.tripadvisor_icon} /></button></Link>
+                    <Link href="https://wa.me/+94782436606" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_4}><i className="fa-brands fa-whatsapp"></i></button></Link>
+                </div>
+
+                <div className={styles_9.footer_phone_numbers}>  
+                    <i className="fa-solid fa-phone"></i>
+                    <a href="https://wa.me/94764705440" target="_blank" rel="noopener noreferrer">+94764705440</a>
+                    <span> | </span>
+                    <a href="https://wa.me/94719015403" target="_blank" rel="noopener noreferrer">+94719015403</a>
+                </div>
+
+                <div className={styles_9.footer_email}>  
+                    <i className="fa-solid fa-envelope"></i>
+
+                    <a href="mailto:hello@pelicantravelsandtours.com">
+                        hello@pelicantravelsandtours.com
+                    </a>     
+                </div>
+
+                <div className={styles_9.footer_address}>  
+                        <i className="fa-solid fa-location-dot"></i>
+                        <p>Dodangoda Toll Booth, Dodangoda Entrance, Kalutara</p>
+                </div>
+
+                <div className={styles_9.footer_bottomline}>
+                    <p>© 2026 Pelican Travels & Tours | All rights reserved</p>
+                    <p></p>
+                </div>
+                <Image src={image_5} alt="Sri Lankan Attractions" />
+        </div>
     </>
   )
 }

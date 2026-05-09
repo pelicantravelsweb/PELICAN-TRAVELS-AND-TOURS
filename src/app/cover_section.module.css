@@ -3,10 +3,10 @@
 @keyframes fadeIn {from { opacity: 0; }to { opacity: 2; }}
 /*Cover Section CSS_______________________________________________________________________*/
 .coversection{
-    padding-top: 5rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
     display: flex;
     width: 100%;
-    height: 100vh;
     align-items: center;
     justify-content: center;
 }
@@ -18,9 +18,9 @@
 .coversection_brief h1{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(1.6rem, 2.8vw, 2.8rem);
-
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
     opacity: 0;
+    padding-bottom: 1rem;
     transform: translateY(-20px); 
     animation: fadeInRight 1s ease forwards;
     animation-delay: 0.4s;
@@ -31,7 +31,7 @@
     font-family: 'Poppins', sans-serif;
     font-size: clamp(1.2rem, 1.5vw, 1.5rem);
     font-weight: 550;
-
+    padding-bottom: 0.5rem;
     opacity: 0;
     transform: translateY(-20px); 
     animation: fadeInRight 1s ease forwards;
@@ -41,7 +41,7 @@
 .coversection_brief p{
     color: rgb(122, 120, 120);
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(1.1rem, 1.2vw, 1.2rem);
+    font-size: clamp(1rem, 1vw, 1rem);
 
     opacity: 0;
     transform: translateY(-20px); 
@@ -79,20 +79,23 @@
     display: flex;
     align-items: center;
     width: 50vw;
+    height: 100%;
     padding-left: 5vw;
-    height: 70vh;
     overflow: hidden;
-
     opacity: 0;
     transform: translateY(-20px); 
     animation: fadeIn 1s ease forwards;
     animation-delay: 1s;
 }
 
-.coversection_image img{
-    z-index: 1;
+.image_wrapper {
+    position: relative;
     width: 100%;
-    height: auto;
+    height: 480px; /* desktop height */
+}
+
+.cover_img {
+    object-fit: cover;
 }
 
 /*Cover Section Animations*/
@@ -126,6 +129,10 @@
 .coversection_brief{
     width: 100%;
 }
+
+  .image_wrapper {
+    height: 300px;
+  }
 
 .coversection_image{
     width: 100%;

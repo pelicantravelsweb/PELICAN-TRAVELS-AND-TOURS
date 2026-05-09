@@ -1,34 +1,6 @@
 
 @keyframes fadeInDown {from {opacity: 0;transform: translateY(-20px);}to {opacity: 1;transform: translateY(0);}}
 
-.package_button{
-    margin-left: auto; 
-    margin-right: 0.5rem;
-    font-size: clamp(0.8rem, 1vw, 1.2rem);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    font-size: clamp(1rem, 1.2vw, 1.2rem);
-    background-color: rgb(235, 130, 10);
-    color: wheat;
-    padding: clamp(0.6rem, 0.8vw, 0.8rem);
-    border: 0;
-    cursor: pointer;
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: rgba(218, 116, 0, 0);
-    margin-bottom: 1rem;
-    
-}
-
-.package_button:hover{
-    background-color: rgba(235, 125, 0, 0);
-    color: rgb(235, 130, 10);
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: rgb(235, 130, 10);
-    transition: 0.5s;
-}
-
 .overlayers{
     position: absolute;
     top: 0;
@@ -65,6 +37,10 @@
     width: 7vw;
     height: 100%;
     background-color: rgb(36, 35, 35); /* match section background */
+}
+
+.text_deco_none{
+    text-decoration: none;
 }
 
 .fade_overlay_right{
@@ -116,59 +92,57 @@
     position: relative;
     width: 100%;
     padding-top: 4rem;
+    height: auto;
     overflow: hidden;
-    height: 70vh;
 }
 
 .destinations_container{
     display: flex;
-    gap: 0.5rem;
+    will-change: transform;
+    gap: 16px;
+    justify-content: center;
 }
 
 .destination_container {
-    position: relative;
-    width: 30rem;
+    display: flex;
+    flex-direction: column;
     min-width: 320px;
-    height: fit-content;
-    cursor: pointer;
-
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(235, 130, 10, 0);
+    height: 470px; /* 🔥 FIXED HEIGHT */
+    overflow: hidden;
 }
 
-.destination_container:hover {
-    transition: 0.5s;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(235, 130, 10);
+.destinations_brief {
+    height: 40px;
+    opacity: 1;
+    overflow: hidden;
+    transition: all 0.5s ease;
 }
 
-.destination_container:hover .destinations_brief{
-    display: none;
-    transition: 0.5s;
+
+.destinations_description {
+    height: 0%;
+    opacity: 0;
 }
 
-.destination_container:hover .destinations_description{
-    display: block;
-    transition: 0.5s;
-    animation: fadeInDown 1s ease forwards;
+.destination_container:hover .destinations_description {
+    height: 42%; /* adjust as needed */
+    opacity: 1;
+    transition: 0.6s;
 }
+
 
 .destinations {
     position: relative;
     width: 100%;
-    height: 40vh;
+    flex: 1; /* 🔥 takes remaining space */
     overflow: hidden;
-    border: 1px solid transparent;
-    transition: border 0.5s ease;
+    transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .destinations img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1.2s ease;
 }
 
 .destinations_overlay {
@@ -209,12 +183,11 @@
 }
 
 .destination_container .destinations_description {
-    display: none;
     text-align: center;
     font-size: clamp(0.85rem, 1vw, 1rem);
+    font-weight: 600;
     color: rgb(180, 180, 180);
-    padding: 0.8rem;
-    animation: fadeInUp 0.6s ease forwards;
+    padding-top: 0.8rem;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -249,6 +222,17 @@
     border-color: rgb(235, 130, 10);
 }
 
+.topic_text{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding-top: 10rem;
+    font-size: clamp(1.5rem,2vw,2rem);
+    text-align: left;
+    padding-left: 4rem;
+}
+
+
+
 :global(body.light_theme) .topic_text{
   color: rgb(36, 35, 35);
 }
@@ -281,22 +265,27 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.534);
 }
 
-@media (max-width: 800px) {
+@media only screen and (max-width: 800px) {
 .topic_text{
     font-size: 1.3rem;
     text-align: center;
     padding-left: 0rem;
 }
 
-.destination_container {
-    width: 20rem;
-    min-width: 250px;
-
-}
-
 .destination_section{
     padding-top: 2rem;
+}
 
+.destination_container{
+    min-width: 250px;
+}
+
+.button_3{
+    padding: 0.7rem;
+}
+
+.destination_container{
+    height: 400px;
 }
     
 }
