@@ -158,6 +158,9 @@
 /* Gallery Section */
 .gallery_section {
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
 }
 
 .main_image {
@@ -167,15 +170,16 @@
   max-height: 560px;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 1rem;
   touch-action: pan-y;
   user-select: none;
+  flex-shrink: 0;
 }
 
 .main_image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   max-width: 100%;
 }
 
@@ -218,9 +222,15 @@
   display: flex;
   gap: 0.75rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   flex: 1;
   min-width: 0;
+  scrollbar-width: none;
+}
+
+.thumbnail_gallery::-webkit-scrollbar {
+  display: none;
 }
 
 .thumbnail {
@@ -924,6 +934,14 @@
 
 /* Mobile Responsive */
 @media only screen and (max-width: 768px) {
+  .gallery_section {
+    gap: 0.75rem;
+  }
+
+  .main_image {
+    aspect-ratio: 4 / 3;
+  }
+
   .gallery_controls {
     gap: 0.5rem;
   }
@@ -943,27 +961,24 @@
     height: 32px;
     font-size: 0.85rem;
   }
-
-  .main_image {
-    margin-bottom: 0.8rem;
-  }
 }
 
 @media only screen and (max-width: 480px) {
+  .gallery_section {
+    gap: 0.625rem;
+  }
+
   .main_image {
-    margin-bottom: 0.6rem;
+    aspect-ratio: 4 / 3;
+    max-height: 340px;
   }
 
   .gallery_controls {
     gap: 0.4rem;
-    overflow-x: visible;
   }
 
   .thumbnail_gallery {
     gap: 0.4rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
   }
 
   .thumbnail {
@@ -1385,19 +1400,12 @@
 
   .gallery_controls {
     width: 100%;
-    overflow: hidden;
   }
 
   .thumbnail_gallery {
     gap: 0.35rem;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     width: 100%;
-    overflow-x: auto;
-    padding-right: 0;
-    margin-right: -0.75rem;
-    padding-left: 0;
   }
 
   .thumbnail {
@@ -1406,10 +1414,6 @@
     flex-shrink: 0;
     scroll-snap-align: start;
     border-radius: 4px;
-  }
-
-  .thumbnail:last-child {
-    margin-right: 0.75rem;
   }
 
   .slider_arrow_left,

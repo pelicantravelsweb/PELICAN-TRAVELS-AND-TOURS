@@ -122,6 +122,7 @@ export default function RootLayout({ children }) {
 
       <body
         className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable}`}
+        suppressHydrationWarning
       >
         {children}
       </body>
