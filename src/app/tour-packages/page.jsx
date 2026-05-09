@@ -245,9 +245,10 @@ export default function TourPackages() {
     let result = [...packages];
 
     if (selectedTourTypes.length > 0) {
-      result = result.filter(pkg =>
-        selectedTourTypes.includes(pkg.tourType)
-      );
+      result = result.filter(pkg => {
+        const pkgTypes = Array.isArray(pkg.tourType) ? pkg.tourType : [pkg.tourType].filter(Boolean);
+        return selectedTourTypes.some(t => pkgTypes.includes(t));
+      });
     }
 
     if (selectedExperiences.length > 0) {

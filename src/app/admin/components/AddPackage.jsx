@@ -12,7 +12,12 @@ export default function AddPackage({ onClose, onSuccess, editPackage }) {
   // Basic Info
   const [title, setTitle] = useState(editPackage?.title || "");
   const [description, setDescription] = useState(editPackage?.description || "");
-  const [tourType, setTourType] = useState(editPackage?.tourType || "Individual");
+  const [tourTypes, setTourTypes] = useState(() => {
+    const t = editPackage?.tourType;
+    if (!t) return [];
+    return Array.isArray(t) ? t : [t];
+  });
+  const availableTourTypes = ["Individual", "Couple", "Honeymoon", "Family", "Group", "Corporate (MICE)"];
   const [days, setDays] = useState(editPackage?.duration?.days?.toString() || "");
   const [nights, setNights] = useState(editPackage?.duration?.nights?.toString() || "");
   const [price, setPrice] = useState(editPackage?.price?.toString() || "");
@@ -143,6 +148,14 @@ export default function AddPackage({ onClose, onSuccess, editPackage }) {
       setTravelPeriod(travelPeriod.filter(p => p !== period));
     } else {
       setTravelPeriod([...travelPeriod, period]);
+    }
+  };
+
+  const toggleTourType = (type) => {
+    if (tourTypes.includes(type)) {
+      setTourTypes(tourTypes.filter(t => t !== type));
+    } else {
+      setTourTypes([...tourTypes, type]);
     }
   };
 
@@ -290,7 +303,7 @@ export default function AddPackage({ onClose, onSuccess, editPackage }) {
       const packageData = {
         title,
         description,
-        tourType,
+        tourType: tourTypes,
         duration: { days: parseInt(days), nights: parseInt(nights) },
         price: parseFloat(price),
         currency,
@@ -382,19 +395,23 @@ export default function AddPackage({ onClose, onSuccess, editPackage }) {
                 />
               </div>
 
-              <div className={styles.formRow}>
-                <div className={styles.formGroup}>
-                  <label>Tour Type</label>
-                  <select value={tourType} onChange={(e) => setTourType(e.target.value)}>
-                    <option value="Individual">Individual</option>
-                    <option value="Couple">Couple</option>
-                    <option value="Honeymoon">Honeymoon</option>
-                    <option value="Family">Family</option>
-                    <option value="Group">Group</option>
-                    <option value="Corporate (MICE)">Corporate (MICE)</option>
-                  </select>
+              <div className={styles.formGroup}>
+                <label>Tour Type</label>
+                <div className={styles.themeTags}>
+                  {availableTourTypes.map((type) => (
+                    <button
+                      key={type}
+                      type="button"
+                      className={`${styles.themeTag} ${tourTypes.includes(type) ? styles.activeTag : ""}`}
+                      onClick={() => toggleTourType(type)}
+                    >
+                      {type}
+                    </button>
+                  ))}
                 </div>
+              </div>
 
+              <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label>Days *</label>
                   <input

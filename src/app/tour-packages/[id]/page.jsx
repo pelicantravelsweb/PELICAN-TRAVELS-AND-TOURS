@@ -325,7 +325,7 @@ export default function PackageDetail() {
                       <span className={styles.info_label}>Tour Type</span>
                       <span className={styles.info_value}>
                         {Array.isArray(packageData.tourType)
-                          ? packageData.tourType[0]
+                          ? packageData.tourType.join(', ')
                           : packageData.tourType || 'Mixed'}
                       </span>
                     </div>
