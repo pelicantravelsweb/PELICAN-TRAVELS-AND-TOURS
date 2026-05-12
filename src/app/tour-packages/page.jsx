@@ -161,7 +161,7 @@ function PackageCard({ pkg, renderStars, styles }) {
         <div className={styles.package_footer}>
           <div className={styles.package_price}>
             <span className={styles.price}>${pkg.price || 899}</span>
-            <span className={styles.per_person}>Per Person</span>
+            <span className={styles.per_person}>Starting From</span>
           </div>
           <Link href={packageHref} className={styles.view_button}>View Details</Link>
         </div>
@@ -185,7 +185,7 @@ export default function TourPackages() {
   const [selectedExperiences, setSelectedExperiences] = useState([]);
   const [selectedPeriod, setSelectedPeriod] = useState([]);
   const [durationRange, setDurationRange] = useState([1, 30]);
-  const [budgetRange, setBudgetRange] = useState([500, 5000]);
+  const [budgetRange, setBudgetRange] = useState([50, 5000]);
 
   // Filter options
   const tourTypes = ['Individual', 'Couple', 'Honeymoon', 'Family', 'Group', 'Corporate (MICE)'];
@@ -290,7 +290,7 @@ export default function TourPackages() {
     setSelectedExperiences([]);
     setSelectedPeriod([]);
     setDurationRange([1, 30]);
-    setBudgetRange([500, 5000]);
+    setBudgetRange([50, 5000]);
   };
 
   const hasActiveFilters = selectedTourTypes.length > 0 ||
@@ -298,7 +298,7 @@ export default function TourPackages() {
     selectedPeriod.length > 0 ||
     durationRange[0] !== 1 ||
     durationRange[1] !== 30 ||
-    budgetRange[0] !== 500 ||
+    budgetRange[0] !== 50 ||
     budgetRange[1] !== 5000;
 
   const renderStars = (rating) => {
@@ -509,13 +509,13 @@ export default function TourPackages() {
                 <div
                   className={styles.range_track_fill}
                   style={{
-                    left: `${((budgetRange[0] - 500) / 9500) * 100}%`,
-                    width: `${((budgetRange[1] - budgetRange[0]) / 9500) * 100}%`,
+                    left: `${((budgetRange[0] - 50) / 5000) * 100}%`,
+                    width: `${((budgetRange[1] - budgetRange[0]) / 5000) * 100}%`,
                   }}
                 />
                 <input
                   type="range"
-                  min="500" max="10000" step="100"
+                  min="50" max="5000" step="100"
                   value={budgetRange[0]}
                   onChange={(e) => {
                     const v = parseInt(e.target.value);
@@ -525,7 +525,7 @@ export default function TourPackages() {
                 />
                 <input
                   type="range"
-                  min="500" max="10000" step="100"
+                  min="50" max="5000" step="100"
                   value={budgetRange[1]}
                   onChange={(e) => {
                     const v = parseInt(e.target.value);
@@ -535,8 +535,8 @@ export default function TourPackages() {
                 />
               </div>
               <div className={styles.slider_bounds}>
-                <span>$500</span>
-                <span>$10,000</span>
+                <span>$50</span>
+                <span>$5,000</span>
               </div>
             </div>
           </div>

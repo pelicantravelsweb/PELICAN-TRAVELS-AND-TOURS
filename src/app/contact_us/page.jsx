@@ -122,8 +122,8 @@ function page() {
             </div>
 
             <div className={styles_2.contact_us_section_details}>
-              <i className="fa-brands fa-instagram"></i>
-              <a href="https://web.facebook.com/pelicantravels.lk"><p>@Pelican Travels & Tours</p></a>
+              <i className="fa-brands fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/pelican-travels-and-tours-a35a45409?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><p>@Pelican Travels & Tours</p></a>
             </div>
 
             <div className={styles_2.contact_us_section_details}>
@@ -151,6 +151,5 @@ function page() {
     </>
   )
 }
-
 
 export default page

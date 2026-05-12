@@ -56,10 +56,7 @@ export const metadata = {
 
   creator: "Pelican Tours Sri Lanka",
   publisher: "Pelican Tours Sri Lanka",
-
-  alternates: {
-    canonical: "https://pelicantravelsandtours.com",
-  },
+  
 
   robots: {
     index: true,

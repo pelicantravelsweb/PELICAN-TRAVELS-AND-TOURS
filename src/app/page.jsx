@@ -37,7 +37,6 @@ import "react-phone-number-input/style.css";
 import { isValidPhoneNumber } from "react-phone-number-input";
 
 
-
 export default function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { isLightTheme, handleThemeToggle } = useThemeToggle();
@@ -65,6 +64,8 @@ useEffect(() => {
     });
   }, 300);
 }, []);
+
+
 
 // Phone Number input with country code __________________________________________________________________________________________
 const handleSubmit = () => {
@@ -949,6 +950,7 @@ const handleInquirySubmit = async (e) => {
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
                     <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
+                    <Link href="https://www.linkedin.com/in/pelican-travels-and-tours-a35a45409?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-linkedin"></i></button></Link>
                     <button className={styles_9.footer_button_2}><i className="fa-brands fa-instagram"></i></button>
                     <Link href="https://www.tripadvisor.com/Attraction_Review-g293962-d17700816-Reviews-PELICAN_TRAVELS_SRI_LANKA-Colombo_Western_Province.html" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_3}><FaTripadvisor className={styles_9.tripadvisor_icon} /></button></Link>
                     <Link href="https://wa.me/+94782436606" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_4}><i className="fa-brands fa-whatsapp"></i></button></Link>
@@ -983,3 +985,4 @@ const handleInquirySubmit = async (e) => {
     </>
   )
 }
+
