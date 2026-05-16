@@ -9,13 +9,14 @@ import { db } from '../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import useThemeToggle from '../lib/useThemeToggle';
 
+
 function PackageCard({ pkg, renderStars, styles }) {
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const intervalRef = useRef(null);
   const touchTimeoutRef = useRef(null);
   const isHoveredRef = useRef(false);
-  const packageHref = `/tour-packages/${pkg.slug || pkg.id}`;
+  const packageHref = `/sri-lanka-tour-packages/${pkg.slug || pkg.id}`;
 
   // Collect all images: cover + gallery + itinerary day images (capped at 8)
   const images = [
@@ -321,29 +322,34 @@ export default function TourPackages() {
 
   return (
     <>
-      {/* Navigation Section */}
-      <div className={styles_nav.navigation}>
-        <Link href="/"><h1 className={styles_nav.heading}>PELICAN TOURS</h1></Link>
+
+        {/*Navigation Section_____________________________________________________________________________*/}
+    <div className={styles_nav.navigation}>
+        <Link href="/"><h2 className={styles_nav.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_nav.navigation_ul}>
-          <li className={styles_nav.navigation_desktop}><Link href="/"><h2>HOME</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/tour-packages"><h2 id={styles_nav.active}>PACKAGES</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/services"><h2>SERVICES</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/destinations"><h2>DESTINATIONS</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/contact_us"><h2>CONTACT</h2></Link></li>
-          <li onClick={handleThemeToggle} className={styles_nav.theme_toggle}><i className={`fa ${isLightTheme ? "fa-toggle-on" : "fa-toggle-off"}`}></i></li>
-          <li className={styles_nav.navigation_mobile} onClick={() => setIsMenuOpen(!isMenuOpen)}><i className="fa fa-bars"></i></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/"><h2>HOME</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/sri-lanka-tour-packages"><h2 id={styles_nav.active}>PACKAGES</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/sri-lanka-tour-services"><h2>SERVICES</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/contact-sri-lanka-tour-agent"><h2>CONTACT</h2></Link></li>
+            <li onClick={handleThemeToggle} className={styles_nav.theme_toggle}><i className={`fa ${isLightTheme ? "fa-toggle-on" : "fa-toggle-off"}`}></i></li>
+            <li className={styles_nav.navigation_mobile} onClick={() => setIsMenuOpen(!isMenuOpen)}><i className="fa fa-bars"></i></li>
         </ul>
 
-        {isMenuOpen && (
-          <div className={`${styles_nav.mobile_navigation_menu} ${styles_nav.fadeInDown}`}>
-            <Link href="/"><h2>HOME</h2></Link>
-            <Link href="/tour-packages"><h2 id={styles_nav.active}>PACKAGES</h2></Link>
-            <Link href="/services"><h2>SERVICES</h2></Link>
-            <Link href="/destinations"><h2>DESTINATIONS</h2></Link>
-            <Link href="/contact_us"><h2>CONTACT</h2></Link>
-          </div>
+
+      {isMenuOpen && (
+        <div className={`${styles_nav.mobile_navigation_menu} ${styles_nav.fadeInDown}`}>
+          <Link href="/"><h2>HOME</h2></Link>
+          <Link href="/sri-lanka-tour-packages"><h2>PACKAGES</h2></Link>
+          <Link href="/sri-lanka-tour-services"><h2>SERVICES</h2></Link>
+          <Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link>
+          <Link href="/contact-sri-lanka-tour-agent"><h2 id={styles_nav.active}>CONTACT</h2></Link>
+
+        </div>
         )}
-      </div>
+    </div>
+
+
 
       {/* Page Header */}
       <div className={styles.page_header}>

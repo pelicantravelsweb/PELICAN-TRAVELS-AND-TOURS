@@ -35,14 +35,15 @@ function page() {
   
   return (
     <>
+{/*Navigation Section_____________________________________________________________________________*/}
     <div className={styles_1.navigation}>
-        <Link href="/"><h1 className={styles_1.heading}>PELICAN TOURS</h1></Link>
+        <Link href="/"><h2 className={styles_1.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_1.navigation_ul}>
             <li className={styles_1.navigation_desktop}><Link href="/"><h2>HOME</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/tour-packages"><h2>PACKAGES</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/services"><h2 id={styles_1.active}>SERVICES</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/destinations"><h2>DESTINATIONS</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/contact_us"><h2>CONTACT</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/sri-lanka-tour-packages"><h2>PACKAGES</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/sri-lanka-tour-services"><h2 id={styles_1.active}>SERVICES</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/contact-sri-lanka-tour-agent"><h2>CONTACT</h2></Link></li>
             <li onClick={handleThemeToggle} className={styles_1.theme_toggle}><i className={`fa ${isLightTheme ? "fa-toggle-on" : "fa-toggle-off"}`}></i></li>
             <li className={styles_1.navigation_mobile} onClick={() => setIsMenuOpen(!isMenuOpen)}><i className="fa fa-bars"></i></li>
         </ul>
@@ -51,14 +52,14 @@ function page() {
       {isMenuOpen && (
         <div className={`${styles_1.mobile_navigation_menu} ${styles_1.fadeInDown}`}>
           <Link href="/"><h2>HOME</h2></Link>
-          <Link href="/tour-packages"><h2>PACKAGES</h2></Link>
-          <Link href="/services"><h2 id={styles_1.active}>SERVICES</h2></Link>
-          <Link href="/destinations"><h2>DESTINATIONS</h2></Link>
-          <Link href="/contact_us"><h2>CONTACT</h2></Link>
+          <Link href="/sri-lanka-tour-packages"><h2>PACKAGES</h2></Link>
+          <Link href="/sri-lanka-tour-services"><h2 id={styles_1.active}>SERVICES</h2></Link>
+          <Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link>
+          <Link href="/contact-sri-lanka-tour-agent"><h2>CONTACT</h2></Link>
+
         </div>
         )}
     </div>
-
 
     <div className={styles_2.services_section}>
         <div className={styles_2.services_table}>

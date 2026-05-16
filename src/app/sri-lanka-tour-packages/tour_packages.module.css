@@ -1,6 +1,5 @@
 /* Page Header */
 .page_header {
-  padding-top: 12vh;
   padding-bottom: 4vh;
   text-align: center;
   background-color: rgb(36, 35, 35);
@@ -9,7 +8,7 @@
 .page_header h1 {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   margin-bottom: 0.5rem;
 }
 

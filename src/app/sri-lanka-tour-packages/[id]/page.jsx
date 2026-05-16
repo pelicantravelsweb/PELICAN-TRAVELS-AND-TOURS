@@ -187,29 +187,32 @@ export default function PackageDetail() {
 
   return (
     <>
-      {/* Navigation Section */}
-      <div className={styles_nav.navigation}>
-        <Link href="/"><h1 className={styles_nav.heading}>PELICAN TOURS</h1></Link>
+        {/*Navigation Section_____________________________________________________________________________*/}
+    <div className={styles_nav.navigation}>
+        <Link href="/"><h2 className={styles_nav.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_nav.navigation_ul}>
-          <li className={styles_nav.navigation_desktop}><Link href="/"><h2>HOME</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/tour-packages"><h2 id={styles_nav.active}>PACKAGES</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/services"><h2>SERVICES</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/destinations"><h2>DESTINATIONS</h2></Link></li>
-          <li className={styles_nav.navigation_desktop}><Link href="/contact_us"><h2>CONTACT</h2></Link></li>
-          <li onClick={handleThemeToggle} className={styles_nav.theme_toggle}><i className={`fa ${isLightTheme ? "fa-toggle-on" : "fa-toggle-off"}`}></i></li>
-          <li className={styles_nav.navigation_mobile} onClick={() => setIsMenuOpen(!isMenuOpen)}><i className="fa fa-bars"></i></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/"><h2>HOME</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/sri-lanka-tour-packages"><h2 id={styles_nav.active}>PACKAGES</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/sri-lanka-tour-services"><h2>SERVICES</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link></li>
+            <li className={styles_nav.navigation_desktop}><Link href="/contact-sri-lanka-tour-agent"><h2>CONTACT</h2></Link></li>
+            <li onClick={handleThemeToggle} className={styles_nav.theme_toggle}><i className={`fa ${isLightTheme ? "fa-toggle-on" : "fa-toggle-off"}`}></i></li>
+            <li className={styles_nav.navigation_mobile} onClick={() => setIsMenuOpen(!isMenuOpen)}><i className="fa fa-bars"></i></li>
         </ul>
 
-        {isMenuOpen && (
-          <div className={`${styles_nav.mobile_navigation_menu} ${styles_nav.fadeInDown}`}>
-            <Link href="/"><h2>HOME</h2></Link>
-            <Link href="/tour-packages"><h2 id={styles_nav.active}>PACKAGES</h2></Link>
-            <Link href="/services"><h2>SERVICES</h2></Link>
-            <Link href="/destinations"><h2>DESTINATIONS</h2></Link>
-            <Link href="/contact_us"><h2>CONTACT</h2></Link>
-          </div>
+
+      {isMenuOpen && (
+        <div className={`${styles_nav.mobile_navigation_menu} ${styles_nav.fadeInDown}`}>
+          <Link href="/"><h2>HOME</h2></Link>
+          <Link href="/sri-lanka-tour-packages"><h2>PACKAGES</h2></Link>
+          <Link href="/sri-lanka-tour-services"><h2>SERVICES</h2></Link>
+          <Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link>
+          <Link href="/contact-sri-lanka-tour-agent"><h2 id={styles_nav.active}>CONTACT</h2></Link>
+
+        </div>
         )}
-      </div>
+    </div>
+
 
       {/* Back Button */}
       <div className={styles.back_section}>
@@ -230,7 +233,7 @@ export default function PackageDetail() {
             <i className="fa-solid fa-exclamation-circle"></i>
             <h2>Package Not Found</h2>
             <p>The package you're looking for doesn't exist or has been removed.</p>
-            <Link href="/tour-packages" className={styles.back_link}>Browse All Packages</Link>
+            <Link href="/sri-lanka-tour-packages" className={styles.back_link}>Browse All Packages</Link>
           </div>
         ) : (
           <>

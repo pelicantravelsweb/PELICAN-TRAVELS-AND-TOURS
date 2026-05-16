@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /_next/static/
+Disallow: /api/
 
 Sitemap: https://pelicantravelsandtours.com/sitemap.xml

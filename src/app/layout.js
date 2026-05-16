@@ -21,6 +21,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL("https://pelicantravelsandtours.com"),
 
+  alternates: {
+    canonical: "https://pelicantravelsandtours.com",
+  },
+
   title: {
     default:
       "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
@@ -47,6 +51,7 @@ export const metadata = {
     "Pelican Tours Sri Lanka",
   ],
 
+  
   authors: [
     {
       name: "Pelican Tours Sri Lanka",

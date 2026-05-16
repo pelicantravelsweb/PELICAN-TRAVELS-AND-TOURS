@@ -389,10 +389,10 @@ const handleInquirySubmit = async (e) => {
         <Link href="/"><h2 className={styles_1.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_1.navigation_ul}>
             <li className={styles_1.navigation_desktop}><Link href="/"><h2 id={styles_1.active}>HOME</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/tour-packages"><h2>PACKAGES</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/services"><h2>SERVICES</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/destinations"><h2>DESTINATIONS</h2></Link></li>
-            <li className={styles_1.navigation_desktop}><Link href="/contact_us"><h2>CONTACT</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/sri-lanka-tour-packages"><h2>PACKAGES</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/sri-lanka-tour-services"><h2>SERVICES</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link></li>
+            <li className={styles_1.navigation_desktop}><Link href="/contact-sri-lanka-tour-agent"><h2>CONTACT</h2></Link></li>
             <li onClick={handleThemeToggle} className={styles_1.theme_toggle}><i className={`fa ${isLightTheme ? "fa-toggle-on" : "fa-toggle-off"}`}></i></li>
             <li className={styles_1.navigation_mobile} onClick={() => setIsMenuOpen(!isMenuOpen)}><i className="fa fa-bars"></i></li>
         </ul>
@@ -401,10 +401,10 @@ const handleInquirySubmit = async (e) => {
       {isMenuOpen && (
         <div className={`${styles_1.mobile_navigation_menu} ${styles_1.fadeInDown}`}>
           <Link href="/"><h2 id={styles_1.active}>HOME</h2></Link>
-          <Link href="/tour-packages"><h2>PACKAGES</h2></Link>
-          <Link href="/services"><h2>SERVICES</h2></Link>
-          <Link href="/destinations"><h2>DESTINATIONS</h2></Link>
-          <Link href="/contact_us"><h2>CONTACT</h2></Link>
+          <Link href="/sri-lanka-tour-packages"><h2>PACKAGES</h2></Link>
+          <Link href="/sri-lanka-tour-services"><h2>SERVICES</h2></Link>
+          <Link href="/sri-lanka-travel-destinations"><h2>DESTINATIONS</h2></Link>
+          <Link href="/contact-sri-lanka-tour-agent"><h2>CONTACT</h2></Link>
 
         </div>
         )}
@@ -435,7 +435,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Services Section_____________________________________________________________________________*/}
         <div className={styles_3.services_section}>
-            <Link href="/services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h2></Link>
+            <Link href="/sri-lanka-tour-services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h2></Link>
             <div className={styles_3.services_container}>
                 <div className={styles_3.services} >
                     <Link href="/services"><i className="fa fa-recycle"></i>
@@ -444,19 +444,19 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_3.services}>
-                    <Link href="/services"><i className="fa-solid fa-binoculars"></i>
+                    <Link href="/sri-lanka-tour-services"><i className="fa-solid fa-binoculars"></i>
                     <h2 className={styles_3.sub_topic_text}>DAY EXCURSIONS</h2>
                     <p>Enjoy guided day excursions to famous attractions, historic landmarks, and natural wonders near you.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <Link href="/services"><i className="fa fa-users"></i>
+                    <Link href="/sri-lanka-tour-services"><i className="fa fa-users"></i>
                     <h2 className={styles_3.sub_topic_text}>MICE SERVICES</h2>
                     <p>Professional MICE services for meetings, incentives, conferences, and events tailored to your needs.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <Link href="/services"><i className="fa-solid fa-car"></i>
+                    <Link href="/sri-lanka-tour-services"><i className="fa-solid fa-car"></i>
                     <h2 className={styles_3.sub_topic_text}>TRANSPORT SERVICES</h2>
                     <p>Reliable transport services with comfortable vehicles and experienced drivers for safe travel anywhere.</p></Link>
                 </div>
@@ -465,7 +465,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Packages Section_____________________________________________________________________________*/}
     <div className={styles_4.packages_section_container}>
-        <Link href="/tour-packages"><h2 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h2></Link>
+        <Link href="/sri-lanka-tour-packages"><h2 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h2></Link>
         <div className={styles_4.packages_section}>
         
               <div className={styles_4.overlayers}>
@@ -484,7 +484,7 @@ const handleInquirySubmit = async (e) => {
 
 
               <div className={styles_4.packages_container} ref={containerRef} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-                <Link href="/tour-packages/mini-golf-escape-tour"><div className={styles_4.packages}>
+                <Link href="/sri-lanka-tour-packages/sri-lanka-golf-vacation-package-mini-golf-escape-tour"><div className={styles_4.packages}>
                     <Image   src={image_package_1} alt="Golf Tour Package in Sri Lanka" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -508,7 +508,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/honeymoon-tour"><div className={styles_4.packages}>
+                <Link href="/sri-lanka-tour-packages/romantic-sri-lanka-honeymoon-tour-culture-wildlife-sunset-beaches"><div className={styles_4.packages}>
                     <Image   src={image_package_2} alt="Sri Lankan Honeymoon Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -532,7 +532,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/wild-coastal-bliss"><div className={styles_4.packages}>
+                <Link href="/sri-lanka-tour-packages/wild-coastal-bliss-yala-safari-south-coast-escape"><div className={styles_4.packages}>
                     <Image   src={image_package_3} alt="Sri Lankan Wild Life Tour Packages" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -556,7 +556,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/bird-watching-tour"><div className={styles_4.packages}>
+                <Link href="/sri-lanka-tour-packages/wings-of-ceylon-ultimate-bird-watching-tour-of-sri-lanka"><div className={styles_4.packages}>
                     <Image   src={image_package_4} alt="Sri Lankan Bird Watching Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -580,7 +580,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/luxury-honeymoon"><div className={styles_4.packages}>
+                <Link href="/sri-lanka-tour-packages/luxury-sri-lanka-honeymoon-escape-7-days-6-nights"><div className={styles_4.packages}>
                     <Image   src={image_package_5} alt="Sri Lanka Luxury Honeymoon Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -604,7 +604,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/pekoe-trail-trekking"><div className={styles_4.packages}>
+                <Link href="/sri-lanka-tour-packages/pekoe-trail-highlands-trekking-experience-sri-lanka"><div className={styles_4.packages}>
                     <Image   src={image_package_6} alt="Pekoe Trail Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -628,7 +628,7 @@ const handleInquirySubmit = async (e) => {
                     </div>
                 </div></Link>
 
-                <Link href="/tour-packages/wellness-rejuvenation"><div className={styles_4.packages}>
+                <Link href="/sri-lanka-tour-packages/sri-lanka-wellness-rejuvenation-escape"><div className={styles_4.packages}>
                     <Image   src={image_package_7} alt="Wellness Tour Package" width={310} height={200} sizes="(max-width: 900px) 250px, 310px" quality={70}/>
                     <div className={styles_4.package_details}>
                         <div className={styles_4.packageinfo}> 
@@ -656,7 +656,7 @@ const handleInquirySubmit = async (e) => {
         </div>
     </div>
 {/*Destinations Section_____________________________________________________________________________*/}
-        <Link href={"/destinations"} className={styles_5.text_deco_none}><h2 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h2></Link>
+        <Link href={"/sri-lanka-travel-destinations"} className={styles_5.text_deco_none}><h2 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h2></Link>
         <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
                 <div className={styles_5.overlayers}>
                     <div className={styles_5.solid_left}></div>
@@ -721,7 +721,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Dambulla, explore ancient cave temples, admire sacred Buddhist murals, experience cultural heritage, and enjoy scenic rock landscapes.</p>
-                            <Link href="/destinations?scroll=dambulla"><button className={styles_5.button_3}>EXPLORE</button></Link>
+                            <Link href="/sri-lanka-travel-destinations?scroll=dambulla"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
@@ -738,7 +738,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Galle, explore colonial forts, scenic beaches, historic streets, museums, and unique coastal heritage experiences.</p>
-                            <Link href="/destinations?scroll=galle"><button className={styles_5.button_3}>EXPLORE</button></Link>
+                            <Link href="/sri-lanka-travel-destinations?scroll=galle"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
@@ -756,7 +756,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Kandy, explore sacred temples, lush hills, cultural heritage, scenic lakes, and vibrant traditional experiences.</p>
-                            <Link href="/destinations?scroll=kandy"><button className={styles_5.button_3}>EXPLORE</button></Link>
+                            <Link href="/sri-lanka-travel-destinations?scroll=kandy"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
