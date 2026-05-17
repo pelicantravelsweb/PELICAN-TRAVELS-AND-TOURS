@@ -774,7 +774,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Polonnaruwa, explore ancient ruins, royal palaces, sacred temples, intricate stone carvings, and rich archaeological heritage.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <Link href="/sri-lanka-travel-destinations?scroll=polonnaruwa"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 

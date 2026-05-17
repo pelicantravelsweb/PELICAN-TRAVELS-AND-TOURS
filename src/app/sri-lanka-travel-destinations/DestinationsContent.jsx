@@ -26,6 +26,12 @@ import image_17 from "../../../public/Destinations_Image_20.png";
 import image_18 from "../../../public/Destinations_Image_21.png";
 import image_19 from "../../../public/Destinations_Image_22.png";
 import image_20 from "../../../public/SriLankan_Attractions.png";
+import image_21 from "../../../public/Destinations_Image_23.jpg";
+import image_22 from "../../../public/Destinations_Image_24.jpg";
+import image_23 from "../../../public/Destinations_Image_25.jpg";
+import image_24 from "../../../public/Destinations_Image_26.jpg";
+import image_25 from "../../../public/Destinations_Image_27.jpg";
+import image_26 from "../../../public/Destinations_Image_28.png";
 import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
 
@@ -423,6 +429,7 @@ const handleTouchEnd = (index) => {
 
 
 
+{/*Package_4________________________________________________________________*/}
 
       <div id="dambulla" className={styles_2.destinaton}>
         <div className={styles_2.city} >
@@ -497,6 +504,88 @@ const handleTouchEnd = (index) => {
         </div>
       </div>
 
+
+
+{/*Package_4________________________________________________________________*/}
+      <div id="polonnaruwa" className={styles_2.destinaton}>
+        <div className={styles_2.city} >
+          <div   className={`${styles_2.div_left} ${showMaps[3] ? styles_2.show_map : ""}`}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63225.99689403916!2d80.97197874238707!3d7.934196286263252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1779038774853!5m2!1sen!2slk"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+          </div>
+
+          <div className={styles_2.div_right}>
+              <h1 className={styles_2.city_name}>POLONNARUWA</h1>
+              <p className={styles_2.city_description}>Discover Polonnaruwa, one of Sri Lanka’s most fascinating 
+                ancient kingdoms and a UNESCO World Heritage Site rich in history and archaeological wonders. 
+                Explore beautifully preserved ruins, ancient temples, royal palaces, massive stone Buddha statues, 
+                and intricate carvings that reflect the grandeur of Sri Lanka’s medieval past. Surrounded by peaceful 
+                reservoirs and lush greenery, Polonnaruwa offers a unique blend of culture, heritage, and natural beauty, 
+                making it a must-visit destination for history lovers and cultural explorers.</p>
+
+
+              <div className={styles_2.attraction_section}>
+
+                <h1 className={styles_2.sub_topic}>ATTRACTIONS IN POLONNARUWA</h1>
+
+                <div className={styles_2.attraction_section}>
+                  <div className={styles_2.overlayers}>
+                    <div className={styles_2.fade_overlay_right}></div>
+                    <div className={styles_2.fade_overlay_left}></div>
+                    <div className={styles_2.solid_right}></div>
+                    <div className={styles_2.solid_left}></div>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.left}`} onClick={() => handleRightClick(3)}>
+                          <i className="fas fa-chevron-left"></i>
+                      </button>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.right}`} onClick={() => handleLeftClick(3)}>
+                          <i className="fas fa-chevron-right"></i>
+                      </button>
+                  </div>
+
+
+                    <div className={styles_2.attraction_container}   ref={(el) => (containerRefs.current[3] = el)}  onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={() => handleTouchEnd(3)}>
+                        <div className={styles_2.attraction}>
+                          <Image src={image_21} alt="Gal Vihara, Polonnaruwa" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Gal Vihara</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_22} alt="The Sacred Quadrangle, Polonnaruwa" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>The Sacred Quadrangle</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_23} alt="Rankoth Vehera, Polonnaruwa" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Rankoth Vehera</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_24} alt="Lanka Thilaka Vihara, Polonnaruwa" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Lanka Thilaka Vihara</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_25} alt="Aukana Buddha Statue, Polonnaruwa" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Aukana Buddha Statue</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_26} alt="Parakrama Samudra Lake, Polonnaruwa" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Parakrama Samudra Lake</h2>
+                        </div>
+
+                    </div>
+                </div>
+              </div>
+
+                    <button   className={styles_2.map_button} onClick={() => handleMapButtonClick(3)}>VIEW MAP</button>
+          </div>
+        </div>
+      </div>
+{/*_______________________________________________________________*/}
 
         
     </div>
