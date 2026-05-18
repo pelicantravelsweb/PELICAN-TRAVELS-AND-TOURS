@@ -792,7 +792,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Colombo, explore vibrant city life, colonial landmarks, bustling markets, modern shopping, and coastal seaside views.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <Link href="/sri-lanka-travel-destinations?scroll=colombo"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
                 </div>

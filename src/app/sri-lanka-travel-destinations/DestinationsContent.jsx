@@ -32,6 +32,15 @@ import image_23 from "../../../public/Destinations_Image_25.jpg";
 import image_24 from "../../../public/Destinations_Image_26.jpg";
 import image_25 from "../../../public/Destinations_Image_27.jpg";
 import image_26 from "../../../public/Destinations_Image_28.png";
+import image_27 from "../../../public/Destinations_Image_29.jpg";
+import image_28 from "../../../public/Destinations_Image_30.jpg";
+import image_29 from "../../../public/Destinations_Image_31.jpg";
+import image_30 from "../../../public/Destinations_Image_32.jpg";
+import image_31 from "../../../public/Destinations_Image_33.jpg";
+import image_32 from "../../../public/Destinations_Image_34.jpg";
+import image_33 from "../../../public/Destinations_Image_35.jpg";
+import image_34 from "../../../public/Destinations_Image_36.png";
+import image_35 from "../../../public/Destinations_Image_37.png";
 import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
 
@@ -259,6 +268,7 @@ const handleTouchEnd = (index) => {
 
 
 {/*Destination Section_____________________________________________________________________________*/}
+{/*Destination_1________________________________________________________________*/}
     <div className={styles_2.destinatons_section}>
 
       <div className={styles_2.destinaton} id="galle">
@@ -345,7 +355,7 @@ const handleTouchEnd = (index) => {
 
 
 
-
+{/*Destination_2________________________________________________________________*/}
       <div id="kandy" className={styles_2.destinaton}>
         <div className={styles_2.city} >
           <div   className={`${styles_2.div_left} ${showMaps[1] ? styles_2.show_map : ""}`}>
@@ -429,7 +439,7 @@ const handleTouchEnd = (index) => {
 
 
 
-{/*Package_4________________________________________________________________*/}
+{/*Destination_3________________________________________________________________*/}
 
       <div id="dambulla" className={styles_2.destinaton}>
         <div className={styles_2.city} >
@@ -506,7 +516,7 @@ const handleTouchEnd = (index) => {
 
 
 
-{/*Package_4________________________________________________________________*/}
+{/*Destination_4________________________________________________________________*/}
       <div id="polonnaruwa" className={styles_2.destinaton}>
         <div className={styles_2.city} >
           <div   className={`${styles_2.div_left} ${showMaps[3] ? styles_2.show_map : ""}`}>
@@ -582,6 +592,101 @@ const handleTouchEnd = (index) => {
               </div>
 
                     <button   className={styles_2.map_button} onClick={() => handleMapButtonClick(3)}>VIEW MAP</button>
+          </div>
+        </div>
+      </div>
+
+
+{/*Destination_5________________________________________________________________*/}
+      <div id="colombo" className={styles_2.destinaton}>
+        <div className={styles_2.city} >
+          <div   className={`${styles_2.div_left} ${showMaps[4] ? styles_2.show_map : ""}`}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63371.803921889186!2d79.81500564084803!3d6.921922085258426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo!5e0!3m2!1sen!2slk!4v1779120150007!5m2!1sen!2slk"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+          </div>
+
+          <div className={styles_2.div_right}>
+              <h1 className={styles_2.city_name}>COLOMBO</h1>
+              <p className={styles_2.city_description}>Explore Colombo, Sri Lanka’s vibrant commercial capital 
+                where modern city life meets rich colonial heritage and coastal charm. From bustling markets and 
+                luxury shopping malls to historic landmarks, cultural temples, and scenic oceanfront views, 
+                Colombo offers a dynamic travel experience for every visitor. Discover lively streets, diverse cuisine, 
+                beautiful seaside promenades, and a blend of tradition and contemporary lifestyle in the heart of Sri Lanka’s urban culture.</p>
+
+
+              <div className={styles_2.attraction_section}>
+
+                <h1 className={styles_2.sub_topic}>ATTRACTIONS IN COLOMBO</h1>
+
+                <div className={styles_2.attraction_section}>
+                  <div className={styles_2.overlayers}>
+                    <div className={styles_2.fade_overlay_right}></div>
+                    <div className={styles_2.fade_overlay_left}></div>
+                    <div className={styles_2.solid_right}></div>
+                    <div className={styles_2.solid_left}></div>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.left}`} onClick={() => handleRightClick(4)}>
+                          <i className="fas fa-chevron-left"></i>
+                      </button>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.right}`} onClick={() => handleLeftClick(4)}>
+                          <i className="fas fa-chevron-right"></i>
+                      </button>
+                  </div>
+
+
+                    <div className={styles_2.attraction_container}   ref={(el) => (containerRefs.current[4] = el)}  onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={() => handleTouchEnd(4)}>
+                        <div className={styles_2.attraction}>
+                          <Image src={image_27} alt="Red Mosque, Colombo, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Red Mosque</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_28} alt="Gangarama Temple, Colombo" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Gangarama Temple</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_29} alt="Lotus Tower, Colombo, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Lotus Tower</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_30} alt="Lanka Thilaka Vihara, Polonnaruwa" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Indipendance Square</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_31} alt="Pettah Local Market, Colombo" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Pettah Local Market</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_32} alt="Port City, Colombo" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Port City</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_33} alt="Urban Wetland Park, Colombo" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Urban Wetland Park</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_34} alt="Viharamahadevi Park, Colombo" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Viharamahadevi Park</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_35} alt="One Galleface Mall, Colombo" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>One Galleface Mall</h2>
+                        </div>
+
+                    </div>
+                </div>
+              </div>
+
+                    <button   className={styles_2.map_button} onClick={() => handleMapButtonClick(4)}>VIEW MAP</button>
           </div>
         </div>
       </div>
