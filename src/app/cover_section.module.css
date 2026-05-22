@@ -3,8 +3,8 @@
 @keyframes fadeIn {from { opacity: 0; }to { opacity: 2; }}
 /*Cover Section CSS_______________________________________________________________________*/
 .coversection{
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
     display: flex;
     width: 100%;
     align-items: center;

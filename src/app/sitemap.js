@@ -1,35 +1,62 @@
-// app/sitemap.js
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './lib/firebase';
+
+export const dynamic = 'force-dynamic';
+
+const BASE_URL = 'https://pelicantravelsandtours.com';
+
 export default async function sitemap() {
-  const baseUrl = "https://pelicantravelsandtours.com";
-  const now = new Date().toISOString();
-
-  // Static pages
   const staticPages = [
-    { url: `${baseUrl}/`,              priority: 1.0,  changeFrequency: "weekly" },
-    { url: `${baseUrl}/sri-lanka-tour-packages`, priority: 0.9,  changeFrequency: "weekly" },
-    { url: `${baseUrl}/sri-lanka-travel-destinations`,  priority: 0.9,  changeFrequency: "monthly" },
-    { url: `${baseUrl}/sri-lanka-tour-services`,      priority: 0.8,  changeFrequency: "monthly" },
-    { url: `${baseUrl}/contact-sri-lanka-tour-agent`,    priority: 0.7,  changeFrequency: "yearly" },
-  ].map((page) => ({ ...page, lastModified: now }));
-
-  // Dynamic tour package pages — fetch from Firestore
-  // Replace this with your actual Firestore fetch logic
-  const tourIds = [
-    "3hrumfK0tfHEXkXBCV12",
-    "AKvGtOLu2IsUzprJcdiC",
-    "H7e0jCKt7JCk66yQ1jZ4",
-    "HPJwHyK5IUUbmLg6DHlC",
-    "sDOgrjEvWHJ2cU4SWcYW",
-    "z6kf9PXvELkTkqmkNyic",
-    "06RhE4L4KZrctSKnodQG",
+    {
+      url: `${BASE_URL}/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/sri-lanka-tour-packages`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/sri-lanka-tour-services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/sri-lanka-travel-destinations`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/contact-sri-lanka-tour-agent`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ];
 
-  const tourPages = tourIds.map((id) => ({
-    url: `${baseUrl}/sri-lanka-tour-packages/${id}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  let packagePages = [];
 
-  return [...staticPages, ...tourPages];
+  try {
+    const packagesSnapshot = await getDocs(collection(db, 'packages'));
+    packagePages = packagesSnapshot.docs.map((doc) => {
+      const data = doc.data();
+      const slug = data.slug || doc.id;
+      const updatedAt = data.updatedAt?.toDate?.() ?? new Date();
+      return {
+        url: `${BASE_URL}/sri-lanka-tour-packages/${slug}`,
+        lastModified: updatedAt,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      };
+    });
+  } catch (error) {
+    console.error('Sitemap: failed to fetch packages from Firestore:', error);
+  }
+
+  return [...staticPages, ...packagePages];
 }
