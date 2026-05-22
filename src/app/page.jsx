@@ -16,6 +16,7 @@ import image_2 from "../../public/Pelican_Bird_Art.png";
 import image_3 from "../../public/SriLankan_Attractions.png";
 import image_4 from "../../public/Inquiry Section_Mask Image.png";
 import image_5 from "../../public/Inquiry Section_Mask Image_2.png";
+import background_image from "../../public/background.jpg";
 import image_package_1 from "../../public/package_1.png";
 import image_package_2 from "../../public/package_2.png";
 import image_package_3 from "../../public/package_3.jpg";
@@ -800,7 +801,8 @@ const handleInquirySubmit = async (e) => {
 
 {/*Tailormade Section_____________________________________________________________________________*/}
 
-        <h2 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h2>
+    <h2 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h2>
+    <div className={styles_6.tailormade_section}>
         <div className={styles_6.inquire_section} ref={inquireRef}>
             <form className={styles_6.inquire_form} onSubmit={handleInquirySubmit}>
                 <div className={styles_6.inquire_form_content}>
@@ -883,11 +885,17 @@ const handleInquirySubmit = async (e) => {
                 </div>
             </form>
 
-            <div className={styles_6.inquire_image}>
-                <Image   src={image_4} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_1} priority placeholder="blur"/>
-                <Image   src={image_5} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_2} priority placeholder="blur"/>
+            <div className={styles_6.inquire_image_container}>
+                <div className={styles_6.inquire_image_1}>
+                    <Image src={image_4} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_1} priority placeholder="blur"/>
+                    <Image src={image_5} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_2} priority placeholder="blur"/>
+                </div>
+                <div className={styles_6.inquire_image_2}>
+               
+                </div>
             </div>
         </div>
+    </div>
 
 {/*Why Us Section_____________________________________________________________________________*/}   
         <h2 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h2>

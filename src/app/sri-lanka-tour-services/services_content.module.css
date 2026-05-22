@@ -15,8 +15,8 @@
 .table_tabs{
     position: sticky;
     z-index: 1;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 3vw;
+    padding-right: 3vw;
     padding-top: 0.5rem;
     padding-bottom: 0.8rem;
     margin-bottom: -0.5rem;
@@ -26,7 +26,6 @@
     background-color: rgb(235, 130, 10);
     border-color: rgba(0, 0, 0, 0);
     border-width: 1px;
-
     cursor: pointer;
 }
 
