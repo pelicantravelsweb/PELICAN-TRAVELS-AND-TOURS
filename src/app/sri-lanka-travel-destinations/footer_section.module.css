@@ -27,7 +27,7 @@
     align-items: center;
     gap: 0.5rem;
     padding-top: 3rem;
-    padding-left: 4rem;
+    padding-left: clamp(2rem,4vw,4rem);
 }
 
 .footer_buttons i{

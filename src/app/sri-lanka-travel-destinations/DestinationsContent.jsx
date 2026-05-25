@@ -41,6 +41,15 @@ import image_32 from "../../../public/Destinations_Image_34.jpg";
 import image_33 from "../../../public/Destinations_Image_35.jpg";
 import image_34 from "../../../public/Destinations_Image_36.png";
 import image_35 from "../../../public/Destinations_Image_37.png";
+import image_36 from "../../../public/Destinations_Image_38.jpg";
+import image_37 from "../../../public/Destinations_Image_39.jpg";
+import image_38 from "../../../public/Destinations_Image_16.jpg";
+import image_39 from "../../../public/Destinations_Image_40.png";
+import image_40 from "../../../public/Destinations_Image_41.jpg";
+import image_41 from "../../../public/Destinations_Image_42.jpg";
+import image_42 from "../../../public/Destinations_Image_43.jpg";
+import image_43 from "../../../public/Destinations_Image_44.png";
+import image_44 from "../../../public/Destinations_Image_45.jpg";
 import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
 
@@ -687,6 +696,102 @@ const handleTouchEnd = (index) => {
               </div>
 
                     <button   className={styles_2.map_button} onClick={() => handleMapButtonClick(4)}>VIEW MAP</button>
+          </div>
+        </div>
+      </div>
+{/*_______________________________________________________________*/}
+
+{/*Destination_6________________________________________________________________*/}
+      <div id="matara" className={styles_2.destinaton}>
+        <div className={styles_2.city} >
+          <div   className={`${styles_2.div_left} ${showMaps[5] ? styles_2.show_map : ""}`}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89792.13882122049!2d80.4884159873891!3d5.954808029750211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae138d151937cd9%3A0x1d711f45897009a3!2sMatara!5e0!3m2!1sen!2slk!4v1779731765100!5m2!1sen!2slk"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+          </div>
+
+          <div className={styles_2.div_right}>
+              <h1 className={styles_2.city_name}>MATARA</h1>
+              <p className={styles_2.city_description}>Discover Matara, 
+                a beautiful coastal city in southern Sri Lanka known for its golden beaches, rich history, 
+                and relaxed tropical atmosphere. From the historic Dutch Fort and ancient temples to 
+                stunning ocean views and vibrant local culture, Matara offers a perfect mix of heritage 
+                and seaside charm. Explore nearby surfing hotspots, peaceful lagoons, and scenic coastal 
+                landscapes while experiencing the authentic beauty of Sri Lanka’s southern coastline.</p>
+
+
+              <div className={styles_2.attraction_section}>
+
+                <h1 className={styles_2.sub_topic}>ATTRACTIONS IN MATARA</h1>
+
+                <div className={styles_2.attraction_section}>
+                  <div className={styles_2.overlayers}>
+                    <div className={styles_2.fade_overlay_right}></div>
+                    <div className={styles_2.fade_overlay_left}></div>
+                    <div className={styles_2.solid_right}></div>
+                    <div className={styles_2.solid_left}></div>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.left}`} onClick={() => handleRightClick(5)}>
+                          <i className="fas fa-chevron-left"></i>
+                      </button>
+                      <button className={`${styles_2.nav_arrow} ${styles_2.right}`} onClick={() => handleLeftClick(5)}>
+                          <i className="fas fa-chevron-right"></i>
+                      </button>
+                  </div>
+
+
+                    <div className={styles_2.attraction_container}   ref={(el) => (containerRefs.current[5] = el)}  onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={() => handleTouchEnd(5)}>
+                        <div className={styles_2.attraction}>
+                          <Image src={image_36} alt="Coconut Tree Hill, Mirissa, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Coconut Tree Hill</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_37} alt="Pegion Island, Matara, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Pegion Island</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_38} alt="Mirissa Beach, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Mirissa Beach</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_39} alt="Weligama Port, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Weligama Port</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_40} alt="Matara Beach, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Matara Beach</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_41} alt="Dondra Light House, Matara, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Dondra Light House</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_42} alt="Weligama Beach, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Weligama Beach</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_43} alt="Dikwella Beach, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Dikwella Beach</h2>
+                        </div>
+
+                        <div className={styles_2.attraction}>
+                          <Image src={image_44} alt="Parrot Rock, Sri Lanka" width={400} height={280} quality={75} placeholder="blur" loading="lazy" sizes="(max-width: 820px) 100vw, 25vw"/>
+                          <h2 className={styles_2.attraction_name}>Parrot Rock</h2>
+                        </div>
+
+                    </div>
+                </div>
+              </div>
+
+                    <button   className={styles_2.map_button} onClick={() => handleMapButtonClick(5)}>VIEW MAP</button>
           </div>
         </div>
       </div>

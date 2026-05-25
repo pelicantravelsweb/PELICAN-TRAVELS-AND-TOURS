@@ -688,7 +688,7 @@ const handleInquirySubmit = async (e) => {
                         </div>
                         <div className={styles_5.destinations_description}>   
                             <p>In Matara, explore historic forts, tranquil beaches, cultural temples, scenic lighthouse views, and coastal wildlife experiences.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                            <Link href="/sri-lanka-travel-destinations?scroll=matara"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
