@@ -9,15 +9,10 @@ const nextConfig = {
 
   async redirects() {
     return [
-      // 🆕 Redirect Cloud Run URL → custom domain
+      // Cloud Run URL → custom domain
       {
         source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "pelican-travels-and-tours-new-361770129404.asia-east1.run.app",
-          },
-        ],
+        has: [{ type: "host", value: "pelican-travels-and-tours-new-361770129404.asia-east1.run.app" }],
         destination: "https://pelicantravelsandtours.com/:path*",
         permanent: true,
       },
@@ -25,12 +20,7 @@ const nextConfig = {
       // www → non-www
       {
         source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.pelicantravelsandtours.com",
-          },
-        ],
+        has: [{ type: "host", value: "www.pelicantravelsandtours.com" }],
         destination: "https://pelicantravelsandtours.com/:path*",
         permanent: true,
       },
@@ -38,15 +28,28 @@ const nextConfig = {
       // http → https
       {
         source: "/:path*",
-        has: [
-          {
-            type: "header",
-            key: "x-forwarded-proto",
-            value: "http",
-          },
-        ],
+        has: [{ type: "header", key: "x-forwarded-proto", value: "http" }],
         destination: "https://pelicantravelsandtours.com/:path*",
         permanent: true,
+      },
+
+      // 🆕 index.html → homepage
+      {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+
+      // 🆕 Deleted tour pages → tours listing
+      {
+        source: "/tour-packages/3hrumfK0tfHEXkXBCV12",
+        destination: "/tour-packages",
+        permanent: false,
+      },
+      {
+        source: "/tour-packages/HPJwHyK5IUUbmLg6DHlC",
+        destination: "/tour-packages",
+        permanent: false,
       },
     ];
   },
