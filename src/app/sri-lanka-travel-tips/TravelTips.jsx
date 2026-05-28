@@ -6,6 +6,8 @@ import styles_9 from '../footer_section.module.css';
 import Link from 'next/link';
 import Image from "next/image";
 import image_1 from "../../../public/travel_tips_cover.jpg";
+import image_2 from "../../../public/sl_monsoon_1.png";
+import image_3 from "../../../public/sl_monsoon_2.png";
 import image_5 from "../../../public/SriLankan_Attractions.png";
 import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
@@ -82,7 +84,27 @@ function page() {
 
     </div>
 
-{/*Monsoon_Season_____________________________________________________________________________*/}
+{/*Weather_____________________________________________________________________________*/}
+    <div className={styles_2.weather_section_container}>
+        <h2><span>WEA </span>THER<i className="fa-solid fa-cloud-rain"></i></h2>
+
+        <div className={styles_2.weather_section}>
+            <p>Sri Lanka experiences two main weather seasons shaped by the southwest and northeast monsoons, creating year-round travel opportunities across the island. From May to September, the southwest monsoon brings rain to the southern and western regions, while the east coast and northern areas enjoy sunny beaches and dry conditions. Between October and February, the northeast monsoon affects the north and east, making the south and west ideal for sightseeing, wildlife tours, and coastal escapes. This unique tropical climate allows travelers to explore different parts of Sri Lanka throughout the year, from golden beaches and lush hill country to ancient cultural sites and national parks.</p>
+            <div className={styles_2.weather_section_image_container}>
+                <div className={styles_2.weather_section_image}>
+                    <Image src={image_2} alt="Bomburu ella falls Sri Lanka" />
+                    <h4> The Southwest Monsoon (Yala)</h4>
+                    <p>May - September</p>
+                </div>
+                <div className={styles_2.weather_section_image}>
+                    <Image src={image_3} alt="Bomburu ella falls Sri Lanka" />
+                    <h4> The Northeast Monsoon (Maha)</h4>
+                    <p>October - February</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
 
 {/*Footer Section_____________________________________________________________________________*/}

@@ -439,25 +439,25 @@ const handleInquirySubmit = async (e) => {
             <Link href="/sri-lanka-tour-services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h2></Link>
             <div className={styles_3.services_container}>
                 <div className={styles_3.services} >
-                    <Link href="/services"><i className="fa fa-recycle"></i>
+                    <Link href="/sri-lanka-tour-services?scroll=services"><i className="fa fa-recycle"></i>
                     <h2 className={styles_3.sub_topic_text}>ROUND TOURS</h2>
                     <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <Link href="/sri-lanka-tour-services"><i className="fa-solid fa-binoculars"></i>
+                    <Link href="/sri-lanka-tour-services?scroll=excursions"><i className="fa-solid fa-binoculars"></i>
                     <h2 className={styles_3.sub_topic_text}>DAY EXCURSIONS</h2>
                     <p>Enjoy guided day excursions to famous attractions, historic landmarks, and natural wonders near you.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <Link href="/sri-lanka-tour-services"><i className="fa fa-users"></i>
+                    <Link href="/sri-lanka-tour-services?scroll=mice"><i className="fa fa-users"></i>
                     <h2 className={styles_3.sub_topic_text}>MICE SERVICES</h2>
                     <p>Professional MICE services for meetings, incentives, conferences, and events tailored to your needs.</p></Link>
                 </div>
 
                 <div className={styles_3.services}>
-                    <Link href="/sri-lanka-tour-services"><i className="fa-solid fa-car"></i>
+                    <Link href="/sri-lanka-tour-services?scroll=transport"><i className="fa-solid fa-car"></i>
                     <h2 className={styles_3.sub_topic_text}>TRANSPORT SERVICES</h2>
                     <p>Reliable transport services with comfortable vehicles and experienced drivers for safe travel anywhere.</p></Link>
                 </div>

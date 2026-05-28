@@ -9,7 +9,20 @@ const nextConfig = {
 
   async redirects() {
     return [
-      // www → non-www (covers both http and https www)
+      // 🆕 Redirect Cloud Run URL → custom domain
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "pelican-travels-and-tours-new-361770129404.asia-east1.run.app",
+          },
+        ],
+        destination: "https://pelicantravelsandtours.com/:path*",
+        permanent: true,
+      },
+
+      // www → non-www
       {
         source: "/:path*",
         has: [
@@ -21,7 +34,8 @@ const nextConfig = {
         destination: "https://pelicantravelsandtours.com/:path*",
         permanent: true,
       },
-      // http non-www → https non-www
+
+      // http → https
       {
         source: "/:path*",
         has: [

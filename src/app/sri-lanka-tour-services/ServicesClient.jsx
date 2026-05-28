@@ -73,7 +73,7 @@ function page() {
 
           {/* Round Tours Details */}
            {activeButton === "round_tours" && (
-          <div className={styles_2.services_content}>
+          <div className={styles_2.services_content} id="roundtours">
               <div className={styles_2.services_image}>
                 <Image src={image_1} alt="Adam's Peak, Sri Lanka"  fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "round_tours"} style={{ objectFit: "cover" }} />
               </div>
@@ -113,7 +113,7 @@ function page() {
 
           {/* Day Excursions Details */}
           {activeButton === "day_excursions" && (
-          <div className={styles_2.services_content}>
+          <div className={styles_2.services_content} id="excursions">
               <div className={styles_2.services_image}>
                 <Image src={image_2} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "day_excursions"} style={{ objectFit: "cover" }} />
               </div>
@@ -152,7 +152,7 @@ function page() {
 
           {/* MICE Services Details */}
           {activeButton === "mice_services" && (
-          <div className={styles_2.services_content}>
+          <div className={styles_2.services_content} id="mice">
               <div className={styles_2.services_image}>
                 <Image src={image_3} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "mice_services"} style={{ objectFit: "cover" }} />
               </div>
@@ -185,7 +185,7 @@ function page() {
 
           {/* Transport Services Details */}
           {activeButton === "transport_services" && (
-          <div className={styles_2.services_content}>
+          <div className={styles_2.services_content} id="transport">
               <div className={styles_2.services_image}>
                 <Image src={image_4} alt="Riverston, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "transport_services"} style={{ objectFit: "cover" }} />
               </div>
