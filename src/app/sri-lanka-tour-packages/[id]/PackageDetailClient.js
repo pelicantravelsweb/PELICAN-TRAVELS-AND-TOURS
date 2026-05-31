@@ -8,13 +8,13 @@ import { db } from '../../lib/firebase';
 import { doc, getDoc, getDocs, collection, addDoc, query, where } from 'firebase/firestore';
 import useThemeToggle from '../../lib/useThemeToggle';
 
-export default function PackageDetail() {
+export default function PackageDetail({ serverPackageData }) {
   const params = useParams();
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isLightTheme, handleThemeToggle } = useThemeToggle();
-  const [packageData, setPackageData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [packageData, setPackageData] = useState(serverPackageData || null);
+  const [loading, setLoading] = useState(!serverPackageData);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -123,7 +123,8 @@ export default function PackageDetail() {
   };
 
   // Fetch package details from Firebase — try slug first, fallback to doc ID
-  useEffect(() => {
+useEffect(() => {
+    if (serverPackageData) return; // ✅ skip fetch if server already provided data
     const fetchPackage = async () => {
       if (!params.id) return;
 
