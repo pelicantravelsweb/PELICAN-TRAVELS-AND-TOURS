@@ -2,7 +2,8 @@ import { Suspense } from "react";
 import DestinationsContent from "./DestinationsContent";
 
 export const metadata = {
-  title: "Destinations & Attractions in Sri Lanka",
+  title: "Sri Lanka Travel Destinations & Attractions | Pelican Tours",
+  description: "Explore Sri Lanka's top travel destinations including Kandy, Galle, Yala, Sigiriya, Colombo, Dambulla and more. Discover iconic attractions with Pelican Tours.",
   alternates: {
     canonical: "https://pelicantravelsandtours.com/sri-lanka-travel-destinations",
   },
