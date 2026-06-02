@@ -89,20 +89,69 @@ function page() {
         <h2><span>WEA </span>THER<i className="fa-solid fa-cloud-rain"></i></h2>
 
         <div className={styles_2.weather_section}>
+            <div>
+            <h4> Monsoon Seasons</h4>
             <p>Sri Lanka experiences two main weather seasons shaped by the southwest and northeast monsoons, creating year-round travel opportunities across the island. From May to September, the southwest monsoon brings rain to the southern and western regions, while the east coast and northern areas enjoy sunny beaches and dry conditions. Between October and February, the northeast monsoon affects the north and east, making the south and west ideal for sightseeing, wildlife tours, and coastal escapes. This unique tropical climate allows travelers to explore different parts of Sri Lanka throughout the year, from golden beaches and lush hill country to ancient cultural sites and national parks.</p>
+            </div>
             <div className={styles_2.weather_section_image_container}>
                 <div className={styles_2.weather_section_image}>
                     <Image src={image_2} alt="Bomburu ella falls Sri Lanka" />
-                    <h4> The Southwest Monsoon (Yala)</h4>
-                    <p>May - September</p>
+                    <div className={styles_2.weather_section_image_description}>
+                        <h4>Southwest Monsoon </h4>
+                        <p>The Rainy Season in Southwest Sri Lanka</p>
+                        <h5> Best Time to Travel:<span> October to April</span></h5>
+                    </div>
                 </div>
                 <div className={styles_2.weather_section_image}>
                     <Image src={image_3} alt="Bomburu ella falls Sri Lanka" />
-                    <h4> The Northeast Monsoon (Maha)</h4>
-                    <p>October - February</p>
+                    <div className={styles_2.weather_section_image_description}>
+                        <h4>Northeast Monsoon </h4>
+                        <p>The Rainy Season in Northeast Sri Lanka</p>
+                        <h5> Best Time to Travel:<span> May to September</span></h5>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+        <div className={styles_2.climate_section_container}>
+            <h4>Climate</h4>
+            <p>Sri Lanka's diverse climate zones allow travelers to find favorable weather somewhere on the island during any month of the year. Whether exploring the lush rainforests of the Wet Zone, relaxing on the sunny beaches of the Dry Zone, or enjoying the cool mountain air of the Central Highlands, visitors can experience unique landscapes and activities throughout every season. This climatic diversity makes Sri Lanka one of Asia's most versatile and rewarding year-round travel destinations.</p>
+            <div className={styles_2.climate_sections}>
+                <div className={styles_2.climate_section}>
+                    <div className={styles_2.climate_section_image}>
+                        <Image src={image_1} alt="Bomburu ella falls Sri Lanka" /> 
+                    </div>
+                    <div className={styles_2.climate_section_description}>
+                    <h5>Wet Zone Climate</h5>
+                    <p>The Wet Zone of Sri Lanka covers much of the southwest region, including popular destinations such as Colombo, Galle, Bentota, Kalutara, Sinharaja Rainforest, and Kandy. This region receives abundant rainfall throughout the year, creating lush tropical landscapes, dense rainforests, cascading waterfalls, and vibrant greenery. Temperatures typically range between 24°C and 31°C (75°F–88°F), offering a warm and humid tropical climate. Travelers visiting the Wet Zone can enjoy scenic beaches, wildlife experiences, tea plantations, and cultural attractions surrounded by rich natural beauty. The best travel conditions are generally found between December and April, when rainfall is lower and outdoor activities are most</p>                   
+                    </div>
+                </div>
+
+                <div className={styles_2.climate_section}>
+                    <div className={styles_2.climate_section_image}>
+                        <Image src={image_1} alt="Bomburu ella falls Sri Lanka" /> 
+                    </div>
+                    <div className={styles_2.climate_section_description}>
+                    <h5>Mountain Climate</h5>
+                    <p>Sri Lanka’s Mountain Climate is found in the central highlands, including destinations such as Nuwara Eliya, Ella, Haputale, Horton Plains, Bandarawela, and parts of the Knuckles Mountain Range. Due to higher elevations, temperatures are significantly cooler than the rest of the island, typically ranging from 10°C to 24°C (50°F–75°F) depending on altitude and season. Mist-covered mountains, rolling tea plantations, scenic train journeys, waterfalls, and breathtaking viewpoints make this region one of the country's most unique travel experiences. The cool and refreshing weather offers a welcome escape from the tropical heat found elsewhere in Sri Lanka. Mountain destinations can be visited year-round, with the clearest conditions often occurring between January and April.</p>                   
+                    </div>
+                </div>
+                
+                <div className={styles_2.climate_section}>
+                    <div className={styles_2.climate_section_image}>
+                        <Image src={image_1} alt="Bomburu ella falls Sri Lanka" /> 
+                    </div>
+                    <div className={styles_2.climate_section_description}>
+                    <h5>Dry Zone Climate</h5>
+                    <p>The Dry Zone of Sri Lanka covers much of the northern, eastern, and southeastern regions, including famous destinations such as Anuradhapura, Polonnaruwa, Trincomalee, Pasikuda, Arugam Bay, Sigiriya, and Yala. Characterized by long hours of sunshine, lower annual rainfall, and warm temperatures ranging from 27°C to 35°C (81°F–95°F), this region is ideal for beach holidays, wildlife safaris, and cultural exploration. The Dry Zone is home to many of Sri Lanka’s ancient kingdoms, national parks, and pristine east coast beaches. Travelers seeking sunny weather, outdoor adventures, and historical landmarks will find excellent conditions here, particularly between May and September when much of the region experiences dry and pleasant weather.</p>                   
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
         
     </div>
 

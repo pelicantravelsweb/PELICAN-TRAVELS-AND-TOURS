@@ -439,7 +439,7 @@ const handleInquirySubmit = async (e) => {
             <Link href="/sri-lanka-tour-services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h2></Link>
             <div className={styles_3.services_container}>
                 <div className={styles_3.services} >
-                    <Link href="/sri-lanka-tour-services?scroll=services"><i className="fa fa-recycle"></i>
+                    <Link href="/sri-lanka-tour-services?scroll=roundtours"><i className="fa fa-recycle"></i>
                     <h2 className={styles_3.sub_topic_text}>ROUND TOURS</h2>
                     <p>Discover Sri Lanka with customized round tours covering cultural sites, wildlife, and scenic landscapes.</p></Link>
                 </div>
