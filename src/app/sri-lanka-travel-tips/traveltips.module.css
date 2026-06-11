@@ -60,6 +60,7 @@
     padding-right: 1rem;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
+    margin-right: 1rem;
     margin-top: 1rem;
     width: fit-content;
     border: 0;
@@ -92,6 +93,11 @@
 }
 
 .weather_section_container{
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+
+.weather_forcast_container{
     padding-left: 4vw;
     padding-right: 4vw;
 }
@@ -190,10 +196,18 @@
 }
 
 .climate_section_container p{
-    font-size: clamp(0.8rem,1.1vw,1.1rem);
+    padding-top: 0.5rem;
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
     color: rgb(143, 143, 143);
     font-family: 'Poppins', sans-serif;
 }
+
+.climate_section_description p{
+    font-size: clamp(0.8rem,1vw,1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
 
 .climate_section_container h5{
     font-family: Arial, Helvetica, sans-serif;
@@ -211,6 +225,7 @@
 }
 
 .climate_section{
+    cursor: pointer;
     position: relative;
     width: 100%;
     border-width: 1px;
@@ -218,22 +233,30 @@
     border-color: rgb(235, 130, 10);
 }
 
+.climate_section:hover{
+    box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.486);
+    transition: 0.6s;
+}
+
 .climate_section_image{
-    height: 20rem;
+    position: relative;
+    height: 16rem;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
 }
 
 .climate_section img{
-    width: 100%;
+    position: absolute;
+    width: 30rem;
     height: auto;
 }
 
 .climate_section_description{
+    position: relative;
     width: 100%;
-    padding: 2vw;
+    padding: 1.5vw;
 }
+
+
 
 /*Hero Section___________________________________________________________*/
 
@@ -257,6 +280,45 @@
     
 
 }
+
+@media only screen and (max-width: 1000px) {
+
+    .climate_sections{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .climate_section{
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .climate_section_image{
+        width: 35%;
+        min-width: 35%;
+        height: auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .climate_section_image img{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .climate_section_description{
+        width: 65%;
+        padding: 1rem;
+    }
+
+    .climate_section_description h5{
+        text-align: left;
+    }
+}
+
 
 @media only screen and (max-width: 820px) {
     .hero_section_container{

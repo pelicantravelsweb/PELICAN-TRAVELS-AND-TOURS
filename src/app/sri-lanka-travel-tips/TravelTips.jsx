@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles_1 from './navigation.module.css';
 import styles_2 from './traveltips.module.css';
 import styles_9 from '../footer_section.module.css';
@@ -9,8 +9,15 @@ import image_1 from "../../../public/travel_tips_cover.jpg";
 import image_2 from "../../../public/sl_monsoon_1.png";
 import image_3 from "../../../public/sl_monsoon_2.png";
 import image_5 from "../../../public/SriLankan_Attractions.png";
+import image_6 from "../../../public/climate_zone_1.jpg";
+import image_7 from "../../../public/climate_zone_2.jpg";
+import image_8 from "../../../public/climate_zone_3.jpg";
 import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
+import CityWeather from '../components/CityWeather';
+import AttractionsExperiences from '../components/AttractionsExperiences';
+
+
 
 
 
@@ -32,6 +39,45 @@ function page() {
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
   };
+
+{/*Scroll to section_____________________________________________________________________________*/}
+
+  const weather = useRef(null);
+
+  const scrollToWeather_1 = () => {
+  if (!weather.current) return; // ✅ prevent crash
+
+  const yOffset = -200;
+  const y =
+    weather.current.getBoundingClientRect().top +
+    window.pageYOffset +
+    yOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+};
+
+
+  const experiences = useRef(null);
+
+  const scrollToWeather_2 = () => {
+  if (!experiences.current) return; // ✅ prevent crash
+
+  const yOffset = -200;
+  const y =
+    experiences.current.getBoundingClientRect().top +
+    window.pageYOffset +
+    yOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+};
+
+
   
   return (
     <>
@@ -78,15 +124,16 @@ function page() {
             experienced travelers enjoy a smooth, memorable, safe, and authentic travel experience across the island.
             </p>
             <div>
-                <button className={styles_2.sub_topic_button}>Weather</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_1}>Weather</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_2}>Experiences</button>
             </div>
         </div>
 
     </div>
 
 {/*Weather_____________________________________________________________________________*/}
-    <div className={styles_2.weather_section_container}>
-        <h2><span>WEA </span>THER<i className="fa-solid fa-cloud-rain"></i></h2>
+    <div className={styles_2.weather_section_container} >
+        <h2 ref={weather}><span>WEA </span>THER<i className="fa-solid fa-cloud-rain"></i></h2>
 
         <div className={styles_2.weather_section}>
             <div>
@@ -115,36 +162,36 @@ function page() {
         </div>
 
         <div className={styles_2.climate_section_container}>
-            <h4>Climate</h4>
+            <h4>Climate Zones</h4>
             <p>Sri Lanka's diverse climate zones allow travelers to find favorable weather somewhere on the island during any month of the year. Whether exploring the lush rainforests of the Wet Zone, relaxing on the sunny beaches of the Dry Zone, or enjoying the cool mountain air of the Central Highlands, visitors can experience unique landscapes and activities throughout every season. This climatic diversity makes Sri Lanka one of Asia's most versatile and rewarding year-round travel destinations.</p>
             <div className={styles_2.climate_sections}>
                 <div className={styles_2.climate_section}>
                     <div className={styles_2.climate_section_image}>
-                        <Image src={image_1} alt="Bomburu ella falls Sri Lanka" /> 
+                        <Image src={image_6} alt="Bomburu ella falls Sri Lanka" /> 
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Wet Zone Climate</h5>
-                    <p>The Wet Zone of Sri Lanka covers much of the southwest region, including popular destinations such as Colombo, Galle, Bentota, Kalutara, Sinharaja Rainforest, and Kandy. This region receives abundant rainfall throughout the year, creating lush tropical landscapes, dense rainforests, cascading waterfalls, and vibrant greenery. Temperatures typically range between 24°C and 31°C (75°F–88°F), offering a warm and humid tropical climate. Travelers visiting the Wet Zone can enjoy scenic beaches, wildlife experiences, tea plantations, and cultural attractions surrounded by rich natural beauty. The best travel conditions are generally found between December and April, when rainfall is lower and outdoor activities are most</p>                   
+                    <p>Sri Lanka's Wet Zone covers much of the southwest region, including Colombo, Galle, Bentota, Kalutara, and Kandy. This area receives high rainfall throughout the year, creating lush green landscapes and tropical vegetation. Temperatures typically range between 24°C and 31°C (75°F–88°F), with warm and humid conditions. The most favorable weather for travel is generally from December to April.</p>                   
                     </div>
                 </div>
 
                 <div className={styles_2.climate_section}>
                     <div className={styles_2.climate_section_image}>
-                        <Image src={image_1} alt="Bomburu ella falls Sri Lanka" /> 
+                        <Image src={image_7} alt="Bomburu ella falls Sri Lanka" /> 
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Mountain Climate</h5>
-                    <p>Sri Lanka’s Mountain Climate is found in the central highlands, including destinations such as Nuwara Eliya, Ella, Haputale, Horton Plains, Bandarawela, and parts of the Knuckles Mountain Range. Due to higher elevations, temperatures are significantly cooler than the rest of the island, typically ranging from 10°C to 24°C (50°F–75°F) depending on altitude and season. Mist-covered mountains, rolling tea plantations, scenic train journeys, waterfalls, and breathtaking viewpoints make this region one of the country's most unique travel experiences. The cool and refreshing weather offers a welcome escape from the tropical heat found elsewhere in Sri Lanka. Mountain destinations can be visited year-round, with the clearest conditions often occurring between January and April.</p>                   
+                    <p>Sri Lanka's Mountain Climate is found in the central highlands, including Nuwara Eliya, Ella, Haputale, Horton Plains, and Bandarawela. Due to higher elevations, temperatures are considerably cooler, typically ranging from 10°C to 24°C (50°F–75°F). The region experiences refreshing weather, frequent mist, and cooler nights throughout the year, with the clearest conditions often occurring between January and April.</p>                   
                     </div>
                 </div>
                 
                 <div className={styles_2.climate_section}>
                     <div className={styles_2.climate_section_image}>
-                        <Image src={image_1} alt="Bomburu ella falls Sri Lanka" /> 
+                        <Image src={image_8} alt="Bomburu ella falls Sri Lanka" /> 
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Dry Zone Climate</h5>
-                    <p>The Dry Zone of Sri Lanka covers much of the northern, eastern, and southeastern regions, including famous destinations such as Anuradhapura, Polonnaruwa, Trincomalee, Pasikuda, Arugam Bay, Sigiriya, and Yala. Characterized by long hours of sunshine, lower annual rainfall, and warm temperatures ranging from 27°C to 35°C (81°F–95°F), this region is ideal for beach holidays, wildlife safaris, and cultural exploration. The Dry Zone is home to many of Sri Lanka’s ancient kingdoms, national parks, and pristine east coast beaches. Travelers seeking sunny weather, outdoor adventures, and historical landmarks will find excellent conditions here, particularly between May and September when much of the region experiences dry and pleasant weather.</p>                   
+                    <p>The Dry Zone extends across much of northern, eastern, and southeastern Sri Lanka, including Anuradhapura, Polonnaruwa, Trincomalee, Pasikuda, Arugam Bay, Sigiriya, and Yala. It experiences lower rainfall, abundant sunshine, and temperatures ranging from 27°C to 35°C (81°F–95°F). Dry and sunny conditions are most common between May and September, making this period ideal for travel.</p>                   
                     </div>
                 </div>
 
@@ -155,6 +202,15 @@ function page() {
         
     </div>
 
+    <div className={styles_2.weather_forcast_container}>
+        <CityWeather />
+    </div>
+
+
+    <div className={styles_2.weather_section_container} >
+        <h2 ref={experiences}><span>EXPERI </span>ENCES<i className="fa-solid fa-hiking"></i></h2>
+        <AttractionsExperiences />
+    </div>
 
 {/*Footer Section_____________________________________________________________________________*/}
         <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
@@ -193,6 +249,8 @@ function page() {
                 </div>
                 <Image src={image_5} alt="Sri Lankan Attractions" />
         </div>
+
+
     </>
   )
 }

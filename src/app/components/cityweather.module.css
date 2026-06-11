@@ -1,0 +1,242 @@
+.container {
+    margin-top: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container h4{
+    margin-top: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.5vw,1.5rem);
+    margin-bottom: 2rem;
+}
+
+.selectRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.selectRow label {
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+    white-space: nowrap;
+}
+
+.selectRow select {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    background-color: rgb(30, 30, 30);
+    color: white;
+    border: 0.5px solid rgb(235, 130, 10);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    outline: none;
+    flex: 1;
+    max-width: 20rem;
+}
+
+.selectRow select:focus {
+    border-color: rgb(255, 160, 40);
+}
+
+.status {
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem 0;
+}
+
+.error {
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    color: rgb(220, 80, 60);
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem 0;
+}
+
+.card {
+    border: 1px solid rgb(235, 130, 10);
+    padding: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.3);
+    transition: 0.6s;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.cityName {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    margin: 0 0 0.4rem 0;
+}
+
+.zoneBadge {
+    font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+    color: rgb(235, 130, 10);
+    font-family: 'Poppins', sans-serif;
+    border: 0.5px solid rgb(235, 130, 10);
+    padding: 0.2rem 0.6rem;
+}
+
+.tempBlock {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.tempBig {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.feelsLike {
+    font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0.3rem;
+}
+
+.conditionBar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background-color: rgb(28, 28, 28);
+    border-left: 3px solid rgb(235, 130, 10);
+    margin-bottom: 1.25rem;
+}
+
+.condIcon {
+    font-size: 3rem;
+}
+
+.condLabel {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    color: white;
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric {
+    background-color: rgb(28, 28, 28);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border: 0.5px solid rgb(50, 50, 50);
+}
+
+.metricLabel {
+    font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.metricValue {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(235, 130, 10);
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
+    font-weight: 600;
+}
+
+.forecastLabel {
+    font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.6rem 0;
+}
+
+.forecastRow {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+}
+
+.forecastDay {
+    flex: 1;
+    min-width: 68px;
+    background-color: rgb(28, 28, 28);
+    border: 0.5px solid rgb(50, 50, 50);
+    padding: 0.6rem 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+}
+
+
+
+.forecastDayName {
+    font-size: clamp(0.7rem, 0.85vw, 0.85rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.forecastMax {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    font-weight: 600;
+}
+
+.forecastMin {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(143, 143, 143);
+    font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+}
+
+.forecastIcon{
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+@media only screen and (max-width: 820px) {
+    .cardHeader {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .tempBlock {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .metricsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .forecastRow {
+        gap: 0.3rem;
+    }
+
+    .forecastDay {
+        min-width: 52px;
+        padding: 0.5rem 0.25rem;
+    }
+}
