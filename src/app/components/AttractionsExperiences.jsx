@@ -28,6 +28,7 @@ import img_scenic_viewpoints   from "../../../public/things_to_see_7.jpg";
 import img_lakes_rivers        from "../../../public/things_to_see_8.jpg";
 import img_caves               from "../../../public/things_to_see_12.jpg";
 import img_cities_towns        from "../../../public/things_to_see_10.jpg";
+import img_colonial_buildings from "../../../public/things_to_see_15.jpg";
 // THINGS TO DO
 import img_train_rides         from "../../../public/things_to_do_7.jpg";
 import img_wildlife_safaris    from "../../../public/things_to_do_3.jpg";
@@ -49,6 +50,8 @@ import img_cooking_classes     from "../../../public/things_to_do_12.jpg";
 import img_ayurveda            from "../../../public/things_to_do_16.jpg";
 import img_yoga                from "../../../public/things_to_do_14.jpg";
 import img_nightlife           from "../../../public/things_to_do_20.webp";
+import img_shopping           from "../../../public/things_to_do_21.jpg";
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 const THINGS_TO_SEE = [
@@ -66,6 +69,7 @@ const THINGS_TO_SEE = [
   { id: "lakes-rivers",       image: img_lakes_rivers,       title: "LAKES, RIVERS & LAGOONS",                 description: "Experience the serene beauty of Sri Lanka's lakes, rivers, and coastal lagoons. Kandy Lake, Nuwara Eliya Lake, Bolgoda, and the Madu River estuary offer scenic boat rides, birdwatching, and peaceful natural escapes amid lush tropical and highland surroundings throughout the year." },
   { id: "caves",              image: img_caves,              title: "CAVES & ROCK FORMATIONS",                 description: "Explore Sri Lanka's fascinating caves and dramatic rock formations shaped by millions of years of natural history. Dambulla Cave Temple, Pidurangala Rock, Pahiyangala, and Ritigala ruins offer extraordinary geological wonders and sacred cultural heritage set within stunning natural environments." },
   { id: "cities-towns",       image: img_cities_towns,       title: "CITIES & COASTAL TOWNS",                  description: "Discover the vibrant character of Sri Lanka's cities and charming coastal towns. From Colombo's cosmopolitan energy and Galle's Dutch colonial grandeur to the cultural heartland of Kandy and the heritage streets of Jaffna, each destination reveals a unique and captivating side of the island's rich history and living culture." },
+  { id: "colonial-buildings", image: img_colonial_buildings, title: "COLONIAL ARCHITECTURE & HERITAGE BUILDINGS", description: "Explore Sri Lanka's remarkable colonial-era landmarks, from Dutch forts and British hill-country estates to historic churches, lighthouses, and government buildings that showcase centuries of Portuguese, Dutch, and British influence across the island."},
 ];
 
 const THINGS_TO_DO = [
@@ -89,6 +93,7 @@ const THINGS_TO_DO = [
   { id: "ayurveda",              image: img_ayurveda,            title: "AYURVEDA & WELLNESS TREATMENTS", description: "Rejuvenate mind, body, and spirit with traditional Ayurvedic wellness treatments at Sri Lanka's renowned retreat centres. From therapeutic herbal oil massages and Shirodhara treatments to personalised detox programmes, the island offers authentic healing rooted in thousands of years of ancient wisdom." },
   { id: "yoga",                  image: img_yoga,                title: "YOGA RETREATS",                  description: "Find inner peace at Sri Lanka's serene yoga retreats set amid breathtaking natural landscapes. Practice sunrise yoga overlooking misty mountains in Ella, meditate beside the ocean in Mirissa, or join immersive residential retreats blending yoga, meditation, Ayurveda, and mindful living in paradise." },
   { id: "nightlife",             image: img_nightlife,           title: "NIGHTLIFE & ENTERTAINMENT",      description: "Experience Sri Lanka's vibrant nightlife and entertainment scene. Colombo's cosmopolitan bars, rooftop lounges, live music venues, and beach clubs in Hikkaduwa and Arugam Bay offer lively after-dark experiences from cocktails with ocean views to energetic live performances and cultural shows." },
+  { id: "shopping",              image: img_shopping,            title: "SHOPPING & SOUVENIR HUNTING",    description: "Explore vibrant markets, artisan workshops, and stylish shopping districts across Sri Lanka. Shop for world-renowned Ceylon Tea, precious gemstones, spices, batik clothing, handcrafted wooden masks, jewellery, and authentic local souvenirs. From bustling city malls in Colombo to traditional craft centres and street markets, shopping in Sri Lanka offers a unique blend of culture, craftsmanship, and discovery."},
 ];
 
 const ALL_ITEMS = [...THINGS_TO_SEE, ...THINGS_TO_DO];
@@ -201,8 +206,8 @@ function Carousel({ items, label, onCardClick }) {
           <div className={styles.fade_overlay_left}></div>
           <div className={styles.fade_overlay_right}></div>
           <div className={styles.solid_right}></div>
-          <button className={`${styles.nav_arrow} ${styles.left}`}  onClick={slidePrev} aria-label="Previous"><i className="fas fa-chevron-left"></i></button>
-          <button className={`${styles.nav_arrow} ${styles.right}`} onClick={slideNext} aria-label="Next"><i className="fas fa-chevron-right"></i></button>
+          <button className={`${styles.nav_arrow} ${styles.left}`}  onClick={slidePrev} aria-label="Previous">←</button>
+          <button className={`${styles.nav_arrow} ${styles.right}`} onClick={slideNext} aria-label="Next">→</button>
         </div>
 
         <div className={styles.cards_container} ref={containerRef}>
