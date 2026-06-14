@@ -16,6 +16,7 @@ import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
 import CityWeather from '../components/CityWeather';
 import AttractionsExperiences from '../components/AttractionsExperiences';
+import Transportation from '../components/Transportation';
 
 
 
@@ -77,6 +78,23 @@ function page() {
   });
 };
 
+  const transportation = useRef(null);
+
+  const scrollToWeather_3 = () => {
+  if (!transportation.current) return; // ✅ prevent crash
+
+  const yOffset = -200;
+  const y =
+    transportation.current.getBoundingClientRect().top +
+    window.pageYOffset +
+    yOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+};
+
 
   
   return (
@@ -126,6 +144,7 @@ function page() {
             <div>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_1}>Weather</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_2}>Experiences</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_3}>Transportation</button>
             </div>
         </div>
 
@@ -211,6 +230,12 @@ function page() {
         <h2 ref={experiences}><span>EXPERI </span>ENCES<i className="fa-solid fa-hiking"></i></h2>
         <AttractionsExperiences />
     </div>
+
+    <div className={styles_2.weather_section_container}>
+        <h2 ref={transportation}><span>TRANS</span>PORTATION <i className="fa-solid fa-train"></i></h2>
+        <Transportation />
+    </div>
+
 
 {/*Footer Section_____________________________________________________________________________*/}
         <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
