@@ -386,6 +386,7 @@ const handleInquirySubmit = async (e) => {
   return (
     <>
 {/*Navigation Section_____________________________________________________________________________*/}
+    <Link href="/sri-lanka-travel-tips"><div className={styles_1.travel_tips}><h3>Travel Tips</h3><i className="fa fa-lightbulb"></i></div></Link>
     <div className={styles_1.navigation}>
         <Link href="/"><h2 className={styles_1.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_1.navigation_ul}>
@@ -398,7 +399,7 @@ const handleInquirySubmit = async (e) => {
             <li className={styles_1.navigation_mobile} onClick={() => setIsMenuOpen(!isMenuOpen)}><i className="fa fa-bars"></i></li>
         </ul>
 
-
+        
       {isMenuOpen && (
         <div className={`${styles_1.mobile_navigation_menu} ${styles_1.fadeInDown}`}>
           <Link href="/"><h2 id={styles_1.active}>HOME</h2></Link>
