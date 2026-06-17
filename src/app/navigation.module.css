@@ -29,12 +29,13 @@
     --p: 50px; 
   clip-path: polygon(var(--p) 150%,calc(200% - var(--p)) 100%,100% 0,0 0);
   animation: fadeInDown 1s ease forwards;
+  box-shadow: inset  0px 0px 35px rgba(0, 0, 0, 0.452);
 }
 
 .travel_tips h3{
   font-size: clamp(0.8rem, 1.5vw, 1.1rem);
   text-align: right;
-  padding-left: 1.5rem;
+  
 }
 
 .travel_tips i{
@@ -45,13 +46,19 @@
 
 .travel_tips:hover{
   cursor: pointer;
-  background: linear-gradient(90deg,rgba(42, 123, 155, 0) 0%, rgb(235, 130, 10) 100%, rgb(235, 130, 10)100%);
   color: white;
+  background-color: rgb(235, 130, 10);
+  box-shadow: inset  0px 0px 35px rgba(0, 0, 0, 0.452);
   transition: 0.6s;
-  box-shadow: 0px 0px 12px rgba(235, 130, 10, 0.18);
 }
 
+.travel_tips:hover h3{
+  color: rgb(36, 35, 35);
+}
 
+.travel_tips:hover i{
+  color: rgb(36, 35, 35);
+}
 
 .heading {
   color: rgb(235, 130, 10);

@@ -1,6 +1,13 @@
 User-agent: *
 Allow: /
-Disallow: /_next/static/
+
+# Block API and admin routes
 Disallow: /api/
+Disallow: /admin/
+Disallow: /admin-login/
+
+# Block ?scroll= query param URLs — these are anchor-scroll helpers, not real pages.
+# Google was crawling these as duplicates causing "Alternative page with proper canonical tag" errors.
+Disallow: /*?scroll=
 
 Sitemap: https://pelicantravelsandtours.com/sitemap.xml
