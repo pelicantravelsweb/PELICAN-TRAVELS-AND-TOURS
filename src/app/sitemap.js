@@ -32,6 +32,12 @@ export default async function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${BASE_URL}/sri-lanka-travel-tips`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/contact-sri-lanka-tour-agent`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

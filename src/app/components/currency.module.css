@@ -1,0 +1,393 @@
+/* ── Section wrapper ──────────────────────────────────────────────────────── */
+.section_wrapper {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Heading ──────────────────────────────────────────────────────────────── */
+.topic_text {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    text-align: left;
+    padding-top: 8rem;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.topic_text span {
+    color: rgb(235, 130, 10);
+}
+
+/* ── Section description ──────────────────────────────────────────────────── */
+.section_description {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    color: rgb(143, 143, 143);
+    line-height: 1.8;
+    margin-top: 1.2rem;
+    margin-bottom: 0;
+}
+
+.section_description strong {
+    color: rgb(200, 198, 198);
+    font-weight: 600;
+}
+
+/* ── Quick facts strip ────────────────────────────────────────────────────── */
+.quick_facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    margin-top: 3rem;
+    background-color: rgb(50, 50, 50);
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.fact_card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 1.2rem 1.3rem;
+    background-color: rgb(22, 22, 22);
+    transition: background-color 0.3s ease;
+}
+
+.fact_card:hover {
+    background-color: rgb(28, 28, 28);
+}
+
+.fact_icon {
+    font-size: 1.3rem;
+    color: rgb(235, 130, 10);
+    margin-bottom: 0.25rem;
+}
+
+.fact_label {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.7rem, 0.8vw, 0.8rem);
+    color: rgb(100, 100, 100);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+
+.fact_value {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* ── Middle row (rates + payment blocks) ─────────────────────────────────── */
+.middle_row {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    align-items: flex-start;
+}
+
+/* ── Rates block ──────────────────────────────────────────────────────────── */
+.rates_block {
+    flex: 1.4;
+    background-color: rgb(22, 22, 22);
+    padding: 1.8rem 1.8rem 1.6rem;
+    border-left: 3px solid rgb(235, 130, 10);
+}
+
+.rates_header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.block_heading {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    margin: 0;
+    letter-spacing: 0.06em;
+}
+
+.block_heading span,
+.block_heading i {
+    color: rgb(235, 130, 10);
+    margin-right: 0.4rem;
+}
+
+.rates_updated {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.7rem, 0.78vw, 0.78rem);
+    color: rgb(100, 100, 100);
+}
+
+.rates_sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.78rem, 0.88vw, 0.88rem);
+    color: rgb(120, 120, 120);
+    margin: 0 0 1.2rem 0;
+    line-height: 1.5;
+}
+
+.rates_loading,
+.rates_error {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.82rem, 0.9vw, 0.9rem);
+    color: rgb(143, 143, 143);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.rates_error {
+    color: rgb(200, 80, 60);
+}
+
+.rates_table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.rate_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgb(36, 36, 36);
+    gap: 1rem;
+}
+
+.rate_row:last-child {
+    border-bottom: none;
+}
+
+.rate_currency {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.rate_flag {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.rate_names {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+}
+
+.rate_code {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(0.82rem, 0.95vw, 0.95rem);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.rate_label {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(110, 110, 110);
+    font-size: clamp(0.7rem, 0.78vw, 0.78rem);
+}
+
+.rate_value_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.05rem;
+}
+
+.rate_equals {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(100, 100, 100);
+    font-size: clamp(0.68rem, 0.76vw, 0.76rem);
+}
+
+.rate_value {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(235, 130, 10);
+    font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+    font-weight: 600;
+}
+
+/* ── Payment blocks ───────────────────────────────────────────────────────── */
+.payment_blocks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.payment_block {
+    background-color: rgb(22, 22, 22);
+    padding: 1.4rem 1.5rem;
+}
+
+.payment_list {
+    list-style: none;
+    margin: 0.8rem 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.payment_item_ok,
+.payment_item_cash {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+    color: rgb(160, 160, 160);
+}
+
+.payment_item_ok i {
+    color: rgb(60, 180, 100);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.payment_item_cash i {
+    color: rgb(235, 130, 10);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* ── Do's and Don'ts ──────────────────────────────────────────────────────── */
+.dos_donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.dos_col,
+.donts_col {
+    padding: 1.8rem 1.8rem 1.6rem;
+    background-color: rgb(22, 22, 22);
+}
+
+.dos_col {
+    border-left: 3px solid rgb(60, 180, 100);
+}
+
+.donts_col {
+    border-left: 3px solid rgb(210, 60, 50);
+}
+
+.dos_heading {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(60, 180, 100);
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.donts_heading {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(210, 60, 50);
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dos_list,
+.donts_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.do_item,
+.dont_item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.78rem, 0.88vw, 0.88rem);
+    color: rgb(143, 143, 143);
+    line-height: 1.55;
+}
+
+.do_icon {
+    color: rgb(60, 180, 100);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.dont_icon {
+    color: rgb(210, 60, 50);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+/* ── Light theme ──────────────────────────────────────────────────────────── */
+:global(body.light_theme) .topic_text  { color: rgb(36, 35, 35); }
+:global(body.light_theme) .fact_value  { color: rgb(36, 35, 35); }
+:global(body.light_theme) .rate_code   { color: rgb(36, 35, 35); }
+:global(body.light_theme) .block_heading { color: rgb(36, 35, 35); }
+
+:global(body.light_theme) .quick_facts      { background-color: rgb(210, 210, 210); }
+:global(body.light_theme) .fact_card        { background-color: rgb(245, 245, 245); }
+:global(body.light_theme) .fact_card:hover  { background-color: rgb(255, 255, 255); }
+:global(body.light_theme) .rates_block,
+:global(body.light_theme) .payment_block,
+:global(body.light_theme) .dos_col,
+:global(body.light_theme) .donts_col        { background-color: rgb(245, 245, 245); }
+:global(body.light_theme) .rate_row         { border-bottom-color: rgb(225, 225, 225); }
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media only screen and (max-width: 1000px) {
+    .middle_row {
+        flex-direction: column;
+    }
+
+    .payment_blocks {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .payment_block {
+        flex: 1;
+        min-width: 240px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .dos_donts {
+        grid-template-columns: 1fr;
+    }
+
+    .quick_facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .quick_facts {
+        grid-template-columns: 1fr;
+    }
+
+    .payment_blocks {
+        flex-direction: column;
+    }
+}

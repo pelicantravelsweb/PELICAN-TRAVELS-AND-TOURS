@@ -17,6 +17,7 @@ import { FaTripadvisor } from "react-icons/fa";
 import CityWeather from '../components/CityWeather';
 import AttractionsExperiences from '../components/AttractionsExperiences';
 import Transportation from '../components/Transportation';
+import Currency from "../components/Currency";
 
 
 
@@ -95,7 +96,22 @@ function page() {
   });
 };
 
+  const currency = useRef(null);
 
+  const scrollToWeather_4 = () => {
+  if (!currency.current) return; // ✅ prevent crash
+
+  const yOffset = -200;
+  const y =
+    currency.current.getBoundingClientRect().top +
+    window.pageYOffset +
+    yOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+};
   
   return (
     <>
@@ -145,6 +161,7 @@ function page() {
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_1}>Weather</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_2}>Experiences</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_3}>Transportation</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_4}>Currency</button>
             </div>
         </div>
 
@@ -234,6 +251,11 @@ function page() {
     <div className={styles_2.weather_section_container}>
         <h2 ref={transportation}><span>TRANS</span>PORTATION <i className="fa-solid fa-train"></i></h2>
         <Transportation />
+    </div>
+
+    <div className={styles_2.weather_section_container}>
+        <h2 ref={currency}><span>CUR</span>RENCY <i className="fa-solid fa-currency"></i></h2>
+        <Currency />
     </div>
 
 
