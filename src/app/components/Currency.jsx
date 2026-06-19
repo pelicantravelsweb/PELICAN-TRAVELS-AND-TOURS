@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./currency.module.css";
 
-// ── Live exchange rates (base: LKR, free API no key needed) ──────────────────
 const RATE_CURRENCIES = [
   { code: "USD", label: "US Dollar",         flag: "🇺🇸" },
   { code: "EUR", label: "Euro",              flag: "🇪🇺" },
@@ -16,7 +15,6 @@ const RATE_CURRENCIES = [
   { code: "CNY", label: "Chinese Yuan",      flag: "🇨🇳" },
 ];
 
-// ── Do's / Don'ts data ────────────────────────────────────────────────────────
 const DOS = [
   { icon: "fa-solid fa-circle-check", text: "Exchange money only at licensed banks or authorized money changers" },
   { icon: "fa-solid fa-circle-check", text: "Carry both cards and local cash (LKR) at all times" },
@@ -39,54 +37,97 @@ const DONTS = [
   { icon: "fa-solid fa-circle-xmark", text: "Don't use isolated ATMs at night — use secure, bank-branch ATMs only" },
 ];
 
-// ── Quick facts ───────────────────────────────────────────────────────────────
 const QUICK_FACTS = [
-  { icon: "fa-solid fa-coins",            label: "Official Currency",    value: "Sri Lankan Rupee (LKR)" },
-  { icon: "fa-solid fa-credit-card",      label: "Cards Accepted",       value: "Visa & Mastercard" },
-  { icon: "fa-solid fa-building-columns", label: "Best Exchange",        value: "Licensed Banks" },
-  { icon: "fa-solid fa-money-bill-wave",  label: "ATM Withdrawals",      value: "Rupees Only" },
-  { icon: "fa-solid fa-receipt",          label: "Keep Receipts",        value: "Required for Re-conversion" },
-  { icon: "fa-solid fa-wallet",           label: "Recommended Split",    value: "60–80% Card · 20–40% Cash" },
+  { icon: "fa-solid fa-coins",            label: "Official Currency",  value: "Sri Lankan Rupee (LKR)" },
+  { icon: "fa-solid fa-credit-card",      label: "Cards Accepted",     value: "Visa & Mastercard" },
+  { icon: "fa-solid fa-building-columns", label: "Best Exchange",      value: "Licensed Banks" },
+  { icon: "fa-solid fa-money-bill-wave",  label: "ATM Withdrawals",    value: "Rupees Only" },
+  { icon: "fa-solid fa-receipt",          label: "Keep Receipts",      value: "Required for Re-conversion" },
+  { icon: "fa-solid fa-wallet",           label: "Recommended Split",  value: "60–80% Card · 20–40% Cash" },
 ];
 
-// ── Where cards work / where cash needed ─────────────────────────────────────
-const CARDS_OK = ["Hotels & Resorts", "Tour Operators", "Shopping Malls", "Supermarkets", "Mid-range Restaurants", "Fuel Stations"];
+const CARDS_OK    = ["Hotels & Resorts", "Tour Operators", "Shopping Malls", "Supermarkets", "Mid-range Restaurants", "Fuel Stations"];
 const CASH_NEEDED = ["Tuk-Tuks", "Street Food & Markets", "Small Guesthouses", "Local Cafés", "Rural Villages", "Entrance Tickets"];
 
-// ── Main component ────────────────────────────────────────────────────────────
+// ── Fetch rates: tries open.er-api first, falls back to fawazahmed0 ──────────
+async function fetchRates() {
+  // Attempt 1: open.er-api (returns { rates: { LKR, EUR, ... }, date })
+  try {
+    const r = await fetch("https://open.er-api.com/v6/latest/USD", { cache: "no-store" });
+    if (r.ok) {
+      const d = await r.json();
+      if (d?.result === "success" && d?.rates?.LKR) {
+        const lkrPerUsd = d.rates.LKR;
+        // build a map: code → LKR per 1 unit
+        const map = {};
+        RATE_CURRENCIES.forEach(({ code }) => {
+          if (d.rates[code]) map[code] = lkrPerUsd / d.rates[code];
+        });
+        return { rates: map, date: d.time_last_update_utc?.slice(0, 16) ?? d.time_last_update_utc };
+      }
+    }
+  } catch (_) { /* fall through */ }
+
+  // Attempt 2: fawazahmed0 CDN (returns { date, usd: { lkr, eur, ... } })
+  try {
+    const r = await fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json", { cache: "no-store" });
+    if (r.ok) {
+      const d = await r.json();
+      if (d?.usd?.lkr) {
+        const lkrPerUsd = d.usd.lkr;
+        const map = {};
+        RATE_CURRENCIES.forEach(({ code }) => {
+          const lower = code.toLowerCase();
+          if (d.usd[lower]) map[code] = lkrPerUsd / d.usd[lower];
+        });
+        return { rates: map, date: d.date };
+      }
+    }
+  } catch (_) { /* fall through */ }
+
+  // Attempt 3: fawazahmed0 Cloudflare Pages mirror
+  try {
+    const r = await fetch("https://currency-api.pages.dev/v1/currencies/usd.json", { cache: "no-store" });
+    if (r.ok) {
+      const d = await r.json();
+      if (d?.usd?.lkr) {
+        const lkrPerUsd = d.usd.lkr;
+        const map = {};
+        RATE_CURRENCIES.forEach(({ code }) => {
+          const lower = code.toLowerCase();
+          if (d.usd[lower]) map[code] = lkrPerUsd / d.usd[lower];
+        });
+        return { rates: map, date: d.date };
+      }
+    }
+  } catch (_) { /* fall through */ }
+
+  throw new Error("All rate sources failed");
+}
+
 export default function Currency() {
   const [rates, setRates]       = useState(null);
   const [ratesError, setRatesError] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
-    // frankfurter.app — free, no API key, returns LKR base rates
-    fetch("https://api.frankfurter.app/latest?from=LKR&to=USD,EUR,GBP,AUD,CAD,SGD,INR,JPY,CHF,CNY")
-      .then((r) => {
-        if (!r.ok) throw new Error();
-        return r.json();
-      })
-      .then((data) => {
-        setRates(data.rates);
-        setLastUpdated(data.date);
-      })
+    fetchRates()
+      .then(({ rates, date }) => { setRates(rates); setLastUpdated(date); })
       .catch(() => setRatesError(true));
   }, []);
 
-  // convert: 1 foreign currency → LKR
-  const toLKR = (code) => {
-    if (!rates || !rates[code]) return null;
-    return (1 / rates[code]).toFixed(2);
-  };
+  const formatLKR = (val) =>
+    Number(val).toLocaleString("en-LK", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
     <div className={styles.section_wrapper}>
+
 
       <p className={styles.section_description}>
         Sri Lanka's official currency is the <strong>Sri Lankan Rupee (LKR)</strong>. Foreign currencies such as USD, EUR, and GBP are not accepted for everyday purchases — you will need local rupees for most transactions. The safest approach is to carry a combination of cards and cash, exchange money only at licensed banks or authorized money changers, and always keep your receipts. Here is everything you need to know about handling money as a visitor to Sri Lanka.
       </p>
 
-      {/* ── Quick facts strip ── */}
+      {/* ── Quick facts ── */}
       <div className={styles.quick_facts}>
         {QUICK_FACTS.map((f) => (
           <div key={f.label} className={styles.fact_card}>
@@ -97,24 +138,15 @@ export default function Currency() {
         ))}
       </div>
 
-      {/* ── Live rates + card/cash blocks ── */}
+      {/* ── Live rates + card/cash ── */}
       <div className={styles.middle_row}>
 
-        {/* live rates */}
         <div className={styles.rates_block}>
           <div className={styles.rates_header}>
             <h3 className={styles.block_heading}>LIVE EXCHANGE RATES <span>→ LKR</span></h3>
-            {lastUpdated && (
-              <span className={styles.rates_updated}>Updated {lastUpdated}</span>
-            )}
+            {lastUpdated && <span className={styles.rates_updated}>Updated {lastUpdated}</span>}
           </div>
           <p className={styles.rates_sub}>How much 1 unit of each currency buys in Sri Lankan Rupees today.</p>
-
-          {ratesError && (
-            <p className={styles.rates_error}>
-              <i className="fa-solid fa-triangle-exclamation"></i> Live rates unavailable — please check a currency converter before travel.
-            </p>
-          )}
 
           {!rates && !ratesError && (
             <p className={styles.rates_loading}>
@@ -122,10 +154,16 @@ export default function Currency() {
             </p>
           )}
 
+          {ratesError && (
+            <p className={styles.rates_error}>
+              <i className="fa-solid fa-triangle-exclamation"></i> Live rates unavailable — please check a currency converter before travel.
+            </p>
+          )}
+
           {rates && (
             <div className={styles.rates_table}>
               {RATE_CURRENCIES.map((c) => {
-                const val = toLKR(c.code);
+                const val = rates[c.code];
                 return (
                   <div key={c.code} className={styles.rate_row}>
                     <div className={styles.rate_currency}>
@@ -138,7 +176,7 @@ export default function Currency() {
                     <div className={styles.rate_value_wrap}>
                       <span className={styles.rate_equals}>1 {c.code} =</span>
                       <span className={styles.rate_value}>
-                        {val ? `LKR ${Number(val).toLocaleString("en-LK", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "—"}
+                        {val ? `LKR ${formatLKR(val)}` : "—"}
                       </span>
                     </div>
                   </div>
@@ -148,7 +186,7 @@ export default function Currency() {
           )}
         </div>
 
-        {/* cards accepted / cash needed */}
+        {/* cards / cash panels */}
         <div className={styles.payment_blocks}>
           <div className={styles.payment_block}>
             <h3 className={styles.block_heading}><i className="fa-solid fa-credit-card"></i> CARDS ACCEPTED</h3>
@@ -161,7 +199,6 @@ export default function Currency() {
               ))}
             </ul>
           </div>
-
           <div className={styles.payment_block}>
             <h3 className={styles.block_heading}><i className="fa-solid fa-money-bill"></i> CASH NEEDED</h3>
             <ul className={styles.payment_list}>

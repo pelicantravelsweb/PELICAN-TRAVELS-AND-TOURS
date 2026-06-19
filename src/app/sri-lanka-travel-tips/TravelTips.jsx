@@ -254,7 +254,7 @@ function page() {
     </div>
 
     <div className={styles_2.weather_section_container}>
-        <h2 ref={currency}><span>CUR</span>RENCY <i className="fa-solid fa-currency"></i></h2>
+        <h2 ref={currency}>CURRENCY & P<span>AYMENTS</span><i className="fa-solid fa-currency"></i></h2>
         <Currency />
     </div>
 
