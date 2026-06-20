@@ -3,16 +3,26 @@ import React, { useEffect, useState } from "react";
 import styles from "./currency.module.css";
 
 const RATE_CURRENCIES = [
-  { code: "USD", label: "US Dollar",         flag: "🇺🇸" },
-  { code: "EUR", label: "Euro",              flag: "🇪🇺" },
-  { code: "GBP", label: "British Pound",     flag: "🇬🇧" },
-  { code: "AUD", label: "Australian Dollar", flag: "🇦🇺" },
-  { code: "CAD", label: "Canadian Dollar",   flag: "🇨🇦" },
-  { code: "SGD", label: "Singapore Dollar",  flag: "🇸🇬" },
-  { code: "INR", label: "Indian Rupee",      flag: "🇮🇳" },
-  { code: "JPY", label: "Japanese Yen",      flag: "🇯🇵" },
-  { code: "CHF", label: "Swiss Franc",       flag: "🇨🇭" },
-  { code: "CNY", label: "Chinese Yuan",      flag: "🇨🇳" },
+  { code: "USD", label: "US Dollar",          flag: "🇺🇸" },
+  { code: "EUR", label: "Euro",               flag: "🇪🇺" },
+  { code: "GBP", label: "British Pound",      flag: "🇬🇧" },
+  { code: "AUD", label: "Australian Dollar",  flag: "🇦🇺" },
+  { code: "CAD", label: "Canadian Dollar",    flag: "🇨🇦" },
+  { code: "SGD", label: "Singapore Dollar",   flag: "🇸🇬" },
+  { code: "INR", label: "Indian Rupee",       flag: "🇮🇳" },
+  { code: "JPY", label: "Japanese Yen",       flag: "🇯🇵" },
+  { code: "CHF", label: "Swiss Franc",        flag: "🇨🇭" },
+  { code: "CNY", label: "Chinese Yuan",       flag: "🇨🇳" },
+  { code: "MYR", label: "Malaysian Ringgit",  flag: "🇲🇾" },
+  { code: "THB", label: "Thai Baht",          flag: "🇹🇭" },
+  { code: "AED", label: "UAE Dirham",         flag: "🇦🇪" },
+  { code: "SAR", label: "Saudi Riyal",        flag: "🇸🇦" },
+  { code: "KRW", label: "South Korean Won",   flag: "🇰🇷" },
+  { code: "NZD", label: "New Zealand Dollar", flag: "🇳🇿" },
+  { code: "SEK", label: "Swedish Krona",      flag: "🇸🇪" },
+  { code: "NOK", label: "Norwegian Krone",    flag: "🇳🇴" },
+  { code: "DKK", label: "Danish Krone",       flag: "🇩🇰" },
+  { code: "ZAR", label: "South African Rand", flag: "🇿🇦" },
 ];
 
 const DOS = [
@@ -49,26 +59,25 @@ const QUICK_FACTS = [
 const CARDS_OK    = ["Hotels & Resorts", "Tour Operators", "Shopping Malls", "Supermarkets", "Mid-range Restaurants", "Fuel Stations"];
 const CASH_NEEDED = ["Tuk-Tuks", "Street Food & Markets", "Small Guesthouses", "Local Cafés", "Rural Villages", "Entrance Tickets"];
 
-// ── Fetch rates: tries open.er-api first, falls back to fawazahmed0 ──────────
+// ── Fetch all rates keyed as LKR per 1 unit of each currency ─────────────────
 async function fetchRates() {
-  // Attempt 1: open.er-api (returns { rates: { LKR, EUR, ... }, date })
+  // Attempt 1: open.er-api
   try {
     const r = await fetch("https://open.er-api.com/v6/latest/USD", { cache: "no-store" });
     if (r.ok) {
       const d = await r.json();
       if (d?.result === "success" && d?.rates?.LKR) {
         const lkrPerUsd = d.rates.LKR;
-        // build a map: code → LKR per 1 unit
         const map = {};
         RATE_CURRENCIES.forEach(({ code }) => {
           if (d.rates[code]) map[code] = lkrPerUsd / d.rates[code];
         });
-        return { rates: map, date: d.time_last_update_utc?.slice(0, 16) ?? d.time_last_update_utc };
+        return { rates: map, date: d.time_last_update_utc?.slice(0, 16) ?? "" };
       }
     }
-  } catch (_) { /* fall through */ }
+  } catch (_) {}
 
-  // Attempt 2: fawazahmed0 CDN (returns { date, usd: { lkr, eur, ... } })
+  // Attempt 2: fawazahmed0 jsdelivr
   try {
     const r = await fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json", { cache: "no-store" });
     if (r.ok) {
@@ -80,12 +89,12 @@ async function fetchRates() {
           const lower = code.toLowerCase();
           if (d.usd[lower]) map[code] = lkrPerUsd / d.usd[lower];
         });
-        return { rates: map, date: d.date };
+        return { rates: map, date: d.date ?? "" };
       }
     }
-  } catch (_) { /* fall through */ }
+  } catch (_) {}
 
-  // Attempt 3: fawazahmed0 Cloudflare Pages mirror
+  // Attempt 3: fawazahmed0 Cloudflare mirror
   try {
     const r = await fetch("https://currency-api.pages.dev/v1/currencies/usd.json", { cache: "no-store" });
     if (r.ok) {
@@ -97,16 +106,110 @@ async function fetchRates() {
           const lower = code.toLowerCase();
           if (d.usd[lower]) map[code] = lkrPerUsd / d.usd[lower];
         });
-        return { rates: map, date: d.date };
+        return { rates: map, date: d.date ?? "" };
       }
     }
-  } catch (_) { /* fall through */ }
+  } catch (_) {}
 
   throw new Error("All rate sources failed");
 }
 
+// ── Converter widget ──────────────────────────────────────────────────────────
+function CurrencyConverter({ rates, lastUpdated }) {
+  const [selectedCode, setSelectedCode] = useState("USD");
+  const [amount, setAmount]             = useState("1");
+
+  const selected   = RATE_CURRENCIES.find((c) => c.code === selectedCode);
+  const rateToLKR  = rates?.[selectedCode] ?? null;
+  const lkrResult  = rateToLKR && amount ? (parseFloat(amount) || 0) * rateToLKR : null;
+
+  const formatLKR = (val) =>
+    Number(val).toLocaleString("en-LK", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  return (
+    <div className={styles.converter_block}>
+      <div className={styles.converter_header}>
+        <h3 className={styles.block_heading}>
+          LIVE EXCHANGE RATE <span>→ LKR</span>
+        </h3>
+        {lastUpdated && (
+          <span className={styles.rates_updated}>Updated {lastUpdated}</span>
+        )}
+      </div>
+      <p className={styles.rates_sub}>
+        Select your home currency and enter an amount to see the Sri Lankan Rupee equivalent.
+      </p>
+
+      {/* inputs row */}
+      <div className={styles.converter_inputs}>
+
+        {/* amount input */}
+        <div className={styles.input_group}>
+          <label className={styles.input_label}>Amount</label>
+          <input
+            type="number"
+            min="0"
+            step="any"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className={styles.amount_input}
+            placeholder="1"
+          />
+        </div>
+
+        {/* currency dropdown */}
+        <div className={styles.input_group}>
+          <label className={styles.input_label}>Currency</label>
+          <div className={styles.select_wrapper}>
+            <span className={styles.select_flag}>{selected?.flag}</span>
+            <select
+              value={selectedCode}
+              onChange={(e) => setSelectedCode(e.target.value)}
+              className={styles.currency_select}
+            >
+              {RATE_CURRENCIES.map((c) => (
+                <option key={c.code} value={c.code}>
+                  {c.code} — {c.label}
+                </option>
+              ))}
+            </select>
+            <i className="fa-solid fa-chevron-down" style={{ pointerEvents: "none", position: "absolute", right: "1rem", color: "rgb(235, 130, 10)", fontSize: "0.8rem" }}></i>
+          </div>
+        </div>
+
+      </div>
+
+      {/* result display */}
+      <div className={styles.converter_result}>
+        <div className={styles.result_from}>
+          <span className={styles.result_flag}>{selected?.flag}</span>
+          <span className={styles.result_amount_from}>
+            {parseFloat(amount) || 0} {selectedCode}
+          </span>
+        </div>
+        <i className="fa-solid fa-arrow-right" style={{ color: "rgb(235, 130, 10)", fontSize: "1.2rem" }}></i>
+        <div className={styles.result_to}>
+          <span className={styles.result_flag}>🇱🇰</span>
+          <div className={styles.result_to_values}>
+            <span className={styles.result_lkr}>
+              {lkrResult !== null ? `LKR ${formatLKR(lkrResult)}` : "—"}
+            </span>
+            {rateToLKR && (
+              <span className={styles.result_rate_note}>
+                1 {selectedCode} = LKR {formatLKR(rateToLKR)}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
+// ── Main component ────────────────────────────────────────────────────────────
 export default function Currency() {
-  const [rates, setRates]       = useState(null);
+  const [rates, setRates]           = useState(null);
   const [ratesError, setRatesError] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
 
@@ -116,12 +219,8 @@ export default function Currency() {
       .catch(() => setRatesError(true));
   }, []);
 
-  const formatLKR = (val) =>
-    Number(val).toLocaleString("en-LK", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
   return (
     <div className={styles.section_wrapper}>
-
 
       <p className={styles.section_description}>
         Sri Lanka's official currency is the <strong>Sri Lankan Rupee (LKR)</strong>. Foreign currencies such as USD, EUR, and GBP are not accepted for everyday purchases — you will need local rupees for most transactions. The safest approach is to carry a combination of cards and cash, exchange money only at licensed banks or authorized money changers, and always keep your receipts. Here is everything you need to know about handling money as a visitor to Sri Lanka.
@@ -138,58 +237,36 @@ export default function Currency() {
         ))}
       </div>
 
-      {/* ── Live rates + card/cash ── */}
+      {/* ── Converter + card/cash panels ── */}
       <div className={styles.middle_row}>
 
-        <div className={styles.rates_block}>
-          <div className={styles.rates_header}>
-            <h3 className={styles.block_heading}>LIVE EXCHANGE RATES <span>→ LKR</span></h3>
-            {lastUpdated && <span className={styles.rates_updated}>Updated {lastUpdated}</span>}
-          </div>
-          <p className={styles.rates_sub}>How much 1 unit of each currency buys in Sri Lankan Rupees today.</p>
-
-          {!rates && !ratesError && (
+        {/* converter or loading/error states */}
+        {!rates && !ratesError && (
+          <div className={styles.rates_block}>
             <p className={styles.rates_loading}>
               <i className="fa-solid fa-spinner fa-spin"></i> Fetching live rates…
             </p>
-          )}
+          </div>
+        )}
 
-          {ratesError && (
+        {ratesError && (
+          <div className={styles.rates_block}>
             <p className={styles.rates_error}>
               <i className="fa-solid fa-triangle-exclamation"></i> Live rates unavailable — please check a currency converter before travel.
             </p>
-          )}
+          </div>
+        )}
 
-          {rates && (
-            <div className={styles.rates_table}>
-              {RATE_CURRENCIES.map((c) => {
-                const val = rates[c.code];
-                return (
-                  <div key={c.code} className={styles.rate_row}>
-                    <div className={styles.rate_currency}>
-                      <span className={styles.rate_flag}>{c.flag}</span>
-                      <div className={styles.rate_names}>
-                        <span className={styles.rate_code}>{c.code}</span>
-                        <span className={styles.rate_label}>{c.label}</span>
-                      </div>
-                    </div>
-                    <div className={styles.rate_value_wrap}>
-                      <span className={styles.rate_equals}>1 {c.code} =</span>
-                      <span className={styles.rate_value}>
-                        {val ? `LKR ${formatLKR(val)}` : "—"}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
+        {rates && (
+          <CurrencyConverter rates={rates} lastUpdated={lastUpdated} />
+        )}
 
         {/* cards / cash panels */}
         <div className={styles.payment_blocks}>
           <div className={styles.payment_block}>
-            <h3 className={styles.block_heading}><i className="fa-solid fa-credit-card"></i> CARDS ACCEPTED</h3>
+            <h3 className={styles.block_heading}>
+              <i className="fa-solid fa-credit-card"></i> CARDS ACCEPTED
+            </h3>
             <ul className={styles.payment_list}>
               {CARDS_OK.map((item) => (
                 <li key={item} className={styles.payment_item_ok}>
@@ -200,7 +277,9 @@ export default function Currency() {
             </ul>
           </div>
           <div className={styles.payment_block}>
-            <h3 className={styles.block_heading}><i className="fa-solid fa-money-bill"></i> CASH NEEDED</h3>
+            <h3 className={styles.block_heading}>
+              <i className="fa-solid fa-money-bill"></i> CASH NEEDED
+            </h3>
             <ul className={styles.payment_list}>
               {CASH_NEEDED.map((item) => (
                 <li key={item} className={styles.payment_item_cash}>
