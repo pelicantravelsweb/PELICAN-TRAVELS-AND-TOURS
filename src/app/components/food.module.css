@@ -1,0 +1,325 @@
+.food_container{
+    position: relative;
+}
+
+.food_intro{
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.food_subheading{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.5vw,1.5rem);
+}
+
+.food_minorheading{
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(0.95rem,1.3vw,1.3rem);
+}
+
+.food_container p{
+    padding-top: 0.5rem;
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* What Travelers Should Know — list with image per item________________*/
+.know_list{
+    justify-content:space-around ;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.2rem;
+}
+
+.know_item{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: clamp(20rem, 29vw, 29vw);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 130, 10);
+}
+
+.know_item:hover{
+    box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.486);
+    transition: 0.6s;
+}
+
+.know_item_image{
+    position: relative;
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+}
+
+.know_item_image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.know_item_description{
+    position: relative;
+    width: 100%;
+    padding: 1.5vw;
+}
+
+.know_item_description h5{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.3vw,1.3rem);
+}
+
+.know_item_description p{
+    padding-top: 0.4rem;
+    font-size: clamp(0.85rem,1vw,1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Food Accessibility____________________________________ */
+.access_grid{
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.access_block{
+    width: 50%;
+}
+
+.access_block h5{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.3vw,1.3rem);
+}
+
+.access_block ul{
+    padding-top: 0.5rem;
+    list-style: none;
+}
+
+.access_block ul li{
+    position: relative;
+    padding-left: 1.2rem;
+    padding-top: 0.3rem;
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.access_block ul li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.9rem;
+    width: 6px;
+    height: 6px;
+    background-color: rgb(235, 130, 10);
+}
+
+/* Popular Dishes — list with image per item____________________________*/
+.dish_list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dish_item{
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 48%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 130, 10);
+}
+
+.dish_item:hover{
+    box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.486);
+    transition: 0.6s;
+}
+
+.dish_item_image{
+    position: relative;
+    width: 30%;
+    min-width: 30%;
+    height: 15rem;
+    overflow: hidden;
+}
+
+.dish_item_image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dish_item_description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 75%;
+    padding: 1.5vw;
+}
+
+.dish_item_description h5{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.3vw,1.3rem);
+}
+
+.dish_item_description p{
+    padding-top: 0.4rem;
+    font-size: clamp(0.85rem,1vw,1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Typical Food Costs____________________________________ */
+.cost_table_wrapper{
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
+.cost_table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cost_table th{
+    text-align: left;
+    padding: 0.8rem 1rem;
+    background-color: rgb(235, 130, 10);
+    color: rgb(36, 35, 35);
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    font-weight: 600;
+}
+
+.cost_table td{
+    padding: 0.7rem 1rem;
+    font-size: clamp(0.85rem,1vw,1rem);
+    color: rgb(143, 143, 143);
+    border-bottom: 1px solid rgba(235, 130, 10, 0.25);
+}
+
+.cost_table tr:nth-child(odd) td{
+    background-color: rgba(235, 130, 10, 0.04);
+}
+
+/* Quick Tips____________________________________ */
+.quick_tips_list{
+    margin-top: 0.5rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.quick_tips_list li{
+    display: flex;
+    align-items: center;
+    width: calc(50% - 0.4rem);
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.quick_tips_list li i{
+    color: rgb(235, 130, 10);
+    margin-right: 0.6rem;
+}
+
+/*Responsive___________________________________________________________*/
+
+@media only screen and (max-width: 1000px) {
+
+
+    .know_item{
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .know_item_image{
+        width: 35%;
+        min-width: 35%;
+    }
+
+    .know_item_description{
+        width: 65%;
+        padding: 1rem;
+    }
+
+    .dish_item_image{
+        width: 30%;
+        min-width: 30%;
+    }
+
+    .dish_item_description{
+        width: 70%;
+        padding: 1rem;
+    }
+
+    .access_grid{
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .access_block{
+        width: 100%;
+    }
+
+    .dish_item{
+        width: 100%;
+    }
+
+    .quick_tips_list li{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .know_item{
+        flex-direction: column;
+    }
+
+    .know_item_image{
+        width: 100%;
+        min-width: 100%;
+        height: 10rem;
+    }
+
+    .know_item_description{
+        width: 100%;
+    }
+
+    .dish_item{
+        flex-direction: column;
+    }
+
+    .dish_item_image{
+        width: 100%;
+        min-width: 100%;
+        height: 10rem;
+    }
+
+    .dish_item_description{
+        width: 100%;
+    }
+}

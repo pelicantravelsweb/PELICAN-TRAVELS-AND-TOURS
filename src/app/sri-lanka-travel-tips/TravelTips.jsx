@@ -18,6 +18,7 @@ import CityWeather from '../components/CityWeather';
 import AttractionsExperiences from '../components/AttractionsExperiences';
 import Transportation from '../components/Transportation';
 import Currency from "../components/Currency";
+import Food from "../components/Food";
 
 
 
@@ -112,6 +113,15 @@ function page() {
     behavior: "smooth",
   });
 };
+
+const food = useRef(null);
+
+const scrollToWeather_5 = () => {
+  if (!food.current) return;
+  const yOffset = -200;
+  const y = food.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+};
   
   return (
     <>
@@ -162,6 +172,7 @@ function page() {
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_2}>Experiences</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_3}>Transportation</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_4}>Currency</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_5}>Food</button>
             </div>
         </div>
 
@@ -256,6 +267,11 @@ function page() {
     <div className={styles_2.weather_section_container}>
         <h2 ref={currency}>CURRENCY & P<span>AYMENTS</span><i className="fa-solid fa-currency"></i></h2>
         <Currency />
+    </div>
+
+    <div className={styles_2.weather_section_container}>
+        <h2 ref={food}><span>F</span>OOD <i className="fa-solid fa-utensils"></i></h2>
+        <Food />
     </div>
 
 
