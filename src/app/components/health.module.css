@@ -1,0 +1,127 @@
+.health_container{
+    position: relative;
+}
+
+.health_intro{
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.health_subheading{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.5vw,1.5rem);
+}
+
+.health_container p{
+    padding-top: 0.5rem;
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* What Travelers Should Know / Healthcare Accessibility — text cards___*/
+.card_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.card{
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    padding: 1.5vw;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 130, 10);
+}
+
+.card:hover{
+    box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.486);
+    transition: 0.6s;
+}
+
+.card h5{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.3vw,1.3rem);
+}
+
+.card p{
+    padding-top: 0.4rem;
+    font-size: clamp(0.85rem,1vw,1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Typical Healthcare Costs____________________________________ */
+.cost_table_wrapper{
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
+.cost_table{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cost_table th{
+    text-align: left;
+    padding: 0.8rem 1rem;
+    background-color: rgb(235, 130, 10);
+    color: rgb(36, 35, 35);
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    font-weight: 600;
+}
+
+.cost_table td{
+    padding: 0.7rem 1rem;
+    font-size: clamp(0.85rem,1vw,1rem);
+    color: rgb(143, 143, 143);
+    border-bottom: 1px solid rgba(235, 130, 10, 0.25);
+}
+
+.cost_table tr:nth-child(odd) td{
+    background-color: rgba(235, 130, 10, 0.04);
+}
+
+/* Quick Health Tips____________________________________ */
+.quick_tips_list{
+    margin-top: 0.5rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.quick_tips_list li{
+    display: flex;
+    align-items: center;
+    width: calc(50% - 0.4rem);
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.quick_tips_list li i{
+    color: rgb(235, 130, 10);
+    margin-right: 0.6rem;
+}
+
+/*Responsive___________________________________________________________*/
+
+@media only screen and (max-width: 1000px) {
+
+    .card_grid{
+        grid-template-columns: 1fr;
+    }
+
+    .quick_tips_list li{
+        width: 100%;
+    }
+}

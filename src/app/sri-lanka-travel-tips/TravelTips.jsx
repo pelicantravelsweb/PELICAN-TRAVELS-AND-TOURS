@@ -19,7 +19,9 @@ import AttractionsExperiences from '../components/AttractionsExperiences';
 import Transportation from '../components/Transportation';
 import Currency from "../components/Currency";
 import Food from "../components/Food";
-
+import Health from "../components/Health";
+import Safety from "../components/Safety";
+import Culture from "../components/Culture";
 
 
 
@@ -122,7 +124,35 @@ const scrollToWeather_5 = () => {
   const y = food.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
   window.scrollTo({ top: y, behavior: "smooth" });
 };
+
+// ...
+const health = useRef(null);
+
+const scrollToWeather_6 = () => {
+  if (!health.current) return;
+  const yOffset = -200;
+  const y = health.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+};
+
+const safety = useRef(null);
+
+const scrollToWeather_7 = () => {
+  if (!safety.current) return;
+  const yOffset = -200;
+  const y = safety.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+};
   
+const culture = useRef(null);
+
+const scrollToWeather_8 = () => {
+  if (!culture.current) return;
+  const yOffset = -200;
+  const y = culture.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+};
+
   return (
     <>
 {/*Navigation Section_____________________________________________________________________________*/}
@@ -173,6 +203,9 @@ const scrollToWeather_5 = () => {
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_3}>Transportation</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_4}>Currency</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_5}>Food</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_6}>Health</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_7}>Safety</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_8}>Culture</button>
             </div>
         </div>
 
@@ -272,6 +305,21 @@ const scrollToWeather_5 = () => {
     <div className={styles_2.weather_section_container}>
         <h2 ref={food}><span>F</span>OOD <i className="fa-solid fa-utensils"></i></h2>
         <Food />
+    </div>
+
+    <div className={styles_2.weather_section_container}>
+        <h2 ref={health}><span>HEAL</span>TH <i className="fa-solid fa-suitcase-medical"></i></h2>
+        <Health />
+    </div>
+
+    <div className={styles_2.weather_section_container}>
+        <h2 ref={safety}><span>SAFE</span>TY <i className="fa-solid fa-shield-halved"></i></h2>
+        <Safety />
+    </div>
+
+    <div className={styles_2.weather_section_container}>
+        <h2 ref={culture}><span>CUL</span>TURE <i className="fa-solid fa-hands-praying"></i></h2>
+        <Culture />
     </div>
 
 
