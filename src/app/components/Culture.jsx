@@ -4,10 +4,10 @@ import styles from './culture.module.css';
 import Image from "next/image";
 
 // Image for "What Travelers Should Know About Sri Lankan Culture" (4:5) — replace with your actual file
-import know_image from "../../../public/culture_know.jpg";
+import know_image from "../../../public/culture_know.webp";
 
 // Image for "Festivals Can Affect Travel Plans" (4:5) — replace with your actual file
-import festival_image from "../../../public/culture_festivals.jpg";
+import festival_image from "../../../public/culture_festivals.webp";
 
 function Culture() {
 

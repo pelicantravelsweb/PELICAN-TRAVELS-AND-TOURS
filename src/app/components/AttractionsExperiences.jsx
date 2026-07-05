@@ -5,52 +5,52 @@ import styles from './attractionsexperiences.module.css';
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  THINGS TO SEE — add your image imports here and set image: yourImport
-//  e.g.  import img_tropical_beaches from "../../../public/attractions/tropical_beaches.jpg";
+//  e.g.  import img_tropical_beaches from "../../../public/attractions/tropical_beaches.webp";
 //  then  { id: "tropical-beaches", image: img_tropical_beaches, ... }
 //
-//  Until you replace them, each entry falls back to SriLankan_Attractions.png
+//  Until you replace them, each entry falls back to SriLankan_Attractions.webp
 // ─────────────────────────────────────────────────────────────────────────────
-import fallbackImage from "../../../public/SriLankan_Attractions.png";
+import fallbackImage from "../../../public/SriLankan_Attractions.webp";
 
 // ── Individual image imports (replace null with your import when ready) ───────
 // THINGS TO SEE
-import img_tropical_beaches    from "../../../public/things_to_see_4.jpg";
-import img_national_parks      from "../../../public/things_to_see_3.jpg";
-import img_rainforests         from "../../../public/things_to_see_9.jpg";
-import img_waterfalls          from "../../../public/things_to_see_13.jpg";
-import img_botanical_gardens   from "../../../public/things_to_see_11.jpg";
-import img_sacred_places       from "../../../public/things_to_see_2.jpg";
-import img_ancient_kingdoms    from "../../../public/things_to_see_5.jpg";
-import img_museums             from "../../../public/things_to_see_14.png";
-import img_tea_plantations     from "../../../public/things_to_see_1.jpg";
-import img_mountains           from "../../../public/things_to_see_6.jpg";
-import img_scenic_viewpoints   from "../../../public/things_to_see_7.jpg";
-import img_lakes_rivers        from "../../../public/things_to_see_8.jpg";
-import img_caves               from "../../../public/things_to_see_12.jpg";
-import img_cities_towns        from "../../../public/things_to_see_10.jpg";
-import img_colonial_buildings from "../../../public/things_to_see_15.jpg";
+import img_tropical_beaches    from "../../../public/things_to_see_4.webp";
+import img_national_parks      from "../../../public/things_to_see_3.webp";
+import img_rainforests         from "../../../public/things_to_see_9.webp";
+import img_waterfalls          from "../../../public/things_to_see_13.webp";
+import img_botanical_gardens   from "../../../public/things_to_see_11.webp";
+import img_sacred_places       from "../../../public/things_to_see_2.webp";
+import img_ancient_kingdoms    from "../../../public/things_to_see_5.webp";
+import img_museums             from "../../../public/things_to_see_14.webp";
+import img_tea_plantations     from "../../../public/things_to_see_1.webp";
+import img_mountains           from "../../../public/things_to_see_6.webp";
+import img_scenic_viewpoints   from "../../../public/things_to_see_7.webp";
+import img_lakes_rivers        from "../../../public/things_to_see_8.webp";
+import img_caves               from "../../../public/things_to_see_12.webp";
+import img_cities_towns        from "../../../public/things_to_see_10.webp";
+import img_colonial_buildings from "../../../public/things_to_see_15.webp";
 // THINGS TO DO
-import img_train_rides         from "../../../public/things_to_do_7.jpg";
-import img_wildlife_safaris    from "../../../public/things_to_do_3.jpg";
-import img_whale_watching      from "../../../public/things_to_do_15.jpg";
-import img_surfing             from "../../../public/things_to_do_8.jpg";
-import img_water_sports        from "../../../public/things_to_do_17.jpg";
-import img_scuba_diving        from "../../../public/things_to_do_18.jpg";
-import img_hiking              from "../../../public/things_to_do_6.jpg";
-import img_white_water_rafting from "../../../public/things_to_do_19.jpg";
-import img_bird_watching       from "../../../public/things_to_do_5.jpg";
-import img_cycling             from "../../../public/things_to_do_2.jpg";
-import img_fishing             from "../../../public/things_to_do_11.jpg";
-import img_camping             from "../../../public/things_to_do_13.jpg";
-import img_cultural_festivals  from "../../../public/things_to_do_1.jpg";
-import img_village_experiences from "../../../public/things_to_do_9.jpg";
-import img_tea_estate_tours    from "../../../public/things_to_do_10.jpg";
-import img_food_culinary       from "../../../public/things_to_do_4.jpg";
-import img_cooking_classes     from "../../../public/things_to_do_12.jpg";
-import img_ayurveda            from "../../../public/things_to_do_16.jpg";
-import img_yoga                from "../../../public/things_to_do_14.jpg";
+import img_train_rides         from "../../../public/things_to_do_7.webp";
+import img_wildlife_safaris    from "../../../public/things_to_do_3.webp";
+import img_whale_watching      from "../../../public/things_to_do_15.webp";
+import img_surfing             from "../../../public/things_to_do_8.webp";
+import img_water_sports        from "../../../public/things_to_do_17.webp";
+import img_scuba_diving        from "../../../public/things_to_do_18.webp";
+import img_hiking              from "../../../public/things_to_do_6.webp";
+import img_white_water_rafting from "../../../public/things_to_do_19.webp";
+import img_bird_watching       from "../../../public/things_to_do_5.webp";
+import img_cycling             from "../../../public/things_to_do_2.webp";
+import img_fishing             from "../../../public/things_to_do_11.webp";
+import img_camping             from "../../../public/things_to_do_13.webp";
+import img_cultural_festivals  from "../../../public/things_to_do_1.webp";
+import img_village_experiences from "../../../public/things_to_do_9.webp";
+import img_tea_estate_tours    from "../../../public/things_to_do_10.webp";
+import img_food_culinary       from "../../../public/things_to_do_4.webp";
+import img_cooking_classes     from "../../../public/things_to_do_12.webp";
+import img_ayurveda            from "../../../public/things_to_do_16.webp";
+import img_yoga                from "../../../public/things_to_do_14.webp";
 import img_nightlife           from "../../../public/things_to_do_20.webp";
-import img_shopping           from "../../../public/things_to_do_21.jpg";
+import img_shopping           from "../../../public/things_to_do_21.webp";
 
 
 // ─────────────────────────────────────────────────────────────────────────────

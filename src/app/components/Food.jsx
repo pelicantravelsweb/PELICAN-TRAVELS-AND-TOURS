@@ -4,24 +4,24 @@ import styles from './food.module.css';
 import Image from "next/image";
 
 // Images for "What Travelers Should Know About Sri Lankan Food" — replace with your actual files
-import know_1 from "../../../public/sl_food_2.png";
-import know_2 from "../../../public/sl_food_1.png";
-import know_3 from "../../../public/sl_food_4.png";
-import know_4 from "../../../public/sl_food_3.png";
-import know_5 from "../../../public/sl_food_5.png";
-import know_6 from "../../../public/sl_food_6.png";
+import know_1 from "../../../public/sl_food_2.webp";
+import know_2 from "../../../public/sl_food_1.webp";
+import know_3 from "../../../public/sl_food_4.webp";
+import know_4 from "../../../public/sl_food_3.webp";
+import know_5 from "../../../public/sl_food_5.webp";
+import know_6 from "../../../public/sl_food_6.webp";
 
 // Images for "Popular Sri Lankan Dishes to Try" — replace with your actual files
-import dish_1 from "../../../public/food_to_try_2.png";
-import dish_2 from "../../../public/food_to_try_3.png";
-import dish_3 from "../../../public/food_to_try_1.png";
-import dish_5 from "../../../public/food_to_try_4.png";
-import dish_6 from "../../../public/food_to_try_5.png";
-import dish_7 from "../../../public/food_to_try_6.png";
-import dish_8 from "../../../public/food_to_try_7.png";
-import dish_9 from "../../../public/food_to_try_8.png";
-import dish_10 from "../../../public/food_to_try_9.png";
-import dish_11 from "../../../public/food_to_try_10.png";
+import dish_1 from "../../../public/food_to_try_2.webp";
+import dish_2 from "../../../public/food_to_try_3.webp";
+import dish_3 from "../../../public/food_to_try_1.webp";
+import dish_5 from "../../../public/food_to_try_4.webp";
+import dish_6 from "../../../public/food_to_try_5.webp";
+import dish_7 from "../../../public/food_to_try_6.webp";
+import dish_8 from "../../../public/food_to_try_7.webp";
+import dish_9 from "../../../public/food_to_try_8.webp";
+import dish_10 from "../../../public/food_to_try_9.webp";
+import dish_11 from "../../../public/food_to_try_10.webp";
 
 function Food() {
 

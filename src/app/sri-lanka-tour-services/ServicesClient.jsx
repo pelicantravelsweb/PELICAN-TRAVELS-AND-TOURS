@@ -5,11 +5,11 @@ import styles_2 from './services_content.module.css';
 import styles_9 from './footer_section.module.css';
 import Link from 'next/link';
 import Image from "next/image";
-import image_1 from "../../../public/Services_Image_1.jpg";
-import image_2 from "../../../public/Services_Image_2.jpg";
-import image_3 from "../../../public/Services_Image_3.jpg";
-import image_4 from "../../../public/Services_Image_4.jpg";
-import image_5 from "../../../public/SriLankan_Attractions.png";
+import image_1 from "../../../public/Services_Image_1.webp";
+import image_2 from "../../../public/Services_Image_2.webp";
+import image_3 from "../../../public/Services_Image_3.webp";
+import image_4 from "../../../public/Services_Image_4.webp";
+import image_5 from "../../../public/SriLankan_Attractions.webp";
 import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
 

@@ -85,7 +85,7 @@ export const metadata = {
     siteName: "Pelican Tours Sri Lanka",
     images: [
       {
-        url: "https://pelicantravelsandtours.com/Cover_Image.jpg",
+        url: "https://pelicantravelsandtours.com/Cover_Image.webp",
         width: 1200,
         height: 630,
         alt: "Pelican Tours Sri Lanka",
@@ -101,7 +101,7 @@ export const metadata = {
       "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
     description:
       "Custom Sri Lanka holidays, luxury tours, safaris, honeymoon escapes and unforgettable travel experiences.",
-    images: ["https://pelicantravelsandtours.com/Cover_Image.jpg"],
+    images: ["https://pelicantravelsandtours.com/Cover_Image.webp"],
   },
 
   category: "travel",
