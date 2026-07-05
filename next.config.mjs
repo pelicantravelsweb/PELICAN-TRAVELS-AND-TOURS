@@ -124,6 +124,18 @@ const nextConfig = {
         destination: "/sri-lanka-tour-packages/05-days-04-nights-sri-lanka-ramayana-trail-tour",
         permanent: true,
       },
+          {
+      source: '/sri-lanka-travel-destinations',
+      has: [{ type: 'query', key: 'scroll' }],
+      destination: '/sri-lanka-travel-destinations',
+      permanent: false, // 302 — these are UI state, not permanent moves
+    },
+    {
+      source: '/destinations',
+      has: [{ type: 'query', key: 'scroll' }],
+      destination: '/destinations',
+      permanent: false,
+    },
     ];
   },
 };

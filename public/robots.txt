@@ -1,13 +1,19 @@
-User-agent: *
-Allow: /
+import { MetadataRoute } from 'next'
 
-# Block API and admin routes
-Disallow: /api/
-Disallow: /admin/
-Disallow: /admin-login/
-
-# Block ?scroll= query param URLs — these are anchor-scroll helpers, not real pages.
-# Google was crawling these as duplicates causing "Alternative page with proper canonical tag" errors.
-Disallow: /*?scroll=
-
-Sitemap: https://pelicantravelsandtours.com/sitemap.xml
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: [
+          '/_next/static/',   // block font files, JS chunks, CSS — not useful to Google
+          '/_next/image/',    // block Next.js image optimizer URLs
+          '/api/',            // block API routes
+          '/admin/',          // block any admin panel
+        ],
+      },
+    ],
+    sitemap: 'https://www.pelicantravelsandtours.com/sitemap.xml',
+  }
+}
