@@ -18,6 +18,7 @@ function page() {
     <>
 
     {/*Navigation Section_____________________________________________________________________________*/}
+    <Link href="/sri-lanka-travel-tips"><div className={styles_1.travel_tips}><h3>Travel Tips</h3><i className="fa fa-lightbulb"></i></div></Link>
     <div className={styles_1.navigation}>
         <Link href="/"><h2 className={styles_1.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_1.navigation_ul}>

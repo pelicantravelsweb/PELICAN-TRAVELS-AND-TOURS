@@ -324,6 +324,7 @@ export default function TourPackages() {
     <>
 
         {/*Navigation Section_____________________________________________________________________________*/}
+    <Link href="/sri-lanka-travel-tips"><div className={styles_nav.travel_tips}><h3>Travel Tips</h3><i className="fa fa-lightbulb"></i></div></Link>
     <div className={styles_nav.navigation}>
         <Link href="/"><h2 className={styles_nav.heading}>PELICAN TOURS</h2></Link>
         <ul className={styles_nav.navigation_ul}>

@@ -22,5 +22,10 @@ body.light_theme {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-
-
+body.light_theme h1,
+body.light_theme h2,
+body.light_theme h3,
+body.light_theme h4,
+body.light_theme h5 {
+  color: rgb(36, 35, 35);
+}
