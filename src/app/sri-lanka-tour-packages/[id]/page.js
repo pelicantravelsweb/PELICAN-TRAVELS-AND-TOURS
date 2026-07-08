@@ -69,8 +69,8 @@ export async function generateMetadata({ params }) {
   return {
     title: packageData?.title || 'Sri Lanka Tour Package',
     description: packageData?.description || 'Explore Sri Lanka with Pelican Tours.',
-    alternates: {
-      canonical: `https://pelicantravelsandtours.com/sri-lanka-tour-packages/${id}`,
+      alternates: {
+      canonical: `https://pelicantravelsandtours.com/sri-lanka-tour-packages/${packageData?.slug || id}`,
     },
   };
 }
