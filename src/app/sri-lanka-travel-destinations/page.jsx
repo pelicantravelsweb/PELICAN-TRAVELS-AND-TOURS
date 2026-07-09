@@ -6,7 +6,7 @@ export async function generateMetadata() {
     title: "Sri Lanka Travel Destinations & Attractions | Pelican Tours",
     description: "Explore Sri Lanka's top travel destinations including Kandy, Galle, Yala, Sigiriya, Colombo, Dambulla and more. Discover iconic attractions with Pelican Tours.",
     alternates: {
-      canonical: 'https://www.pelicantravelsandtours.com/sri-lanka-travel-destinations',
+      canonical: 'https://pelicantravelsandtours.com/sri-lanka-travel-destinations',
     },
   };
 }
