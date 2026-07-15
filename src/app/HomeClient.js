@@ -413,27 +413,33 @@ const handleInquirySubmit = async (e) => {
     </div>
 
 {/*Cover Section_____________________________________________________________________________*/}
-    <div className={styles_2.coversection}>
-            <div className={styles_2.coversection_brief}>
-                <h1>SRI LANKA TOUR PACKAGES & TAILORMADE TOURS</h1>
-                <h2>TRAVEL WITH WINGS OF ASSURANCE</h2>
-                <p>
-                Explore the best <strong>Sri Lanka tour packages</strong> designed to showcase the island’s most iconic destinations. 
-                From pristine beaches and ancient Buddhist temples to lush tea plantations, thrilling wildlife safaris, 
-                and UNESCO World Heritage sites, Sri Lanka offers unforgettable travel experiences. 
-
-                Whether you're searching for <strong>Sri Lanka holiday packages</strong>, romantic honeymoon getaways, 
-                family tours, or fully customized itineraries, Pelican Travels and Tours is your trusted travel agency in Sri Lanka. 
-                Let us create a personalized Sri Lanka travel package tailored to your needs and budget.
-                </p>
-                <button className={styles_2.button_1} onClick={scrollToInquire}>INQUIRE NOW</button>
-            </div>
-            <div className={styles_2.coversection_image}>
-                <div className={styles_2.image_wrapper}>
-                <Image src={image_1} alt="Sri Lanka beach tour destination with palm trees and tropical coastline" fill priority quality={75} sizes="(max-width: 800px) 100vw, 50vw" className={styles_2.cover_img} placeholder="blur"/>
-              </div>
-            </div>
+<div className={styles_2.coversection}>
+    <div className={styles_2.coversection_brief}>
+        <h1>Tailor-Made Private Sri Lanka Tours</h1>
+        <h2>Explore the Island Completely on Your Terms</h2>
+        <p>
+            From scaling the mist-shrouded fortress of <strong>Sigiriya</strong> and wandering through lush <strong>Ella tea plantations</strong>, 
+            to tracking leopards on wild safaris and relaxing on pristine golden beaches—your dream getaway is entirely custom-built. 
+            Travel in absolute comfort with a dedicated, professional private driver-guide and stay in handpicked boutique hotels 
+            perfectly suited to your style. Let Pelican Travels and Tours design your seamless, stress-free Sri Lankan adventure.
+        </p>
+        <button className={styles_2.button_1} onClick={scrollToInquire}>PLAN MY CUSTOM TOUR</button>
     </div>
+    <div className={styles_2.coversection_image}>
+        <div className={styles_2.image_wrapper}>
+            <Image 
+                src={image_1} 
+                alt="Sri Lanka private tour beach destination showing tropical palm trees and coastline" 
+                fill 
+                priority 
+                quality={75} 
+                sizes="(max-width: 800px) 100vw, 50vw" 
+                className={styles_2.cover_img} 
+                placeholder="blur"
+            />
+        </div>
+    </div>
+</div>
 
 {/*Services Section_____________________________________________________________________________*/}
         <div className={styles_3.services_section}>
