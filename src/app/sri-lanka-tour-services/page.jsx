@@ -4,8 +4,8 @@
 import ServicesClient from "./ServicesClient";
 
 export const metadata = {
-  title: "Sri Lanka Tour Services | Round Tours, Safaris & Transport",
-  description: "Pelican Tours offers expert Sri Lanka travel services including round tours, day excursions, MICE services, airport transfers and private transport across the island.",
+  title: "Sri Lanka Travel Services & Custom Planning | Pelican Tours",
+  description: "Discover our complete range of Sri Lanka travel services. From custom itinerary planning and hotel bookings to private drivers, we handle everything for you.",
   alternates: {
     canonical: "https://pelicantravelsandtours.com/sri-lanka-tour-services",
   },

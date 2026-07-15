@@ -4,7 +4,8 @@
 import TravelTips from "./TravelTips";
 
 export const metadata = {
-  title: "Travel Services Sri Lanka",
+  title: "Sri Lanka Travel Tips & First-Time Visitor Guide | Pelican",
+  description: "Essential Sri Lanka travel tips for a smooth holiday. Learn about local visas, the best time to visit, safety guidelines, and cultural etiquette.",
   alternates: {
     canonical: "https://pelicantravelsandtours.com/sri-lanka-travel-tips",
   },

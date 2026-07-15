@@ -4,10 +4,10 @@
 import ContactClient from "./ContactClient"; // whatever your client file is named
 
 export const metadata = {
-  title: "Contact Us | Sri Lanka Tour Agent | Pelican Tours",
-  description: "Get in touch with Pelican Tours Sri Lanka. Plan your perfect Sri Lanka holiday with our expert travel agents. Call, WhatsApp, or email us today.",
+  title: "Contact Local Sri Lanka Tour Agent | Pelican Tours",
+  description: "Get in touch with Pelican Tours. Speak to a local Sri Lanka travel expert to plan, customize, and receive a free quote for your upcoming private holiday.",
   alternates: {
-    canonical: "https://pelicantravelsandtours.com/contact-sri-lanka-tour-agent", // ✅ fixed
+    canonical: "https://pelicantravelsandtours.com/contact-sri-lanka-tour-agent", 
   },
 };
 

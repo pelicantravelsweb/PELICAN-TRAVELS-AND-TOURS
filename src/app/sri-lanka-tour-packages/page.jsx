@@ -4,8 +4,8 @@
 import PackagesClient from "./PackagesClient";
 
 export const metadata = {
-  title: "Sri Lanka Tour Packages | Honeymoon, Safari & Cultural Tours",
-  description: "Browse our best Sri Lanka tour packages including honeymoon escapes, wildlife safaris, cultural round tours, golf packages, and tailor-made holidays with Pelican Tours.",
+  title: "Sri Lanka Tour Packages & Itineraries | Pelican Tours",
+  description: "Explore our curated Sri Lanka tour packages. Fully customizable itineraries featuring private driver-guides, handpicked hotels, and unique local experiences.",
   alternates: {
     canonical: "https://pelicantravelsandtours.com/sri-lanka-tour-packages",
   },
