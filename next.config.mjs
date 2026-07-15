@@ -131,6 +131,14 @@ const nextConfig = {
         destination: "/sri-lanka-tour-packages/05-days-04-nights-sri-lanka-ramayana-trail-tour",
         permanent: true,
       },
+
+            // Block favicon query string variant
+      {
+        source: '/favicon.ico',
+        has: [{ type: 'query', key: 'favicon.03xkcmw3a_eme.ico' }],
+        destination: '/favicon.ico',
+        permanent: true,
+      },
     ];
   },
 };

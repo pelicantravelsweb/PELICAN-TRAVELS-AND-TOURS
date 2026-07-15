@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block Next.js internal files — not useful to Google
+Disallow: /_next/static/
+Disallow: /_next/image/
+
+# Block API and admin routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin-login/
+Disallow: /favicon.ico
+
+Sitemap: https://pelicantravelsandtours.com/sitemap.xml
