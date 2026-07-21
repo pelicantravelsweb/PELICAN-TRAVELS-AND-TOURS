@@ -106,8 +106,9 @@ function page() {
                   <li>Personalized itinerary planning</li>
                   <li>24/7 local assistance and travel support</li></ul>
 
-              <h1 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h1>
-              <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life.</p>
+                  <h1 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h1>
+                  <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life — 
+                      see how it fits into one of our <Link href="/">private Sri Lanka tours</Link>.</p>
               </div>
           </div>
           )}
@@ -260,8 +261,9 @@ function page() {
                   <li>Personalized itinerary planning</li>
                   <li>24/7 local assistance and travel support</li></ul>
 
-              <h1 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h1>
-              <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life.</p>
+                  <h1 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h1>
+                  <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life — 
+                      see how it fits into one of our <Link href="/">private Sri Lanka tours</Link>.</p>
             </div>
 
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_2} onClick={() => toggleSection("service_2")}>DAY EXCURSIONS</button>

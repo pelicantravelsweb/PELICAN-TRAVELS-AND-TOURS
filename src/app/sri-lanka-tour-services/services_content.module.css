@@ -102,6 +102,15 @@
     font-size: 0.9rem;   
 }
 
+.p_1 a{
+    padding-top: 1rem;
+    font-family: 'poppins';
+    color: rgb(176, 176, 176);
+    font-size: 0.9rem;   
+    text-decoration: none;
+    font-weight: 700;
+}
+
 .ul_1{
     display: grid;
     grid-template-columns: repeat(2, auto); /* two columns */

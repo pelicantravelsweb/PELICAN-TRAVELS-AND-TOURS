@@ -279,7 +279,13 @@ const handleTouchEnd = (index) => {
 
 {/*Destination Section_____________________________________________________________________________*/}
 {/*Destination_1________________________________________________________________*/}
+
     <div className={styles_2.destinatons_section}>
+    <p className={styles_2.destinatons_section_description}>
+      "Every destination below can be woven into your own{" "}
+      <Link href="/">private Sri Lanka tour</Link> <br/> tell us where you want to go
+      and we'll build the itinerary around it."
+    </p>
 
       <div className={styles_2.destinaton} id="galle">
         <div className={styles_2.city} >

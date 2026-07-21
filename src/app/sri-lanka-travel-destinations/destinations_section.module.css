@@ -13,8 +13,30 @@
 .destinatons_section{
     padding-top: 5rem;
     padding-left: 4vw;
+    padding-right: 4vw;
     position: relative;
     width: 100%;
+}
+
+.destinatons_section_description{
+    position: relative;
+    color: rgb(207, 203, 203);
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    text-align:center;
+}
+
+.destinatons_section_description a{
+    text-decoration: none;
+    font-weight: 800;
+    color: rgb(107, 107, 107);
+}
+
+.destinatons_section_description a:hover{
+    color: rgba(235, 130, 10, 0.9);
+    transition: 0.6s;
 }
 
 .destinaton{
