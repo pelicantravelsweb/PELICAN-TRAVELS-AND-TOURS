@@ -45,8 +45,15 @@ function page() {
     </div>
 
 
-
-
+    <p className={styles_2.location_description}>
+      Speak directly with a local Sri Lanka tour agent based in Kalutara.
+      Pelican Travels & Tours designs private, tailor-made itineraries with
+      dedicated driver-guides, handpicked stays, and full event logistics for
+      corporate MICE trips. Reach out below for a free quote, or explore our{" "}
+      <Link href="/">private Sri Lanka tours</Link> to see how your holiday
+      can be built around you.
+    </p>
+    
     <div className={styles_2.location_section}>
       <div className={styles_2.location_section_sub_dev_1}>
         <h1>VISIT PELICAN TOURS</h1>
