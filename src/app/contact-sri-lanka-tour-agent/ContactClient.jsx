@@ -11,7 +11,79 @@ import useThemeToggle from '../lib/useThemeToggle';
 function page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isLightTheme, handleThemeToggle } = useThemeToggle();
+// Tourist form
+  const [touristForm, setTouristForm] = useState({ email: '', message: '' });
+  const [touristSubmitting, setTouristSubmitting] = useState(false);
+  const [touristSubmitted, setTouristSubmitted] = useState(false);
+  const [touristError, setTouristError] = useState('');
 
+const handleTouristChange = (e) => {
+  const { name, value } = e.target;
+  setTouristForm(prev => ({ ...prev, [name]: value }));
+};
+
+const handleTouristSubmit = async (e) => {
+  e.preventDefault();
+  setTouristSubmitting(true);
+  setTouristError('');
+
+  try {
+    const res = await fetch('/api/send-contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...touristForm, category: 'Tourist' }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error);
+
+    setTouristSubmitted(true);
+    setTouristForm({ email: '', message: '' });
+    setTimeout(() => setTouristSubmitted(false), 5000);
+  } catch (error) {
+    console.error(error);
+    setTouristError('Failed to send message. Please try again.');
+  } finally {
+    setTouristSubmitting(false);
+  }
+};
+
+// Business form
+const [businessForm, setBusinessForm] = useState({ email: '', message: '' });
+const [businessSubmitting, setBusinessSubmitting] = useState(false);
+const [businessSubmitted, setBusinessSubmitted] = useState(false);
+const [businessError, setBusinessError] = useState('');
+
+const handleBusinessChange = (e) => {
+  const { name, value } = e.target;
+  setBusinessForm(prev => ({ ...prev, [name]: value }));
+};
+
+const handleBusinessSubmit = async (e) => {
+  e.preventDefault();
+  setBusinessSubmitting(true);
+  setBusinessError('');
+
+  try {
+    const res = await fetch('/api/send-contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...businessForm, category: 'Business' }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error);
+
+    setBusinessSubmitted(true);
+    setBusinessForm({ email: '', message: '' });
+    setTimeout(() => setBusinessSubmitted(false), 5000);
+  } catch (error) {
+    console.error(error);
+    setBusinessError('Failed to send message. Please try again.');
+  } finally {
+    setBusinessSubmitting(false);
+  }
+};
 
 
   return (
@@ -101,17 +173,48 @@ function page() {
 
             <h2 className={styles_2.contact_us_section_heading_3}>Send us your email — we’ll get back to you</h2>
 
-            <div className={styles_2.contact_us_section_details}>
-              <input  type="text"  placeholder="Enter your Email"  className={styles_2.text_box_1} />
-            </div>
+            <form onSubmit={handleTouristSubmit}>
+              <div className={styles_2.contact_us_section_details}>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your Email"
+                  className={styles_2.text_box_1}
+                  value={touristForm.email}
+                  onChange={handleTouristChange}
+                  required
+                />
+              </div>
 
-            <div className={styles_2.contact_us_section_details}>
-            <textarea rows="5"  placeholder="Type your message here..." className={styles_2.text_box_2} ></textarea>
-            </div>
-                      
-            <div className={styles_2.contact_us_section_details_2}>
-            <button className={styles_2.button_1}><i className="fa-solid fa-paper-plane"></i></button>
-            </div>    
+              <div className={styles_2.contact_us_section_details}>
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Type your message here..."
+                  className={styles_2.text_box_2}
+                  value={touristForm.message}
+                  onChange={handleTouristChange}
+                  required
+                ></textarea>
+              </div>
+
+              <div className={styles_2.contact_us_section_details_2}>
+                {touristSubmitted ? (
+                  <p style={{ color: '#27ae60', fontFamily: 'Poppins, sans-serif', fontSize: '0.9rem' }}>
+                    Message sent successfully!
+                  </p>
+                ) : (
+                  <button type="submit" className={styles_2.button_1} disabled={touristSubmitting}>
+                    <i className={touristSubmitting ? "fa-solid fa-spinner fa-spin" : "fa-solid fa-paper-plane"}></i>
+                  </button>
+                )}
+              </div>
+              {touristError && (
+                <p style={{ color: '#e74c3c', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem', marginTop: '0.5rem' }}>
+                  {touristError}
+                </p>
+              )}
+            </form> 
       </div>
 
       <div className={styles_2.contact_us_section}>
@@ -146,17 +249,48 @@ function page() {
 
             <h2 className={styles_2.contact_us_section_heading_3}>Send us your email — we’ll get back to you</h2>
 
-            <div className={styles_2.contact_us_section_details}>
-              <input  type="text"  placeholder="Enter your Email"  className={styles_2.text_box_1} />
-            </div>
+            <form onSubmit={handleBusinessSubmit}>
+              <div className={styles_2.contact_us_section_details}>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your Email"
+                  className={styles_2.text_box_1}
+                  value={businessForm.email}
+                  onChange={handleBusinessChange}
+                  required
+                />
+              </div>
 
-            <div className={styles_2.contact_us_section_details}>
-            <textarea rows="5"  placeholder="Type your message here..." className={styles_2.text_box_2} ></textarea>
-            </div>
-                      
-            <div className={styles_2.contact_us_section_details_2}>
-            <button className={styles_2.button_1}><i className="fa-solid fa-paper-plane"></i></button>
-            </div>    
+              <div className={styles_2.contact_us_section_details}>
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Type your message here..."
+                  className={styles_2.text_box_2}
+                  value={businessForm.message}
+                  onChange={handleBusinessChange}
+                  required
+                ></textarea>
+              </div>
+
+              <div className={styles_2.contact_us_section_details_2}>
+                {businessSubmitted ? (
+                  <p style={{ color: '#27ae60', fontFamily: 'Poppins, sans-serif', fontSize: '0.9rem' }}>
+                    Message sent successfully!
+                  </p>
+                ) : (
+                  <button type="submit" className={styles_2.button_1} disabled={businessSubmitting}>
+                    <i className={businessSubmitting ? "fa-solid fa-spinner fa-spin" : "fa-solid fa-paper-plane"}></i>
+                  </button>
+                )}
+              </div>
+              {businessError && (
+                <p style={{ color: '#e74c3c', fontFamily: 'Poppins, sans-serif', fontSize: '0.85rem', marginTop: '0.5rem' }}>
+                  {businessError}
+                </p>
+              )}
+            </form>
       </div>
 
     </div>
