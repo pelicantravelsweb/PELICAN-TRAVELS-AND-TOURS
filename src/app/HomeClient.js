@@ -36,7 +36,7 @@ import useThemeToggle from './lib/useThemeToggle';
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { isValidPhoneNumber } from "react-phone-number-input";
-
+import TravelTipsPreview from './components/TravelTipsPreview';
 
 export default function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -806,6 +806,8 @@ const handleInquirySubmit = async (e) => {
                 </div>
         </div>
 
+        <TravelTipsPreview />
+
 {/*Tailormade Section_____________________________________________________________________________*/}
 
     <h2 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h2>
@@ -903,6 +905,7 @@ const handleInquirySubmit = async (e) => {
             </div>
         </div>
     </div>
+
 
 {/*Why Us Section_____________________________________________________________________________*/}   
         <h2 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h2>
