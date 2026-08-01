@@ -29,8 +29,9 @@ import image_destination_2 from "../../public/Destinations_Image_5.webp";
 import image_destination_3 from "../../public/Destinations_Image_9.webp";
 import image_destination_4 from "../../public/Destinations_Image_13.webp";
 import image_destination_5 from "../../public/Destinations_Image_14.webp";
-import image_destination_6 from "../../public/Destinations_Image_15.webp";
+import image_destination_6 from "../../public/Destinations_Image_46.webp";
 import image_destination_7 from "../../public/Destinations_Image_16.webp";
+import image_destination_8 from "../../public/Destinations_Image_61.webp";
 import { FaTripadvisor } from "react-icons/fa";
 import useThemeToggle from './lib/useThemeToggle';
 import PhoneInput from "react-phone-number-input";
@@ -699,20 +700,29 @@ const handleInquirySubmit = async (e) => {
                         </div>
                     </div>
 
-                    <div className={styles_5.destination_container} >
+                    <div className={styles_5.destination_container}>
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_6} alt="Yala, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <Image
+                                src={image_destination_6}
+                                alt="Nuwara Eliya, Sri Lanka"
+                                fill
+                                sizes="(max-width: 800px) 250px, 320px"
+                                quality={70}
+                                className={styles_5.destination_img}
+                                placeholder="blur"
+                                priority
+                            />
                             <div className={styles_5.destinations_overlay}>
-                                <h2>YALA</h2>
+                                <h2>NUWARA ELIYA</h2>
                             </div>
                         </div>
                         <div className={styles_5.destinations_brief}>
                             <i className="fa-solid fa-location-dot"></i>
-                            <span>Southern Province</span>
+                            <span>Central Province</span>
                         </div>
-                        <div className={styles_5.destinations_description}>   
-                            <p>In Yala, experience thrilling wildlife safaris, spot leopards and elephants, explore diverse ecosystems, and enjoy scenic coastal landscapes.</p>
-                            <button className={styles_5.button_3}>EXPLORE</button>
+                        <div className={styles_5.destinations_description}>
+                            <p>In Nuwara Eliya, discover misty mountains, lush tea plantations, scenic waterfalls, charming colonial architecture, and cool climates perfect for relaxing nature escapes.</p>
+                            <Link href="/sri-lanka-travel-destinations?scroll=nuwara-eliya"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
 
@@ -785,6 +795,41 @@ const handleInquirySubmit = async (e) => {
                             <Link href="/sri-lanka-travel-destinations?scroll=polonnaruwa"><button className={styles_5.button_3}>EXPLORE</button></Link>
                         </div>
                     </div>
+
+                    
+                    <div className={styles_5.destination_container}>
+                        <div className={styles_5.destinations}>
+                            <Image 
+                                src={image_destination_8} 
+                                alt="Ella, Sri Lanka" 
+                                fill 
+                                sizes="(max-width: 800px) 250px, 320px" 
+                                quality={70} 
+                                className={styles_5.destination_img} 
+                                placeholder="blur" 
+                                priority
+                            />
+                            <div className={styles_5.destinations_overlay}>
+                                <h2>ELLA</h2>
+                            </div>
+                        </div>
+
+                        <div className={styles_5.destinations_brief}>
+                            <i className="fa-solid fa-location-dot"></i>
+                            <span>Uva Province</span>
+                        </div>
+
+                        <div className={styles_5.destinations_description}> 
+                            <p>
+                                In Ella, discover breathtaking mountain views, lush tea plantations, 
+                                scenic hiking trails, waterfalls, and iconic landmarks surrounded by nature.
+                            </p>
+                            <Link href="/sri-lanka-travel-destinations?scroll=ella">
+                                <button className={styles_5.button_3}>EXPLORE</button>
+                            </Link>
+                        </div>
+                    </div>
+
 
 
                     <div className={styles_5.destination_container} >

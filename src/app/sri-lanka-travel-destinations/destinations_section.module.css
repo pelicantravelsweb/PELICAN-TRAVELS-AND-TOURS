@@ -234,6 +234,116 @@
     animation: fadeInDown 0.6s ease;
 }
 
+/* ── Attraction popup ─────────────────────────────────────────────────────── */
+@keyframes popupFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes popupSlideUp {
+    from { opacity: 0; transform: translateY(24px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.popup_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    animation: popupFadeIn 0.25s ease forwards;
+}
+
+.popup_card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 860px;
+    max-height: 90vh;
+    background-color: rgb(22, 22, 22);
+    border: 1px solid rgb(235, 130, 10);
+    overflow: hidden;
+    animation: popupSlideUp 0.3s ease forwards;
+}
+
+.popup_close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.308);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(95, 158, 160, 0);
+    border-radius: 50%;
+    color: rgb(179, 179, 179);
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.5s ease;
+}
+
+.popup_close:hover {
+    border-color: rgb(235, 130, 10);
+    transition: 0.6s;
+    color: rgb(235, 130, 10);
+}
+
+.popup_image_col {
+    position: relative;
+    flex-shrink: 0;
+    width: 42%;
+    aspect-ratio: 4 / 5;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+.popup_content_col {
+    flex: 1;
+    padding: 2.5rem 2rem 2rem 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup_category {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.7rem, 0.85vw, 0.85rem);
+    color: rgb(235, 130, 10);
+    letter-spacing: 0.1em;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+}
+
+.popup_title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.popup_divider {
+    width: 3rem;
+    height: 2px;
+    background-color: rgb(235, 130, 10);
+    margin-bottom: 1.2rem;
+}
+
+.popup_description {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(160, 158, 158);
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    line-height: 1.8;
+    margin: 0;
+}
+
 :global(body.light_theme) .city_name{
   color: rgb(36, 35, 35);
 }
@@ -269,6 +379,18 @@
 :global(body.light_theme) .attraction {
     background-color: rgb(209, 215, 221);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); /* Outer shadow */
+}
+
+:global(body.light_theme) .popup_card {
+    background-color: rgb(240, 240, 240);
+}
+
+:global(body.light_theme) .popup_title {
+    color: rgb(36, 35, 35);
+}
+
+:global(body.light_theme) .popup_description {
+    color: rgb(80, 80, 80);
 }
 
 @media only screen and (max-width: 820px) {
@@ -344,4 +466,28 @@
     text-align: center;
     }
 
+}
+
+@media only screen and (max-width: 768px) {
+    .popup_card {
+        flex-direction: column;
+        max-height: 88vh;
+        overflow-y: auto;
+    }
+
+    .popup_image_col {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        max-height: 240px;
+    }
+
+    .popup_content_col {
+        padding: 1.5rem 1.2rem 2rem;
+        justify-content: flex-start;
+    }
+
+    .popup_close {
+        top: 0.75rem;
+        right: 0.75rem;
+    }
 }

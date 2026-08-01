@@ -52,16 +52,32 @@ const nextConfig = {
         permanent: true,
       },
 
-      // ── NOTE ─────────────────────────────────────────────────────────────
-      // The old `?scroll=` query-stripping redirects that used to live here
-      // have been moved to middleware.js instead. This project's Next.js /
-      // Turbopack version was not reliably stripping the query string when
-      // using the `destination: "/path?"` trailing-? shorthand, which caused
-      // an infinite redirect loop (the incoming ?scroll=... kept getting
-      // reattached to the destination, recreating the same URL). Handling
-      // it in middleware with `cleanUrl.search = ""` removes the query
-      // string unambiguously, with no reliance on redirect-destination
-      // string parsing. See middleware.js in the project root.
+      // ── ?scroll= query param → base page ────────────────────────────────
+      // 301 tells Google to permanently drop these variants.
+      // NOTE: the trailing "?" on each destination is required — without it,
+      // Next.js reattaches the original query string to the destination,
+      // which recreates the exact same URL and causes an infinite redirect
+      // loop (ERR_TOO_MANY_REDIRECTS). The trailing "?" tells Next.js to
+      // drop the incoming query string instead of forwarding it.
+
+      {
+        source: "/sri-lanka-travel-destinations",
+        has: [{ type: "query", key: "scroll" }],
+        destination: "/sri-lanka-travel-destinations?",
+        permanent: true,
+      },
+      {
+        source: "/sri-lanka-tour-services",
+        has: [{ type: "query", key: "scroll" }],
+        destination: "/sri-lanka-tour-services?",
+        permanent: true,
+      },
+      {
+        source: "/destinations",
+        has: [{ type: "query", key: "scroll" }],
+        destination: "/destinations?",
+        permanent: true,
+      },
 
       // ── Firestore document ID → slug redirects ───────────────────────────
 

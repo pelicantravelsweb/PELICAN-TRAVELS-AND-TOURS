@@ -7,6 +7,8 @@ import styles from './travel_tips_preview.module.css';
 const TRAVEL_TIPS_HREF = '/sri-lanka-travel-tips';
 
 // Mirrors the exact section order from your TravelTips.jsx sub-topic buttons.
+// Each id below must match an id="..." on the corresponding section in that
+// page — same convention as the destinations page (id="galle", id="kandy", etc).
 // "comingSoon: true" renders a disabled card with a badge instead of a link,
 // so nothing points to a section that doesn't exist on the page yet.
 const travelTips = [
@@ -132,7 +134,8 @@ function TravelTipsPreview() {
           return (
             <Link
               key={tip.id}
-              href={TRAVEL_TIPS_HREF}
+              href={`${TRAVEL_TIPS_HREF}?scroll=${tip.id}`}
+              scroll={false}
               className={styles.card}
               style={style}
               aria-label={`Read more about Sri Lanka ${tip.title.toLowerCase()} travel tips`}
