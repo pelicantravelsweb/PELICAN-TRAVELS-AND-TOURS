@@ -263,10 +263,10 @@
 .popup_content_col {
     flex: 1;
     padding: 2.5rem 2rem 2rem 2rem;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;   /* was space-between */
+    align-items: flex-start;
 }
 
 .popup_category {
