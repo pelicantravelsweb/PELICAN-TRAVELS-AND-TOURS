@@ -22,6 +22,7 @@ import Food from "../components/Food";
 import Health from "../components/Health";
 import Safety from "../components/Safety";
 import Culture from "../components/Culture";
+import Accommodation from "../components/Accommodation";
 
 
 
@@ -153,6 +154,15 @@ const scrollToWeather_8 = () => {
   window.scrollTo({ top: y, behavior: "smooth" });
 };
 
+const accommodation = useRef(null);
+
+const scrollToWeather_9 = () => {
+  if (!accommodation.current) return;
+  const yOffset = -200;
+  const y = accommodation.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+};
+
   return (
     <>
 {/*Navigation Section_____________________________________________________________________________*/}
@@ -200,7 +210,8 @@ const scrollToWeather_8 = () => {
             <div>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_1}>Weather</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_2}>Experiences</button>
-                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_3}>Transportation</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_9}>Accomodation</button>
+                <button className={styles_2.sub_topic_button} onClick={scrollToWeather_8}>Culture</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_4}>Currency</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_5}>Food</button>
                 <button className={styles_2.sub_topic_button} onClick={scrollToWeather_6}>Health</button>
@@ -295,6 +306,11 @@ const scrollToWeather_8 = () => {
     <div className={styles_2.weather_section_container}>
         <h2 ref={transportation}><span>TRANS</span>PORTATION <i className="fa-solid fa-train"></i></h2>
         <Transportation />
+    </div>
+
+    <div className={styles_2.weather_section_container}>
+        <h2 ref={accommodation}><span>ACCOMMO</span>DATION <i className="fa-solid fa-bed"></i></h2>
+        <Accommodation />
     </div>
 
     <div className={styles_2.weather_section_container}>

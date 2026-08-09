@@ -1,0 +1,161 @@
+.accommodation_container{
+    position: relative;
+}
+
+.accommodation_intro{
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.accommodation_subheading{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.5vw,1.5rem);
+}
+
+.accommodation_container p{
+    padding-top: 0.5rem;
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Accommodation Options — list with image per item______________________*/
+.stay_list{
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.2rem;
+}
+
+.stay_item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: clamp(20rem, 29vw, 29vw);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 130, 10);
+}
+
+.stay_item:hover{
+    box-shadow: 0px 0px 10px rgba(255, 144, 17, 0.486);
+    transition: 0.6s;
+}
+
+.stay_item_image{
+    position: relative;
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+}
+
+.stay_item_image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stay_item_description{
+    position: relative;
+    width: 100%;
+    padding: 1.5vw;
+}
+
+.stay_item_description h5{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(1rem,1.3vw,1.3rem);
+}
+
+.stay_item_price{
+    padding-top: 0.35rem !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.85rem,1vw,1rem);
+    font-weight: 600;
+    color: rgb(143, 143, 143);
+}
+
+.stay_item_price span{
+    color: rgb(235, 130, 10);
+}
+
+.stay_item_description p{
+    padding-top: 0.4rem;
+    font-size: clamp(0.85rem,1vw,1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Quick Tips_____________________________________________________________*/
+.quick_tips_list{
+    margin-top: 0.5rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.quick_tips_list li{
+    display: flex;
+    align-items: center;
+    width: calc(50% - 0.4rem);
+    font-size: clamp(0.9rem,1.1vw,1.1rem);
+    color: rgb(143, 143, 143);
+    font-family: 'Poppins', sans-serif;
+}
+
+.quick_tips_list li i{
+    color: rgb(235, 130, 10);
+    margin-right: 0.6rem;
+}
+
+/* Light theme_____________________________________________________________*/
+:global(body.light_theme) .accommodation_subheading{ color: rgb(36, 35, 35); }
+:global(body.light_theme) .stay_item_description h5{ color: rgb(36, 35, 35); }
+:global(body.light_theme) .stay_item{ box-shadow: 0 0 8px rgba(0, 0, 0, 0.22); }
+:global(body.light_theme) .stay_item:hover{ box-shadow: 0 0 16px rgba(0, 0, 0, 0.32); }
+
+/* Responsive______________________________________________________________*/
+@media only screen and (max-width: 1000px) {
+
+    .stay_item{
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .stay_item_image{
+        width: 35%;
+        min-width: 35%;
+    }
+
+    .stay_item_description{
+        width: 65%;
+        padding: 1rem;
+    }
+
+    .quick_tips_list li{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .stay_item{
+        flex-direction: column;
+    }
+
+    .stay_item_image{
+        width: 100%;
+        min-width: 100%;
+        height: 10rem;
+    }
+
+    .stay_item_description{
+        width: 100%;
+    }
+}

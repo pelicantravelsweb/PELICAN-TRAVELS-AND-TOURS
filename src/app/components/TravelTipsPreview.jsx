@@ -74,7 +74,7 @@ const travelTips = [
     title: 'Accommodation',
     description:
       'From boutique villas to beachfront resorts — our stay guide is on its way. Check back soon.',
-    comingSoon: true,
+    /*comingSoon: true,*/
   },
 ];
 
