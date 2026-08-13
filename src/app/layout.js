@@ -3,17 +3,6 @@ import "./globals.css";
 // google analytics
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-        <GoogleAnalytics gaId="G-J4PJNTFXTB" />
-      </body>
-    </html>
-  )
-}
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -64,7 +53,7 @@ export const metadata = {
     "Pelican Tours Sri Lanka",
   ],
 
-  
+
   authors: [
     {
       name: "Pelican Tours Sri Lanka",
@@ -74,7 +63,7 @@ export const metadata = {
 
   creator: "Pelican Tours Sri Lanka",
   publisher: "Pelican Tours Sri Lanka",
-  
+
 
   robots: {
     index: true,
@@ -137,11 +126,8 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         {children}
+        <GoogleAnalytics gaId="G-J4PJNTFXTB" />
       </body>
     </html>
   );
 }
-
-
-
-
