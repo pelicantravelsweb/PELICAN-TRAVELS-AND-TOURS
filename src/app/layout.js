@@ -1,5 +1,18 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+// google analytics
+import { GoogleAnalytics } from '@next/third-parties/google'
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <GoogleAnalytics gaId="G-J4PJNTFXTB" />
+      </body>
+    </html>
+  )
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -116,10 +129,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        />
+
       </head>
 
       <body
