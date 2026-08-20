@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import styles_nav from '../../navigation.module.css';
 import styles from './package_detail.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 import { db } from '../../lib/firebase';
 import { doc, getDoc, getDocs, collection, addDoc, query, where } from 'firebase/firestore';
 import useThemeToggle from '../../lib/useThemeToggle';
@@ -262,7 +263,15 @@ useEffect(() => {
                   onTouchEnd={handleTouchEnd}
                 >
                   {images.length > 0 ? (
-                    <img src={images[activeImageIndex]} alt={packageData.title} />
+                    <Image
+                      src={images[activeImageIndex]}
+                      alt={packageData.title}
+                      fill
+                      priority={activeImageIndex === 0}
+                      sizes="(max-width: 820px) 100vw, 60vw"
+                      quality={70}
+                      style={{ objectFit: 'cover' }}
+                    />
                   ) : (
                     <div className={styles.placeholder_image}>
                       <i className="fa-solid fa-image"></i>
@@ -289,7 +298,15 @@ useEffect(() => {
                           className={`${styles.thumbnail} ${activeImageIndex === index ? styles.active : ''}`}
                           onClick={() => setActiveImageIndex(index)}
                         >
-                          <img src={img} alt={`${packageData.title} ${index + 1}`} />
+                          <Image
+                            src={img}
+                            alt={`${packageData.title} ${index + 1}`}
+                            fill
+                            loading="lazy"
+                            sizes="(max-width: 820px) 20vw, 100px"
+                            quality={60}
+                            style={{ objectFit: 'cover' }}
+                          />
                         </div>
                       ))}
                     </div>
@@ -398,7 +415,15 @@ useEffect(() => {
                             <div className={styles.day_images}>
                               {day.images.map((img, imgIndex) => (
                                 <div key={imgIndex} className={styles.day_image_item}>
-                                  <img src={img} alt={`Day ${day.dayNumber || index + 1} - ${imgIndex + 1}`} />
+                                  <Image
+                                    src={img}
+                                    alt={`Day ${day.dayNumber || index + 1} - ${imgIndex + 1}`}
+                                    fill
+                                    loading="lazy"
+                                    sizes="(max-width: 820px) 100vw, 30vw"
+                                    quality={60}
+                                    style={{ objectFit: 'cover' }}
+                                  />
                                 </div>
                               ))}
                             </div>

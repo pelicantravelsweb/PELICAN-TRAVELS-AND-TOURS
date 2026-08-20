@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import SiteEffects from "./components/SiteEffects";
 // google analytics
 import { GoogleAnalytics } from '@next/third-parties/google'
 
@@ -126,7 +127,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable}`}
         suppressHydrationWarning
       >
-        {children}
+        <SiteEffects>{children}</SiteEffects>
         <GoogleAnalytics gaId="G-J4PJNTFXTB" />
       </body>
     </html>

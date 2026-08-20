@@ -685,7 +685,7 @@ const handleInquirySubmit = async (e) => {
                 <div className={styles_5.destinations_container} ref={destinationsRef}>
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_7} alt="Mirissa Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <Image src={image_destination_7} alt="Mirissa Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>MATARA</h2>
                             </div>
@@ -710,7 +710,6 @@ const handleInquirySubmit = async (e) => {
                                 quality={70}
                                 className={styles_5.destination_img}
                                 placeholder="blur"
-                                priority
                             />
                             <div className={styles_5.destinations_overlay}>
                                 <h2>NUWARA ELIYA</h2>
@@ -728,7 +727,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_1} alt="Dambulla, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <Image src={image_destination_1} alt="Dambulla, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>DAMBULLA</h2>
                             </div>
@@ -745,7 +744,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_2} alt="Galle, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <Image src={image_destination_2} alt="Galle, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>GALLE</h2>
                             </div>
@@ -763,7 +762,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_3} alt="Kandy, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <Image src={image_destination_3} alt="Kandy, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>KANDY</h2>
                             </div>
@@ -781,7 +780,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_5} alt="Polonnaruwa, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <Image src={image_destination_5} alt="Polonnaruwa, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>POLONNARUWA</h2>
                             </div>
@@ -807,7 +806,6 @@ const handleInquirySubmit = async (e) => {
                                 quality={70} 
                                 className={styles_5.destination_img} 
                                 placeholder="blur" 
-                                priority
                             />
                             <div className={styles_5.destinations_overlay}>
                                 <h2>ELLA</h2>
@@ -834,7 +832,7 @@ const handleInquirySubmit = async (e) => {
 
                     <div className={styles_5.destination_container} >
                         <div className={styles_5.destinations}>
-                            <Image src={image_destination_4} alt="Colombo, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur" priority/>
+                            <Image src={image_destination_4} alt="Colombo, Sri Lanka" fill sizes="(max-width: 800px) 250px, 320px" quality={70} className={styles_5.destination_img} placeholder="blur"/>
                             <div className={styles_5.destinations_overlay}>
                                 <h2>COLOMBO</h2>
                             </div>
@@ -941,8 +939,8 @@ const handleInquirySubmit = async (e) => {
 
             <div className={styles_6.inquire_image_container}>
                 <div className={styles_6.inquire_image_1}>
-                    <Image src={image_4} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_1} priority placeholder="blur"/>
-                    <Image src={image_5} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_2} priority placeholder="blur"/>
+                    <Image src={image_4} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_1} placeholder="blur"/>
+                    <Image src={image_5} alt="Inquiry Visual" width={600} height={600} sizes="(max-width: 800px) 0px, 50vw" quality={70} className={styles_6.inquire_form_image_2} placeholder="blur"/>
                 </div>
                 <div className={styles_6.inquire_image_2}>
                

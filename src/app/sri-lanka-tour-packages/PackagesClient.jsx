@@ -120,10 +120,14 @@ function PackageCard({ pkg, renderStars, styles }) {
         {images.length > 0 ? (
           <>
             {images.map((src, i) => (
-              <img
+              <Image
                 key={i}
                 src={src}
                 alt={i === 0 ? (pkg.title || 'Tour Package') : ''}
+                fill
+                loading="lazy"
+                sizes="(max-width: 820px) 100vw, 310px"
+                quality={60}
                 className={`${styles.package_img_slide} ${i === currentImageIndex ? styles.package_img_active : ''}`}
               />
             ))}

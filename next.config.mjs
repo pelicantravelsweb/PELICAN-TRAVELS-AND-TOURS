@@ -4,7 +4,13 @@ const nextConfig = {
   output: "standalone",
 
   images: {
+    formats: ["image/avif", "image/webp"],
     qualities: [70, 75, 80, 90],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+    remotePatterns: [
+      { protocol: "https", hostname: "firebasestorage.googleapis.com" },
+      { protocol: "https", hostname: "storage.googleapis.com" },
+    ],
   },
 
   async redirects() {
