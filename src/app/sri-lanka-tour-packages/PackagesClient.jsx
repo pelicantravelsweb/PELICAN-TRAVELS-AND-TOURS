@@ -572,12 +572,7 @@ export default function TourPackages() {
             <p>{filteredPackages.length} package{filteredPackages.length !== 1 ? 's' : ''} found</p>
           </div>
 
-          {loading ? (
-            <div className={styles.loading}>
-              <i className="fa-solid fa-spinner fa-spin"></i>
-              <p>Loading packages...</p>
-            </div>
-          ) : filteredPackages.length === 0 ? (
+          {!loading && filteredPackages.length === 0 ? (
             <div className={styles.no_results}>
               <i className="fa-solid fa-search"></i>
               <h3>No packages found</h3>

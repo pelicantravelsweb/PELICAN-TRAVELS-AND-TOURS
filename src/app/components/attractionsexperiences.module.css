@@ -333,6 +333,12 @@
 
     .card { width: 250px; }
 
+    .cards_container {
+        justify-content: flex-start;
+        padding-left: calc((100vw - 250px) / 2);
+        padding-right: calc((100vw - 250px) / 2);
+    }
+
     .nav_arrow { width: 50px; height: 50px; }
 }
 
@@ -363,4 +369,9 @@
 @media only screen and (max-width: 480px) {
     .card { width: 220px; }
     .card_image { height: 160px; }
+
+    .cards_container {
+        padding-left: calc((100vw - 220px) / 2);
+        padding-right: calc((100vw - 220px) / 2);
+    }
 }
