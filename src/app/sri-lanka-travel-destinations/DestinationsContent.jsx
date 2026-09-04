@@ -648,10 +648,11 @@ function DestinationsContent() {
 
       {/*Destination Section_____________________________________________________________________________*/}
       <div className={styles_2.destinatons_section}>
+        <h1 className={styles_2.visually_hidden}>Best Places to Visit in Sri Lanka</h1>
         <p className={styles_2.destinatons_section_description}>
-          "Every destination below can be woven into your own{" "}
-          <Link href="/">private Sri Lanka tour</Link> <br /> tell us where you want to go
-          and we'll build the itinerary around it."
+          Explore Sri Lanka's most captivating destinations, from historic cities and UNESCO
+          heritage sites to misty highlands and golden beaches. Discover where to go, what to
+          see, and how each place can fit into your <Link href="/">tailor-made private tour</Link>.
         </p>
 
         {DESTINATIONS.map((dest, destIndex) => (
@@ -667,11 +668,11 @@ function DestinationsContent() {
               </div>
 
               <div className={styles_2.div_right}>
-                <h1 className={styles_2.city_name}>{dest.name}</h1>
+                <h2 className={styles_2.city_name}>{dest.name}</h2>
                 <p className={styles_2.city_description}>{dest.description}</p>
 
                 <div className={styles_2.attraction_section}>
-                  <h1 className={styles_2.sub_topic}>ATTRACTIONS IN {dest.name}</h1>
+                  <h2 className={styles_2.sub_topic}>ATTRACTIONS IN {dest.name}</h2>
 
                   <div className={styles_2.attraction_section}>
                     <div className={styles_2.overlayers}>

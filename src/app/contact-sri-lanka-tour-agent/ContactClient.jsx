@@ -142,7 +142,7 @@ const handleBusinessSubmit = async (e) => {
       </div>
 
       <div className={styles_2.contact_us_section}>
-            <h1 className={styles_2.contact_us_section_heading_1}>Are you a Tourist?</h1>
+            <h2 className={styles_2.contact_us_section_heading_1}>Are you a Tourist?</h2>
             <h2 className={styles_2.contact_us_section_heading_2}>Contact Us</h2>
             <div className={styles_2.contact_us_section_details}>
               <i className="fa-brands fa-whatsapp"></i>
@@ -218,7 +218,7 @@ const handleBusinessSubmit = async (e) => {
       </div>
 
       <div className={styles_2.contact_us_section}>
-            <h1 className={styles_2.contact_us_section_heading_1}>Are You a Business?</h1>
+            <h2 className={styles_2.contact_us_section_heading_1}>Are You a Business?</h2>
             <h2 className={styles_2.contact_us_section_heading_2}>Contact Us</h2>
             <div className={styles_2.contact_us_section_details}>
               <i className="fa-brands fa-whatsapp"></i>

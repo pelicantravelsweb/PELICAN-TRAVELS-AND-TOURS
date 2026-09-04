@@ -416,7 +416,7 @@ const handleInquirySubmit = async (e) => {
 {/*Cover Section_____________________________________________________________________________*/}
 <div className={styles_2.coversection}>
     <div className={styles_2.coversection_brief}>
-        <h1>Tailor-Made Private Sri Lanka Tours</h1>
+        <h1>Private Sri Lanka Tour Packages & Tailor-Made Tours</h1>
         <h2>Explore the Island Completely on Your Terms</h2>
         <p>
             From scaling the mist-shrouded fortress of <strong>Sigiriya</strong> and wandering through lush <strong>Ella tea plantations</strong>, 

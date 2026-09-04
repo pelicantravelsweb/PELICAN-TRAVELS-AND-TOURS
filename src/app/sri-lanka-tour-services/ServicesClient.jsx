@@ -64,6 +64,7 @@ function page() {
     </div>
 
     <div className={styles_2.services_section}>
+      <h1 className={styles_2.visually_hidden}>Sri Lanka Travel Services & Custom Planning</h1>
         <div className={styles_2.services_table}>
           <div className={styles_2.button_pannel}>
           <button className={styles_2.table_tabs} id={activeButton === "round_tours" ? styles_2.active : undefined}onClick={() => handleClick("round_tours")}>CUSTOMIZED TOURS</button>
@@ -79,14 +80,14 @@ function page() {
                 <Image src={image_1} alt="Adam's Peak, Sri Lanka"  fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "round_tours"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
-               <h1 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h1>
+               <h2 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h2>
               <p className={styles_2.p_1}>Explore the beauty and diversity of Sri Lanka through our expertly guided round tours. 
                 Each itinerary is custom-built to match your interests — 
                 whether you crave beaches and wildlife or history and culture. 
                 Travel comfortably with private transport, licensed guides, 
                 and carefully selected hotels while discovering the island’s hidden gems.</p>
 
-              <h1 className={styles_2.topic_1}>Endless Experiences to Choose From</h1>
+              <h2 className={styles_2.topic_1}>Endless Experiences to Choose From</h2>
               <ul className={styles_2.ul_1}><li>Beach & Coastal</li>
                   <li>Historical Sites</li>
                   <li>Cultural & Heritage</li>
@@ -99,14 +100,14 @@ function page() {
                   <li>Festivals & Local Events</li>
                   <li>Food & Culinary</li></ul>
 
-              <h1 className={styles_2.topic_1}>Everything You Need, All Arranged for You</h1>
+              <h2 className={styles_2.topic_1}>Everything You Need, All Arranged for You</h2>
               <ul className={styles_2.ul_2}><li>Licensed, English-speaking tour guides</li>
                   <li>Private transport with professional chauffeurs</li>
                   <li>Hotel reservations from boutique stays to luxury resorts</li>
                   <li>Personalized itinerary planning</li>
                   <li>24/7 local assistance and travel support</li></ul>
 
-                  <h1 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h1>
+                  <h2 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h2>
                   <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life — 
                       see how it fits into one of our <Link href="/">private Sri Lanka tours</Link>.</p>
               </div>
@@ -120,7 +121,7 @@ function page() {
                 <Image src={image_2} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "day_excursions"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
-                <h1 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h1>
+                <h2 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h2>
                 <p className={styles_2.p_1}>Perfect for travelers with limited time, 
                   our day excursions offer a taste of Sri Lanka’s most iconic destinations 
                   in just one day or an overnight stay. From coastal escapes and ancient cities 
@@ -128,7 +129,7 @@ function page() {
                   privately transported, and customizable to your interests. 
                   Accommodation can be arranged when a one-night stay enhances your experience.</p>
 
-                <h1 className={styles_2.topic_1}>Popular Day & Overnight Tours</h1>
+                <h2 className={styles_2.topic_1}>Popular Day & Overnight Tours</h2>
                       <ul className={styles_2.ul_2}><li>Coast Exploration</li>
                       <li>Cultural Experience Tours</li>
                       <li>Historical Places Tours</li>
@@ -137,14 +138,14 @@ function page() {
                       <li>Adventure Tours</li>
                       <li>Train Rides</li></ul>
 
-                <h1 className={styles_2.topic_1}>Everything You Need for a Seamless Day Tour</h1>
+                <h2 className={styles_2.topic_1}>Everything You Need for a Seamless Day Tour</h2>
                       <ul className={styles_2.ul_2}><li>Private, air-conditioned transport with driver</li>
                       <li>Licensed, English-speaking guide</li>
                       <li>Entrance coordination & activity arrangements</li>
                       <li>Optional hotel accommodation for overnight trips</li>
                       <li>24/7 support during the excursion</li></ul>
 
-                <h1 className={styles_2.topic_1}>Plan Your Day Excursion in Sri Lanka Today</h1>
+                <h2 className={styles_2.topic_1}>Plan Your Day Excursion in Sri Lanka Today</h2>
                 <p className={styles_2.p_1}>Choose your preferred destination or experience — 
                   beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
                   or overnight trip designed around you.</p>
@@ -159,26 +160,26 @@ function page() {
                 <Image src={image_3} alt="Adam's Peak, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "mice_services"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
-                <h1 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h1>
+                <h2 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h2>
                 <p className={styles_2.p_1}>Choose your preferred destination or experience — 
                   beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
                   or overnight trip designed around you.</p>
                 
-                <h1 className={styles_2.topic_1}>Tailor-Made Corporate Experiences</h1>
+                <h2 className={styles_2.topic_1}>Tailor-Made Corporate Experiences</h2>
                       <ul className={styles_2.ul_2}><li>Meetings & Conferences</li>
                       <li>Incentive Tours & Team-Building Programs</li>
                       <li>Corporate Events & Product Launches</li>
                       <li>Business Travel Management</li>
                       <li>Group Transport & Accommodation Coordination</li></ul>
 
-                <h1 className={styles_2.topic_1}>Comprehensive MICE Travel Support</h1>
+                <h2 className={styles_2.topic_1}>Comprehensive MICE Travel Support</h2>
                       <ul className={styles_2.ul_2}><li>Venue sourcing, event planning & coordination</li>
                       <li>Hotel reservations & meeting facilities</li>
                       <li>Airport transfers & private transport</li>
                       <li>Guided excursions & leisure activities for delegates</li>
                       <li>On-site event management & local assistance</li></ul>
 
-                <h1 className={styles_2.topic_1}>Plan Your Next Corporate Event in Sri Lanka</h1>
+                <h2 className={styles_2.topic_1}>Plan Your Next Corporate Event in Sri Lanka</h2>
                 <p className={styles_2.p_1}>Whether it’s a small executive meeting or a large international conference, 
                   our MICE team will design a professional, stress-free program that blends business with authentic Sri Lankan experiences.</p>
               </div>
@@ -192,28 +193,28 @@ function page() {
                 <Image src={image_4} alt="Riverston, Sri Lanka" fill sizes="(max-width: 820px) 100vw, 40vw" quality={75} priority={activeButton === "transport_services"} style={{ objectFit: "cover" }} />
               </div>
               <div className={styles_2.services_description}>
-                <h1 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h1>
+                <h2 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h2>
                 <p className={styles_2.p_1}>Travel across Sri Lanka safely and comfortably with 
                   our professional transportation services. Whether you need a private airport transfer, 
                   daily travel between destinations, or full island-wide tour transport, we provide 
                   air-conditioned vehicles driven by experienced chauffeurs. 
                   Enjoy flexible, reliable, and stress-free travel while exploring the island at your own pace.</p>
 
-                <h1 className={styles_2.topic_1}>Travel Options for Every Journey</h1>
+                <h2 className={styles_2.topic_1}>Travel Options for Every Journey</h2>
                       <ul className={styles_2.ul_2}><li>City-to-City Private Transfers</li>
                       <li>Chauffeur-Driven Round Tours</li>
                       <li>Airport transfers & private transport</li>
                       <li>Group & Family Transport</li>
                       <li>Luxury & Business-Class Vehicles</li></ul>
 
-                <h1 className={styles_2.topic_1}>Everything You Need for a Smooth Journey</h1>
+                <h2 className={styles_2.topic_1}>Everything You Need for a Smooth Journey</h2>
                       <ul className={styles_2.ul_2}><li>Air-conditioned cars, vans, and minibuses</li>
                       <li>Professional, English-speaking drivers</li>
                       <li>24/7 airport pickup & drop-off</li>
                       <li>Flexible schedules and customizable routes</li>
                       <li>Ideal for tours, business travel, or short transfers</li></ul>
 
-                <h1 className={styles_2.topic_1}>Book Your Private Transport in Sri Lanka</h1>
+                <h2 className={styles_2.topic_1}>Book Your Private Transport in Sri Lanka</h2>
                 <p className={styles_2.p_1}>Wherever you’re headed — from the airport to your next destination — 
                   our transport team ensures you travel safely, comfortably, and on time.</p>
               </div>
@@ -234,14 +235,14 @@ function page() {
             <div className={`${styles_2.content_box} ${openSection === "service_1" ? styles_2.active : ""}`}>
               <Image src={image_1} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
 
-              <h1 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h1>
+              <h2 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h2>
               <p className={styles_2.p_1}>Explore the beauty and diversity of Sri Lanka through our expertly guided round tours. 
                 Each itinerary is custom-built to match your interests — 
                 whether you crave beaches and wildlife or history and culture. 
                 Travel comfortably with private transport, licensed guides, 
                 and carefully selected hotels while discovering the island’s hidden gems.</p>
 
-              <h1 className={styles_2.topic_1}>Endless Experiences to Choose From</h1>
+              <h2 className={styles_2.topic_1}>Endless Experiences to Choose From</h2>
               <ul className={styles_2.ul_2}><li>Beach & Coastal</li>
                   <li>Historical Sites</li>
                   <li>Cultural & Heritage</li>
@@ -254,14 +255,14 @@ function page() {
                   <li>Festivals & Local Events</li>
                   <li>Food & Culinary</li></ul>
 
-              <h1 className={styles_2.topic_1}>Everything You Need, All Arranged for You</h1>
+              <h2 className={styles_2.topic_1}>Everything You Need, All Arranged for You</h2>
               <ul className={styles_2.ul_2}><li>Licensed, English-speaking tour guides</li>
                   <li>Private transport with professional chauffeurs</li>
                   <li>Hotel reservations from boutique stays to luxury resorts</li>
                   <li>Personalized itinerary planning</li>
                   <li>24/7 local assistance and travel support</li></ul>
 
-                  <h1 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h1>
+                  <h2 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h2>
                   <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life — 
                       see how it fits into one of our <Link href="/">private Sri Lanka tours</Link>.</p>
             </div>
@@ -270,7 +271,7 @@ function page() {
             <div className={`${styles_2.content_box} ${openSection === "service_2" ? styles_2.active : ""}`}>
             <Image src={image_2} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
 
-            <h1 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h1>
+            <h2 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h2>
             <p className={styles_2.p_1}>Perfect for travelers with limited time, 
               our day excursions offer a taste of Sri Lanka’s most iconic destinations 
               in just one day or an overnight stay. From coastal escapes and ancient cities 
@@ -278,7 +279,7 @@ function page() {
               privately transported, and customizable to your interests. 
               Accommodation can be arranged when a one-night stay enhances your experience.</p>
 
-            <h1 className={styles_2.topic_1}>Popular Day & Overnight Tours</h1>
+            <h2 className={styles_2.topic_1}>Popular Day & Overnight Tours</h2>
                   <ul className={styles_2.ul_2}><li>Coast Exploration</li>
                   <li>Cultural Experience Tours</li>
                   <li>Historical Places Tours</li>
@@ -287,14 +288,14 @@ function page() {
                   <li>Adventure Tours</li>
                   <li>Train Rides</li></ul>
 
-            <h1 className={styles_2.topic_1}>Everything You Need for a Seamless Day Tour</h1>
+            <h2 className={styles_2.topic_1}>Everything You Need for a Seamless Day Tour</h2>
                   <ul className={styles_2.ul_2}><li>Private, air-conditioned transport with driver</li>
                   <li>Licensed, English-speaking guide</li>
                   <li>Entrance coordination & activity arrangements</li>
                   <li>Optional hotel accommodation for overnight trips</li>
                   <li>24/7 support during the excursion</li></ul>
 
-            <h1 className={styles_2.topic_1}>Plan Your Day Excursion in Sri Lanka Today</h1>
+            <h2 className={styles_2.topic_1}>Plan Your Day Excursion in Sri Lanka Today</h2>
             <p className={styles_2.p_1}>Choose your preferred destination or experience — 
               beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
               or overnight trip designed around you.</p>
@@ -304,26 +305,26 @@ function page() {
           <div className={`${styles_2.content_box} ${openSection === "service_3" ? styles_2.active : ""}`}>
 
             <Image src={image_3} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
-            <h1 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h1>
+            <h2 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h2>
             <p className={styles_2.p_1}>Choose your preferred destination or experience — 
               beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
               or overnight trip designed around you.</p>
             
-            <h1 className={styles_2.topic_1}>Tailor-Made Corporate Experiences</h1>
+            <h2 className={styles_2.topic_1}>Tailor-Made Corporate Experiences</h2>
                   <ul className={styles_2.ul_2}><li>Meetings & Conferences</li>
                   <li>Incentive Tours & Team-Building Programs</li>
                   <li>Corporate Events & Product Launches</li>
                   <li>Business Travel Management</li>
                   <li>Group Transport & Accommodation Coordination</li></ul>
 
-            <h1 className={styles_2.topic_1}>Comprehensive MICE Travel Support</h1>
+            <h2 className={styles_2.topic_1}>Comprehensive MICE Travel Support</h2>
                   <ul className={styles_2.ul_2}><li>Venue sourcing, event planning & coordination</li>
                   <li>Hotel reservations & meeting facilities</li>
                   <li>Airport transfers & private transport</li>
                   <li>Guided excursions & leisure activities for delegates</li>
                   <li>On-site event management & local assistance</li></ul>
 
-            <h1 className={styles_2.topic_1}>Plan Your Next Corporate Event in Sri Lanka</h1>
+            <h2 className={styles_2.topic_1}>Plan Your Next Corporate Event in Sri Lanka</h2>
             <p className={styles_2.p_1}>Whether it’s a small executive meeting or a large international conference, 
               our MICE team will design a professional, stress-free program that blends business with authentic Sri Lankan experiences.</p>
           </div>
@@ -331,28 +332,28 @@ function page() {
           <button className={styles_2.table_tabs_mobile} id={styles_2.button_4} onClick={() => toggleSection("service_4")}>TRANSPORT SERVICES</button>
           <div className={`${styles_2.content_box} ${openSection === "service_4" ? styles_2.active : ""}`}>
             <Image src={image_4} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
-            <h1 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h1>
+            <h2 className={styles_2.topic_1}>Comfortable & Reliable Transport Solutions Across Sri Lanka</h2>
             <p className={styles_2.p_1}>Travel across Sri Lanka safely and comfortably with 
               our professional transportation services. Whether you need a private airport transfer, 
               daily travel between destinations, or full island-wide tour transport, we provide 
               air-conditioned vehicles driven by experienced chauffeurs. 
               Enjoy flexible, reliable, and stress-free travel while exploring the island at your own pace.</p>
 
-            <h1 className={styles_2.topic_1}>Travel Options for Every Journey</h1>
+            <h2 className={styles_2.topic_1}>Travel Options for Every Journey</h2>
                   <ul className={styles_2.ul_2}><li>City-to-City Private Transfers</li>
                   <li>Chauffeur-Driven Round Tours</li>
                   <li>Airport transfers & private transport</li>
                   <li>Group & Family Transport</li>
                   <li>Luxury & Business-Class Vehicles</li></ul>
 
-            <h1 className={styles_2.topic_1}>Everything You Need for a Smooth Journey</h1>
+            <h2 className={styles_2.topic_1}>Everything You Need for a Smooth Journey</h2>
                   <ul className={styles_2.ul_2}><li>Air-conditioned cars, vans, and minibuses</li>
                   <li>Professional, English-speaking drivers</li>
                   <li>24/7 airport pickup & drop-off</li>
                   <li>Flexible schedules and customizable routes</li>
                   <li>Ideal for tours, business travel, or short transfers</li></ul>
 
-            <h1 className={styles_2.topic_1}>Book Your Private Transport in Sri Lanka</h1>
+            <h2 className={styles_2.topic_1}>Book Your Private Transport in Sri Lanka</h2>
             <p className={styles_2.p_1}>Wherever you’re headed — from the airport to your next destination — 
               our transport team ensures you travel safely, comfortably, and on time.</p>
 

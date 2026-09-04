@@ -9,6 +9,5 @@ Disallow: /_next/image/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /admin-login/
-Disallow: /favicon.ico
 
 Sitemap: https://pelicantravelsandtours.com/sitemap.xml

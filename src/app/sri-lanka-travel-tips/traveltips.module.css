@@ -11,11 +11,12 @@
     padding-right: 4vw;
     color: white;
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
 .hero_section_container h1{
-    font-size: clamp(1.5rem,2vw,2rem);
+    font-size: clamp(1.2rem,1.5vw,1.5rem);
 }
 
 .hero_section_container span{
@@ -24,7 +25,7 @@
 
 .hero_section_container p{
     padding-top: 0.5rem;
-    font-size: clamp(0.9rem,1.2vw,1.2rem);
+    font-size: clamp(0.85rem,1.1vw,1.1rem);
     color: rgb(143, 143, 143);
     font-family: 'Poppins', sans-serif;
 }

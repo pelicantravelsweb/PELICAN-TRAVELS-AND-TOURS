@@ -193,10 +193,16 @@ const scrollToWeather_9 = () => {
 {/*Hero_section_____________________________________________________________________________*/}
     <div className={styles_2.hero_section_container}>
         <div className={styles_2.hero_section_image}>
-            <Image src={image_1} alt="Bomburu ella falls Sri Lanka" />
+            <Image
+              src={image_1}
+              alt="Bomburu ella falls Sri Lanka"
+              priority
+              quality={70}
+              sizes="(max-width: 820px) 92vw, 40vw"
+            />
         </div>
         <div className={styles_2.hero_section_description}>
-            <h1><span>SRI LANKA</span> TRAVEL TIPS <i className="fa fa-lightbulb bulbIcon"></i></h1>
+            <h1>Essential Sri Lanka Travel Tips & First-Time Visitor Guide</h1>
             <p>
             <strong>Plan your perfect journey through Sri Lanka with expert travel tips and valuable local insights.</strong>
             Discover the best time to visit Sri Lanka, transportation options, cultural etiquette, budgeting advice,
@@ -233,7 +239,12 @@ const scrollToWeather_9 = () => {
             </div>
             <div className={styles_2.weather_section_image_container}>
                 <div className={styles_2.weather_section_image}>
-                    <Image src={image_2} alt="Bomburu ella falls Sri Lanka" />
+                    <Image
+                      src={image_2}
+                      alt="Southwest monsoon in Sri Lanka"
+                      quality={70}
+                      sizes="(max-width: 820px) 12rem, (max-width: 1150px) 15rem, 24vw"
+                    />
                     <div className={styles_2.weather_section_image_description}>
                         <h4>Southwest Monsoon </h4>
                         <p>The Rainy Season in Southwest Sri Lanka</p>
@@ -241,7 +252,12 @@ const scrollToWeather_9 = () => {
                     </div>
                 </div>
                 <div className={styles_2.weather_section_image}>
-                    <Image src={image_3} alt="Bomburu ella falls Sri Lanka" />
+                    <Image
+                      src={image_3}
+                      alt="Northeast monsoon in Sri Lanka"
+                      quality={70}
+                      sizes="(max-width: 820px) 12rem, (max-width: 1150px) 15rem, 24vw"
+                    />
                     <div className={styles_2.weather_section_image_description}>
                         <h4>Northeast Monsoon </h4>
                         <p>The Rainy Season in Northeast Sri Lanka</p>
@@ -258,7 +274,12 @@ const scrollToWeather_9 = () => {
             <div className={styles_2.climate_sections}>
                 <div className={styles_2.climate_section}>
                     <div className={styles_2.climate_section_image}>
-                        <Image src={image_6} alt="Bomburu ella falls Sri Lanka" /> 
+                        <Image
+                          src={image_6}
+                          alt="Sri Lanka wet zone climate"
+                          quality={70}
+                          sizes="(max-width: 1000px) 35vw, 30vw"
+                        />
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Wet Zone Climate</h5>
@@ -268,7 +289,12 @@ const scrollToWeather_9 = () => {
 
                 <div className={styles_2.climate_section}>
                     <div className={styles_2.climate_section_image}>
-                        <Image src={image_7} alt="Bomburu ella falls Sri Lanka" /> 
+                        <Image
+                          src={image_7}
+                          alt="Sri Lanka mountain climate"
+                          quality={70}
+                          sizes="(max-width: 1000px) 35vw, 30vw"
+                        />
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Mountain Climate</h5>
@@ -278,7 +304,12 @@ const scrollToWeather_9 = () => {
                 
                 <div className={styles_2.climate_section}>
                     <div className={styles_2.climate_section_image}>
-                        <Image src={image_8} alt="Bomburu ella falls Sri Lanka" /> 
+                        <Image
+                          src={image_8}
+                          alt="Sri Lanka dry zone climate"
+                          quality={70}
+                          sizes="(max-width: 1000px) 35vw, 30vw"
+                        />
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Dry Zone Climate</h5>
