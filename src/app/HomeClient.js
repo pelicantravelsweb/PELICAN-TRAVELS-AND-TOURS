@@ -90,9 +90,9 @@ const handlePhoneChange = (val) => {
   if (phoneNumber) {
     const nationalNumber = phoneNumber.nationalNumber;
 
-    // 🔥 Example: Sri Lanka max = 9 digits
+    // ðŸ”¥ Example: Sri Lanka max = 9 digits
     if (nationalNumber.length > 9 && phoneNumber.country === "LK") {
-      return; // ❌ block extra typing
+      return; // âŒ block extra typing
     }
   }
 
@@ -111,7 +111,7 @@ const handlePhoneChange = (val) => {
 const inquireRef = useRef(null);
 
 const scrollToInquire = () => {
-  if (!inquireRef.current) return; // ✅ prevent crash
+  if (!inquireRef.current) return; // âœ… prevent crash
 
   const yOffset = -200;
   const y =
@@ -150,14 +150,14 @@ const handleLeftClick = () => {
 
   setIsAnimating(true);
 
-  // 🔥 Reset first
+  // ðŸ”¥ Reset first
   container.style.transition = "none";
   container.style.transform = "translateX(0)";
 
-  // 🔥 FORCE REFLOW (this is the fix)
+  // ðŸ”¥ FORCE REFLOW (this is the fix)
   container.offsetHeight;
 
-  // ✅ Now apply animation
+  // âœ… Now apply animation
   container.style.transition = "transform 0.5s ease";
   container.style.transform = `translateX(-${cardWidth}px)`;
 
@@ -187,7 +187,7 @@ const handleRightClick = () => {
   container.style.transition = "none";
   container.style.transform = `translateX(-${cardWidth}px)`;
 
-  // 🔥 FORCE REFLOW
+  // ðŸ”¥ FORCE REFLOW
   container.offsetHeight;
 
   requestAnimationFrame(() => {
@@ -223,11 +223,11 @@ const handleTouchMove = (e) => {
 };
 
 const handleTouchEnd = () => {
-  if (!isSwiping.current) return; // ❌ Ignore simple taps
+  if (!isSwiping.current) return; // âŒ Ignore simple taps
 
   const diff = startX.current - currentX.current;
 
-  if (Math.abs(diff) < 50) return; // ❌ Not a strong swipe
+  if (Math.abs(diff) < 50) return; // âŒ Not a strong swipe
 
   if (diff > 0) {
     handleLeftClick();
@@ -250,7 +250,7 @@ const slideNext = (container) => {
 
   container.style.transition = "none";
   container.style.transform = "translateX(0)";
-  container.offsetHeight; // 🔥 force reflow
+  container.offsetHeight; // ðŸ”¥ force reflow
 
   container.style.transition = "transform 0.5s ease";
   container.style.transform = `translateX(-${cardWidth}px)`;
@@ -275,7 +275,7 @@ const slidePrev = (container) => {
 
   container.style.transition = "none";
   container.style.transform = `translateX(-${cardWidth}px)`;
-  container.offsetHeight; // 🔥 force reflow
+  container.offsetHeight; // ðŸ”¥ force reflow
 
   requestAnimationFrame(() => {
     container.style.transition = "transform 0.5s ease";
@@ -351,7 +351,7 @@ const handleInquirySubmit = async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...inquiryForm,
-        mobile: phone, // 🔥 include phone
+        mobile: phone, // ðŸ”¥ include phone
       }),
     });
 
@@ -373,7 +373,7 @@ const handleInquirySubmit = async (e) => {
 
     setPhone('');
 
-    // ✅ KEEP SAME MESSAGE
+    // âœ… KEEP SAME MESSAGE
     setTimeout(() => setInquirySubmitted(false), 5000);
 
   } catch (error) {
@@ -416,11 +416,11 @@ const handleInquirySubmit = async (e) => {
 {/*Cover Section_____________________________________________________________________________*/}
 <div className={styles_2.coversection}>
     <div className={styles_2.coversection_brief}>
-        <h1>Private Sri Lanka Tour Packages & Tailor-Made Tours</h1>
+        <h1>Sri Lanka Tour Packages & Private Tours</h1>
         <h2>Explore the Island Completely on Your Terms</h2>
         <p>
             From scaling the mist-shrouded fortress of <strong>Sigiriya</strong> and wandering through lush <strong>Ella tea plantations</strong>, 
-            to tracking leopards on wild safaris and relaxing on pristine golden beaches—your dream getaway is entirely custom-built. 
+            to tracking leopards on wild safaris and relaxing on pristine golden beachesâ€”your dream getaway is entirely custom-built. 
             Travel in absolute comfort with a dedicated, professional private driver-guide and stay in handpicked boutique hotels 
             perfectly suited to your style. Let Pelican Travels and Tours design your seamless, stress-free Sri Lankan adventure.
         </p>
@@ -444,7 +444,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Services Section_____________________________________________________________________________*/}
         <div className={styles_3.services_section}>
-            <Link href="/sri-lanka-tour-services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(235, 130, 10)" }}>SERVICES</span></h2></Link>
+            <Link href="/sri-lanka-tour-services"><h2 className={styles_3.topic_text}>OUR <span style={{ color: "rgb(175, 102, 18)" }}>SERVICES</span></h2></Link>
             <div className={styles_3.services_container}>
                 <div className={styles_3.services} >
                     <Link href="/sri-lanka-tour-services?scroll=roundtours"><i className="fa fa-recycle"></i>
@@ -474,7 +474,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Packages Section_____________________________________________________________________________*/}
     <div className={styles_4.packages_section_container}>
-        <Link href="/sri-lanka-tour-packages"><h2 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(235, 130, 10)" }}>TOUR PACKAGES</span></h2></Link>
+        <Link href="/sri-lanka-tour-packages"><h2 className={styles_4.topic_text}>SRI LANKAN <span style={{ color: "rgb(175, 102, 18)" }}>TOUR PACKAGES</span></h2></Link>
         <div className={styles_4.packages_section}>
         
               <div className={styles_4.overlayers}>
@@ -525,7 +525,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-2 Paxes</p>
                         </div>
                         <h2 className={styles_4.packages_h1}>HONEYMOON TOUR</h2>  
-                        <h3 className={styles_4.Package_h3}>Romantic Sri Lanka honeymoon with hill country, train rides, safaris, and beach sunsets—blending adventure, luxury, and intimate moments.</h3>
+                        <h3 className={styles_4.Package_h3}>Romantic Sri Lanka honeymoon with hill country, train rides, safaris, and beach sunsetsâ€”blending adventure, luxury, and intimate moments.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -549,7 +549,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
                         </div>
                         <h2 className={styles_4.packages_h1}>WILD & COASTAL BLISS</h2>  
-                        <h3 className={styles_4.Package_h3}>South Coast Sri Lanka tour with safaris, whale watching, heritage, and beach escapes—blending adventure with coastal luxury.</h3>
+                        <h3 className={styles_4.Package_h3}>South Coast Sri Lanka tour with safaris, whale watching, heritage, and beach escapesâ€”blending adventure with coastal luxury.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -621,7 +621,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  1-8 Paxes</p>
                         </div>
                         <h2 className={styles_4.packages_h1}>PEKOE TRAIL TREKKING</h2>  
-                        <h3 className={styles_4.Package_h3}>The Pekoe Trail is a 300 km hike through Sri Lanka’s Central Highlands, linking tea estates, mountains, and villages.</h3>
+                        <h3 className={styles_4.Package_h3}>The Pekoe Trail is a 300 km hike through Sri Lankaâ€™s Central Highlands, linking tea estates, mountains, and villages.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -645,7 +645,7 @@ const handleInquirySubmit = async (e) => {
                         <p className={styles_4.Package_paxes}><i className="fa-solid fa-users"></i>  2-8 Paxes</p>
                         </div>
                         <h2 className={styles_4.packages_h1}>WELLNESS & REJUVENATION</h2>  
-                        <h3 className={styles_4.Package_h3}>Sri Lanka wellness retreat with Ayurveda, yoga, spa therapies, and nature healing—designed for complete mind, body, rejuvenation.</h3>
+                        <h3 className={styles_4.Package_h3}>Sri Lanka wellness retreat with Ayurveda, yoga, spa therapies, and nature healingâ€”designed for complete mind, body, rejuvenation.</h3>
                         <div className={styles_4.package_ratings}>
                             <i className="fa-sharp fa-solid fa-star"></i>
                             <i className="fa-sharp fa-solid fa-star"></i>
@@ -665,7 +665,7 @@ const handleInquirySubmit = async (e) => {
         </div>
     </div>
 {/*Destinations Section_____________________________________________________________________________*/}
-        <Link href={"/sri-lanka-travel-destinations"} className={styles_5.text_deco_none}><h2 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(235, 130, 10)" }}>ATTRACTIONS</span></h2></Link>
+        <Link href={"/sri-lanka-travel-destinations"} className={styles_5.text_deco_none}><h2 className={styles_5.topic_text}>DESTINATIONS & <span style={{ color: "rgb(175, 102, 18)" }}>ATTRACTIONS</span></h2></Link>
         <div className={styles_5.destination_section}   onTouchStart={handleTouchStart}  onTouchMove={handleTouchMove} onTouchEnd={handleTouchEndDest}>
                 <div className={styles_5.overlayers}>
                     <div className={styles_5.solid_left}></div>
@@ -853,7 +853,7 @@ const handleInquirySubmit = async (e) => {
 
 {/*Tailormade Section_____________________________________________________________________________*/}
 
-    <h2 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(235, 130, 10)" }}>US</span></h2>
+    <h2 className={styles_6.topic_text}>INQUIRE <span style={{ color: "rgb(175, 102, 18)" }}>US</span></h2>
     <div className={styles_6.tailormade_section}>
         <div className={styles_6.inquire_section} ref={inquireRef}>
             <form className={styles_6.inquire_form} onSubmit={handleInquirySubmit}>
@@ -876,10 +876,10 @@ const handleInquirySubmit = async (e) => {
 
                     <tr><td><label>PAX</label></td>
                     <td><select name="pax" value={inquiryForm.pax} onChange={handleInquiryChange}>
-                            <option value="Individual / Couple (1-3 persons)">Individual / Couple (1–3 persons)</option>
-                            <option value="Small Group (4-8 persons)">Small Group (4–8 persons)</option>
-                            <option value="Medium Group (9-15 persons)">Medium Group (9–15 persons)</option>
-                            <option value="Large Group (16-25 persons)">Large Group (16–25 persons)</option>
+                            <option value="Individual / Couple (1-3 persons)">Individual / Couple (1â€“3 persons)</option>
+                            <option value="Small Group (4-8 persons)">Small Group (4â€“8 persons)</option>
+                            <option value="Medium Group (9-15 persons)">Medium Group (9â€“15 persons)</option>
+                            <option value="Large Group (16-25 persons)">Large Group (16â€“25 persons)</option>
                             <option value="Full-Scale Group (26+ persons)">Full-Scale Group (26+ persons)</option>
                         </select></td></tr>
 
@@ -951,7 +951,7 @@ const handleInquirySubmit = async (e) => {
 
 
 {/*Why Us Section_____________________________________________________________________________*/}   
-        <h2 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(235, 130, 10)" }}>PELICAN TOURS?</span></h2>
+        <h2 className={styles_7.topic_text}>WHY <span style={{ color: "rgb(175, 102, 18)" }}>PELICAN TOURS?</span></h2>
         <div className={styles_7.whyus_section_container}>
 
             <div className={styles_7.whyus_section}>
@@ -966,7 +966,7 @@ const handleInquirySubmit = async (e) => {
                         <li><h3>Tailor-Made Itineraries</h3></li>
                         <p>Enjoy fully customized Sri Lanka tour packages designed to match your travel style, budget, and interests.</p>
                         <li><h3>Experience-Based Packages</h3></li>
-                        <p>From cultural tours to adventure escapes, our packages focus on unique, immersive experiences you’ll never forget.</p>
+                        <p>From cultural tours to adventure escapes, our packages focus on unique, immersive experiences youâ€™ll never forget.</p>
                         <li><h3>Long Industry Expertise</h3></li>
                         <p>With years of trusted service as a leading inbound tour operator in Sri Lanka, we guarantee reliable and professional travel solutions.</p>
                     </ul>
@@ -976,12 +976,12 @@ const handleInquirySubmit = async (e) => {
         </div>
 
 {/*Feedback Section_____________________________________________________________________________*/}
-        <h2 className={styles_8.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>FEEDBACK</span> FROM OUR CLIENTS</h2>    
+        <h2 className={styles_8.topic_text}><span style={{ color: "rgb(175, 102, 18)" }}>FEEDBACK</span> FROM OUR CLIENTS</h2>    
         <div className={styles_8.feedback_section}>
             <div className={styles_8.feedback_container}>
                 <div className={styles_8.feedback}>
                     <div className={styles_8.stars}><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i></div>
-                    <p>"What an amazing trip… Pelican Travels & Tours were amazing. It’s the small details that turn a good into a fantastic holiday and the pelican team were amazing. Hasitha, our ever friendly and helpful host guide was supported by the wider team working behind the scene to constantly tweak our itinerary to get the most out of the each excursion, the weather and the location of the animals we wanted to see. We will definitely travel with Pelican next time we come to Sri Lanka."</p>
+                    <p>"What an amazing tripâ€¦ Pelican Travels & Tours were amazing. Itâ€™s the small details that turn a good into a fantastic holiday and the pelican team were amazing. Hasitha, our ever friendly and helpful host guide was supported by the wider team working behind the scene to constantly tweak our itinerary to get the most out of the each excursion, the weather and the location of the animals we wanted to see. We will definitely travel with Pelican next time we come to Sri Lanka."</p>
                     <h3>- Tim D7</h3>
                 </div>
                 
@@ -993,7 +993,7 @@ const handleInquirySubmit = async (e) => {
 
                 <div className={styles_8.feedback}>
                     <div className={styles_8.stars}><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i><i className="fa-solid fa-star"></i></div>
-                    <p>"The tour was bespoke to our family’s needs. Our guides Ranga and Hasitha went far and beyond our expectations, taking us to unique sights and activities such as hiking, hidden waterfalls, zip lining, turtle release, elephant safari,and surfing. We also hit the highlights of Sri Lanka. My family absolutely loved our adventure! Highly recommend Pelican tours!"</p>
+                    <p>"The tour was bespoke to our familyâ€™s needs. Our guides Ranga and Hasitha went far and beyond our expectations, taking us to unique sights and activities such as hiking, hidden waterfalls, zip lining, turtle release, elephant safari,and surfing. We also hit the highlights of Sri Lanka. My family absolutely loved our adventure! Highly recommend Pelican tours!"</p>
                     <h3>- Isabel F</h3>
                 </div>
             </div>
@@ -1007,7 +1007,7 @@ const handleInquirySubmit = async (e) => {
         </div>   
 
 {/*Contact Us Section_____________________________________________________________________________*/}
-        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(175, 102, 18)" }}>CONTACT</span> PELICAN TOURS</h2>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
                     <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
@@ -1038,7 +1038,7 @@ const handleInquirySubmit = async (e) => {
                 </div>
 
                 <div className={styles_9.footer_bottomline}>
-                    <p>© 2026 Pelican Travels & Tours | All rights reserved</p>
+                    <p>Â© 2026 Pelican Travels & Tours | All rights reserved</p>
                     <p></p>
                 </div>
                 <Image src={image_3} alt="Sri Lankan Attractions" />

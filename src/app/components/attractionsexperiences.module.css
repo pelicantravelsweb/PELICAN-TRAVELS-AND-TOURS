@@ -1,4 +1,4 @@
-/* ── Section wrapper ──────────────────────────────────────────────────────── */
+/* â”€â”€ Section wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section_wrapper {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -14,10 +14,10 @@
 }
 
 .topic_text span {
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
 }
 
-/* ── Sub-section headings ─────────────────────────────────────────────────── */
+/* â”€â”€ Sub-section headings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .sub_heading {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -28,7 +28,7 @@
     letter-spacing: 0.08em;
 }
 
-/* ── Carousel wrapper ─────────────────────────────────────────────────────── */
+/* â”€â”€ Carousel wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .carousel_block {
     position: relative;
 }
@@ -56,11 +56,11 @@
     will-change: transform;
 }
 
-/* ── Individual card ──────────────────────────────────────────────────────── */
+/* â”€â”€ Individual card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card {
     flex-shrink: 0;
     width: 310px;
-    border: 1px solid rgb(235, 130, 10);
+    border: 1px solid rgb(175, 102, 18);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -71,7 +71,7 @@
     box-shadow: 0px 0px 14px rgba(255, 144, 17, 0.5);
 }
 
-/* image — 16:10 ratio */
+/* image â€” 16:10 ratio */
 .card_image {
     position: relative;
     width: 100%;
@@ -112,7 +112,7 @@
     overflow: hidden;
 }
 
-/* ── Overlays & arrows ────────────────────────────────────────────────────── */
+/* â”€â”€ Overlays & arrows â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .overlayers {
     position: absolute;
     top: 0;
@@ -162,7 +162,7 @@
     transform: translateY(-50%);
     width: 60px;
     height: 60px;
-    background: rgba(235, 130, 10, 0.9);
+    background: rgba(175, 102, 18, 0.9);
     border: none;
     border-radius: 50%;
     color: rgb(36, 35, 35);
@@ -176,16 +176,16 @@
 }
 
 .nav_arrow:hover {
-    background: rgba(235, 130, 10, 0);
-    border: 1px solid rgb(235, 130, 10);
-    color: rgb(235, 130, 10);
+    background: rgba(175, 102, 18, 0);
+    border: 1px solid rgb(175, 102, 18);
+    color: rgb(175, 102, 18);
     transition: 0.8s;
 }
 
 .nav_arrow.left  { left:  2vw; }
 .nav_arrow.right { right: 2vw; }
 
-/* ── Popup overlay ────────────────────────────────────────────────────────── */
+/* â”€â”€ Popup overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes popupFadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -216,7 +216,7 @@
     max-width: 860px;
     max-height: 90vh;
     background-color: rgb(22, 22, 22);
-    border: 1px solid rgb(235, 130, 10);
+    border: 1px solid rgb(175, 102, 18);
     overflow: hidden;
     animation: popupSlideUp 0.3s ease forwards;
 }
@@ -243,17 +243,17 @@
 
 
 .popup_close:hover {
-    border-color: rgb(235, 130, 10);
+    border-color: rgb(175, 102, 18);
     transition: 0.6s;
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
 }
 
-/* image column — 4:5 ratio */
+/* image column â€” 4:5 ratio */
 .popup_image_col {
     position: relative;
     flex-shrink: 0;
     width: 42%;
-    /* 4:5 aspect via padding trick — overridden by flex height in desktop */
+    /* 4:5 aspect via padding trick â€” overridden by flex height in desktop */
     aspect-ratio: 4 / 5;
     max-height: 90vh;
     overflow: hidden;
@@ -272,7 +272,7 @@
 .popup_category {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(0.7rem, 0.85vw, 0.85rem);
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
     letter-spacing: 0.1em;
     margin: 0 0 0.6rem 0;
     text-transform: uppercase;
@@ -289,7 +289,7 @@
 .popup_divider {
     width: 3rem;
     height: 2px;
-    background-color: rgb(235, 130, 10);
+    background-color: rgb(175, 102, 18);
     margin-bottom: 1.2rem;
 }
 
@@ -301,7 +301,7 @@
     margin: 0;
 }
 
-/* ── Light theme ──────────────────────────────────────────────────────────── */
+/* â”€â”€ Light theme â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :global(body.light_theme) .topic_text  { color: rgb(36, 35, 35); }
 :global(body.light_theme) .sub_heading { color: rgb(36, 35, 35); }
 :global(body.light_theme) .card_title  { color: rgb(36, 35, 35); }
@@ -316,7 +316,7 @@
 :global(body.light_theme) .popup_title    { color: rgb(36, 35, 35); }
 :global(body.light_theme) .popup_description { color: rgb(80, 80, 80); }
 
-/* ── Responsive ───────────────────────────────────────────────────────────── */
+/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media only screen and (max-width: 900px) {
     .topic_text {
         font-size: 1.3rem;

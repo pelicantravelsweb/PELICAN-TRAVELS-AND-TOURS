@@ -26,8 +26,8 @@ const jsonLd = {
 };
 
 export const metadata = {
-  title: "Private Sri Lanka Tour Packages | Pelican Tours",
-  description: "Discover Sri Lanka with tailor-made private tour packages. Enjoy dedicated driver-guides, custom itineraries & boutique stays. Request your free tour quote today!",
+  title: "Sri Lanka Tour Packages & Private Tours | Pelican Tours",
+  description: "Explore Sri Lanka tour packages and tailor-made private tours with Pelican Tours. Discover beaches, wildlife, culture, tea country, and unforgettable island experiences.",
   alternates: { canonical: 'https://pelicantravelsandtours.com' },
 };
 

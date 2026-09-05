@@ -746,13 +746,13 @@
   .modal {
     max-height: 100vh;
     height: 100vh;
-    border-radius: 0;
+    border-radius: 10px;
     margin-top: 0;
   }
 
   .modalHeader {
     padding: 0.85rem 1rem;
-    border-radius: 0;
+    border-radius: 10px;
   }
 
   .modalHeader h2 {

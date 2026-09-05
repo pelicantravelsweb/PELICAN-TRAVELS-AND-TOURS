@@ -1,9 +1,9 @@
-/* ── Section wrapper ──────────────────────────────────────────────────────── */
+/* â”€â”€ Section wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section_wrapper {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ── Section description ──────────────────────────────────────────────────── */
+/* â”€â”€ Section description â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section_description {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(0.9rem, 1.1vw, 1.1rem);
@@ -13,7 +13,7 @@
     margin-bottom: 0;
 }
 
-/* ── Cards grid ───────────────────────────────────────────────────────────── */
+/* â”€â”€ Cards grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cards_grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -33,10 +33,10 @@
 
 .card:hover {
     background-color: rgb(33, 33, 33);
-    box-shadow: 0px 0px 12px rgba(235, 130, 10, 0.18);
+    box-shadow: 0px 0px 12px rgba(175, 102, 18, 0.18);
 }
 
-/* ── Icon + title row (your layout) ──────────────────────────────────────── */
+/* â”€â”€ Icon + title row (your layout) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card_icon_wrap {
     display: flex;
     gap: 1rem;
@@ -47,7 +47,7 @@
 
 .card_icon {
     font-size: 3rem;
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
     flex-shrink: 0;
 }
 
@@ -61,7 +61,7 @@
     padding-bottom: 0.2rem;
 }
 
-/* ── Description ──────────────────────────────────────────────────────────── */
+/* â”€â”€ Description â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card_body {
     display: flex;
     flex-direction: column;
@@ -76,7 +76,7 @@
     margin: 0;
 }
 
-/* ── Per-card availability bar ────────────────────────────────────────────── */
+/* â”€â”€ Per-card availability bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card_bar_wrap {
     bottom: 0;
     margin-top: 1.2rem;
@@ -102,7 +102,7 @@
 .card_bar_value {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(0.78rem, 0.88vw, 0.88rem);
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
     font-weight: 600;
 }
 
@@ -115,11 +115,11 @@
 .card_bar_fill {
     bottom: 0;
     height: 100%;
-    background: linear-gradient(to right, rgb(235, 130, 10), rgb(255, 175, 65));
+    background: linear-gradient(to right, rgb(175, 102, 18), rgb(255, 175, 65));
     transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Light theme overrides ────────────────────────────────────────────────── */
+/* â”€â”€ Light theme overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :global(body.light_theme) .card_title { color: rgb(36, 35, 35); }
 
 :global(body.light_theme) .card {
@@ -128,7 +128,7 @@
 }
 :global(body.light_theme) .card:hover {
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 14px rgba(235, 130, 10, 0.25);
+    box-shadow: 0 0 14px rgba(175, 102, 18, 0.25);
 }
 
 :global(body.light_theme) .card_bar_track {
@@ -139,7 +139,7 @@
     border-top-color: rgb(225, 225, 225);
 }
 
-/* ── Responsive ───────────────────────────────────────────────────────────── */
+/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media only screen and (max-width: 900px) {
     .cards_grid {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

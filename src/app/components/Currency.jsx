@@ -3,26 +3,26 @@ import React, { useEffect, useState } from "react";
 import styles from "./currency.module.css";
 
 const RATE_CURRENCIES = [
-  { code: "USD", label: "US Dollar",          flag: "🇺🇸" },
-  { code: "EUR", label: "Euro",               flag: "🇪🇺" },
-  { code: "GBP", label: "British Pound",      flag: "🇬🇧" },
-  { code: "AUD", label: "Australian Dollar",  flag: "🇦🇺" },
-  { code: "CAD", label: "Canadian Dollar",    flag: "🇨🇦" },
-  { code: "SGD", label: "Singapore Dollar",   flag: "🇸🇬" },
-  { code: "INR", label: "Indian Rupee",       flag: "🇮🇳" },
-  { code: "JPY", label: "Japanese Yen",       flag: "🇯🇵" },
-  { code: "CHF", label: "Swiss Franc",        flag: "🇨🇭" },
-  { code: "CNY", label: "Chinese Yuan",       flag: "🇨🇳" },
-  { code: "MYR", label: "Malaysian Ringgit",  flag: "🇲🇾" },
-  { code: "THB", label: "Thai Baht",          flag: "🇹🇭" },
-  { code: "AED", label: "UAE Dirham",         flag: "🇦🇪" },
-  { code: "SAR", label: "Saudi Riyal",        flag: "🇸🇦" },
-  { code: "KRW", label: "South Korean Won",   flag: "🇰🇷" },
-  { code: "NZD", label: "New Zealand Dollar", flag: "🇳🇿" },
-  { code: "SEK", label: "Swedish Krona",      flag: "🇸🇪" },
-  { code: "NOK", label: "Norwegian Krone",    flag: "🇳🇴" },
-  { code: "DKK", label: "Danish Krone",       flag: "🇩🇰" },
-  { code: "ZAR", label: "South African Rand", flag: "🇿🇦" },
+  { code: "USD", label: "US Dollar",          flag: "ðŸ‡ºðŸ‡¸" },
+  { code: "EUR", label: "Euro",               flag: "ðŸ‡ªðŸ‡º" },
+  { code: "GBP", label: "British Pound",      flag: "ðŸ‡¬ðŸ‡§" },
+  { code: "AUD", label: "Australian Dollar",  flag: "ðŸ‡¦ðŸ‡º" },
+  { code: "CAD", label: "Canadian Dollar",    flag: "ðŸ‡¨ðŸ‡¦" },
+  { code: "SGD", label: "Singapore Dollar",   flag: "ðŸ‡¸ðŸ‡¬" },
+  { code: "INR", label: "Indian Rupee",       flag: "ðŸ‡®ðŸ‡³" },
+  { code: "JPY", label: "Japanese Yen",       flag: "ðŸ‡¯ðŸ‡µ" },
+  { code: "CHF", label: "Swiss Franc",        flag: "ðŸ‡¨ðŸ‡­" },
+  { code: "CNY", label: "Chinese Yuan",       flag: "ðŸ‡¨ðŸ‡³" },
+  { code: "MYR", label: "Malaysian Ringgit",  flag: "ðŸ‡²ðŸ‡¾" },
+  { code: "THB", label: "Thai Baht",          flag: "ðŸ‡¹ðŸ‡­" },
+  { code: "AED", label: "UAE Dirham",         flag: "ðŸ‡¦ðŸ‡ª" },
+  { code: "SAR", label: "Saudi Riyal",        flag: "ðŸ‡¸ðŸ‡¦" },
+  { code: "KRW", label: "South Korean Won",   flag: "ðŸ‡°ðŸ‡·" },
+  { code: "NZD", label: "New Zealand Dollar", flag: "ðŸ‡³ðŸ‡¿" },
+  { code: "SEK", label: "Swedish Krona",      flag: "ðŸ‡¸ðŸ‡ª" },
+  { code: "NOK", label: "Norwegian Krone",    flag: "ðŸ‡³ðŸ‡´" },
+  { code: "DKK", label: "Danish Krone",       flag: "ðŸ‡©ðŸ‡°" },
+  { code: "ZAR", label: "South African Rand", flag: "ðŸ‡¿ðŸ‡¦" },
 ];
 
 const DOS = [
@@ -38,13 +38,13 @@ const DOS = [
 
 const DONTS = [
   { icon: "fa-solid fa-circle-xmark", text: "Never exchange currency with street dealers or unofficial sources" },
-  { icon: "fa-solid fa-circle-xmark", text: "Don't rely entirely on cards — outages occur outside major cities" },
-  { icon: "fa-solid fa-circle-xmark", text: "Don't arrive without any local cash — you'll need it immediately for transport" },
-  { icon: "fa-solid fa-circle-xmark", text: "Don't carry excessive cash — use cards wherever they are accepted" },
-  { icon: "fa-solid fa-circle-xmark", text: "Don't discard exchange receipts — hotels may require proof of legal exchange" },
-  { icon: "fa-solid fa-circle-xmark", text: "Don't exchange large sums at the airport — rates are less competitive" },
-  { icon: "fa-solid fa-circle-xmark", text: "Don't assume Apple Pay or Google Pay will work — physical cards are essential" },
-  { icon: "fa-solid fa-circle-xmark", text: "Don't use isolated ATMs at night — use secure, bank-branch ATMs only" },
+  { icon: "fa-solid fa-circle-xmark", text: "Don't rely entirely on cards â€” outages occur outside major cities" },
+  { icon: "fa-solid fa-circle-xmark", text: "Don't arrive without any local cash â€” you'll need it immediately for transport" },
+  { icon: "fa-solid fa-circle-xmark", text: "Don't carry excessive cash â€” use cards wherever they are accepted" },
+  { icon: "fa-solid fa-circle-xmark", text: "Don't discard exchange receipts â€” hotels may require proof of legal exchange" },
+  { icon: "fa-solid fa-circle-xmark", text: "Don't exchange large sums at the airport â€” rates are less competitive" },
+  { icon: "fa-solid fa-circle-xmark", text: "Don't assume Apple Pay or Google Pay will work â€” physical cards are essential" },
+  { icon: "fa-solid fa-circle-xmark", text: "Don't use isolated ATMs at night â€” use secure, bank-branch ATMs only" },
 ];
 
 const QUICK_FACTS = [
@@ -53,13 +53,13 @@ const QUICK_FACTS = [
   { icon: "fa-solid fa-building-columns", label: "Best Exchange",      value: "Licensed Banks" },
   { icon: "fa-solid fa-money-bill-wave",  label: "ATM Withdrawals",    value: "Rupees Only" },
   { icon: "fa-solid fa-receipt",          label: "Keep Receipts",      value: "Required for Re-conversion" },
-  { icon: "fa-solid fa-wallet",           label: "Recommended Split",  value: "60–80% Card · 20–40% Cash" },
+  { icon: "fa-solid fa-wallet",           label: "Recommended Split",  value: "60â€“80% Card Â· 20â€“40% Cash" },
 ];
 
 const CARDS_OK    = ["Hotels & Resorts", "Tour Operators", "Shopping Malls", "Supermarkets", "Mid-range Restaurants", "Fuel Stations"];
-const CASH_NEEDED = ["Tuk-Tuks", "Street Food & Markets", "Small Guesthouses", "Local Cafés", "Rural Villages", "Entrance Tickets"];
+const CASH_NEEDED = ["Tuk-Tuks", "Street Food & Markets", "Small Guesthouses", "Local CafÃ©s", "Rural Villages", "Entrance Tickets"];
 
-// ── Fetch all rates keyed as LKR per 1 unit of each currency ─────────────────
+// â”€â”€ Fetch all rates keyed as LKR per 1 unit of each currency â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function fetchRates() {
   // Attempt 1: open.er-api
   try {
@@ -114,7 +114,7 @@ async function fetchRates() {
   throw new Error("All rate sources failed");
 }
 
-// ── Converter widget ──────────────────────────────────────────────────────────
+// â”€â”€ Converter widget â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function CurrencyConverter({ rates, lastUpdated }) {
   const [selectedCode, setSelectedCode] = useState("USD");
   const [amount, setAmount]             = useState("1");
@@ -130,7 +130,7 @@ function CurrencyConverter({ rates, lastUpdated }) {
     <div className={styles.converter_block}>
       <div className={styles.converter_header}>
         <h3 className={styles.block_heading}>
-          LIVE EXCHANGE RATE <span>→ LKR</span>
+          LIVE EXCHANGE RATE <span>â†’ LKR</span>
         </h3>
         {lastUpdated && (
           <span className={styles.rates_updated}>Updated {lastUpdated}</span>
@@ -169,11 +169,11 @@ function CurrencyConverter({ rates, lastUpdated }) {
             >
               {RATE_CURRENCIES.map((c) => (
                 <option key={c.code} value={c.code}>
-                  {c.code} — {c.label}
+                  {c.code} â€” {c.label}
                 </option>
               ))}
             </select>
-            <i className="fa-solid fa-chevron-down" style={{ pointerEvents: "none", position: "absolute", right: "1rem", color: "rgb(235, 130, 10)", fontSize: "0.8rem" }}></i>
+            <i className="fa-solid fa-chevron-down" style={{ pointerEvents: "none", position: "absolute", right: "1rem", color: "rgb(175, 102, 18)", fontSize: "0.8rem" }}></i>
           </div>
         </div>
 
@@ -187,12 +187,12 @@ function CurrencyConverter({ rates, lastUpdated }) {
             {parseFloat(amount) || 0} {selectedCode}
           </span>
         </div>
-        <i className="fa-solid fa-arrow-right" style={{ color: "rgb(235, 130, 10)", fontSize: "1.2rem" }}></i>
+        <i className="fa-solid fa-arrow-right" style={{ color: "rgb(175, 102, 18)", fontSize: "1.2rem" }}></i>
         <div className={styles.result_to}>
-          <span className={styles.result_flag}>🇱🇰</span>
+          <span className={styles.result_flag}>ðŸ‡±ðŸ‡°</span>
           <div className={styles.result_to_values}>
             <span className={styles.result_lkr}>
-              {lkrResult !== null ? `LKR ${formatLKR(lkrResult)}` : "—"}
+              {lkrResult !== null ? `LKR ${formatLKR(lkrResult)}` : "â€”"}
             </span>
             {rateToLKR && (
               <span className={styles.result_rate_note}>
@@ -207,7 +207,7 @@ function CurrencyConverter({ rates, lastUpdated }) {
   );
 }
 
-// ── Main component ────────────────────────────────────────────────────────────
+// â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function Currency() {
   const [rates, setRates]           = useState(null);
   const [ratesError, setRatesError] = useState(false);
@@ -223,10 +223,10 @@ export default function Currency() {
     <div className={styles.section_wrapper}>
 
       <p className={styles.section_description}>
-        Sri Lanka's official currency is the <strong>Sri Lankan Rupee (LKR)</strong>. Foreign currencies such as USD, EUR, and GBP are not accepted for everyday purchases — you will need local rupees for most transactions. The safest approach is to carry a combination of cards and cash, exchange money only at licensed banks or authorized money changers, and always keep your receipts. Here is everything you need to know about handling money as a visitor to Sri Lanka.
+        Sri Lanka's official currency is the <strong>Sri Lankan Rupee (LKR)</strong>. Foreign currencies such as USD, EUR, and GBP are not accepted for everyday purchases â€” you will need local rupees for most transactions. The safest approach is to carry a combination of cards and cash, exchange money only at licensed banks or authorized money changers, and always keep your receipts. Here is everything you need to know about handling money as a visitor to Sri Lanka.
       </p>
 
-      {/* ── Quick facts ── */}
+      {/* â”€â”€ Quick facts â”€â”€ */}
       <div className={styles.quick_facts}>
         {QUICK_FACTS.map((f) => (
           <div key={f.label} className={styles.fact_card}>
@@ -237,14 +237,14 @@ export default function Currency() {
         ))}
       </div>
 
-      {/* ── Converter + card/cash panels ── */}
+      {/* â”€â”€ Converter + card/cash panels â”€â”€ */}
       <div className={styles.middle_row}>
 
         {/* converter or loading/error states */}
         {!rates && !ratesError && (
           <div className={styles.rates_block}>
             <p className={styles.rates_loading}>
-              <i className="fa-solid fa-spinner fa-spin"></i> Fetching live rates…
+              <i className="fa-solid fa-spinner fa-spin"></i> Fetching live ratesâ€¦
             </p>
           </div>
         )}
@@ -252,7 +252,7 @@ export default function Currency() {
         {ratesError && (
           <div className={styles.rates_block}>
             <p className={styles.rates_error}>
-              <i className="fa-solid fa-triangle-exclamation"></i> Live rates unavailable — please check a currency converter before travel.
+              <i className="fa-solid fa-triangle-exclamation"></i> Live rates unavailable â€” please check a currency converter before travel.
             </p>
           </div>
         )}
@@ -293,7 +293,7 @@ export default function Currency() {
 
       </div>
 
-      {/* ── Do's and Don'ts ── */}
+      {/* â”€â”€ Do's and Don'ts â”€â”€ */}
       <div className={styles.dos_donts}>
         <div className={styles.dos_col}>
           <h3 className={styles.dos_heading}><i className="fa-solid fa-thumbs-up"></i> DO</h3>

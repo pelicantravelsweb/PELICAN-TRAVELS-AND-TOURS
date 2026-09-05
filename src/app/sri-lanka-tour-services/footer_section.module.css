@@ -56,17 +56,17 @@
 }
 
 .footer_buttons button:hover{
-    border-color: rgb(235, 130, 10);   
+    border-color: rgb(175, 102, 18);   
     transition: 0.6s;
 }
 
 .footer_buttons button:hover i{
-    color: rgb(235, 130, 10);   
+    color: rgb(175, 102, 18);   
     transition: 0.6s;
 }
 
 .footer_buttons button:hover .tripadvisor_icon{
-    color: rgb(235, 130, 10);   
+    color: rgb(175, 102, 18);   
     transition: 0.6s;
 }
 
@@ -91,7 +91,7 @@
 
 .footer_phone_numbers a:hover,
 .footer_email a:hover {
-  color: rgb(235, 130, 10); /* optional hover color (your theme) */
+  color: rgb(175, 102, 18); /* optional hover color (your theme) */
   transition: 0.6s;
 }
 

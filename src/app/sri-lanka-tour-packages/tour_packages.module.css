@@ -13,7 +13,7 @@
 }
 
 .page_header h1 span {
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
 }
 
 .page_header p {
@@ -38,7 +38,7 @@
   bottom: 2rem;
   right: 2rem;
   z-index: 100;
-  background-color: rgb(235, 130, 10);
+  background-color: rgb(175, 102, 18);
   color: white;
   border: none;
   padding: 1rem 1.5rem;
@@ -46,7 +46,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(235, 130, 10, 0.4);
+  box-shadow: 0 4px 15px rgba(175, 102, 18, 0.4);
   transition: all 0.3s ease;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .sidebar_collapsed_inner i {
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
   font-size: 1rem;
 }
 
@@ -132,7 +132,7 @@
 }
 
 .filters_sidebar::-webkit-scrollbar-thumb {
-  background: rgb(235, 130, 10);
+  background: rgb(175, 102, 18);
   border-radius: 3px;
 }
 
@@ -177,14 +177,14 @@
 }
 
 .filters_header h2 i {
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
   margin-right: 0.5rem;
 }
 
 .clear_filters {
   background: none;
   border: none;
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
   font-family: 'Poppins', sans-serif;
   font-size: 0.85rem;
   cursor: pointer;
@@ -203,7 +203,7 @@
 
 .filter_group h3 {
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
   text-transform: uppercase;
@@ -251,12 +251,12 @@
 }
 
 .checkbox_label:hover .checkmark {
-  border-color: rgb(235, 130, 10);
+  border-color: rgb(175, 102, 18);
 }
 
 .checkbox_label input:checked ~ .checkmark {
-  background-color: rgb(235, 130, 10);
-  border-color: rgb(235, 130, 10);
+  background-color: rgb(175, 102, 18);
+  border-color: rgb(175, 102, 18);
 }
 
 .checkmark::after {
@@ -288,7 +288,7 @@
 }
 
 .slider_value_badge {
-  background: rgb(235, 130, 10);
+  background: rgb(175, 102, 18);
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 0.78rem;
@@ -323,7 +323,7 @@
   top: 50%;
   height: 4px;
   transform: translateY(-50%);
-  background: rgb(235, 130, 10);
+  background: rgb(175, 102, 18);
   border-radius: 2px;
   pointer-events: none;
   z-index: 1;
@@ -345,7 +345,7 @@
   outline: none;
 }
 
-/* Thumb — WebKit */
+/* Thumb â€” WebKit */
 .range_slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -353,7 +353,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgb(235, 130, 10);
+  background: rgb(175, 102, 18);
   border: 2px solid #fff;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
@@ -362,7 +362,7 @@
 
 .range_slider::-webkit-slider-thumb:hover {
   transform: scale(1.2);
-  box-shadow: 0 3px 10px rgba(235, 130, 10, 0.5);
+  box-shadow: 0 3px 10px rgba(175, 102, 18, 0.5);
 }
 
 .range_slider::-webkit-slider-thumb:active {
@@ -370,13 +370,13 @@
   background: rgb(255, 155, 30);
 }
 
-/* Thumb — Firefox */
+/* Thumb â€” Firefox */
 .range_slider::-moz-range-thumb {
   pointer-events: all;
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: rgb(235, 130, 10);
+  background: rgb(175, 102, 18);
   border: 2px solid #fff;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
@@ -437,7 +437,7 @@
 }
 
 .no_results button {
-  background-color: rgb(235, 130, 10);
+  background-color: rgb(175, 102, 18);
   color: white;
   border: none;
   padding: 0.8rem 2rem;
@@ -462,7 +462,7 @@
 /* Package Card - Matching Home Page Style */
 .package_card {
   background-color: rgb(36, 35, 35);
-  border: 1px solid rgb(235, 130, 10);
+  border: 1px solid rgb(175, 102, 18);
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -472,11 +472,11 @@
 
 .package_card:hover {
   transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(235, 130, 10, 0.25);
+  box-shadow: 0 10px 30px rgba(175, 102, 18, 0.25);
 }
 
 .package_card:focus-visible {
-  outline: 2px solid rgb(235, 130, 10);
+  outline: 2px solid rgb(175, 102, 18);
   outline-offset: 2px;
 }
 
@@ -526,7 +526,7 @@
 }
 
 .image_dot_active {
-  background-color: rgb(235, 130, 10);
+  background-color: rgb(175, 102, 18);
   transform: scale(1.3);
 }
 
@@ -548,7 +548,7 @@
   position: absolute;
   top: 0.8rem;
   left: 0.8rem;
-  background-color: rgb(235, 130, 10);
+  background-color: rgb(175, 102, 18);
   color: white;
   padding: 0.25rem 0.6rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -652,7 +652,7 @@
 
 .price {
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
   font-size: clamp(1.4rem, 1.6vw, 2rem);
   font-weight: 600;
   line-height: 1;
@@ -667,7 +667,7 @@
 }
 
 .view_button {
-  background-color: rgb(235, 130, 10);
+  background-color: rgb(175, 102, 18);
   color: wheat;
   border: 1px solid transparent;
   padding: 0.55rem 0.85rem;
@@ -690,8 +690,8 @@
 
 .view_button:hover {
   background-color: transparent;
-  border-color: rgb(235, 130, 10);
-  color: rgb(235, 130, 10);
+  border-color: rgb(175, 102, 18);
+  color: rgb(175, 102, 18);
 }
 
 /* Light Theme Overrides */

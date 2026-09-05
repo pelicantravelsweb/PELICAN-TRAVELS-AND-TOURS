@@ -82,10 +82,10 @@ function page() {
               <div className={styles_2.services_description}>
                <h2 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h2>
               <p className={styles_2.p_1}>Explore the beauty and diversity of Sri Lanka through our expertly guided round tours. 
-                Each itinerary is custom-built to match your interests — 
+                Each itinerary is custom-built to match your interests â€” 
                 whether you crave beaches and wildlife or history and culture. 
                 Travel comfortably with private transport, licensed guides, 
-                and carefully selected hotels while discovering the island’s hidden gems.</p>
+                and carefully selected hotels while discovering the islandâ€™s hidden gems.</p>
 
               <h2 className={styles_2.topic_1}>Endless Experiences to Choose From</h2>
               <ul className={styles_2.ul_1}><li>Beach & Coastal</li>
@@ -108,7 +108,7 @@ function page() {
                   <li>24/7 local assistance and travel support</li></ul>
 
                   <h2 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h2>
-                  <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life — 
+                  <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life â€” 
                       see how it fits into one of our <Link href="/">private Sri Lanka tours</Link>.</p>
               </div>
           </div>
@@ -123,7 +123,7 @@ function page() {
               <div className={styles_2.services_description}>
                 <h2 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h2>
                 <p className={styles_2.p_1}>Perfect for travelers with limited time, 
-                  our day excursions offer a taste of Sri Lanka’s most iconic destinations 
+                  our day excursions offer a taste of Sri Lankaâ€™s most iconic destinations 
                   in just one day or an overnight stay. From coastal escapes and ancient cities 
                   to wildlife safaris and hiking adventures, each trip is fully guided, 
                   privately transported, and customizable to your interests. 
@@ -146,8 +146,8 @@ function page() {
                       <li>24/7 support during the excursion</li></ul>
 
                 <h2 className={styles_2.topic_1}>Plan Your Day Excursion in Sri Lanka Today</h2>
-                <p className={styles_2.p_1}>Choose your preferred destination or experience — 
-                  beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
+                <p className={styles_2.p_1}>Choose your preferred destination or experience â€” 
+                  beaches, wildlife, culture, or adventure â€” and weâ€™ll organize a personalized day 
                   or overnight trip designed around you.</p>
               </div>
           </div>
@@ -161,8 +161,8 @@ function page() {
               </div>
               <div className={styles_2.services_description}>
                 <h2 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h2>
-                <p className={styles_2.p_1}>Choose your preferred destination or experience — 
-                  beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
+                <p className={styles_2.p_1}>Choose your preferred destination or experience â€” 
+                  beaches, wildlife, culture, or adventure â€” and weâ€™ll organize a personalized day 
                   or overnight trip designed around you.</p>
                 
                 <h2 className={styles_2.topic_1}>Tailor-Made Corporate Experiences</h2>
@@ -180,7 +180,7 @@ function page() {
                       <li>On-site event management & local assistance</li></ul>
 
                 <h2 className={styles_2.topic_1}>Plan Your Next Corporate Event in Sri Lanka</h2>
-                <p className={styles_2.p_1}>Whether it’s a small executive meeting or a large international conference, 
+                <p className={styles_2.p_1}>Whether itâ€™s a small executive meeting or a large international conference, 
                   our MICE team will design a professional, stress-free program that blends business with authentic Sri Lankan experiences.</p>
               </div>
           </div>
@@ -215,7 +215,7 @@ function page() {
                       <li>Ideal for tours, business travel, or short transfers</li></ul>
 
                 <h2 className={styles_2.topic_1}>Book Your Private Transport in Sri Lanka</h2>
-                <p className={styles_2.p_1}>Wherever you’re headed — from the airport to your next destination — 
+                <p className={styles_2.p_1}>Wherever youâ€™re headed â€” from the airport to your next destination â€” 
                   our transport team ensures you travel safely, comfortably, and on time.</p>
               </div>
           </div>
@@ -237,10 +237,10 @@ function page() {
 
               <h2 className={styles_2.topic_1}>Guided Round Tours In Sri Lanka</h2>
               <p className={styles_2.p_1}>Explore the beauty and diversity of Sri Lanka through our expertly guided round tours. 
-                Each itinerary is custom-built to match your interests — 
+                Each itinerary is custom-built to match your interests â€” 
                 whether you crave beaches and wildlife or history and culture. 
                 Travel comfortably with private transport, licensed guides, 
-                and carefully selected hotels while discovering the island’s hidden gems.</p>
+                and carefully selected hotels while discovering the islandâ€™s hidden gems.</p>
 
               <h2 className={styles_2.topic_1}>Endless Experiences to Choose From</h2>
               <ul className={styles_2.ul_2}><li>Beach & Coastal</li>
@@ -263,7 +263,7 @@ function page() {
                   <li>24/7 local assistance and travel support</li></ul>
 
                   <h2 className={styles_2.topic_1}>Tell us your preferred experiences and travel dates </h2>
-                  <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life — 
+                  <p className={styles_2.p_1}>our experts will craft a tailor-made Sri Lanka round tour that brings your dream journey to life â€” 
                       see how it fits into one of our <Link href="/">private Sri Lanka tours</Link>.</p>
             </div>
 
@@ -273,7 +273,7 @@ function page() {
 
             <h2 className={styles_2.topic_1}>Private Excursions In Sri Lanka </h2>
             <p className={styles_2.p_1}>Perfect for travelers with limited time, 
-              our day excursions offer a taste of Sri Lanka’s most iconic destinations 
+              our day excursions offer a taste of Sri Lankaâ€™s most iconic destinations 
               in just one day or an overnight stay. From coastal escapes and ancient cities 
               to wildlife safaris and hiking adventures, each trip is fully guided, 
               privately transported, and customizable to your interests. 
@@ -296,8 +296,8 @@ function page() {
                   <li>24/7 support during the excursion</li></ul>
 
             <h2 className={styles_2.topic_1}>Plan Your Day Excursion in Sri Lanka Today</h2>
-            <p className={styles_2.p_1}>Choose your preferred destination or experience — 
-              beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
+            <p className={styles_2.p_1}>Choose your preferred destination or experience â€” 
+              beaches, wildlife, culture, or adventure â€” and weâ€™ll organize a personalized day 
               or overnight trip designed around you.</p>
             </div>
 
@@ -306,8 +306,8 @@ function page() {
 
             <Image src={image_3} alt="Adam's Peak, Sri Lanka" width={800} height={500} sizes="100vw" quality={70}/>
             <h2 className={styles_2.topic_1}>Professional MICE & Corporate Travel Solutions in Sri Lanka</h2>
-            <p className={styles_2.p_1}>Choose your preferred destination or experience — 
-              beaches, wildlife, culture, or adventure — and we’ll organize a personalized day 
+            <p className={styles_2.p_1}>Choose your preferred destination or experience â€” 
+              beaches, wildlife, culture, or adventure â€” and weâ€™ll organize a personalized day 
               or overnight trip designed around you.</p>
             
             <h2 className={styles_2.topic_1}>Tailor-Made Corporate Experiences</h2>
@@ -325,7 +325,7 @@ function page() {
                   <li>On-site event management & local assistance</li></ul>
 
             <h2 className={styles_2.topic_1}>Plan Your Next Corporate Event in Sri Lanka</h2>
-            <p className={styles_2.p_1}>Whether it’s a small executive meeting or a large international conference, 
+            <p className={styles_2.p_1}>Whether itâ€™s a small executive meeting or a large international conference, 
               our MICE team will design a professional, stress-free program that blends business with authentic Sri Lankan experiences.</p>
           </div>
 
@@ -354,7 +354,7 @@ function page() {
                   <li>Ideal for tours, business travel, or short transfers</li></ul>
 
             <h2 className={styles_2.topic_1}>Book Your Private Transport in Sri Lanka</h2>
-            <p className={styles_2.p_1}>Wherever you’re headed — from the airport to your next destination — 
+            <p className={styles_2.p_1}>Wherever youâ€™re headed â€” from the airport to your next destination â€” 
               our transport team ensures you travel safely, comfortably, and on time.</p>
 
           </div>
@@ -365,7 +365,7 @@ function page() {
 
 
 {/*Footer Section_____________________________________________________________________________*/}
-        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(175, 102, 18)" }}>CONTACT</span> PELICAN TOURS</h2>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
                     <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
@@ -396,7 +396,7 @@ function page() {
                 </div>
 
                 <div className={styles_9.footer_bottomline}>
-                    <p>© 2026 Pelican Travels & Tours | All rights reserved</p>
+                    <p>Â© 2026 Pelican Travels & Tours | All rights reserved</p>
                     <p></p>
                 </div>
                 <Image src={image_5} alt="Sri Lankan Attractions" />

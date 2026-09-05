@@ -31,12 +31,12 @@ export const metadata = {
 
   title: {
     default:
-      "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
+      "Sri Lanka Tour Packages & Private Tours | Pelican Tours",
     template: "%s | Pelican Tours Sri Lanka",
   },
 
   description:
-    "Explore Sri Lanka with custom holiday packages, luxury tours, honeymoon escapes, wildlife safaris, round tours, day excursions, and tailor-made travel experiences with Pelican Tours Sri Lanka.",
+    "Explore Sri Lanka tour packages and tailor-made private tours with Pelican Tours. Discover beaches, wildlife, culture, tea country, and unforgettable island experiences.",
 
   keywords: [
     "Sri Lanka tour packages",
@@ -82,9 +82,9 @@ export const metadata = {
 
   openGraph: {
     title:
-      "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
+      "Sri Lanka Tour Packages & Private Tours | Pelican Tours",
     description:
-      "Luxury Sri Lanka holidays, honeymoon packages, safaris, day tours, and tailor-made travel experiences crafted by local experts.",
+      "Explore Sri Lanka tour packages and tailor-made private tours with Pelican Tours. Discover beaches, wildlife, culture, tea country, and unforgettable island experiences.",
     url: "https://pelicantravelsandtours.com",
     siteName: "Pelican Tours Sri Lanka",
     images: [
@@ -102,9 +102,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Sri Lanka Tour Packages & Tailor-Made Tours | Pelican Tours",
+      "Sri Lanka Tour Packages & Private Tours | Pelican Tours",
     description:
-      "Custom Sri Lanka holidays, luxury tours, safaris, honeymoon escapes and unforgettable travel experiences.",
+      "Explore Sri Lanka tour packages and tailor-made private tours with Pelican Tours. Discover beaches, wildlife, culture, tea country, and unforgettable island experiences.",
     images: ["https://pelicantravelsandtours.com/Cover_Image.webp"],
   },
 

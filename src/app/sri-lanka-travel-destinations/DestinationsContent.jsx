@@ -68,24 +68,24 @@ import image_58 from "../../../public/Destinations_Image_61.webp";
 import useThemeToggle from '../lib/useThemeToggle';
 import { FaTripadvisor } from "react-icons/fa";
 
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 //  DESTINATIONS DATA
 //  Every attraction now carries its own short description, used by the popup.
-//  Add a new city by pushing another object into this array — the carousel,
+//  Add a new city by pushing another object into this array â€” the carousel,
 //  map embed, and popup all wire themselves up automatically from this data.
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const DESTINATIONS = [
  {
   id: "galle",
   name: "GALLE",
   mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63480.837541186236!2d80.17071117178111!3d6.055975343899013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae173bb6932fce3%3A0x4a35b903f9c64c03!2sGalle!5e0!3m2!1sen!2slk!4v1763042234517!5m2!1sen!2slk",
-  description: "Discover Galle, a captivating coastal city where history meets tropical beauty. Explore the iconic Galle Fort, a UNESCO World Heritage Site filled with colonial charm, cobblestone streets, and ocean views. Enjoy golden beaches, boutique cafés, and vibrant culture along Sri Lanka's southern coast. Perfect for sightseeing, relaxation, and photography, Galle offers a unique blend of heritage and seaside tranquility — a must-visit destination for every traveler.",
+  description: "Discover Galle, a captivating coastal city where history meets tropical beauty. Explore the iconic Galle Fort, a UNESCO World Heritage Site filled with colonial charm, cobblestone streets, and ocean views. Enjoy golden beaches, boutique cafÃ©s, and vibrant culture along Sri Lanka's southern coast. Perfect for sightseeing, relaxation, and photography, Galle offers a unique blend of heritage and seaside tranquility â€” a must-visit destination for every traveler.",
   attractions: [
     {
       id: "galle-fort",
       image: image_6,
       name: "Galle Fort",
-      description: "Step inside the historic Galle Fort, a magnificent UNESCO World Heritage Site where centuries of colonial history blend seamlessly with breathtaking coastal scenery. Originally built by the Portuguese in the 16th century and later fortified by the Dutch, the fortress features charming cobblestone streets, beautifully preserved colonial buildings, boutique hotels, cafés, museums, art galleries, and ancient churches. Walk along the oceanfront ramparts, admire spectacular sunsets over the Indian Ocean, and immerse yourself in one of Sri Lanka's most iconic cultural and architectural treasures."
+      description: "Step inside the historic Galle Fort, a magnificent UNESCO World Heritage Site where centuries of colonial history blend seamlessly with breathtaking coastal scenery. Originally built by the Portuguese in the 16th century and later fortified by the Dutch, the fortress features charming cobblestone streets, beautifully preserved colonial buildings, boutique hotels, cafÃ©s, museums, art galleries, and ancient churches. Walk along the oceanfront ramparts, admire spectacular sunsets over the Indian Ocean, and immerse yourself in one of Sri Lanka's most iconic cultural and architectural treasures."
     },
     {
       id: "jungle-beach",
@@ -97,13 +97,13 @@ const DESTINATIONS = [
       id: "hikkaduwa-beach",
       image: image_9,
       name: "Hikkaduwa Beach",
-      description: "Hikkaduwa Beach is one of Sri Lanka's most vibrant coastal destinations, renowned for its golden sands, crystal-clear waters, colorful coral reefs, and lively atmosphere. Visitors can enjoy surfing, snorkeling, scuba diving, glass-bottom boat rides, and unforgettable sunsets. With beachfront restaurants, cafés, nightlife, and marine life including sea turtles, Hikkaduwa offers the perfect blend of relaxation and adventure."
+      description: "Hikkaduwa Beach is one of Sri Lanka's most vibrant coastal destinations, renowned for its golden sands, crystal-clear waters, colorful coral reefs, and lively atmosphere. Visitors can enjoy surfing, snorkeling, scuba diving, glass-bottom boat rides, and unforgettable sunsets. With beachfront restaurants, cafÃ©s, nightlife, and marine life including sea turtles, Hikkaduwa offers the perfect blend of relaxation and adventure."
     },
     {
       id: "unawatuna-beach",
       image: image_7,
       name: "Unawatuna Beach",
-      description: "Unawatuna Beach is a beautiful palm-fringed bay famous for its calm turquoise waters, soft golden sand, and relaxed tropical atmosphere. Ideal for swimming throughout most of the year, the beach is lined with restaurants, cafés, boutique hotels, and beach bars. Visitors can also enjoy snorkeling, diving, paddleboarding, and spectacular sunsets, making Unawatuna one of Sri Lanka's most popular beach destinations."
+      description: "Unawatuna Beach is a beautiful palm-fringed bay famous for its calm turquoise waters, soft golden sand, and relaxed tropical atmosphere. Ideal for swimming throughout most of the year, the beach is lined with restaurants, cafÃ©s, boutique hotels, and beach bars. Visitors can also enjoy snorkeling, diving, paddleboarding, and spectacular sunsets, making Unawatuna one of Sri Lanka's most popular beach destinations."
     },
     {
       id: "thalpe-beach",
@@ -124,7 +124,7 @@ const DESTINATIONS = [
   id: "nuwara-eliya",
   name: "NUWARA ELIYA",
   mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63333.87737385!2d80.73936!3d6.9497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3067d75e3e4c5555%3A0x2b6a6f6f6f6f6f6f!2sNuwara%20Eliya!5e0!3m2!1sen!2slk!4v1763042234517!5m2!1sen!2slk",
-  description: "Discover Nuwara Eliya, Sri Lanka's cool-climate hill station affectionately known as 'Little England.' Wander through rolling emerald tea estates, breathe in the crisp mountain air, and admire colonial-era architecture, manicured gardens, and misty lakes. From fragrant tea factories to scenic waterfalls and pine forests, Nuwara Eliya offers a refreshing escape into nature, history, and highland charm — a must-visit destination for every traveler.",
+  description: "Discover Nuwara Eliya, Sri Lanka's cool-climate hill station affectionately known as 'Little England.' Wander through rolling emerald tea estates, breathe in the crisp mountain air, and admire colonial-era architecture, manicured gardens, and misty lakes. From fragrant tea factories to scenic waterfalls and pine forests, Nuwara Eliya offers a refreshing escape into nature, history, and highland charm â€” a must-visit destination for every traveler.",
   attractions: [
     {
       id: "gregory-lake",
@@ -269,7 +269,7 @@ const DESTINATIONS = [
   id: "dambulla",
   name: "DAMBULLA",
   mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252936.28695222916!2d80.5343989678028!3d7.881518540860323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcaff4c8adcc4f%3A0x67ae3cc5b1536914!2sDambulla!5e0!3m2!1sen!2slk!4v1763054062512!5m2!1sen!2slk",
-  description: "Experience the Dambulla–Sigiriya region, the cultural heart of Sri Lanka's ancient kingdom where history, nature, and wildlife come together. Home to the sacred Dambulla Cave Temple, this UNESCO World Heritage Site features stunning rock-carved shrines, ancient murals, and centuries-old Buddhist artistry. Nearby stands the majestic Sigiriya Rock Fortress, an iconic citadel rising dramatically above the plains with breathtaking views and rich archaeological significance. Surrounded by the rural charm of Habarana village, the adventurous Pidurangala Rock, and the wildlife-rich Minneriya National Park, this region offers a perfect blend of culture, adventure, and nature. Discover ancient heritage, unforgettable landscapes, and wild encounters in the heart of Sri Lanka's Cultural Triangle.",
+  description: "Experience the Dambullaâ€“Sigiriya region, the cultural heart of Sri Lanka's ancient kingdom where history, nature, and wildlife come together. Home to the sacred Dambulla Cave Temple, this UNESCO World Heritage Site features stunning rock-carved shrines, ancient murals, and centuries-old Buddhist artistry. Nearby stands the majestic Sigiriya Rock Fortress, an iconic citadel rising dramatically above the plains with breathtaking views and rich archaeological significance. Surrounded by the rural charm of Habarana village, the adventurous Pidurangala Rock, and the wildlife-rich Minneriya National Park, this region offers a perfect blend of culture, adventure, and nature. Discover ancient heritage, unforgettable landscapes, and wild encounters in the heart of Sri Lanka's Cultural Triangle.",
   attractions: [
     {
       id: "dambulla-cave-temple",
@@ -391,7 +391,7 @@ const DESTINATIONS = [
   },
 ];
 
-// ── Attraction popup ──────────────────────────────────────────────────────────
+// â”€â”€ Attraction popup â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function AttractionPopup({ attraction, onClose }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -407,7 +407,7 @@ function AttractionPopup({ attraction, onClose }) {
     <div className={styles_2.popup_overlay} onClick={onClose}>
       <div className={styles_2.popup_card} onClick={(e) => e.stopPropagation()}>
         <button className={styles_2.popup_close} onClick={onClose} aria-label="Close">
-          ✕
+          âœ•
         </button>
         <div className={styles_2.popup_image_col}>
           <Image
@@ -721,7 +721,7 @@ function DestinationsContent() {
       )}
 
       {/*Footer Section_____________________________________________________________________________*/}
-      <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>
+      <h2 className={styles_9.topic_text}><span style={{ color: "rgb(175, 102, 18)" }}>CONTACT</span> PELICAN TOURS</h2>
       <div className={styles_9.footer_section}>
         <div className={styles_9.footer_buttons}>
           <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
@@ -751,7 +751,7 @@ function DestinationsContent() {
         </div>
 
         <div className={styles_9.footer_bottomline}>
-          <p>© 2026 Pelican Travels & Tours | All rights reserved</p>
+          <p>Â© 2026 Pelican Travels & Tours | All rights reserved</p>
           <p></p>
         </div>
         <Image src={image_20} alt="Sri Lankan Attractions" />

@@ -30,7 +30,7 @@
 }
 
 .whyus_section_image img:hover{
-    filter: drop-shadow(0 0 50px rgba(235, 130, 10, 0.801));
+    filter: drop-shadow(0 0 50px rgba(175, 102, 18, 0.801));
     transition: 0.5s;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .whyus_section_description h3{
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
     font-family: 'Poppins', sans-serif;
     font-size: clamp(1rem,1.2vw,1.2rem);
     font-weight: 500;
@@ -50,7 +50,7 @@
 }
 
 .whyus_section_description li{
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
     font-size: clamp(1.3rem,1.6vw,1.6rem);
     cursor: pointer;
 }

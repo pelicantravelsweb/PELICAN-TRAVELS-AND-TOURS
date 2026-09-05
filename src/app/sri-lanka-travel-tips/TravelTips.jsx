@@ -51,7 +51,7 @@ function page() {
   const weather = useRef(null);
 
   const scrollToWeather_1 = () => {
-  if (!weather.current) return; // ✅ prevent crash
+  if (!weather.current) return; // âœ… prevent crash
 
   const yOffset = -200;
   const y =
@@ -69,7 +69,7 @@ function page() {
   const experiences = useRef(null);
 
   const scrollToWeather_2 = () => {
-  if (!experiences.current) return; // ✅ prevent crash
+  if (!experiences.current) return; // âœ… prevent crash
 
   const yOffset = -200;
   const y =
@@ -86,7 +86,7 @@ function page() {
   const transportation = useRef(null);
 
   const scrollToWeather_3 = () => {
-  if (!transportation.current) return; // ✅ prevent crash
+  if (!transportation.current) return; // âœ… prevent crash
 
   const yOffset = -200;
   const y =
@@ -103,7 +103,7 @@ function page() {
   const currency = useRef(null);
 
   const scrollToWeather_4 = () => {
-  if (!currency.current) return; // ✅ prevent crash
+  if (!currency.current) return; // âœ… prevent crash
 
   const yOffset = -200;
   const y =
@@ -283,7 +283,7 @@ const scrollToWeather_9 = () => {
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Wet Zone Climate</h5>
-                    <p>Sri Lanka's Wet Zone covers much of the southwest region, including Colombo, Galle, Bentota, Kalutara, and Kandy. This area receives high rainfall throughout the year, creating lush green landscapes and tropical vegetation. Temperatures typically range between 24°C and 31°C (75°F–88°F), with warm and humid conditions. The most favorable weather for travel is generally from December to April.</p>                   
+                    <p>Sri Lanka's Wet Zone covers much of the southwest region, including Colombo, Galle, Bentota, Kalutara, and Kandy. This area receives high rainfall throughout the year, creating lush green landscapes and tropical vegetation. Temperatures typically range between 24Â°C and 31Â°C (75Â°Fâ€“88Â°F), with warm and humid conditions. The most favorable weather for travel is generally from December to April.</p>                   
                     </div>
                 </div>
 
@@ -298,7 +298,7 @@ const scrollToWeather_9 = () => {
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Mountain Climate</h5>
-                    <p>Sri Lanka's Mountain Climate is found in the central highlands, including Nuwara Eliya, Ella, Haputale, Horton Plains, and Bandarawela. Due to higher elevations, temperatures are considerably cooler, typically ranging from 10°C to 24°C (50°F–75°F). The region experiences refreshing weather, frequent mist, and cooler nights throughout the year, with the clearest conditions often occurring between January and April.</p>                   
+                    <p>Sri Lanka's Mountain Climate is found in the central highlands, including Nuwara Eliya, Ella, Haputale, Horton Plains, and Bandarawela. Due to higher elevations, temperatures are considerably cooler, typically ranging from 10Â°C to 24Â°C (50Â°Fâ€“75Â°F). The region experiences refreshing weather, frequent mist, and cooler nights throughout the year, with the clearest conditions often occurring between January and April.</p>                   
                     </div>
                 </div>
                 
@@ -313,7 +313,7 @@ const scrollToWeather_9 = () => {
                     </div>
                     <div className={styles_2.climate_section_description}>
                     <h5>Dry Zone Climate</h5>
-                    <p>The Dry Zone extends across much of northern, eastern, and southeastern Sri Lanka, including Anuradhapura, Polonnaruwa, Trincomalee, Pasikuda, Arugam Bay, Sigiriya, and Yala. It experiences lower rainfall, abundant sunshine, and temperatures ranging from 27°C to 35°C (81°F–95°F). Dry and sunny conditions are most common between May and September, making this period ideal for travel.</p>                   
+                    <p>The Dry Zone extends across much of northern, eastern, and southeastern Sri Lanka, including Anuradhapura, Polonnaruwa, Trincomalee, Pasikuda, Arugam Bay, Sigiriya, and Yala. It experiences lower rainfall, abundant sunshine, and temperatures ranging from 27Â°C to 35Â°C (81Â°Fâ€“95Â°F). Dry and sunny conditions are most common between May and September, making this period ideal for travel.</p>                   
                     </div>
                 </div>
 
@@ -371,7 +371,7 @@ const scrollToWeather_9 = () => {
 
 
 {/*Footer Section_____________________________________________________________________________*/}
-        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(235, 130, 10)" }}>CONTACT</span> PELICAN TOURS</h2>    
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(175, 102, 18)" }}>CONTACT</span> PELICAN TOURS</h2>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
                     <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
@@ -402,7 +402,7 @@ const scrollToWeather_9 = () => {
                 </div>
 
                 <div className={styles_9.footer_bottomline}>
-                    <p>© 2026 Pelican Travels & Tours | All rights reserved</p>
+                    <p>Â© 2026 Pelican Travels & Tours | All rights reserved</p>
                     <p></p>
                 </div>
                 <Image src={image_5} alt="Sri Lankan Attractions" />

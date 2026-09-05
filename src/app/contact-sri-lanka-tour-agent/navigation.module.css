@@ -8,7 +8,7 @@
   font-family: 'Poppins', sans-serif;
   position: fixed;
   color: rgb(255, 255, 255);
-  background: linear-gradient(45deg,rgba(42, 123, 155, 0) 0%, rgba(199, 163, 87, 0) 50%, rgb(235, 130, 10)100%);
+  background: linear-gradient(45deg,rgba(42, 123, 155, 0) 0%, rgba(199, 163, 87, 0) 50%, rgb(175, 102, 18)100%);
   padding: 0.8rem;
   right: 0;
   top: 4rem;
@@ -36,7 +36,7 @@
 .travel_tips:hover{
   cursor: pointer;
   color: white;
-  background-color: rgb(235, 130, 10);
+  background-color: rgb(175, 102, 18);
   box-shadow: inset  0px 0px 35px rgba(0, 0, 0, 0.452);
   transition: 0.6s;
 }
@@ -64,7 +64,7 @@
 }
 
 .heading {
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
   font-size: clamp(1.4rem, 1.8vw, 1.8rem);
   font-family: Arial, Helvetica, sans-serif;
   padding: 1.2rem;
@@ -103,7 +103,7 @@
 }
 
 .navigation a:hover {
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
 }
 
 .navigation #active {
@@ -123,7 +123,7 @@
 }
 
 .navigation i:hover {
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
   cursor: pointer;
 }
 
@@ -135,14 +135,14 @@
   display: none;
 }
 
-/* 🌗 LIGHT THEME OVERRIDES */
+/* ðŸŒ— LIGHT THEME OVERRIDES */
 
 :global(body.light_theme) .navigation a {
   color: rgb(36, 35, 35);
 }
 
 :global(body.light_theme) .navigation a:hover {
-  color: rgb(235, 130, 10);
+  color: rgb(175, 102, 18);
 }
 
 :global(body.light_theme) .navigation i {
@@ -157,7 +157,7 @@
   background-color: rgb(211, 211, 211);;
 }
 
-/* 📱 MOBILE */
+/* ðŸ“± MOBILE */
 @media only screen and (max-width: 820px) {
   .navigation_mobile {
     display: block;
@@ -179,7 +179,7 @@
     font-family: Arial, Helvetica, sans-serif;
     border-style: solid;
     border-width: 1px;
-    border-color: rgb(235, 130, 10);
+    border-color: rgb(175, 102, 18);
     animation-duration: 1s;
     animation-fill-mode: both;
     background-color:rgb(36, 35, 35);

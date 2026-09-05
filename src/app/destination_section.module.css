@@ -59,7 +59,7 @@
     transform: translateY(-50%);
     width: 60px;
     height: 60px;
-    background: rgba(235, 130, 10, 0.9);
+    background: rgba(175, 102, 18, 0.9);
     border: none;
     border-radius: 50%;
     color: rgb(36, 35, 35);
@@ -73,9 +73,9 @@
 }
 
 .nav_arrow:hover {
-    border: 1px solid rgb(235, 130, 10);
-    background: rgba(235, 130, 10, 0);
-    color: rgb(235, 130, 10);
+    border: 1px solid rgb(175, 102, 18);
+    background: rgba(175, 102, 18, 0);
+    color: rgb(175, 102, 18);
     transition: 0.8s;
 }
 
@@ -111,7 +111,7 @@
     width: min(360px, calc((100vw - 64px) / 5));
     min-width: 0;
     flex: 0 0 min(360px, calc((100vw - 64px) / 5));
-    height: 470px; /* 🔥 FIXED HEIGHT */
+    height: 470px; /* ðŸ”¥ FIXED HEIGHT */
     overflow: hidden;
 }
 
@@ -138,7 +138,7 @@
 .destinations {
     position: relative;
     width: 100%;
-    flex: 1; /* 🔥 takes remaining space */
+    flex: 1; /* ðŸ”¥ takes remaining space */
     overflow: hidden;
     transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -183,7 +183,7 @@
 
 .destinations_brief i {
     margin-right: 0.4rem;
-    color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
 }
 
 .destination_container .destinations_description {
@@ -207,7 +207,7 @@
     padding-bottom: 0.4vw;
     width: 100%;
     border: 0;
-    background-color: rgb(235, 130, 10);
+    background-color: rgb(175, 102, 18);
     border-style: solid;
     border-width: 0.5px;
     border-color: rgba(255, 151, 25, 0);
@@ -220,10 +220,10 @@
     background-color: rgba(235, 125, 0, 0);
     border-style: solid;
     border-width: 0.5px;
-    border-color: rgb(235, 130, 10);
+    border-color: rgb(175, 102, 18);
     transition: 0.5s;
-    color: rgb(235, 130, 10);
-    border-color: rgb(235, 130, 10);
+    color: rgb(175, 102, 18);
+    border-color: rgb(175, 102, 18);
 }
 
 .topic_text{

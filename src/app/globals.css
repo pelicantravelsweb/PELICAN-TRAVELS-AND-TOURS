@@ -29,3 +29,7 @@ body.light_theme h4,
 body.light_theme h5 {
   color: rgb(36, 35, 35);
 }
+
+:where(section, article, aside, dialog, button, input, textarea, select, img, video, [class*="card"], [class*="modal"], [class*="panel"], [class*="box"]) {
+  border-radius: 0;
+}
