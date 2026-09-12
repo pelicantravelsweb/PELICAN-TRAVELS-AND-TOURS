@@ -173,7 +173,7 @@ function CurrencyConverter({ rates, lastUpdated }) {
                 </option>
               ))}
             </select>
-            <i className="fa-solid fa-chevron-down" style={{ pointerEvents: "none", position: "absolute", right: "1rem", color: "rgb(175, 102, 18)", fontSize: "0.8rem" }}></i>
+            <i className="fa-solid fa-chevron-down" style={{ pointerEvents: "none", position: "absolute", right: "1rem", color: "rgb(212, 114, 3)", fontSize: "0.8rem" }}></i>
           </div>
         </div>
 
@@ -187,7 +187,7 @@ function CurrencyConverter({ rates, lastUpdated }) {
             {parseFloat(amount) || 0} {selectedCode}
           </span>
         </div>
-        <i className="fa-solid fa-arrow-right" style={{ color: "rgb(175, 102, 18)", fontSize: "1.2rem" }}></i>
+        <i className="fa-solid fa-arrow-right" style={{ color: "rgb(212, 114, 3)", fontSize: "1.2rem" }}></i>
         <div className={styles.result_to}>
           <span className={styles.result_flag}>ðŸ‡±ðŸ‡°</span>
           <div className={styles.result_to_values}>

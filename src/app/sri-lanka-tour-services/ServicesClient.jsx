@@ -365,7 +365,7 @@ function page() {
 
 
 {/*Footer Section_____________________________________________________________________________*/}
-        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(175, 102, 18)" }}>CONTACT</span> PELICAN TOURS</h2>    
+        <h2 className={styles_9.topic_text}><span style={{ color: "rgb(212, 114, 3)" }}>CONTACT</span> PELICAN TOURS</h2>    
         <div className={styles_9.footer_section}>
                 <div className={styles_9.footer_buttons}>
                     <Link href="https://web.facebook.com/pelicantravels.lk" target="_blank" rel="noopener noreferrer"><button className={styles_9.footer_button_1}><i className="fa-brands fa-facebook"></i></button></Link>
