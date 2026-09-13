@@ -31,7 +31,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* What Travelers Should Know â€” list with image per item________________*/
+/* What Travelers Should Know — list with image per item________________*/
 .know_list{
     justify-content:space-around ;
     display: flex;
@@ -129,7 +129,7 @@
     background-color: rgb(212, 114, 3);
 }
 
-/* Popular Dishes â€” list with image per item____________________________*/
+/* Popular Dishes — list with image per item____________________________*/
 .dish_list{
     display: flex;
     flex-wrap: wrap;

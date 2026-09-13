@@ -23,7 +23,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* What Travelers Should Know â€” text cards______________________________*/
+/* What Travelers Should Know — text cards______________________________*/
 .card_grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

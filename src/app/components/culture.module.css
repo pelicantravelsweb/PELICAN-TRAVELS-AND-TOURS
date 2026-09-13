@@ -23,7 +23,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* What Travelers Should Know â€” image fixed left, points stacked right__*/
+/* What Travelers Should Know — image fixed left, points stacked right__*/
 .know_section{
     display: flex;
     gap: 2rem;
@@ -99,7 +99,7 @@
     margin-right: 1rem;
 }
 
-/* Festivals â€” image left, text right___________________________________*/
+/* Festivals — image left, text right___________________________________*/
 .festival_section{
     display: flex;
     gap: 2rem;

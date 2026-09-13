@@ -345,7 +345,7 @@
   outline: none;
 }
 
-/* Thumb â€” WebKit */
+/* Thumb — WebKit */
 .range_slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -370,7 +370,7 @@
   background: rgb(255, 155, 30);
 }
 
-/* Thumb â€” Firefox */
+/* Thumb — Firefox */
 .range_slider::-moz-range-thumb {
   pointer-events: all;
   width: 18px;

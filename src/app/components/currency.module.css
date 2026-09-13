@@ -1,10 +1,10 @@
-/* â”€â”€ Section wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Section wrapper ──────────────────────────────────────────────────────── */
 .section_wrapper {
     font-family: Arial, Helvetica, sans-serif;
-
+    padding-bottom: 1rem;
 }
 
-/* â”€â”€ Heading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Heading ──────────────────────────────────────────────────────────────── */
 .topic_text {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -19,14 +19,17 @@
     color: rgb(212, 114, 3);
 }
 
-/* â”€â”€ Section description â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Section description ──────────────────────────────────────────────────── */
 .section_description {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(0.9rem, 1.1vw, 1.1rem);
-    color: rgb(143, 143, 143);
+    color: rgb(176, 176, 176);
     line-height: 1.8;
     margin-top: 1.2rem;
     margin-bottom: 0;
+    padding: 1.1rem 1.2rem;
+    border-left: 3px solid rgb(212, 114, 3);
+    background: linear-gradient(90deg, rgba(212, 114, 3, 0.1), rgba(212, 114, 3, 0));
 }
 
 .section_description strong {
@@ -34,14 +37,12 @@
     font-weight: 600;
 }
 
-/* â”€â”€ Quick facts strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Quick facts strip ────────────────────────────────────────────────────── */
 .quick_facts {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1px;
-    margin-top: 3rem;
-    background-color: rgb(50, 50, 50);
-    border: 1px solid rgb(50, 50, 50);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 2.5rem;
 }
 
 .fact_card {
@@ -50,8 +51,9 @@
     align-items: flex-start;
     gap: 0.75rem;
     padding: 1.2rem 1.3rem;
-    background-color: rgb(22, 22, 22);
-    transition: background-color 0.3s ease;
+    background: linear-gradient(180deg, rgb(26, 26, 26), rgb(22, 22, 22));
+    border: 1px solid rgb(44, 44, 44);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .fact_card span{
@@ -60,7 +62,9 @@
 }
 
 .fact_card:hover {
-    background-color: rgb(28, 28, 28);
+    transform: translateY(-2px);
+    border-color: rgba(212, 114, 3, 0.7);
+    box-shadow: 0 0 0 1px rgba(212, 114, 3, 0.25);
 }
 
 .fact_icon {
@@ -79,26 +83,28 @@
 
 .fact_card .fact_value {
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(100, 100, 100);
+    color: rgb(220, 220, 220);
     font-size: clamp(0.9rem, 1.1vw, 1.1rem);
     font-weight: 600;
     line-height: 1.3;
 }
 
-/* â”€â”€ Middle row (rates + payment blocks) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Middle row (rates + payment blocks) ─────────────────────────────────── */
 .middle_row {
     display: flex;
     gap: 1.5rem;
-    margin-top: 3rem;
-    align-items: flex-start;
+    margin-top: 2.5rem;
+    align-items: stretch;
 }
 
-/* â”€â”€ Rates block â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Rates block ──────────────────────────────────────────────────────────── */
 .rates_block {
     flex: 1.4;
-    background-color: rgb(22, 22, 22);
+    background: linear-gradient(180deg, rgb(26, 26, 26), rgb(22, 22, 22));
     padding: 1.8rem 1.8rem 1.6rem;
     border-left: 3px solid rgb(212, 114, 3);
+    border: 1px solid rgb(44, 44, 44);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .rates_header {
@@ -116,6 +122,9 @@
     font-size: clamp(0.9rem, 1.1vw, 1.1rem);
     margin: 0;
     letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
 }
 
 .block_heading span,
@@ -127,13 +136,13 @@
 .rates_updated {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(0.7rem, 0.78vw, 0.78rem);
-    color: rgb(100, 100, 100);
+    color: rgb(150, 150, 150);
 }
 
 .rates_sub {
     font-family: 'Poppins', sans-serif;
     font-size: clamp(0.78rem, 0.88vw, 0.88rem);
-    color: rgb(120, 120, 120);
+    color: rgb(170, 170, 170);
     margin: 0 0 1.2rem 0;
     line-height: 1.5;
 }
@@ -223,7 +232,7 @@
     font-weight: 600;
 }
 
-/* â”€â”€ Payment blocks â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Payment blocks ───────────────────────────────────────────────────────── */
 .payment_blocks {
     flex: 1;
     display: flex;
@@ -232,8 +241,11 @@
 }
 
 .payment_block {
-    background-color: rgb(22, 22, 22);
+    background: linear-gradient(180deg, rgb(26, 26, 26), rgb(22, 22, 22));
     padding: 1.4rem 1.5rem;
+    border: 1px solid rgb(44, 44, 44);
+    border-left: 3px solid rgb(212, 114, 3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .payment_list {
@@ -252,7 +264,7 @@
     gap: 1rem;
     font-family: 'Poppins', sans-serif;
     font-size: clamp(0.8rem, 0.9vw, 0.9rem);
-    color: rgb(160, 160, 160);
+    color: rgb(180, 180, 180);
 }
 
 .payment_item_ok i {
@@ -267,18 +279,20 @@
     flex-shrink: 0;
 }
 
-/* â”€â”€ Do's and Don'ts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Do's and Don'ts ──────────────────────────────────────────────────────── */
 .dos_donts {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
 }
 
 .dos_col,
 .donts_col {
     padding: 1.8rem 1.8rem 1.6rem;
-    background-color: rgb(22, 22, 22);
+    background: linear-gradient(180deg, rgb(26, 26, 26), rgb(22, 22, 22));
+    border: 1px solid rgb(44, 44, 44);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .dos_col {
@@ -333,7 +347,7 @@
 .do_item span,
 .dont_item span{    
     font-size: clamp(0.8rem, 1vw, 1rem);
-    color: rgb(143, 143, 143);
+    color: rgb(180, 180, 180);
 }
 
 .do_icon {
@@ -350,22 +364,29 @@
     flex-shrink: 0;
 }
 
-/* â”€â”€ Light theme â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Light theme ──────────────────────────────────────────────────────────── */
+:global(body.light_theme) .section_description { background: linear-gradient(90deg, rgba(212, 114, 3, 0.08), rgba(212, 114, 3, 0)); }
+:global(body.light_theme) .section_description strong { color: rgb(46, 46, 46); }
 :global(body.light_theme) .topic_text  { color: rgb(36, 35, 35); }
 :global(body.light_theme) .fact_value  { color: rgb(36, 35, 35); }
 :global(body.light_theme) .rate_code   { color: rgb(36, 35, 35); }
 :global(body.light_theme) .block_heading { color: rgb(36, 35, 35); }
 
-:global(body.light_theme) .quick_facts      { background-color: rgb(210, 210, 210); }
-:global(body.light_theme) .fact_card        { background-color: rgb(245, 245, 245); }
-:global(body.light_theme) .fact_card:hover  { background-color: rgb(255, 255, 255); }
+:global(body.light_theme) .fact_card,
 :global(body.light_theme) .rates_block,
+:global(body.light_theme) .converter_block,
 :global(body.light_theme) .payment_block,
 :global(body.light_theme) .dos_col,
-:global(body.light_theme) .donts_col        { background-color: rgb(245, 245, 245); }
+:global(body.light_theme) .donts_col {
+    background: linear-gradient(180deg, rgb(248, 248, 248), rgb(241, 241, 241));
+    border-color: rgb(220, 220, 220);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+:global(body.light_theme) .fact_card:hover  { border-color: rgba(212, 114, 3, 0.6); }
 :global(body.light_theme) .rate_row         { border-bottom-color: rgb(225, 225, 225); }
 
-/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Responsive ───────────────────────────────────────────────────────────── */
 @media only screen and (max-width: 1000px) {
     .middle_row {
         flex-direction: column;
@@ -402,12 +423,14 @@
     }
 }
 
-/* â”€â”€ Currency converter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Currency converter ───────────────────────────────────────────────────── */
 .converter_block {
     flex: 1.4;
-    background-color: rgb(22, 22, 22);
+    background: linear-gradient(180deg, rgb(26, 26, 26), rgb(22, 22, 22));
     padding: 1.8rem 1.8rem 1.6rem;
     border-left: 3px solid rgb(212, 114, 3);
+    border: 1px solid rgb(44, 44, 44);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .converter_header {
@@ -458,7 +481,7 @@
     padding: 0.6rem 0.8rem;
     width: 100%;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     -moz-appearance: textfield;
 }
 
@@ -469,6 +492,7 @@
 
 .amount_input:focus {
     border-color: rgb(212, 114, 3);
+    box-shadow: 0 0 0 2px rgba(212, 114, 3, 0.12);
 }
 
 .select_wrapper {
@@ -498,11 +522,12 @@
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .currency_select:focus {
     border-color: rgb(212, 114, 3);
+    box-shadow: 0 0 0 2px rgba(212, 114, 3, 0.12);
 }
 
 .currency_select option {
@@ -517,8 +542,8 @@
     gap: 1.2rem;
     margin-top: 1.5rem;
     padding: 1.2rem 1.4rem;
-    background-color: rgb(28, 28, 28);
-    border: 0.5px solid rgb(50, 50, 50);
+    background: linear-gradient(180deg, rgb(30, 30, 30), rgb(26, 26, 26));
+    border: 1px solid rgb(50, 50, 50);
     flex-wrap: wrap;
 }
 
@@ -562,11 +587,10 @@
 }
 
 /* light theme for converter */
-:global(body.light_theme) .converter_block  { background-color: rgb(245, 245, 245); }
 :global(body.light_theme) .amount_input     { background-color: white; color: rgb(36, 35, 35); border-color: rgb(200, 200, 200); }
 :global(body.light_theme) .currency_select  { background-color: white; color: rgb(36, 35, 35); border-color: rgb(200, 200, 200); }
 :global(body.light_theme) .currency_select option { background-color: white; color: rgb(36, 35, 35); }
-:global(body.light_theme) .converter_result { background-color: rgb(238, 238, 238); border-color: rgb(215, 215, 215); }
+:global(body.light_theme) .converter_result { background: linear-gradient(180deg, rgb(240, 240, 240), rgb(234, 234, 234)); border-color: rgb(215, 215, 215); }
 :global(body.light_theme) .result_amount_from { color: rgb(80, 80, 80); }
 
 /* responsive */

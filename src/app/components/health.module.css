@@ -23,7 +23,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* What Travelers Should Know / Healthcare Accessibility â€” text cards___*/
+/* What Travelers Should Know / Healthcare Accessibility — text cards___*/
 .card_grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

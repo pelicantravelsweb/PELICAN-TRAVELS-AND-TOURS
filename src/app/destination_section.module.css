@@ -111,7 +111,7 @@
     width: min(360px, calc((100vw - 64px) / 5));
     min-width: 0;
     flex: 0 0 min(360px, calc((100vw - 64px) / 5));
-    height: 470px; /* ðŸ”¥ FIXED HEIGHT */
+    height: 470px; /* FIXED HEIGHT */
     overflow: hidden;
 }
 
@@ -138,7 +138,7 @@
 .destinations {
     position: relative;
     width: 100%;
-    flex: 1; /* ðŸ”¥ takes remaining space */
+    flex: 1; /* takes remaining space */
     overflow: hidden;
     transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -281,13 +281,13 @@
 }
 
 .destination_container{
-    width: calc((100vw - 32px) / 3);
+    width: min(280px, calc(100vw - 32px));
     min-width: 0;
-    flex-basis: calc((100vw - 32px) / 3);
+    flex-basis: min(280px, calc(100vw - 32px));
 }
 
 .destinations_container {
-    justify-content: flex-start;
+    justify-content: center;
     padding-left: 0;
     padding-right: 0;
 }

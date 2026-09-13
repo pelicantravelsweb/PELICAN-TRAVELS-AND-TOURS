@@ -1,4 +1,4 @@
-/* â”€â”€ Section wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Section wrapper ──────────────────────────────────────────────────────── */
 .section_wrapper {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -17,7 +17,7 @@
     color: rgb(212, 114, 3);
 }
 
-/* â”€â”€ Sub-section headings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Sub-section headings ─────────────────────────────────────────────────── */
 .sub_heading {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -28,7 +28,7 @@
     letter-spacing: 0.08em;
 }
 
-/* â”€â”€ Carousel wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Carousel wrapper ─────────────────────────────────────────────────────── */
 .carousel_block {
     position: relative;
 }
@@ -56,7 +56,7 @@
     will-change: transform;
 }
 
-/* â”€â”€ Individual card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Individual card ──────────────────────────────────────────────────────── */
 .card {
     flex-shrink: 0;
     width: 310px;
@@ -71,7 +71,7 @@
     box-shadow: 0px 0px 14px rgba(212, 114, 3, 0.5);
 }
 
-/* image â€” 16:10 ratio */
+/* image — 16:10 ratio */
 .card_image {
     position: relative;
     width: 100%;
@@ -112,7 +112,7 @@
     overflow: hidden;
 }
 
-/* â”€â”€ Overlays & arrows â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Overlays & arrows ────────────────────────────────────────────────────── */
 .overlayers {
     position: absolute;
     top: 0;
@@ -185,7 +185,7 @@
 .nav_arrow.left  { left:  2vw; }
 .nav_arrow.right { right: 2vw; }
 
-/* â”€â”€ Popup overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Popup overlay ────────────────────────────────────────────────────────── */
 @keyframes popupFadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -248,12 +248,12 @@
     color: rgb(212, 114, 3);
 }
 
-/* image column â€” 4:5 ratio */
+/* image column — 4:5 ratio */
 .popup_image_col {
     position: relative;
     flex-shrink: 0;
     width: 42%;
-    /* 4:5 aspect via padding trick â€” overridden by flex height in desktop */
+    /* 4:5 aspect via padding trick — overridden by flex height in desktop */
     aspect-ratio: 4 / 5;
     max-height: 90vh;
     overflow: hidden;
@@ -301,7 +301,7 @@
     margin: 0;
 }
 
-/* â”€â”€ Light theme â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Light theme ──────────────────────────────────────────────────────────── */
 :global(body.light_theme) .topic_text  { color: rgb(36, 35, 35); }
 :global(body.light_theme) .sub_heading { color: rgb(36, 35, 35); }
 :global(body.light_theme) .card_title  { color: rgb(36, 35, 35); }
@@ -316,7 +316,7 @@
 :global(body.light_theme) .popup_title    { color: rgb(36, 35, 35); }
 :global(body.light_theme) .popup_description { color: rgb(80, 80, 80); }
 
-/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Responsive ───────────────────────────────────────────────────────────── */
 @media only screen and (max-width: 900px) {
     .topic_text {
         font-size: 1.3rem;
@@ -331,12 +331,12 @@
         padding-left: 0;
     }
 
-    .card { width: 250px; }
+    .card { width: 280px; }
 
     .cards_container {
         justify-content: flex-start;
-        padding-left: calc((100vw - 250px) / 2);
-        padding-right: calc((100vw - 250px) / 2);
+        padding-left: max(0px, calc((100vw - 280px) / 2));
+        padding-right: max(0px, calc((100vw - 280px) / 2));
     }
 
     .nav_arrow { width: 50px; height: 50px; }
@@ -367,11 +367,11 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .card { width: 220px; }
-    .card_image { height: 160px; }
+    .card { width: 260px; }
+    .card_image { height: 180px; }
 
     .cards_container {
-        padding-left: calc((100vw - 220px) / 2);
-        padding-right: calc((100vw - 220px) / 2);
+        padding-left: max(0px, calc((100vw - 260px) / 2));
+        padding-right: max(0px, calc((100vw - 260px) / 2));
     }
 }

@@ -1,4 +1,4 @@
-/* .location_section â€” change position: absolute â†’ relative, fixed margin instead of vh */
+/* .location_section — change position: absolute -> relative, fixed margin instead of vh */
 .location_section {
   position: relative;
   display: flex;
@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-/* .location_section_sub_dev_1 â€” drop height: 100%, let content define height */
+/* .location_section_sub_dev_1 — drop height: 100%, let content define height */
 .location_section_sub_dev_1 {
   position: relative;
   background-color: rgba(212, 114, 3, 0);
