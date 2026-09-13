@@ -12,5 +12,24 @@ export const metadata = {
 };
 
 export default function ServicesPage() {
-  return <TravelTips/>;
+  return (
+    <>
+      <h1
+        style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          padding: 0,
+          margin: '-1px',
+          overflow: 'hidden',
+          clip: 'rect(0, 0, 0, 0)',
+          whiteSpace: 'nowrap',
+          border: 0,
+        }}
+      >
+        Essential Sri Lanka Travel Tips & First-Time Visitor Guide
+      </h1>
+      <TravelTips />
+    </>
+  );
 }

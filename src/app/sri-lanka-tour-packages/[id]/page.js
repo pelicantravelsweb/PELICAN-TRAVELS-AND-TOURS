@@ -87,5 +87,24 @@ export default async function PackageDetailPage({ params }) {
     redirect('/sri-lanka-tour-packages');
   }
 
-  return <PackageDetailClient serverPackageData={serializePackageData(packageData)} />; // 🆕
+  return (
+    <>
+      <h1
+        style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          padding: 0,
+          margin: '-1px',
+          overflow: 'hidden',
+          clip: 'rect(0, 0, 0, 0)',
+          whiteSpace: 'nowrap',
+          border: 0,
+        }}
+      >
+        {packageData?.title || 'Sri Lanka Tour Package'}
+      </h1>
+      <PackageDetailClient serverPackageData={serializePackageData(packageData)} />
+    </>
+  );
 }

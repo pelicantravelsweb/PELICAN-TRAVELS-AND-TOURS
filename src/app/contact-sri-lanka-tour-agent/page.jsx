@@ -12,5 +12,24 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactClient />;  // or <TravelTips/> — whatever your component is
+  return (
+    <>
+      <h1
+        style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          padding: 0,
+          margin: '-1px',
+          overflow: 'hidden',
+          clip: 'rect(0, 0, 0, 0)',
+          whiteSpace: 'nowrap',
+          border: 0,
+        }}
+      >
+        Contact Pelican Tours | Plan Your Private Sri Lanka Tour
+      </h1>
+      <ContactClient />
+    </>
+  );
 }
