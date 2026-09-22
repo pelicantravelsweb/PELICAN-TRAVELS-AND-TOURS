@@ -110,7 +110,15 @@ function Food() {
         {knowItems.map((item, index) => (
           <div className={styles.know_item} key={index}>
             <div className={styles.know_item_image}>
-              <Image src={item.image} alt={item.title} />
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={360}
+                height={260}
+                quality={60}
+                sizes="(max-width: 820px) 100vw, 30vw"
+                loading="lazy"
+              />
             </div>
             <div className={styles.know_item_description}>
               <h5>{item.title}</h5>
@@ -164,7 +172,15 @@ function Food() {
         {dishes.map((dish, index) => (
           <div className={styles.dish_item} key={index}>
             <div className={styles.dish_item_image}>
-              <Image src={dish.image} alt={dish.name} />
+              <Image
+                src={dish.image}
+                alt={dish.name}
+                width={360}
+                height={260}
+                quality={60}
+                sizes="(max-width: 820px) 100vw, 30vw"
+                loading="lazy"
+              />
             </div>
             <div className={styles.dish_item_description}>
               <h5>{dish.name}</h5>

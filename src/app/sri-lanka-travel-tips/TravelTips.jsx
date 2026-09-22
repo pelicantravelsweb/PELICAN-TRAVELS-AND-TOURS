@@ -197,8 +197,9 @@ const scrollToWeather_9 = () => {
               src={image_1}
               alt="Bomburu ella falls Sri Lanka"
               priority
-              quality={70}
+              quality={60}
               sizes="(max-width: 820px) 92vw, 40vw"
+              placeholder="blur"
             />
         </div>
         <div className={styles_2.hero_section_description}>
@@ -242,8 +243,9 @@ const scrollToWeather_9 = () => {
                     <Image
                       src={image_2}
                       alt="Southwest monsoon in Sri Lanka"
-                      quality={70}
+                      quality={60}
                       sizes="(max-width: 820px) 12rem, (max-width: 1150px) 15rem, 24vw"
+                      loading="lazy"
                     />
                     <div className={styles_2.weather_section_image_description}>
                         <h4>Southwest Monsoon </h4>
@@ -255,8 +257,9 @@ const scrollToWeather_9 = () => {
                     <Image
                       src={image_3}
                       alt="Northeast monsoon in Sri Lanka"
-                      quality={70}
+                      quality={60}
                       sizes="(max-width: 820px) 12rem, (max-width: 1150px) 15rem, 24vw"
+                      loading="lazy"
                     />
                     <div className={styles_2.weather_section_image_description}>
                         <h4>Northeast Monsoon </h4>
@@ -277,8 +280,9 @@ const scrollToWeather_9 = () => {
                         <Image
                           src={image_6}
                           alt="Sri Lanka wet zone climate"
-                          quality={70}
+                          quality={60}
                           sizes="(max-width: 1000px) 35vw, 30vw"
+                          loading="lazy"
                         />
                     </div>
                     <div className={styles_2.climate_section_description}>
@@ -292,8 +296,9 @@ const scrollToWeather_9 = () => {
                         <Image
                           src={image_7}
                           alt="Sri Lanka mountain climate"
-                          quality={70}
+                          quality={60}
                           sizes="(max-width: 1000px) 35vw, 30vw"
+                          loading="lazy"
                         />
                     </div>
                     <div className={styles_2.climate_section_description}>
@@ -307,8 +312,9 @@ const scrollToWeather_9 = () => {
                         <Image
                           src={image_8}
                           alt="Sri Lanka dry zone climate"
-                          quality={70}
+                          quality={60}
                           sizes="(max-width: 1000px) 35vw, 30vw"
+                          loading="lazy"
                         />
                     </div>
                     <div className={styles_2.climate_section_description}>

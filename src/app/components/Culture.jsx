@@ -72,7 +72,15 @@ function Culture() {
       <h4 className={styles.culture_subheading}>What Travelers Should Know About Sri Lankan Culture</h4>
       <div className={styles.know_section}>
         <div className={styles.know_image}>
-          <Image src={know_image} alt="What travelers should know about Sri Lankan culture" />
+          <Image
+            src={know_image}
+            alt="What travelers should know about Sri Lankan culture"
+            width={520}
+            height={420}
+            quality={60}
+            sizes="(max-width: 820px) 100vw, 35vw"
+            loading="lazy"
+          />
         </div>
         <div className={styles.know_list}>
           {knowItems.map((item, index) => (
@@ -113,7 +121,15 @@ function Culture() {
       <h4 className={styles.culture_subheading}>Festivals Can Affect Travel Plans</h4>
       <div className={styles.festival_section}>
         <div className={styles.festival_image}>
-          <Image src={festival_image} alt="Sri Lankan festivals and cultural celebrations" />
+          <Image
+            src={festival_image}
+            alt="Sri Lankan festivals and cultural celebrations"
+            width={520}
+            height={420}
+            quality={60}
+            sizes="(max-width: 820px) 100vw, 35vw"
+            loading="lazy"
+          />
         </div>
         <div className={styles.festival_description}>
           <p>

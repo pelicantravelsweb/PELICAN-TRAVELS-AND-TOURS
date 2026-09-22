@@ -294,7 +294,12 @@
     border-color: rgba(95, 158, 160, 0);
     border-radius: 50%;
     color: rgb(179, 179, 179);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     z-index: 10;
     transition: background 0.5s ease;

@@ -103,7 +103,15 @@ function Accommodation() {
         {stayOptions.map((item, index) => (
           <div className={styles.stay_item} key={index}>
             <div className={styles.stay_item_image}>
-              <Image src={item.image} alt={item.title} />
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={420}
+                height={280}
+                quality={60}
+                sizes="(max-width: 820px) 100vw, 30vw"
+                loading="lazy"
+              />
             </div>
             <div className={styles.stay_item_description}>
               <h5>{item.title}</h5>

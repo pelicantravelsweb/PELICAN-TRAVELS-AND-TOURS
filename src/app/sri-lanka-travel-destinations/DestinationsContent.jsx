@@ -407,7 +407,7 @@ function AttractionPopup({ attraction, onClose }) {
     <div className={styles_2.popup_overlay} onClick={onClose}>
       <div className={styles_2.popup_card} onClick={(e) => e.stopPropagation()}>
         <button className={styles_2.popup_close} onClick={onClose} aria-label="Close">
-          •
+          ✕
         </button>
         <div className={styles_2.popup_image_col}>
           <Image

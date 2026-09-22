@@ -219,7 +219,9 @@ function Carousel({ items, label, onCardClick }) {
                   alt={item.title}
                   fill
                   style={{ objectFit: "cover" }}
-                  sizes="310px"
+                  sizes="(max-width: 768px) 100vw, 310px"
+                  quality={60}
+                  loading="lazy"
                 />
               </div>
               <div className={styles.card_details}>
