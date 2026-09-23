@@ -103,11 +103,18 @@ function CardPopup({ item, onClose }) {
   const category = THINGS_TO_SEE.find(i => i.id === item.id) ? "THINGS TO SEE" : "THINGS TO DO";
 
   useEffect(() => {
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
     const handleKey = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handleKey);
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
       window.removeEventListener("keydown", handleKey);
     };
   }, [onClose]);

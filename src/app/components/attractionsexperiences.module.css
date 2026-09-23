@@ -40,31 +40,28 @@
     padding-bottom: 2rem;
 }
 
-/* 
-  Center alignment:
-  The container uses justify-content:center so the middle card sits at viewport center.
-  Cards on both sides overflow and are hidden by the carousel_wrapper overflow:hidden.
-  Each click moves one card, keeping the new middle card centered.
-*/
 .cards_container {
     display: flex;
     gap: 16px;
     justify-content: center;
     align-items: stretch;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem 4rem;
     will-change: transform;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 /* ── Individual card ──────────────────────────────────────────────────────── */
 .card {
-    flex-shrink: 0;
+    flex: 0 0 310px;
     width: 310px;
     border: 1px solid rgb(212, 114, 3);
     cursor: pointer;
     display: flex;
     flex-direction: column;
     transition: box-shadow 0.5s ease;
+    background: rgb(36, 35, 35);
 }
 
 .card:hover {
@@ -234,11 +231,15 @@
     border-color: rgba(95, 158, 160, 0);
     border-radius: 50%;
     color: rgb(179, 179, 179);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     z-index: 10;
     transition: background 0.5s ease;
-
 }
 
 
@@ -263,9 +264,10 @@
 .popup_content_col {
     flex: 1;
     padding: 2.5rem 2rem 2rem 2rem;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;   /* was space-between */
+    justify-content: center;
     align-items: flex-start;
 }
 
@@ -331,12 +333,15 @@
         padding-left: 0;
     }
 
-    .card { width: 280px; }
+    .card {
+        width: min(280px, calc(100vw - 48px));
+        flex-basis: min(280px, calc(100vw - 48px));
+    }
 
     .cards_container {
-        justify-content: flex-start;
-        padding-left: max(0px, calc((100vw - 280px) / 2));
-        padding-right: max(0px, calc((100vw - 280px) / 2));
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .nav_arrow { width: 50px; height: 50px; }
@@ -367,11 +372,14 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .card { width: 260px; }
+    .card {
+        width: min(260px, calc(100vw - 36px));
+        flex-basis: min(260px, calc(100vw - 36px));
+    }
     .card_image { height: 180px; }
 
     .cards_container {
-        padding-left: max(0px, calc((100vw - 260px) / 2));
-        padding-right: max(0px, calc((100vw - 260px) / 2));
+        padding-left: max(12px, calc((100vw - min(260px, calc(100vw - 36px))) / 2));
+        padding-right: max(12px, calc((100vw - min(260px, calc(100vw - 36px))) / 2));
     }
 }

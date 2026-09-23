@@ -18,12 +18,13 @@ function PackageCard({ pkg, renderStars, styles }) {
   const isHoveredRef = useRef(false);
   const packageHref = `/sri-lanka-tour-packages/${pkg.slug || pkg.id}`;
 
-  // Collect all images: cover + gallery + itinerary day images (capped at 8)
+  // Only keep a lightweight preview set for each card. Loading every gallery and itinerary
+  // image at once makes the card render a large number of heavy remote images at the same time.
   const images = [
     pkg.coverImage || pkg.imageUrl,
     ...(pkg.galleryImages || []),
     ...(pkg.itinerary?.flatMap(day => day.images || []) || [])
-  ].filter(Boolean).slice(0, 8);
+  ].filter(Boolean).slice(0, 2);
 
   const handleMouseEnter = () => {
     if (images.length <= 1) return;
@@ -127,7 +128,7 @@ function PackageCard({ pkg, renderStars, styles }) {
                 fill
                 loading="lazy"
                 sizes="(max-width: 820px) 100vw, 310px"
-                quality={60}
+                quality={52}
                 className={`${styles.package_img_slide} ${i === currentImageIndex ? styles.package_img_active : ''}`}
               />
             ))}
